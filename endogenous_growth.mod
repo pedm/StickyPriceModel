@@ -107,11 +107,6 @@ M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup
 psi_N   = 50;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
 
-% THESE PARAMETERS CAUSE AN ISSUE - CAUSE NEGATIVE CD
-eta = 0.6914;
-gamma = 0.4917;
-phi = 0.8780;
-
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
 
@@ -236,11 +231,13 @@ check;
 % Set seed for simulation
 set_dynare_seed(092677);
 % Produce simulation using above calibration, compare with VAR IRFs
-stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nomoments, loglinear);
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-plot_var_irfs;                                                              % Plot VAR IRFs
+
+% TODO: get this working again
+% plot_var_irfs;                                                              % Plot VAR IRFs
 
 
 % Change parameters, solve again, and plot

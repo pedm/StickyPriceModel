@@ -29,25 +29,17 @@ mod_irf_gdp = IR_dynare(ii,:);
 ii = find(ismember(IRnames_dynare, 'S'));
 mod_irf_sp = IR_dynare(ii,:);
 
-%% Add model IRFs to table
+keyboard
+% Add to the table
 % NOTE: if I update table in the future, ensure that the order is same
 pvarcoirfs.model(1:11) = mod_irf_sp';
 pvarcoirfs.model(12:22) = mod_irf_rd';
-pvarcoirfs.model(23:33) = mod_irf_tfp';
-pvarcoirfs.model(34:44) = mod_irf_gdp';
+pvarcoirfs.model(23:33) = mod_irf_gdp';
 
-% drop table rows with 0 standard errors
-pvarcoirfs(pvarcoirfs.se == 0, :) = []
 
 % Calculate the distance between irfs
-% Use same formula as CEE
-DDD = pvarcoirfs.irf - pvarcoirfs.model;
-VVV = diag(pvarcoirfs.se);
-irf_distance = DDD'* inv(VVV) * DDD;
-
-% TODO: is this what we want?
-
-
+irf_distance = sum((mod_irf_rd - pvar_irf_rd).^2) + sum((mod_irf_tfp - pvar_irf_tfp).^2) + sum((mod_irf_gdp - pvar_irf_gdp).^2) + sum((mod_irf_sp - pvar_irf_sp).^2)
 
 % TODO: plot a comparison between model and var irfs
 
+% TODO: perhaps I should use quadratic distance

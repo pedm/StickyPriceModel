@@ -252,12 +252,6 @@ M_.params( 16 ) = 50;
 psi_N = M_.params( 16 );
 M_.params( 17 ) = 1;
 psi_I = M_.params( 17 );
-M_.params( 10 ) = 0.6914;
-eta = M_.params( 10 );
-M_.params( 8 ) = 0.4917;
-gamma = M_.params( 8 );
-M_.params( 9 ) = 0.8780;
-phi = M_.params( 9 );
 %
 % SHOCKS instructions
 %
@@ -267,7 +261,7 @@ M_.Sigma_e(1, 1) = (1)^2;
 steady;
 oo_.dr.eigval = check(M_,options_,oo_);
 set_dynare_seed(092677);
-options_.irf = 10;
+options_.irf = 11;
 options_.loglinear = 1;
 options_.nocorr = 1;
 options_.nodisplay = 1;
@@ -280,7 +274,6 @@ info = stoch_simul(var_list_);
 post_processing_irfs;                                                       
 post_processing_irfs_plot;                                                  
 post_processing_irfs_distance;                                              
-plot_var_irfs;                                                              
 x_start=[eta, gamma, phi]; 
 x_start_unbounded = boundsINV(x_start);
 H0 = 1e-2*eye(length(x_start)); 

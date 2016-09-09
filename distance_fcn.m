@@ -13,23 +13,29 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('gamma', params(2) );
     set_param_value('phi', params(3) );
     
-    % Dynare command - does not work in m file
-    % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+    try
+        % Dynare command - does not work in m file
+        % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+        % Here's what that dynare command translates to (assuming options_ already
+        % defined)
+        var_list_=[];
+        info = stoch_simul(var_list_);
+        
+            % TODO: perhaps I can refactor this code so it's faster (for instance,
+        % dont load the VAR irfs every single time. and dont compute so many
+        % extra objects
+        post_processing_irfs;                                                       % Create IRFs with trend
+        post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
-    % Here's what that dynare command translates to (assuming options_ already
-    % defined)
-    var_list_=[];
-    info = stoch_simul(var_list_);
+        % TODO: eventually ill want to use the quadratic deviation of the
+        % simulated irfs from the target irfs. perhaps see the code in Born and Pfeifer (2014)
+        f = irf_distance;
+    catch
+        % Dynare threw a command. Apply large penalty
+        f = 1000000;
+    end
 
-    % TODO: perhaps I can refactor this code so it's faster (for instance,
-    % dont load the VAR irfs every single time. and dont compute so many
-    % extra objects
-    post_processing_irfs;                                                       % Create IRFs with trend
-    post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
-    % TODO: eventually ill want to use the quadratic deviation of the
-    % simulated irfs from the target irfs. perhaps see the code in Born and Pfeifer (2014)
-    f = irf_distance;
     
 end
 
