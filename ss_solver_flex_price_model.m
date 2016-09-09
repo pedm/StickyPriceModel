@@ -196,6 +196,7 @@ ss.GammaD          = GammaD ;
 ss.muD          = muD ;
 ss.UCD          = UCD ;
     
+disp('STEADY STATE SOLUTION (OUR SCRIPT):')
 ss
 
 % collect into structure

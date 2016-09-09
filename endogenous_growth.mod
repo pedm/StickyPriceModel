@@ -1,6 +1,7 @@
 % Flex Price Model of Endogenous Growth
 % August 2016 Update
 % Includes Jaimovich-Rebelo Preferences, a simplified innovation sector, and adjustment costs
+% Requires ss_solver_flex_price_model.m
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -28,9 +29,12 @@ KD           ${K_D}$                       %
 Q            ${Q}$                         % 
 ID           ${I_D}$                       % 
 zeta         ${\zeta}$                     % 
+SD           ${\mathcal{S}_{D}}$           % 
+XD           ${X_D}$                       % 
 RD           ${\mathcal{R}_{D}}$           % 
 
 % "Functions"
+% Note: these are technically detrended
 f_fcn             ${\left.       f\left( \cdot \right)            \right|}$
 f_fcn_prime       ${\left.       f^‎{\prime}\left( \cdot \right)   \right|}$
 g_fcn             ${\left.       g\left( \cdot \right)            \right|}$
@@ -57,7 +61,6 @@ vartheta       $\vartheta$
 gamma          $\gamma$               % elasticity of labor disutility to technology
 phi            $\phi$                 
 eta            $\eta$                 
-LS             $LS$                   
 lambda         $\lambda$              % adoption probability
 rhozeta        ${\rho}_{\zeta}$       % persistence of exogenous "innovation productivity" shock
 
@@ -77,27 +80,24 @@ alpha   = 0.33;
 epsilon = 1/2;                   % Inverse Frisch labor supply elasticity
 rho     =   1;                   % Inverse of intertemporal elasticity of substitution
 varphi  = 0.5;                   % elasticity of Q to I/K ratio 
-varphi = 0.5 / 10000;            % param in gensys
+varphi = 0.5 / 10000;            % paramater value in gensys
 delta   = 0.10;
 chi     = 0.2236;                % disutility of labor supply
-vartheta = 1 + 1/(1-alpha) ;
+vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = 0.10;                   % elasticity of labor disutility to technology
-gamma  = 0.12;                   % param in gensys
-phi    = 0.975;
-phi    = 0.90;                   % param in gensys
+gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
+phi    = 0.90;                   % 
 eta    = 0.33;
-LS     = 0.0645; 
-lambda = 0.1;                    % adoption probability
+lambda = 0.06;                    % adoption probability
 
 % SHOCKS
 rhozeta = 0.5; 
 
 % NEW VARIABLES
-M       = 4.167 / (4.167 - 1);         % Flex price model: the markup M_t is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy”, who take them from estimates by Primiceri et al
-psi_N   = 1;
-psi_I   = 1;
+M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
+psi_N   = 1;                           % Adjustment cost to N
+psi_I   = 1;                           % Adjustment cost to I
 
 %=========================================================================%
 %%%%                   CUSTOM STEADY STATE SOLVER                      %%%%
@@ -105,11 +105,10 @@ psi_I   = 1;
 
 % Solve for steady state using these parameters
 delete('ss_flexprice.mat');
-disp('Steady State Solution:')
 ss_solver_flex_price_model( M_.param_names, M_.params);
+load ss_flexprice.mat
 
 % Set gg param equal to g in steady state
-load ss_flexprice.mat
 gg = steady_g;
 
 %=========================================================================%
@@ -129,9 +128,6 @@ ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
 VD = zeta * ZD ^ (1-eta) * ND ^ eta;
 
-% PREVIOUS: 3. Supply curve of new firms
-% J = ((1/zeta)^(1 / eta) * (1/eta) *(1 /LS )^((1 - eta)/eta)*(VD/ZD)^((1 - eta)/eta));
-
 % 4. Euler equation for entrepreneurs
 J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
 
@@ -144,9 +140,6 @@ Pi = (1/vartheta) * (1/M) * YDW;
 % 7. Innovators' FOC wrt N
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
 eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + f_fcn_prime *  (ND * g(-1) /  ND(-1)) +  f_fcn - Lambda(+1) * f_fcn_prime(+1) * (ND(+1) * g / ND )^2;
-
-% PREVIOUS: 7. Final output used by the entrepreneurial sector
-% ND = eta * VD * J;
 
 % 8. Aggregate production function
 YD = YDW;
@@ -164,7 +157,7 @@ Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
 % 13. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
-% Albert: equation 258 needs to be corrected - it will need a “g” term as well.
+% Albert: equation 258 needs to be corrected - it will need a “g�? term as well.
 % To use dynare notation, here's the change C(+1) / Gamma = CD(+1) * g / GammaD
 muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
@@ -189,7 +182,16 @@ Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+
 % 19. Exogenous shock to entrepreneurs' production function
 log(zeta) = rhozeta * log(zeta(-1)) + 0.1 * epsilon_chi;
 
-% 20. Aggregate R&D expenditure
+% 20. Stock market value (taken directly from May model)
+% original
+% SD =  Q * KD + (H - Pi)  +  J * ( ZD - 1 )  + XD;
+% new
+SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
+
+% 21. 
+XD =  ( Lambda(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
+
+% 22. Aggregate R&D expenditure
 RD = J * VD;
 
 % ADJUSTMENT COST FUNCTIONS
@@ -259,4 +261,19 @@ set_dynare_seed(092677);
 % Produce simulation
 % stoch_simul(order=1,periods=10000,nograph); 
 
-% stoch_simul(order=1,periods=600, nograph, irf=10, loglinear);
+% stoch_simul(order=1,periods=600, irf=10, nodisplay, loglinear);
+stoch_simul(order=1,periods=600, irf=10, nodisplay, loglinear);
+
+% NOTE on loglinear:
+% ALL variables are log-transformed by using the Jacobian transformation, not only selected ones. 
+% Thus, you have to make sure that your variables have strictly positive steady states. 
+% Perhaps I should transform f_fcn to be exp(f_fcn) ??
+
+% With the loglinear option, Dynare conducts a Jacobian transformation to get the decision rules in logs instead of levels. 
+% It does not demean the logged variable, so variables will be in log-levels, not log-deviations from the steady state. 
+% However, for IRFs and moments this does not matter as they are always reported as deviations from the mean 
+% (at higher order, this makes a difference but there the loglinear option does not work).
+
+% BUT, if I dont use loglinear, then I need to modify the un detrending procedure in post_processing_irfs.
+
+post_processing_irfs;
