@@ -3,6 +3,9 @@
 % Includes Jaimovich-Rebelo Preferences, a simplified innovation sector, and adjustment costs
 % Requires endogenous_growth_steadystate.m
 
+% If you comment out this command, this code will plot the IRFs on top of your previous plots
+close all;
+
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
@@ -79,17 +82,17 @@ beta    = 0.96;
 alpha   = 0.33;
 epsilon = 1/2;                   % Inverse Frisch labor supply elasticity
 rho     =   1;                   % Inverse of intertemporal elasticity of substitution
-varphi  = 0.5;                   % elasticity of Q to I/K ratio 
-varphi = 0.5 / 10000;            % paramater value in gensys
+varphi  = 0.5;                   % Elasticity of Q to I/K ratio 
+varphi = 0.5 / 10000;            % Paramater value in gensys
 delta   = 0.10;
-chi     = 0.2236;                % disutility of labor supply
+chi     = 0.2236;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
+gamma  = 0.14;                   % Elasticity of labor disutility to technology (higher gamma causes lower g)
 phi    = 0.90;                   % 
-eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
-lambda = 0.06;                    % adoption probability
+eta    = 0.05;                   % Importance of N in production of new innovations (original = 0.33)
+lambda = 0.06;                   % Adoption probability
 
 % SHOCKS
 rhozeta = 0.5; 
@@ -222,7 +225,7 @@ check;
 % Set seed for simulation
 set_dynare_seed(092677);
 
-% Produce simulation
+% Produce simulation using above calibration, compare with VAR IRFs
 stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nomoments, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
@@ -230,60 +233,15 @@ post_processing_irfs_distance;                                              % Co
 plot_var_irfs;                                                              % Plot VAR IRFs
 
 % Change parameters, solve again, and plot
-set_param_value('eta', 0.1);
+set_param_value('eta', 0.2);
 stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
-%===================================================================%
-%%%%                    LOOP                                     %%%%
-%===================================================================%
-
-% Note: stoch_simul() in the distance_fcn() will inherit whatever options were previously run
-
-//'test'
-//x = distance_fcn( 0.05 )
-//x = distance_fcn( 0.1 )
-//x = distance_fcn( 0.2 )
-//x = distance_fcn( 0.3 )
-
-return
-
-%===================================================================%
-%%%%                    LOOP                                     %%%%
-%===================================================================%
-% This code comes from Bonn and Pfeifer 2014 replication files
-
-//gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
-//phi    = 0.90;                   % 
-//eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
-
-    x_start=[eta, gamma, phi]; //use calibration as starting point
-
-    // x_start = [eta];
-    
-    //optimizer options
-    H0 = 1e-2*eye(length(x_start)); //Initial Hessian 
-    crit = 1e-7; //Tolerance
-    nit = 1000; //Number of iterations
-
-    //make sure Dynare does not print out stuff during runs
-    options_.nocorr=1;
-    options_.noprint=1;
-    options_.verbosity=0;
-
-    //options_.qz_criterium = 1+1e-6; //required because it is empty by default, leading to a crash in k_order_pert
-    [fhat, params] = csminwel(@distance_fcn     ,x_start,H0,[],crit,nit);
-
-               // csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
-
-% PLOT SOLUTION
-set_param_value('eta', params(1) );
-set_param_value('gamma', params(2) );
-set_param_value('phi', params(3) );
-    
-stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-post_processing_irfs;                                                       % Create IRFs with trend
-post_processing_irfs_plot;                                                  % Plot IRFs
+% You can copy and paste the above lines in order to continue playing around with the calibration
+% set_param_value('eta', 0.3);
+% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% post_processing_irfs;                                                       % Create IRFs with trend
+% post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
