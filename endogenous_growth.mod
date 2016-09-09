@@ -1,7 +1,7 @@
 % Flex Price Model of Endogenous Growth
-% August 2016 Update
+% August/Sept 2016 Update
 % Includes Jaimovich-Rebelo Preferences, a simplified innovation sector, and adjustment costs
-% Requires ss_solver_flex_price_model.m
+% Requires endogenous_growth_steadystate.m
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -88,7 +88,7 @@ vartheta = 1 + 1/(1-alpha);
 % GROWTH PARAMETERS
 gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
 phi    = 0.90;                   % 
-eta    = 0.33;
+eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
 lambda = 0.06;                    % adoption probability
 
 % SHOCKS
@@ -99,17 +99,8 @@ M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup
 psi_N   = 1;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
 
-%=========================================================================%
-%%%%                   CUSTOM STEADY STATE SOLVER                      %%%%
-%=========================================================================%
-
-% Solve for steady state using these parameters
-delete('ss_flexprice.mat');
-ss_solver_flex_price_model( M_.param_names, M_.params);
-load ss_flexprice.mat
-
-% Set gg param equal to g in steady state
-gg = steady_g;
+% Note: gg is not set here, as it depends on the steady state. 
+% The param gg is instead defined in endogenous_growth_steadystate.m
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -135,11 +126,13 @@ J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
 H = Pi + phi * ( Lambda(+1) * H(+1) );
 
 % 6. Profits per period
+% NOTE: in the flex price model, M is an endogenous var
 Pi = (1/vartheta) * (1/M) * YDW;
 
 % 7. Innovators' FOC wrt N
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
-eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + f_fcn_prime *  (ND * g(-1) /  ND(-1)) +  f_fcn - Lambda(+1) * f_fcn_prime(+1) * (ND(+1) * g / ND )^2;
+% log() added so that f_fcn can be 1 in ss
+eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 
 % 8. Aggregate production function
 YD = YDW;
@@ -148,20 +141,26 @@ YD = YDW;
 YDW = ((KD(-1) / g(-1))^alpha) * L^(1-alpha);
 
 % 10. Resource constraint, with adjustment cost
-YD = CD + (1 + g_fcn) * ID + ND;
+% log() added so that g_fcn can be 1 in ss
+YD = CD + (1 + log(g_fcn)) * ID + ND;
 
 % 11. HH's stochastic discount factor
 Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 
 % 12. Marginal utility of consumption
-UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
+% Make muD positive, multiply by -1
+UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
 % 13. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
 % Albert: equation 258 needs to be corrected - it will need a “g�? term as well.
 % To use dynare notation, here's the change C(+1) / Gamma = CD(+1) * g / GammaD
-muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
+% Original:
+% muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
+% New so that muD is positive
+muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
 % 14. Labor market equilibrium (eqn 259)
+% NOTE: in this equation, it seems that M is an exogenous param
 chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/M) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
 
 % 15. Labor disutility term
@@ -171,12 +170,14 @@ GammaD = (CD^gamma) * (GammaD(-1) / g(-1) )^(1-gamma);
 KD = (1-delta) * (KD(-1) / g(-1)) + ID ;
 
 % 17. Q-equation (capital producers)
-Q = 1 + g_fcn + ((ID * g(-1)) / ID(-1)) * g_fcn_prime - Lambda(+1) * ((ID(+1) * g) / ID)^2 * g_fcn_prime(+1);
+% log() added so that g_fcn can be 1 in ss
+Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * ((ID(+1) * g) / ID)^2 * log(g_fcn_prime(+1));
 
 % PREVIOUS: 17. Q-equation
 % Q = ((ID * g(-1) * (I_K_ss^-1)) / (KD(-1) )  )^varphi;
 
-% 18. Equation 263
+% 18. Equation 263. Capital Euler Equation (perhaps?)
+% NOTE: in this equation, it seems that M is an exogenous param
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
@@ -195,50 +196,16 @@ XD =  ( Lambda(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
 RD = J * VD;
 
 % ADJUSTMENT COST FUNCTIONS
-f_fcn = (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - gg)^2;
-f_fcn_prime = psi_N * ((ND * g(-1) / ND(-1) ) - gg);
+f_fcn = exp( (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - gg)^2 );
+f_fcn_prime = exp( psi_N * ((ND * g(-1) / ND(-1) ) - gg)   );
 
-g_fcn = (psi_I / 2) * ((ID * g(-1) / ID(-1) ) - gg)^2;
-g_fcn_prime = psi_I * ((ID * g(-1) / ID(-1) ) - gg);
+g_fcn = exp( (psi_I / 2) * ((ID * g(-1) / ID(-1) ) - gg)^2 );
+g_fcn_prime = exp( psi_I * ((ID * g(-1) / ID(-1) ) - gg)   );
 
 end; 
 
 write_latex_dynamic_model;
 write_latex_static_model;
-
-%===================================================================%
-%%%%             INITIAL CONDITIONS FOR STEADY STATE             %%%%
-%===================================================================%
-
-initval;
-
-	% Set initial guess equal to results from ss solver
-	g = steady_g;
-	VD  = steady_VD;
-	ZD  = steady_ZD;         
-	zeta  = steady_zeta;          
-	ND  = steady_ND;          
-	Lambda  = steady_Lambda;          
-	J  = steady_J;          
-	H  = steady_H;         
-	Pi  = steady_Pi;          
-	YDW  = steady_YDW;          
-	YD  = steady_YD;          
-	Q  = steady_Q;          
-	KD  = steady_KD;          
-	L  = steady_L;          
-	ID  = steady_ID;          
-	CD  = steady_CD;          
-	GammaD  = steady_GammaD;          
-	muD  = steady_muD;          
-	UCD  = steady_UCD;          
-	
-	f_fcn   = 0;
-	g_fcn   = 0;
-	f_fcn_prime = 0;
-	g_fcn_prime = 0;	
-
-end;
 
 %===================================================================%
 %%%%            RUN                                              %%%%
@@ -249,31 +216,74 @@ var epsilon_chi;
 stderr 1;
 end;
 
-% steady(solve_algo  = 0, maxit = 10000);
-steady(solve_algo  = 1, maxit = 50000);
-
-
+steady;
 check;
 
 % Set seed for simulation
 set_dynare_seed(092677);
 
 % Produce simulation
-% stoch_simul(order=1,periods=10000,nograph); 
+stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nomoments, loglinear);
+post_processing_irfs;                                                       % Create IRFs with trend
+post_processing_irfs_plot;                                                  % Plot IRFs
+post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+plot_var_irfs;                                                              % Plot VAR IRFs
 
-% stoch_simul(order=1,periods=600, irf=10, nodisplay, loglinear);
-stoch_simul(order=1,periods=600, irf=10, nodisplay, loglinear);
+% Change parameters, solve again, and plot
+set_param_value('eta', 0.1);
+stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+post_processing_irfs;                                                       % Create IRFs with trend
+post_processing_irfs_plot;                                                  % Plot IRFs
+post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
-% NOTE on loglinear:
-% ALL variables are log-transformed by using the Jacobian transformation, not only selected ones. 
-% Thus, you have to make sure that your variables have strictly positive steady states. 
-% Perhaps I should transform f_fcn to be exp(f_fcn) ??
+%===================================================================%
+%%%%                    LOOP                                     %%%%
+%===================================================================%
 
-% With the loglinear option, Dynare conducts a Jacobian transformation to get the decision rules in logs instead of levels. 
-% It does not demean the logged variable, so variables will be in log-levels, not log-deviations from the steady state. 
-% However, for IRFs and moments this does not matter as they are always reported as deviations from the mean 
-% (at higher order, this makes a difference but there the loglinear option does not work).
+% Note: stoch_simul() in the distance_fcn() will inherit whatever options were previously run
 
-% BUT, if I dont use loglinear, then I need to modify the un detrending procedure in post_processing_irfs.
+//'test'
+//x = distance_fcn( 0.05 )
+//x = distance_fcn( 0.1 )
+//x = distance_fcn( 0.2 )
+//x = distance_fcn( 0.3 )
 
-post_processing_irfs;
+return
+
+%===================================================================%
+%%%%                    LOOP                                     %%%%
+%===================================================================%
+% This code comes from Bonn and Pfeifer 2014 replication files
+
+//gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
+//phi    = 0.90;                   % 
+//eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
+
+    x_start=[eta, gamma, phi]; //use calibration as starting point
+
+    // x_start = [eta];
+    
+    //optimizer options
+    H0 = 1e-2*eye(length(x_start)); //Initial Hessian 
+    crit = 1e-7; //Tolerance
+    nit = 1000; //Number of iterations
+
+    //make sure Dynare does not print out stuff during runs
+    options_.nocorr=1;
+    options_.noprint=1;
+    options_.verbosity=0;
+
+    //options_.qz_criterium = 1+1e-6; //required because it is empty by default, leading to a crash in k_order_pert
+    [fhat, params] = csminwel(@distance_fcn     ,x_start,H0,[],crit,nit);
+
+               // csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
+
+% PLOT SOLUTION
+set_param_value('eta', params(1) );
+set_param_value('gamma', params(2) );
+set_param_value('phi', params(3) );
+    
+stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+post_processing_irfs;                                                       % Create IRFs with trend
+post_processing_irfs_plot;                                                  % Plot IRFs
+% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs

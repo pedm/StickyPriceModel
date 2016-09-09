@@ -30,7 +30,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 7
-{\zeta}_{t}\, \eta\, {J}_{t}\, \left(\frac{{Z_D}_{t}}{{N_D}_{t}}\right)^{1-\eta}=1+{\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t}\, \frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}+{\left.       f\left( \cdot \right)            \right|}_{t}-{\Lambda}_{t+1}\, {\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t+1}\, \left(\frac{{g}_{t}\, {N_D}_{t+1}}{{N_D}_{t}}\right)^{2}
+{\zeta}_{t}\, \eta\, {J}_{t}\, \left(\frac{{Z_D}_{t}}{{N_D}_{t}}\right)^{1-\eta}=1+log\left({\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t}\right)\, \frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}+log\left({\left.       f\left( \cdot \right)            \right|}_{t}\right)-{\Lambda}_{t+1}\, log\left({\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t+1}\right)\, \left(\frac{{g}_{t}\, {N_D}_{t+1}}{{N_D}_{t}}\right)^{2}
 \end{dmath}
 \begin{dmath}
 % Equation 8
@@ -42,7 +42,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 10
-{Y_D}_{t}={N_D}_{t}+{C_D}_{t}+\left(1+{\left.       g\left( \cdot \right)            \right|}_{t}\right)\, {I_D}_{t}
+{Y_D}_{t}={N_D}_{t}+{C_D}_{t}+\left(1+log\left({\left.       g\left( \cdot \right)            \right|}_{t}\right)\right)\, {I_D}_{t}
 \end{dmath}
 \begin{dmath}
 % Equation 11
@@ -50,11 +50,11 @@
 \end{dmath}
 \begin{dmath}
 % Equation 12
-{U_{CD}}_{t}=\left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}+{{\mu}_{D}}_{t}\, \gamma\, \left(\frac{{\Gamma_D}_{t-1}}{{g}_{t-1}\, {C_D}_{t}}\right)^{1-\gamma}
+{U_{CD}}_{t}=\left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}+\left(-{{\mu}_{D}}_{t}\right)\, \gamma\, \left(\frac{{\Gamma_D}_{t-1}}{{g}_{t-1}\, {C_D}_{t}}\right)^{1-\gamma}
 \end{dmath}
 \begin{dmath}
 % Equation 13
-{{\mu}_{D}}_{t}=\beta\, \left(1-\gamma\right)\, {g}_{t}^{\left(-\rho\right)}\, {{\mu}_{D}}_{t+1}\, \left(\frac{{g}_{t}\, {C_D}_{t+1}}{{\Gamma_D}_{t}}\right)^{\gamma}-{L}_{t}^{1+\epsilon}\, \frac{\chi}{1+\epsilon}\, \left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}
+{{\mu}_{D}}_{t}=\beta\, \left(1-\gamma\right)\, {g}_{t}^{\left(-\rho\right)}\, {{\mu}_{D}}_{t+1}\, \left(\frac{{g}_{t}\, {C_D}_{t+1}}{{\Gamma_D}_{t}}\right)^{\gamma}+{L}_{t}^{1+\epsilon}\, \frac{\chi}{1+\epsilon}\, \left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}
 \end{dmath}
 \begin{dmath}
 % Equation 14
@@ -70,7 +70,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 17
-{Q}_{t}=1+{\left.       g\left( \cdot \right)            \right|}_{t}+\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}\, {\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t}-{\Lambda}_{t+1}\, \left(\frac{{g}_{t}\, {I_D}_{t+1}}{{I_D}_{t}}\right)^{2}\, {\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t+1}
+{Q}_{t}=1+log\left({\left.       g\left( \cdot \right)            \right|}_{t}\right)+\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}\, log\left({\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t}\right)-{\Lambda}_{t+1}\, \left(\frac{{g}_{t}\, {I_D}_{t+1}}{{I_D}_{t}}\right)^{2}\, log\left({\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t+1}\right)
 \end{dmath}
 \begin{dmath}
 % Equation 18
@@ -94,18 +94,18 @@ log\left({\zeta}_{t}\right)={\rho}_{\zeta}\, log\left({\zeta}_{t-1}\right)+0.1\,
 \end{dmath}
 \begin{dmath}
 % Equation 23
-{\left.       f\left( \cdot \right)            \right|}_{t}=\frac{\psi_N}{2}\, \left(\frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}-g^{BGP}\right)^{2}
+{\left.       f\left( \cdot \right)            \right|}_{t}=exp\left(\frac{\psi_N}{2}\, \left(\frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}-g^{BGP}\right)^{2}\right)
 \end{dmath}
 \begin{dmath}
 % Equation 24
-{\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t}=\psi_N\, \left(\frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}-g^{BGP}\right)
+{\left.       f^‎{\prime}\left( \cdot \right)   \right|}_{t}=exp\left(\psi_N\, \left(\frac{{g}_{t-1}\, {N_D}_{t}}{{N_D}_{t-1}}-g^{BGP}\right)\right)
 \end{dmath}
 \begin{dmath}
 % Equation 25
-{\left.       g\left( \cdot \right)            \right|}_{t}=\frac{\psi_I}{2}\, \left(\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}-g^{BGP}\right)^{2}
+{\left.       g\left( \cdot \right)            \right|}_{t}=exp\left(\frac{\psi_I}{2}\, \left(\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}-g^{BGP}\right)^{2}\right)
 \end{dmath}
 \begin{dmath}
 % Equation 26
-{\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t}=\psi_I\, \left(\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}-g^{BGP}\right)
+{\left.       g^‎{\prime}\left( \cdot \right)   \right|}_{t}=exp\left(\psi_I\, \left(\frac{{g}_{t-1}\, {I_D}_{t}}{{I_D}_{t-1}}-g^{BGP}\right)\right)
 \end{dmath}
 \end{document}
