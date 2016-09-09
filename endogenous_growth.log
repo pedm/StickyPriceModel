@@ -1,4 +1,4 @@
-Starting Dynare (version 4.4.1).
+Starting Dynare (version 4.4.3).
 Starting preprocessing of the model file ...
 Found 26 equation(s).
 Evaluating expressions...done
@@ -9,37 +9,104 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-[Warning: Some of the parameters have no value (gg) when using steady. If these parameters
-are not initialized in a steadystate file, Dynare may not be able to solve the model...] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.1\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.1\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\steady.m',33,0)">line 33</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'P:\Work\Projects\Project on R&D Shocks\CodesFromPatrick\Model_FlexPrice_Sept2\endogenous_growth.m', 261)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('P:\Work\Projects\Project on R&D Shocks\CodesFromPatrick\Model_FlexPrice_Sept2\endogenous_growth.m',261,0)">line 261</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.1\matlab\dynare.m', 174)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\dynare.m',174,0)">line 174</a>)] 
+och_simul.m',88,0)">line 88</a>)
+    [oo_.dr,info,M_,options_,oo_] = resol(0,M_,options_,oo_);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distance_fcn', 'C:\Users\pedm\Documents\FlexPriceModel\distance_fcn.m', 22)" style="font-weight:bold">distance_fcn</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\distance_fcn.m',22,0)">line 22</a>)
+    info = stoch_simul(var_list_);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('csminit', 'C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\csminit.m', 130)" style="font-weight:bold">csminit</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\csminit.m',130,0)">line 130</a>)
+      f = feval(fcn,dxtest,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('csminwel', 'C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\csminwel.m', 101)" style="font-weight:bold">csminwel</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\csminwel.m',101,0)">line 101</a>)
+   [f1 x1 fc retcode1] = csminit(fcn,x,f,g,badg,H,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 286)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',286,0)">line 286</a>)
+[fhat, params_unbounded] = csminwel(@distance_fcn
+,x_start_unbounded,H0,[],crit,nit);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
+evalin('base',fname) ;} 
+dynare endogenous_growth.mod
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Found 26 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+
+[Warning: The file 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m'
+could not be cleared because it contains MATLAB code that is currently
+executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m'
+could not be cleared because it contains MATLAB code that is currently
+executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m'
+could not be cleared because it contains MATLAB code that is currently
+executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 7)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: Some of the parameters have no value (gg) when using steady. If these
+parameters are not initialized in a steadystate file, Dynare may not be able to
+solve the model...] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 267)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',267,0)">line 267</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 
 STEADY-STATE RESULTS:
 
-g           		 1.01549
-ZD          		 2.67625
-VD          		 0.464535
-J           		 0.190755
-H           		 0.597321
-Pi          		 0.103224
-ND          		 0.0332297
-YDW         		 0.338532
-YD          		 0.338532
-CD          		 0.268093
-Lambda      		 0.945357
-UCD         		 3.79746
-muD         		 2.66752
-L           		 0.346883
-GammaD      		 0.260548
-KD          		 0.32718
+g           		 4.39988
+ZD          		 10.2096
+VD          		 44.2738
+J           		 3.24214
+H           		 35.5684
+Pi          		 28.7546
+ND          		 99.2449
+YDW         		 94.3028
+YD          		 94.3028
+CD          		 -18.3998
+Lambda      		 0.218188
+UCD         		 -0.0521893
+muD         		 0.491191
+L           		 455.991
+GammaD      		 -3.97786
+KD          		 16.9185
 Q           		 1
-ID          		 0.0372094
+ID          		 13.4578
 zeta        		 1
-SD          		 3.45957
-XD          		 2.1267
-RD          		 0.0332297
+SD          		 3670.89
+XD          		 3445.01
+RD          		 99.2449
 f_fcn       		 1
 f_fcn_prime 		 1
 g_fcn       		 1
@@ -49,27 +116,27 @@ EIGENVALUES:
          Modulus             Real        Imaginary
 
                0                0                0
-        3.79e-17         3.79e-17                0
-       2.049e-15        2.049e-15                0
-       2.078e-15       -2.078e-15                0
-          0.4115           0.4115                0
-          0.8111           0.8043           0.1043
-          0.8111           0.8043          -0.1043
-            0.82           0.8191          0.03826
-            0.82           0.8191         -0.03826
+       3.126e-16       -3.126e-16                0
+       1.688e-15       -1.688e-15                0
+       5.143e-15        5.143e-15                0
+          0.1845           0.1845                0
+          0.2069           0.2069                0
+          0.4472           0.4472                0
+          0.5084           0.5084                0
+          0.8206           0.8206                0
+           1.041            1.041                0
            1.042            1.042                0
-           1.173            1.173                0
-           1.193            1.193                0
-           1.295            1.295                0
-           1.362             1.33           0.2915
-           1.362             1.33          -0.2915
-           1.859            1.859                0
-       1.808e+16        1.808e+16                0
-        1.41e+17        -1.41e+17                0
-       8.834e+17       -8.834e+17                0
-       3.245e+19       -3.245e+19                0
-       5.303e+20        5.303e+20                0
-       1.449e+24       -1.449e+24                0
+           1.269            1.269                0
+           2.049            2.049                0
+           5.036            5.036                0
+           5.219            5.219                0
+           5.645            5.645                0
+       7.358e+15        7.358e+15                0
+       1.013e+16        1.013e+16                0
+       3.508e+16        3.508e+16                0
+       7.959e+16       -7.959e+16                0
+       1.512e+18       -1.512e+18                0
+       7.236e+18        7.236e+18                0
 
 
 There are 13 eigenvalue(s) larger than 1 in modulus 
@@ -78,36 +145,12 @@ for 13 forward-looking variable(s)
 The rank condition is verified.
 
 
-MODEL SUMMARY
-
-  Number of variables:         26
-  Number of stochastic shocks: 1
-  Number of state variables:   9
-  Number of jumpers:           13
-  Number of static variables:  7
-
-
-MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
-
-Variables     epsilon_chi 
-epsilon_chi       1.000000
-
-POLICY AND TRANSITION FUNCTIONS
-                             g               ZD              VD              J               H               Pi              ND              YDW             YD              CD              Lambda          UCD             muD             L               GammaD          KD              Q               ID              zeta            SD              XD              RD              f_fcn           f_fcn_prime     g_fcn           g_fcn_prime
-Constant                    1.015489        2.676249        0.464535        0.190755        0.597321        0.103224        0.033230        0.338532        0.338532        0.268093        0.945357        3.797456        2.667520        0.346883        0.260548        0.327180        1.000000        0.037209        1.000000        3.459566        2.126699        0.033230        1.000000        1.000000        1.000000        1.000000
-g(-1)                      -0.202553       -1.000000       -0.986095        0.720472        0.517742       -0.077215       -0.962921       -0.077215       -0.077215        0.026592       -1.050619       -0.050619        0.603917        0.377291       -0.640693       -0.890159        0.739265       -0.034169               0       -0.003873        0.014287       -0.962921               0        1.882661               0        0.980791
-ZD(-1)                      0.165614        0.861654        0.552671       -0.458555       -0.346045        0.000491        0.037701        0.000491        0.000491        0.005954       -0.003987       -0.003987       -0.014074        0.000732        0.002084       -0.008201       -0.188214       -0.072107               0       -0.000838       -0.015768        0.037701               0        1.914231               0       -0.073224
-UCD(-1)                            0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                 -0.000188               0       -0.006275       -0.449959       -0.447885       -0.399297       -0.016734       -0.399297       -0.399297       -0.446569        0.457723        0.457723       -0.477616       -0.595966        0.493701       -0.045531       -0.367717       -0.400351               0       -0.452185       -0.459548       -0.016734               0       -0.849665               0       -0.406552
-KD(-1)                      0.000302               0        0.010063        0.515308        0.496399        0.449996        0.026835        0.449996        0.449996        0.569808       -0.578307       -0.578307       -0.301704        0.179099        0.199433        0.882253        0.062191       -0.035344               0        0.590268        0.576120        0.026835               0        1.362538               0       -0.035891
-VD(-1)                      0.026591        0.138346        0.088736       -0.073625       -0.055561        0.000079        0.006053        0.000079        0.000079        0.000956       -0.000640       -0.000640       -0.002260        0.000118        0.000335       -0.001317       -0.030219       -0.011577               0       -0.000135       -0.002532        0.006053               0        0.307347               0       -0.011757
-ND(-1)                      0.010218               0        0.340367       -0.175037       -0.106277        0.012284        0.907644        0.012284        0.012284       -0.086797        0.093566        0.093566        0.115761        0.018334       -0.030379       -0.008352       -0.055064       -0.073440               0       -0.054828       -0.030156        0.907644               0       -4.689317               0       -0.074577
-ID(-1)                      0.000016               0        0.000533       -0.078603       -0.058374        0.013663        0.001422        0.013663        0.013663       -0.069945        0.082265        0.082265        0.075975        0.020392       -0.024481        0.071306       -0.160241        0.626989               0       -0.078409       -0.082403        0.001422               0        0.072206               0       -0.378789
-epsilon_chi                 0.060545               0        2.016828       -0.163174       -0.122926        0.000650        0.044875        0.000650        0.000650       -0.001223        0.002187        0.002187       -0.000561        0.000970       -0.000428       -0.002883       -0.067291       -0.025354        2.000000        0.000338       -0.006831        0.044875               0        2.278494               0       -0.025747
-
-irf_distance =
-
-    3.7617
-
-Total computing time : 0h00m02s
-Note: warning(s) encountered in MATLAB/Octave code
+You are attempting to simulate/estimate a loglinear approximation of a model, but
+the steady state level of the following variables is not strictly positive:
+ - CD ( -  0 -.-10385..29317987998836)
+ - UCD ( -  0 -.-10385..29317987998836)
+ - GammaD ( -  0 -.-10385..29317987998836)
+{Undefined function or variable 'isestimation'.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resol', 'C:\dynare\4.4.3\matlab\resol.m', 121)" style="font-weight:bold">resol</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resol.m',121,0)">line 121</a>)
+        if isestimation()
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 88)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('

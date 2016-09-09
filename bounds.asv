@@ -1,0 +1,14 @@
+function [ x_unbounded ] = bounds( params )
+% csminwel solves an unconstrained minimization problem.
+% this function co
+% Take vector from constrained minimization and tranform it into vector for
+% model solution. Only estimated parameters. 
+% Inverse function is boundsINV.m 
+
+% We could include gamma, phi, eta, lambda, psi_N, rhozeta, sigmazeta, zetabar
+
+x_unbounded(1) = modtomin_ab(params(1), 0, 1); % eta
+x_unbounded(2) = params(2); % gamma
+x_unbounded(3) = modtomin_ab(params(3), 0, 1); % phi
+end
+

@@ -1,12 +1,14 @@
-function [ f ] = distance_fcn( params )
+function [ f ] = distance_fcn( params_unbounded )
 
 % WARNING: stoch_simul() will inherit whatever options were previously run
 % PERHAPS: hard code these options_ in this function
-        
+
     % get Dynare structures
     global oo_ M_ options_ 
 
     %% Change parameters, solve again, and plot
+    [ params ] = bounds( params_unbounded );
+    params
     set_param_value('eta', params(1) );
     set_param_value('gamma', params(2) );
     set_param_value('phi', params(3) );

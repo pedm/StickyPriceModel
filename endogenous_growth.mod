@@ -84,8 +84,8 @@ beta    = 0.96;
 alpha   = 0.33;
 epsilon = 1/2;                   % Inverse Frisch labor supply elasticity
 rho     =   1;                   % Inverse of intertemporal elasticity of substitution
-% varphi  = 0.5;                   % Elasticity of Q to I/K ratio 
-% varphi  = 0.5 / 10000;            % Paramater value in gensys - (albert) I think we can eliminate varphi, right?
+% varphi  = 0.5;                 % Elasticity of Q to I/K ratio 
+% varphi  = 0.5 / 10000;         % Paramater value in gensys - (albert) I think we can eliminate varphi, right?
 delta   = 0.10;
 chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
@@ -93,7 +93,7 @@ vartheta = 1 + 1/(1-alpha);
 % GROWTH PARAMETERS
 gamma  = 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
 phi    = 0.875;                   % Survival rate of technologies
-eta    = 0.375;                    % Curvature of innovations production in R&D expenditure (original = 0.33)
+eta    = 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
 lambda = 0.075;                   % Adoption probability
 
 % SHOCKS
@@ -106,6 +106,11 @@ zetabar    = .90;
 M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
 psi_N   = 50;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
+
+% THESE PARAMETERS CAUSE AN ISSUE - CAUSE NEGATIVE CD
+eta = 0.6914;
+gamma = 0.4917;
+phi = 0.8780;
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
@@ -255,3 +260,43 @@ plot_var_irfs;                                                              % Pl
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+%===================================================================%
+%%%%                    LOOP                                     %%%%
+%===================================================================%
+% This code comes from Bonn and Pfeifer 2014 replication files
+
+//gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
+//phi    = 0.90;                   % 
+//eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
+
+    x_start=[eta, gamma, phi]; % use calibration as starting point
+    x_start_unbounded = boundsINV(x_start);
+    // x_start = [eta];
+    
+    //optimizer options
+    H0 = 1e-2*eye(length(x_start)); //Initial Hessian 
+    crit = 1e-7; //Tolerance
+    nit = 1000; //Number of iterations
+
+    //make sure Dynare does not print out stuff during runs
+    options_.nocorr=1;
+    options_.noprint=1;
+    options_.verbosity=0;
+
+    //options_.qz_criterium = 1+1e-6; //required because it is empty by default, leading to a crash in k_order_pert
+    [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+
+               // csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
+
+% PLOT SOLUTION
+[ params ] = bounds( params_unbounded );
+set_param_value('eta', params(1) );
+set_param_value('gamma', params(2) );
+set_param_value('phi', params(3) );
+    
+stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+post_processing_irfs;                                                       % Create IRFs with trend
+post_processing_irfs_plot;                                                  % Plot IRFs
+% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
