@@ -16,7 +16,7 @@ for ii = 1:26;
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
     hold off;
-    title(IRnames_dynare(ii) );
+    title( IRnames_dynare(ii) );
     axis tight;
 end
 
@@ -40,7 +40,7 @@ catch
     suptitle('Modified IRFs (With Trend Added)');
 end
 for ii = 27:size(IR_dynare,1);
-    subplot(5,4,ii-26);
+    subplot(4,4,ii-26);
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
     hold off;

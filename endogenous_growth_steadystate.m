@@ -24,6 +24,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     eta       = [];
     lambda    = [];
     rhozeta   = [];
+    sigmazeta = [];
+    zetabar   = [];
     M         = [];
     psi_N     = [];
     psi_I     = [];
@@ -66,13 +68,13 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             zeta = 1;
             
             % Eqn 3
-            ND = (      VD / (zeta * ZD ^ (1-eta))      )^(1/eta);
+            ND = (      VD / (zeta * zetabar * ZD ^ (1-eta))      )^(1/eta);
             
             % Eqn 11
             Lambda = beta * g^(-rho);
             
             % Eqn 7
-            J =  1 / ( eta * zeta * ( ZD / ND )^(1-eta)  );
+            J =  1 / ( eta * zeta * zetabar * ( ZD / ND )^(1-eta)  );
 
             % Eqn 4
             H = (J -  ((1 - lambda) * phi * Lambda * J ) ) * (1/lambda);
@@ -139,13 +141,13 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     zeta = 1;
 
     % Eqn 3
-    ND = (      VD / (zeta * ZD ^ (1-eta))      )^(1/eta);
+    ND = (      VD / (zeta * zetabar * ZD ^ (1-eta))      )^(1/eta);
 
     % Eqn 11
     Lambda = beta * g^(-rho);
 
     % Eqn 7
-    J =  1 / ( eta * zeta * ( ZD / ND )^(1-eta)  );
+    J =  1 / ( eta * zeta * zetabar * ( ZD / ND )^(1-eta)  );
 
     % Eqn 4
     H = (J -  (1 - lambda) * phi * Lambda * J ) / lambda;
@@ -193,7 +195,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % XD =  ( Lambda * g * ( J * VD + XD ) );
     XD =  ( Lambda * g * ( J * VD )  ) / (1 - Lambda * g ) ;
     SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
-    RD = J * VD;
+    RD = ND;
     
     f_fcn   = 1;
 	g_fcn   = 1;

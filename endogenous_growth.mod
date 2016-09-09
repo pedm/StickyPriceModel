@@ -20,7 +20,7 @@ J            ${J}$                         % Value of unadopted tech
 H            ${H}$                         % Value of adopted tech
 Pi           ${\Pi}$                       % 
 ND           ${N_D}$                       % 
-YDW          ${Y^W_D}$                     % New in model 4.4.1. Why is this needed?
+YDW          ${Y^W_D}$                     % New in model 4.4.1. Why is this needed? (might be needed later in the sticky price model)
 YD           ${Y_D}$                       % 
 CD           ${C_D}$                       % 
 Lambda       ${\Lambda}$                   % Note Lambda(+1) = \Lambda_{t,t+1}
@@ -57,15 +57,17 @@ beta           $\beta$
 alpha          $\alpha$        
 epsilon        $\epsilon$             % Inverse Frisch labor supply elasticity
 rho            $\rho$                 % Inverse of intertemporal elasticity of substitution
-varphi         $\varphi$              % elasticity of Q to I/K ratio 
+% varphi         $\varphi$              % elasticity of Q to I/K ratio 
 delta          $\delta$               
 chi            $\chi$                 % disutility of labor supply
 vartheta       $\vartheta$              
-gamma          $\gamma$               % elasticity of labor disutility to technology
+gamma          $\gamma$               % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
 phi            $\phi$                 
 eta            $\eta$                 
 lambda         $\lambda$              % adoption probability
 rhozeta        ${\rho}_{\zeta}$       % persistence of exogenous "innovation productivity" shock
+sigmazeta      ${\sigma}_{\zeta}$     % size of impulse on exogenous "innovation productivity" shock
+zetabar        $\overline{\zeta}$
 
 % NEW PARAMETERS
 M              $\mathcal{M}$          % Markup
@@ -82,24 +84,27 @@ beta    = 0.96;
 alpha   = 0.33;
 epsilon = 1/2;                   % Inverse Frisch labor supply elasticity
 rho     =   1;                   % Inverse of intertemporal elasticity of substitution
-varphi  = 0.5;                   % Elasticity of Q to I/K ratio 
-varphi = 0.5 / 10000;            % Paramater value in gensys
+% varphi  = 0.5;                   % Elasticity of Q to I/K ratio 
+% varphi  = 0.5 / 10000;            % Paramater value in gensys - (albert) I think we can eliminate varphi, right?
 delta   = 0.10;
-chi     = 0.2236;                % Disutility of labor supply
+chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = 0.14;                   % Elasticity of labor disutility to technology (higher gamma causes lower g)
-phi    = 0.90;                   % 
-eta    = 0.05;                   % Importance of N in production of new innovations (original = 0.33)
-lambda = 0.06;                   % Adoption probability
+gamma  = 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.875;                   % Survival rate of technologies
+eta    = 0.375;                    % Curvature of innovations production in R&D expenditure (original = 0.33)
+lambda = 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta = 0.5; 
+rhozeta    = 0.00; 
+sigmazeta  = 0.20 * 10;
+zetabar    = .90;
+
 
 % NEW VARIABLES
 M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
-psi_N   = 1;                           % Adjustment cost to N
+psi_N   = 50;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
 
 % Note: gg is not set here, as it depends on the steady state. 
@@ -120,7 +125,7 @@ ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
 
 % 3. Innovators' production function. Q: Why is this not the supply curve of new firms?
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
-VD = zeta * ZD ^ (1-eta) * ND ^ eta;
+VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta;
 
 % 4. Euler equation for entrepreneurs
 J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
@@ -135,7 +140,7 @@ Pi = (1/vartheta) * (1/M) * YDW;
 % 7. Innovators' FOC wrt N
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
 % log() added so that f_fcn can be 1 in ss
-eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
+zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 
 % 8. Aggregate production function
 YD = YDW;
@@ -184,7 +189,7 @@ Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * (
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
-log(zeta) = rhozeta * log(zeta(-1)) + 0.1 * epsilon_chi;
+log(zeta) = rhozeta * log(zeta(-1)) + sigmazeta * epsilon_chi;
 
 % 20. Stock market value (taken directly from May model)
 % original
@@ -195,8 +200,9 @@ SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
 % 21. 
 XD =  ( Lambda(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
 
-% 22. Aggregate R&D expenditure
-RD = J * VD;
+% 22. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
+% are given by the variable N)
+RD = ND;   
 
 % ADJUSTMENT COST FUNCTIONS
 f_fcn = exp( (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - gg)^2 );
@@ -224,7 +230,6 @@ check;
 
 % Set seed for simulation
 set_dynare_seed(092677);
-
 % Produce simulation using above calibration, compare with VAR IRFs
 stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nomoments, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
@@ -232,12 +237,17 @@ post_processing_irfs_plot;                                                  % Pl
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 plot_var_irfs;                                                              % Plot VAR IRFs
 
+
 % Change parameters, solve again, and plot
-set_param_value('eta', 0.2);
-stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-post_processing_irfs;                                                       % Create IRFs with trend
-post_processing_irfs_plot;                                                  % Plot IRFs
-post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+% zetabar_val_2 = 0.9;
+% set_param_value('zetabar', zetabar_val_2);
+% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% post_processing_irfs;                                                       % Create IRFs with trend
+% post_processing_irfs_plot;                                                  % Plot IRFs
+% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+% legend('zetabar = 1', strcat('zetabar =',{' '}, num2str(zetabar_val_2)));
+
 
 % You can copy and paste the above lines in order to continue playing around with the calibration
 % set_param_value('eta', 0.3);
