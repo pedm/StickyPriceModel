@@ -6,7 +6,7 @@ function [ x_bounded ] = bounds( params )
     % TODO: include gamma, phi, eta, lambda, psi_N, rhozeta, sigmazeta, zetabar
 
     x_bounded(1) = mintomod_ab(params(1), 0, 1); % eta
-    x_bounded(2) = params(2); % gamma
+    x_bounded(2) = mintomod_ab(params(2), 0, 1); % gamma
     x_bounded(3) = mintomod_ab(params(3), 0, 1); % phi
 end
 

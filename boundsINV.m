@@ -6,7 +6,7 @@ function [ x_unbounded ] = boundsINV( params )
     % TODO: include gamma, phi, eta, lambda, psi_N, rhozeta, sigmazeta, zetabar
 
     x_unbounded(1) = modtomin_ab(params(1), 0, 1); % eta
-    x_unbounded(2) = params(2); % gamma
+    x_unbounded(2) = modtomin_ab(params(2), 0, 1); % gamma
     x_unbounded(3) = modtomin_ab(params(3), 0, 1); % phi
 
 end

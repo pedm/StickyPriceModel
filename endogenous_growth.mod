@@ -216,9 +216,14 @@ end;
 write_latex_dynamic_model;
 write_latex_static_model;
 
-%===================================================================%
-%%%%            RUN                                              %%%%
-%===================================================================%
+%=========================================================================%
+%%%%                       RUN                                         %%%%
+%=========================================================================%
+
+% Load PVAR IRFs
+global pvarcoirfs_clean;
+load 'pvar_coirfs_full';
+pvarcoirfs_clean = pvarcoirfs;
 
 shocks;
 var epsilon_chi;
@@ -237,7 +242,7 @@ post_processing_irfs_plot;                                                  % Pl
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
 % TODO: get this working again
-% plot_var_irfs;                                                              % Plot VAR IRFs
+plot_var_irfs;                                                              % Plot VAR IRFs
 
 
 % Change parameters, solve again, and plot
@@ -258,41 +263,39 @@ post_processing_irfs_distance;                                              % Co
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
-%===================================================================%
-%%%%                    LOOP                                     %%%%
-%===================================================================%
-% This code comes from Bonn and Pfeifer 2014 replication files
+%=========================================================================%
+%%%%                       OPTIMIZATION                                %%%%
+%=========================================================================%
+% Much of this code comes from Bonn and Pfeifer 2014 replication files
 
-//gamma  = 0.14;                   % elasticity of labor disutility to technology (higher gamma causes lower g)
-//phi    = 0.90;                   % 
-//eta    = 0.05;                   % Perhaps - importance of N in production of new innovations (original = 0.33)
+% Starting point (based on earlier calibration)
+x_start=[eta, gamma, phi];
+x_start_unbounded = boundsINV(x_start);
 
-    x_start=[eta, gamma, phi]; % use calibration as starting point
-    x_start_unbounded = boundsINV(x_start);
-    // x_start = [eta];
-    
-    //optimizer options
-    H0 = 1e-2*eye(length(x_start)); //Initial Hessian 
-    crit = 1e-7; //Tolerance
-    nit = 1000; //Number of iterations
+% Optimizer options
+H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
+crit = 1e-7; % Tolerance
+nit = 1000; % Number of iterations
 
-    //make sure Dynare does not print out stuff during runs
-    options_.nocorr=1;
-    options_.noprint=1;
-    options_.verbosity=0;
+% Make sure Dynare does not print out stuff during runs
+options_.nocorr=1;
+options_.noprint=1;
+options_.verbosity=0;
 
-    //options_.qz_criterium = 1+1e-6; //required because it is empty by default, leading to a crash in k_order_pert
-    [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+% options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
+[fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+%                          csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
 
-               // csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
+%=========================================================================%
+%%%%                       PLOT SOLUTION                               %%%%
+%=========================================================================%
 
-% PLOT SOLUTION
 [ params ] = bounds( params_unbounded );
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
 set_param_value('phi', params(3) );
     
-stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs

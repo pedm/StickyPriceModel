@@ -252,6 +252,9 @@ M_.params( 16 ) = 50;
 psi_N = M_.params( 16 );
 M_.params( 17 ) = 1;
 psi_I = M_.params( 17 );
+global pvarcoirfs_clean;
+load 'pvar_coirfs_full';
+pvarcoirfs_clean = pvarcoirfs;
 %
 % SHOCKS instructions
 %
@@ -274,7 +277,8 @@ info = stoch_simul(var_list_);
 post_processing_irfs;                                                       
 post_processing_irfs_plot;                                                  
 post_processing_irfs_distance;                                              
-x_start=[eta, gamma, phi]; 
+plot_var_irfs;                                                              
+x_start=[eta, gamma, phi];
 x_start_unbounded = boundsINV(x_start);
 H0 = 1e-2*eye(length(x_start)); 
 crit = 1e-7; 
@@ -287,7 +291,7 @@ options_.verbosity=0;
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
 set_param_value('phi', params(3) );
-options_.irf = 10;
+options_.irf = 11;
 options_.loglinear = 1;
 options_.nocorr = 1;
 options_.nodisplay = 1;

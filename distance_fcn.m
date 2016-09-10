@@ -4,7 +4,7 @@ function [ f ] = distance_fcn( params_unbounded )
 % PERHAPS: hard code these options_ in this function
 
     % get Dynare structures
-    global oo_ M_ options_ 
+    global oo_ M_ options_ pvarcoirfs_clean
 
     %% Change parameters, solve again, and plot
     [ params ] = bounds( params_unbounded );
@@ -32,7 +32,7 @@ function [ f ] = distance_fcn( params_unbounded )
         f = irf_distance;
     catch
         % Dynare threw a command. Apply large penalty
-        f = 1000000;
+        f = 1000000000;
     end
 
 

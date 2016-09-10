@@ -1,4 +1,12 @@
 
+pvarcoirfs = pvarcoirfs_clean;
+
+% Put VAR IRFs in the same format (and delete final obs)
+pvar_irf_rd     =  pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).irf / 100;
+pvar_irf_gdp    =  pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).irf / 100;
+pvar_irf_sp     =  pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).irf / 100;
+pvar_irf_tfp    =  pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).irf / 100;
+
 % Plot the important variables
 try
     h = findobj('name', 'important variables');
