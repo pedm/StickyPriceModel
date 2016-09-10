@@ -20,11 +20,11 @@ ii = find(ismember(IRnames_dynare, 'S'));
 mod_irf_sp = IR_dynare(ii,:);
 
 %% Add model IRFs to table
-% NOTE: if I update table in the future, ensure that the order is same
-pvarcoirfs.model(1:11) = mod_irf_sp';
-pvarcoirfs.model(12:22) = mod_irf_rd';
-pvarcoirfs.model(23:33) = mod_irf_tfp';
-pvarcoirfs.model(34:44) = mod_irf_gdp';
+
+pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).model    = mod_irf_sp';
+pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).model    = mod_irf_rd';
+pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).model   = mod_irf_tfp';
+pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).model   = mod_irf_gdp';
 
 % Scale by 100
 pvarcoirfs.model = pvarcoirfs.model*100;
