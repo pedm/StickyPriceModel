@@ -11,11 +11,11 @@ function [residual, g1, g2] = endogenous_growth_static(y, x, params)
 %   residual  [M_.endo_nbr by 1] double    vector of residuals of the static model equations 
 %                                          in order of declaration of the equations
 %   g1        [M_.endo_nbr by M_.endo_nbr] double    Jacobian matrix of the static model equations;
-%                                                     columns: variables in declaration order
-%                                                     rows: equations in order of declaration
+%                                                    columns: equations in order of declaration
+%                                                    rows: variables in declaration order
 %   g2        [M_.endo_nbr by (M_.endo_nbr)^2] double   Hessian matrix of the static model equations;
-%                                                       columns: variables in declaration order
-%                                                       rows: equations in order of declaration
+%                                                       columns: equations in order of declaration
+%                                                       rows: variables in declaration order
 %
 %
 % Warning : this file is generated automatically by Dynare
