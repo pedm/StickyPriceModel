@@ -30,9 +30,7 @@ pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).model   = mod_irf_gdp';
 % Scale by 100
 pvarcoirfs.model = pvarcoirfs.model*100;
 pvarcoirfs.se_scaled = pvarcoirfs.se*100;
-%pvarcoirfs.variance = pvarcoirfs.se_scaled.^2;
-
-
+pvarcoirfs.variance = pvarcoirfs
 % drop table rows with 0 standard errors
 pvarcoirfs(pvarcoirfs.se == 0, :) = [];
 
@@ -46,6 +44,6 @@ irf_distance_sub = DDD'* inv(VVV) * DDD;
 ss = exp(oo_.steady_state);
 growth_rate = ss(1);
 
-irf_distance = irf_distance_sub + abs(growth_rate - 1.0118)*10e+06;
+irf_distance = irf_distance_sub + abs(growth_rate - 1.0118)*10e+08;
 
 % TODO: add more weight to the growth rate

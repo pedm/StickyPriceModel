@@ -4,11 +4,14 @@
 % Requires endogenous_growth_steadystate.m
 
 % If you comment out this command, this code will plot the IRFs on top of your previous plots
-close all;
+% close all;
 
+close all;
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
+
+do_estimate = 0; % if 0, just simulate
 
 var
 %% comment
@@ -92,22 +95,21 @@ chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = .6041; % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = .98;   % 0.875;                   % Survival rate of technologies
-eta    = .4633; % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-lambda = .0108; % 0.075;                   % Adoption probability
+gamma  = 0.4031;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.9898;       % 0.875;                   % Survival rate of technologies
+eta    = 0.9834;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
+lambda = 0.0041;       % 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta    = .6277; % 0.5; 
-rhozeta2   = .0221; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
-% sigmazeta  = 0.20 * 10;
-sigmazeta  = 1.3858; % 3.5;
-zetabar    = .90;
+rhozeta    = 0.7012; % 0.5; 
+rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
+sigmazeta  = 0.8905; % 3.5;
+zetabar    = 9.8530;
 
 
 % NEW VARIABLES
 M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
-psi_N   = 50;                           % Adjustment cost to N
+psi_N   = 21.2572;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
 
 % Note: gg is not set here, as it depends on the steady state. 
@@ -128,7 +130,7 @@ ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
 
 % 3. Innovators' production function. Q: Why is this not the supply curve of new firms?
 % PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
-VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta;
+VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta ;
 
 % 4. Euler equation for entrepreneurs
 J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
@@ -270,6 +272,12 @@ plot_var_irfs;                                                              % Pl
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
+ 
+
+if do_estimate == 0;
+    return;
+else
+    
 %=========================================================================%
 %%%%                       OPTIMIZATION                                %%%%
 %=========================================================================%
@@ -314,8 +322,12 @@ set_param_value('zetabar', params(9) );
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
+axis tight;
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+legend('initial','var', 'b', 'b', 'final');
 
 disp('[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
 params
 x_start
+
+end
