@@ -8,7 +8,7 @@ function [ f ] = distance_fcn( params_unbounded )
 
     %% Change parameters, solve again, and plot
     [ params ] = bounds( params_unbounded );
-    params
+    % params
     
     % some of these restrictions arent entirely needed, but perhaps good
     % TODO: include gamma, phi, eta, lambda, psi_N (0 to Inf), rhozeta (0 to 1), sigmazeta (0 to inf), zetabar
@@ -17,7 +17,7 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('phi', params(3) );
     set_param_value('lambda', params(4) );
     set_param_value('psi_N', params(5) );
-%     set_param_value('rhozeta', params(6) );
+    set_param_value('rhozeta', params(6) );
 %     set_param_value('sigmazeta', params(7) );
     
     try
@@ -45,7 +45,8 @@ function [ f ] = distance_fcn( params_unbounded )
             f = irf_distance;
         end
     catch
-        
+        params
+        disp('Error: negative steady state')
         keyboard
         
         % Dynare threw a command. Apply large penalty

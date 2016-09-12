@@ -10,7 +10,7 @@ function [ x_unbounded ] = boundsINV( params )
     x_unbounded(3) = modtomin_ab(params(3), 0, 0.99); % phi
     x_unbounded(4) = modtomin_ab(params(4), 0.01, 1); % lambda
     x_unbounded(5) = modtomin_ab(params(5), 0, 100000000); % psi_N
-%     x_unbounded(6) = modtomin_ab(params(6), 0, 1); % rhozeta
+    x_unbounded(6) = modtomin_ab(params(6), 0.00001, 0.99); % rhozeta
 %     x_unbounded(7) = modtomin_ab(params(7), 0, 100000000); % sigmazeta
 
 end
