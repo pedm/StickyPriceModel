@@ -36,7 +36,14 @@ function [ f ] = distance_fcn( params_unbounded )
 
         % TODO: eventually ill want to use the quadratic deviation of the
         % simulated irfs from the target irfs. perhaps see the code in Born and Pfeifer (2014)
-        f = irf_distance;
+        
+        if sum(oo_.steady_state == Inf) > 0
+            % Dynare got a steady state with Inf values
+            disp('Dynare got a steady state with Inf values. Why?')
+            f = 1000000000;
+        else
+            f = irf_distance;
+        end
     catch
         % Dynare threw a command. Apply large penalty
         f = 1000000000;

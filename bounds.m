@@ -10,9 +10,9 @@ function [ x_bounded ] = bounds( params )
     x_bounded(3) = mintomod_ab(params(3), 0, 1); % phi
     x_bounded(4) = mintomod_ab(params(4), 0, 1); % lambda
 
-    x_bounded(5) = mintomod_ab(params(5), 0, 100000000); % psi_N
+    x_bounded(5) = mintomod_ab(params(5), 0, 1000); % psi_N
     x_bounded(6) = mintomod_ab(params(6), 0, 1); % rhozeta
-    x_bounded(7) = mintomod_ab(params(7), 0, 100000000); % sigmazeta
+    x_bounded(7) = mintomod_ab(params(7), 0, 1000); % sigmazeta
 
 end
 
