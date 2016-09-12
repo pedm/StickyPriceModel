@@ -244,10 +244,9 @@ post_processing_irfs_distance;                                              % Co
 plot_var_irfs;                                                              % Plot VAR IRFs
 
 % Change parameters, solve again, and plot
-
-% zetabar_val_2 = 0.9;
+% zetabar_val_2 = 3;
 % set_param_value('zetabar', zetabar_val_2);
-% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
@@ -256,7 +255,7 @@ plot_var_irfs;                                                              % Pl
 
 % You can copy and paste the above lines in order to continue playing around with the calibration
 % set_param_value('eta', 0.3);
-% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
@@ -267,7 +266,7 @@ plot_var_irfs;                                                              % Pl
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda, psi_N, rhozeta]; % , sigmazeta];
+x_start=[eta, gamma, phi, lambda, psi_N, rhozeta]; %, sigmazeta];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
@@ -276,6 +275,7 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
+nit = 50;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -297,7 +297,7 @@ set_param_value('phi', params(3) );
 set_param_value('lambda', params(4) );
 set_param_value('psi_N', params(5) );
 set_param_value('rhozeta', params(6) );
-%     set_param_value('sigmazeta', params(7) );
+% set_param_value('sigmazeta', params(7) );
 
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
