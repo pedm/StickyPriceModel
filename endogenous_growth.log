@@ -1,6 +1,7 @@
 Starting Dynare (version 4.4.3).
 Starting preprocessing of the model file ...
-Found 26 equation(s).
+Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
+Found 27 equation(s).
 Evaluating expressions...done
 Computing static model derivatives:
  - order 1
@@ -9,16 +10,9 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-   0.075975        0.020392       -0.024481        0.071306       -0.160241        0.626989               0       -0.078409       -0.082403        0.001422               0        0.072206               0       -0.378789
-epsilon_chi                 0.060546               0        2.016829       -0.163188       -0.122936        0.000650        0.044878        0.000650        0.000650       -0.001223        0.002187        0.002187       -0.000562        0.000970       -0.000428       -0.002884       -0.067295       -0.025359        2.000000        0.000339       -0.006823        0.044878               0        2.278679               0       -0.025752
-{Subscripted assignment dimension mismatch.
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('post_processing_irfs', 'C:\Users\pedm\Documents\FlexPriceModel\post_processing_irfs.m', 50)" style="font-weight:bold">post_processing_irfs</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\post_processing_irfs.m',50,0)">line 50</a>)
-    IR_dynare(ii, :) = getfield(oo_.irfs, char(IRnames_dynare(ii)));
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 295)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',295,0)">line 295</a>)
-post_processing_irfs;
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
-evalin('base',fname) ;} 
-opentoline('C:\Users\pedm\Documents\FlexPriceModel\post_processing_irfs.m',50,0)
+       -0.074577
+ID(-1)                      0.000016               0        0.000533       -0.078603       -0.058374        0.013663        0.001422        0.013663        0.013663       -0.069945        0.082265        0.082265        0.075975        0.020392       -0.024481        0.071306       -0.160241        0.626989               0       -0.078409       -0.082403        0.001422               0        0.072206               0       -0.378789
+epsilon_chi                 0.105955               0        3.529451       -0.285580       -0.215137        0.001137        0.078537        0.001137        0.001137       -0.002140        0.003828        0.003828       -0.000983        0.001697       -0.000749       -0.005047       -0.117767       -0.044379        3.500000        0.000593       -0.011940        0.078537               0        3.987688               0       -0.045066
 dynare endogenous_growth.mod
 
 Configuring Dynare ...
@@ -35,7 +29,8 @@ Configuring Dynare ...
 
 Starting Dynare (version 4.4.3).
 Starting preprocessing of the model file ...
-Found 26 equation(s).
+Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
+Found 27 equation(s).
 Evaluating expressions...done
 Computing static model derivatives:
  - order 1
@@ -77,44 +72,45 @@ parameters are not initialized in a steadystate file, Dynare may not be able to
 solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 264)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',264,0)">line 264</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 276)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',276,0)">line 276</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 
 STEADY-STATE RESULTS:
 
-g           		 1.01549
-ZD          		 2.67625
-VD          		 0.464535
-J           		 0.190755
-H           		 0.597321
-Pi          		 0.103224
-ND          		 0.0332297
-YDW         		 0.338532
-YD          		 0.338532
-CD          		 0.268093
-Lambda      		 0.945357
-UCD         		 3.79746
-muD         		 2.66752
-L           		 0.346883
-GammaD      		 0.260548
-KD          		 0.32718
-Q           		 1
-ID          		 0.0372094
-zeta        		 1
-SD          		 3.45957
-XD          		 2.1267
-RD          		 0.0332297
-f_fcn       		 1
-f_fcn_prime 		 1
-g_fcn       		 1
-g_fcn_prime 		 1
+g                 		 1.01549
+ZD                		 2.67625
+VD                		 0.464535
+J                 		 0.190755
+H                 		 0.597321
+Pi                		 0.103224
+ND                		 0.0332297
+YDW               		 0.338532
+YD                		 0.338532
+CD                		 0.268093
+Lambda            		 0.945357
+UCD               		 3.79746
+muD               		 2.66752
+L                 		 0.346883
+GammaD            		 0.260548
+KD                		 0.32718
+Q                 		 1
+ID                		 0.0372094
+zeta              		 1
+SD                		 3.45957
+XD                		 2.1267
+RD                		 0.0332297
+f_fcn             		 1
+f_fcn_prime       		 1
+g_fcn             		 1
+g_fcn_prime       		 1
 
 EIGENVALUES:
          Modulus             Real        Imaginary
 
-       3.706e-15       -3.706e-15                0
-       4.058e-15        4.058e-15                0
-       3.231e-14        3.231e-14                0
+               0                0                0
+       5.828e-16        5.828e-16                0
+       7.368e-15       -7.368e-15                0
+       1.014e-14        1.014e-14                0
           0.0001           0.0001                0
           0.4115           0.4115                0
           0.8111           0.8043           0.1043
@@ -128,12 +124,12 @@ EIGENVALUES:
            1.362             1.33           0.2915
            1.362             1.33          -0.2915
            1.859            1.859                0
-       6.034e+16        6.034e+16                0
-       4.256e+17        4.256e+17                0
-       7.642e+18       -7.642e+18                0
-        8.73e+18         8.73e+18                0
-        1.26e+20         1.26e+20                0
-       3.118e+20        3.118e+20                0
+       1.409e+16       -1.409e+16                0
+       1.035e+18        1.035e+18                0
+       1.562e+18        1.562e+18                0
+       2.919e+18       -2.919e+18                0
+       1.287e+21        1.287e+21                0
+       1.436e+22        1.436e+22                0
 
 
 There are 13 eigenvalue(s) larger than 1 in modulus 
@@ -144,9 +140,9 @@ The rank condition is verified.
 
 MODEL SUMMARY
 
-  Number of variables:         26
+  Number of variables:         27
   Number of stochastic shocks: 1
-  Number of state variables:   9
+  Number of state variables:   10
   Number of jumpers:           13
   Number of static variables:  7
 
@@ -157,7 +153,7 @@ Variables     epsilon_chi
 epsilon_chi       1.000000
 
 POLICY AND TRANSITION FUNCTIONS
-                             g               ZD              VD              J               H               Pi              ND              YDW             YD              CD              Lambda          UCD             muD             L               GammaD          KD              Q               ID              zeta            SD              XD              RD              f_fcn           f_fcn_prime     g_fcn           g_fcn_prime
+                        g                ZD               VD               J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
 Constant                    0.015370        0.984416       -0.766717       -1.656765       -0.515301       -2.270850       -3.404312       -1.083137       -1.083137       -1.316422       -0.056192        1.334331        0.981149       -1.058768       -1.344967       -1.117244               0       -3.291195               0        1.241143        0.754571       -3.404312               0               0               0               0
 g(-1)                      -0.202553       -1.000000       -0.986095        0.720472        0.517742       -0.077215       -0.962921       -0.077215       -0.077215        0.026592       -1.050619       -0.050619        0.603917        0.377291       -0.640693       -0.890159        0.739265       -0.034169               0       -0.003873        0.014287       -0.962921               0        1.882661               0        0.980791
 ZD(-1)                      0.165614        0.861654        0.552671       -0.458555       -0.346045        0.000491        0.037701        0.000491        0.000491        0.005954       -0.003987       -0.003987       -0.014074        0.000732        0.002084       -0.008201       -0.188214       -0.072107               0       -0.000838       -0.015768        0.037701               0        1.914231               0       -0.073224
@@ -166,5 +162,4 @@ GammaD(-1)                 -0.000188               0       -0.006275       -0.44
 KD(-1)                      0.000302               0        0.010063        0.515308        0.496399        0.449996        0.026835        0.449996        0.449996        0.569808       -0.578307       -0.578307       -0.301704        0.179099        0.199433        0.882253        0.062191       -0.035344               0        0.590268        0.576120        0.026835               0        1.362538               0       -0.035891
 zeta(-1)                    0.000003               0        0.000101       -0.000008       -0.000006               0        0.000002               0               0               0               0               0               0               0               0               0       -0.000003       -0.000001        0.000100               0               0        0.000002               0        0.000114               0       -0.000001
 VD(-1)                      0.026591        0.138346        0.088736       -0.073625       -0.055561        0.000079        0.006053        0.000079        0.000079        0.000956       -0.000640       -0.000640       -0.002260        0.000118        0.000335       -0.001317       -0.030219       -0.011577               0       -0.000135       -0.002532        0.006053               0        0.307347               0       -0.011757
-ND(-1)                      0.010218               0        0.340367       -0.175037       -0.106277        0.012284        0.907644        0.012284        0.012284       -0.086797        0.093566        0.093566        0.115761        0.018334       -0.030379       -0.008352       -0.055064       -0.073440               0       -0.054828       -0.030156        0.907644               0       -4.689317               0       -0.074577
-ID(-1)                      0.000016               0        0.000533       -0.078603       -0.058374        0.013663        0.001422        0.013663        0.013663       -0.069945        0.082265        0.082265     
+ND(-1)                      0.010218               0        0.340367       -0.175037       -0.106277        0.012284        0.907644        0.012284        0.012284       -0.086797        0.093566        0.093566        0.115761        0.018334       -0.030379       -0.008352       -0.055064       -0.073440               0       -0.054828       -0.030156        0.907644               0       -4.689317               0

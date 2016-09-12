@@ -98,7 +98,8 @@ lambda = 0.075;                   % Adoption probability
 
 % SHOCKS
 rhozeta    = 0.0001; 
-sigmazeta  = 0.20 * 10;
+% sigmazeta  = 0.20 * 10;
+sigmazeta  = 3.5;
 zetabar    = .90;
 
 
@@ -189,7 +190,7 @@ Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * (
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
-log(zeta) = rhozeta * log(zeta(-1)) + sigmazeta * epsilon_chi;
+log(zeta) = rhozeta * log(zeta(-1)) - 0.1*log(zeta(-2)) + sigmazeta * epsilon_chi;
 
 % 20. Stock market value (taken directly from May model)
 % original
@@ -236,27 +237,26 @@ check;
 % Set seed for simulation
 set_dynare_seed(092677);
 % Produce simulation using above calibration, compare with VAR IRFs
-% NOTE: loglinear o
+% NOTE: loglinear option causes oo_.steady_state to become logged
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 plot_var_irfs;                                                              % Plot VAR IRFs
 
-% Change parameters, solve again, and plot
+return
 
-% zetabar_val_2 = 0.9;
-% set_param_value('zetabar', zetabar_val_2);
-% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% Change parameters, solve again, and plot
+% set_param_value('sigmazeta', 3.5);
+% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-% legend('zetabar = 1', strcat('zetabar =',{' '}, num2str(zetabar_val_2)));
 
 
 % You can copy and paste the above lines in order to continue playing around with the calibration
 % set_param_value('eta', 0.3);
-% stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
@@ -267,13 +267,16 @@ plot_var_irfs;                                                              % Pl
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, sigmazeta];
+x_start=[eta, gamma, phi, lambda, psi_N, rhozeta]; %, sigmazeta];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
+H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
+
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
+nit = 50;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -292,7 +295,11 @@ options_.verbosity=0;
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
 set_param_value('phi', params(3) );
-    
+set_param_value('lambda', params(4) );
+set_param_value('psi_N', params(5) );
+set_param_value('rhozeta', params(6) );
+% set_param_value('sigmazeta', params(7) );
+
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs

@@ -24,7 +24,6 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     eta       = [];
     lambda    = [];
     rhozeta   = [];
-    rhozeta2  = [];
     sigmazeta = [];
     zetabar   = [];
     M         = [];
@@ -220,8 +219,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     for i = 1:NumberOfEndogenousVariables                         % Loop...
       varname = deblank(M_.endo_names(i,:));                      %    Get the name of endogenous variable i.  
       
-      % Hardcode ss = 1 for AUX_ENDO_LAG_... variable (appears if using AR(2))
-      if length(varname) >= 8 && strcmp(varname(1:8), 'AUX_ENDO')
+      % Hardcode ss for AUX_ENDO_LAG_18_1 variable (appears if using AR(2))
+      % TODO: how can I ensure no errors if number of variables changes
+      if length(varname) >= 4 && strcmp(varname(1:4), 'AUX_ENDO_LAG_18_1')
           eval(['ys(' int2str(i) ') = 1;']);
       else
           eval(['ys(' int2str(i) ') = ' varname ';']);

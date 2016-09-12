@@ -66,6 +66,7 @@ phi            $\phi$
 eta            $\eta$                 
 lambda         $\lambda$              % adoption probability
 rhozeta        ${\rho}_{\zeta}$       % persistence of exogenous "innovation productivity" shock
+rhozeta2       ${\rho}_{\zeta2}$      % AR(2) parameter (after a minus sign)
 sigmazeta      ${\sigma}_{\zeta}$     % size of impulse on exogenous "innovation productivity" shock
 zetabar        $\overline{\zeta}$
 
@@ -98,7 +99,9 @@ lambda = 0.075;                   % Adoption probability
 
 % SHOCKS
 rhozeta    = 0.0001; 
-sigmazeta  = 0.20 * 10;
+rhozeta2   = 0;                 % Note: there's a minus in front of this
+% sigmazeta  = 0.20 * 10;
+sigmazeta  = 3.5;
 zetabar    = .90;
 
 
@@ -189,7 +192,7 @@ Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * (
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
-log(zeta) = rhozeta * log(zeta(-1)) + sigmazeta * epsilon_chi;
+log(zeta) = rhozeta * log(zeta(-1)) - rhozeta2 * log(zeta(-2)) + sigmazeta * epsilon_chi;
 
 % 20. Stock market value (taken directly from May model)
 % original
@@ -243,15 +246,16 @@ post_processing_irfs_plot;                                                  % Pl
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 plot_var_irfs;                                                              % Plot VAR IRFs
 
-% Change parameters, solve again, and plot
-% zetabar_val_2 = 3;
-% set_param_value('zetabar', zetabar_val_2);
-% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-% post_processing_irfs;                                                       % Create IRFs with trend
-% post_processing_irfs_plot;                                                  % Plot IRFs
-% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-% legend('zetabar = 1', strcat('zetabar =',{' '}, num2str(zetabar_val_2)));
 
+
+% Change parameters, solve again, and plot
+set_param_value('rhozeta2', 0.1);
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+post_processing_irfs;                                                       % Create IRFs with trend
+post_processing_irfs_plot;                                                  % Plot IRFs
+post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+return
 
 % You can copy and paste the above lines in order to continue playing around with the calibration
 % set_param_value('eta', 0.3);
