@@ -10,9 +10,9 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-[Warning: Some of the parameters have no value (gg) when using steady. If these
-parameters are not initialized in a steadystate file, Dynare may not be able to
-solve the model...] 
+[Warning: Some of the parameters have no value (gg) when using steady. If
+these parameters are not initialized in a steadystate file, Dynare may not
+be able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 276)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',276,0)">line 276</a>)
@@ -20,28 +20,28 @@ solve the model...]
 
 STEADY-STATE RESULTS:
 
-g                 		 1.01549
-ZD                		 2.67625
-VD                		 0.464535
-J                 		 0.190755
-H                 		 0.597321
-Pi                		 0.103224
-ND                		 0.0332297
-YDW               		 0.338532
-YD                		 0.338532
-CD                		 0.268093
-Lambda            		 0.945357
-UCD               		 3.79746
-muD               		 2.66752
-L                 		 0.346883
-GammaD            		 0.260548
-KD                		 0.32718
+g                 		 1.03807
+ZD                		 6.1202
+VD                		 0.36663
+J                 		 0.103915
+H                 		 0.995785
+Pi                		 0.0933101
+ND                		 0.0176509
+YDW               		 0.306017
+YD                		 0.306017
+CD                		 0.25337
+Lambda            		 0.924791
+UCD               		 3.9717
+muD               		 1.61193
+L                 		 0.335779
+GammaD            		 0.247241
+KD                		 0.263109
 Q                 		 1
-ID                		 0.0372094
+ID                		 0.0349958
 zeta              		 1
-SD                		 3.45957
-XD                		 2.1267
-RD                		 0.0332297
+SD                		 2.74342
+XD                		 0.91436
+RD                		 0.0176509
 f_fcn             		 1
 f_fcn_prime       		 1
 g_fcn             		 1
@@ -50,29 +50,29 @@ g_fcn_prime       		 1
 EIGENVALUES:
          Modulus             Real        Imaginary
 
-       3.081e-15       -3.081e-15                0
-       4.694e-14        4.694e-14                0
-       5.339e-14        5.339e-14                0
-            0.01            5e-05             0.01
-            0.01            5e-05            -0.01
-          0.4115           0.4115                0
-          0.8111           0.8043           0.1043
-          0.8111           0.8043          -0.1043
-            0.82           0.8191          0.03826
-            0.82           0.8191         -0.03826
+       1.096e-15        1.096e-15                0
+       2.152e-15        2.152e-15                0
+       2.792e-15       -2.792e-15                0
+         0.03744          0.03744                0
+          0.2356           0.2356                0
+          0.5903           0.5903                0
+           0.757           0.7519          0.08704
+           0.757           0.7519         -0.08704
+          0.9127            0.912          0.03574
+          0.9127            0.912         -0.03574
            1.042            1.042                0
-           1.173            1.173                0
-           1.193            1.193                0
-           1.295            1.295                0
-           1.362             1.33           0.2915
-           1.362             1.33          -0.2915
-           1.859            1.859                0
-        4.84e+16         4.84e+16                0
-       6.188e+16       -6.188e+16                0
-       2.638e+17       -2.638e+17                0
-       4.304e+18       -4.304e+18                0
-       8.674e+18       -8.674e+18                0
-       1.844e+20       -1.844e+20                0
+           1.118            1.117          0.03656
+           1.118            1.117         -0.03656
+           1.121            1.121                0
+           1.398             1.36           0.3211
+           1.398             1.36          -0.3211
+           3.144            3.144                0
+       1.245e+16        1.245e+16                0
+       8.321e+16       -8.321e+16                0
+       5.768e+17       -5.768e+17                0
+       6.016e+17        6.016e+17                0
+        1.11e+21         1.11e+21                0
+        2.02e+22         2.02e+22                0
 
 
 There are 13 eigenvalue(s) larger than 1 in modulus 
@@ -97,48 +97,266 @@ epsilon_chi       1.000000
 
 POLICY AND TRANSITION FUNCTIONS
                         g                ZD               VD               J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
-Constant                    0.015370        0.984416       -0.766717       -1.656765       -0.515301       -2.270850       -3.404312       -1.083137       -1.083137       -1.316422       -0.056192        1.334331        0.981149       -1.058768       -1.344967       -1.117244               0       -3.291195               0        1.241143        0.754571       -3.404312               0               0               0               0
-g(-1)                      -0.202553       -1.000000       -0.986095        0.720472        0.517742       -0.077215       -0.962921       -0.077215       -0.077215        0.026592       -1.050619       -0.050619        0.603917        0.377291       -0.640693       -0.890159        0.739265       -0.034169               0       -0.003873        0.014287       -0.962921               0        1.882661               0        0.980791
-ZD(-1)                      0.165614        0.861654        0.552671       -0.458555       -0.346045        0.000491        0.037701        0.000491        0.000491        0.005954       -0.003987       -0.003987       -0.014074        0.000732        0.002084       -0.008201       -0.188214       -0.072107               0       -0.000838       -0.015768        0.037701               0        1.914231               0       -0.073224
+Constant                    0.037366        1.811596       -1.003403       -2.264182       -0.004224       -2.371827       -4.036966       -1.184114       -1.184114       -1.372903       -0.078188        1.379194        0.477432       -1.091302       -1.397391       -1.335186               0       -3.352527               0        1.009205       -0.089531       -4.036966               0               0               0               0
+g(-1)                      -0.066064       -1.000000       -0.979967        0.433253        0.237433       -0.203513       -0.956761       -0.203513       -0.203513       -0.140148       -0.867863        0.132137        0.440803        0.188787       -0.480564       -0.904547        0.455382       -0.282357               0       -0.186152       -0.221635       -0.956761               0        2.244263               0        0.744966
+ZD(-1)                      0.060841        0.944057        0.516769       -0.443647       -0.302653       -0.001058        0.021787       -0.001058       -0.001058        0.004862       -0.004296       -0.004296       -0.010797       -0.001579        0.002937       -0.007374       -0.070176       -0.055437               0        0.011261       -0.015819        0.021787               0        1.130815               0       -0.057548
 UCD(-1)                            0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                 -0.000188               0       -0.006275       -0.449959       -0.447885       -0.399297       -0.016734       -0.399297       -0.399297       -0.446569        0.457723        0.457723       -0.477616       -0.595966        0.493701       -0.045531       -0.367717       -0.400351               0       -0.452185       -0.459548       -0.016734               0       -0.849665               0       -0.406552
-KD(-1)                      0.000302               0        0.010063        0.515308        0.496399        0.449996        0.026835        0.449996        0.449996        0.569808       -0.578307       -0.578307       -0.301704        0.179099        0.199433        0.882253        0.062191       -0.035344               0        0.590268        0.576120        0.026835               0        1.362538               0       -0.035891
-zeta(-1)                    0.000003               0        0.000100               0       -0.000001               0               0               0               0               0               0               0               0               0               0               0       -0.000001        0.000001        0.000100               0       -0.000004               0               0        0.000021               0        0.000001
-zeta(-2)                   -0.000003               0       -0.000101        0.000008        0.000006               0       -0.000002               0               0               0               0               0               0               0               0               0        0.000003        0.000001       -0.000100               0               0       -0.000002               0       -0.000114               0        0.000001
-VD(-1)                      0.026591        0.138346        0.088736       -0.073625       -0.055561        0.000079        0.006053        0.000079        0.000079        0.000956       -0.000640       -0.000640       -0.002260        0.000118        0.000335       -0.001317       -0.030219       -0.011577               0       -0.000135       -0.002532        0.006053               0        0.307347               0       -0.011757
-ND(-1)                      0.010218               0        0.340367       -0.175037       -0.106277        0.012284        0.907644        0.012284        0.012284       -0.086797        0.093566        0.093566        0.115761        0.018334       -0.030379       -0.008352       -0.055064       -0.073440               0       -0.054828       -0.030156        0.907644               0       -4.689317               0       -0.074577
-ID(-1)                      0.000016               0        0.000533       -0.078603       -0.058374        0.013663        0.001422        0.013663        0.013663       -0.069945        0.082265        0.082265        0.075975        0.020392       -0.024481        0.071306       -0.160241        0.626989               0       -0.078409       -0.082403        0.001422               0        0.072206               0       -0.378789
-epsilon_chi                 0.105955               0        3.529450       -0.285556       -0.215123        0.001137        0.078532        0.001137        0.001137       -0.002140        0.003828        0.003828       -0.000982        0.001697       -0.000749       -0.005046       -0.117762       -0.044369        3.500000        0.000591       -0.011953        0.078532               0        3.987428               0       -0.045056
-pvarcoirfs
-pvarcoirfs = 
-    <strong>step</strong><strong>       id1    </strong><strong>      irf   </strong><strong>      ll   </strong><strong>      ul   </strong><strong>        se    </strong><strong>     model  </strong>
-    <strong>____</strong>    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>__________</strong>    <strong>________</strong>
-     0      'rd : sp'     0.064658    -2.0861     2.2154      0.011107    0.059101
-     1      'rd : sp'       5.0152     2.2618     7.7686      0.014219       10.16
-     2      'rd : sp'       7.0732     3.6919     10.455      0.017462      15.322
-     3      'rd : sp'       7.8929     4.0882     11.698      0.019649      18.804
-     4      'rd : sp'       8.1982     4.1063      12.29      0.021132      21.541
-     5      'rd : sp'       8.3016     4.0155     12.588      0.022135      23.884
-     6      'rd : sp'       8.3309     3.9156     12.746      0.022802       25.95
-     7      'rd : sp'       8.3356     3.8352     12.836      0.023241      27.772
-     8      'rd : sp'       8.3336     3.7773      12.89       0.02353      29.354
-     9      'rd : sp'       8.3308     3.7377     12.924       0.02372      30.697
-    10      'rd : sp'       8.3286      3.711     12.946      0.023846      31.808
-     0      'rd : rd'           10     9.7274     10.273     0.0014079      7.8532
-     1      'rd : rd'        14.33     13.703     14.956     0.0032369      9.6388
-     2      'rd : rd'       16.609     15.562     17.657     0.0054072      11.399
-     3      'rd : rd'       17.911     16.514     19.308     0.0072149      13.102
-     4      'rd : rd'        18.67     17.002     20.338      0.008615      14.736
-     5      'rd : rd'       19.109     17.239      20.98     0.0096588      16.297
-     6      'rd : rd'       19.359     17.342     21.376      0.010416      17.781
-     7      'rd : rd'       19.497     17.377     21.618      0.010953      19.185
-     8      'rd : rd'       19.573      17.38     21.767      0.011328      20.507
-     9      'rd : rd'       19.614     17.371     21.858      0.011587      21.742
-    10      'rd : rd'       19.636     17.358     21.914      0.011764      22.888
-     1      'rd : tfp'     0.29416    0.16518    0.42314    0.00066608      10.595
-     2      'rd : tfp'     0.62333    0.39953    0.84712     0.0011557      17.916
-     3      'rd : tfp'      0.8316    0.54077     1.1224     0.0015019      23.379
-     4      'rd : tfp'     0.94242    0.60341     1.2814     0.0017507        27.4
-     5      'rd : tfp'     0.99641    0.62297     1.3699     0.0019286      30.307
-     6      'rd : tfp'      1.0213    0.62382     1.4188     0.0020527      32.357
-     7      'rd
+GammaD(-1)                 -0.000010               0       -0.002777       -0.230186       -0.230111       -0.209197       -0.005995       -0.209197       -0.209197       -0.229142        0.231976        0.231976       -0.245943       -0.312234        0.257475       -0.022250       -0.202184       -0.167282               0       -0.230772       -0.233565       -0.005995               0       -0.311141               0       -0.173651
+KD(-1)                      0.000041               0        0.011073        0.450084        0.430090        0.379686        0.023900        0.379686        0.379686        0.471818       -0.473909       -0.473909       -0.372976        0.074158        0.285025        0.852639       -0.012632       -0.107904               0        0.491167        0.482461        0.023900               0        1.240490               0       -0.112012
+zeta(-1)                    0.002385               0        0.638040       -0.043456       -0.026716        0.000168        0.022318        0.000168        0.000168       -0.000643        0.000618        0.000618        0.001297        0.000251       -0.000388       -0.000683       -0.003766       -0.005135        0.627700        0.001590        0.035659        0.022318               0        1.158398               0       -0.005331
+zeta(-2)                   -0.000084               0       -0.022475        0.001585        0.000972       -0.000006       -0.000810       -0.000006       -0.000006        0.000023       -0.000022       -0.000022       -0.000047       -0.000009        0.000014        0.000025        0.000135        0.000187       -0.022100       -0.000059       -0.001333       -0.000810               0       -0.042036               0        0.000194
+VD(-1)                      0.003605        0.055943        0.030623       -0.026290       -0.017935       -0.000063        0.001291       -0.000063       -0.000063        0.000288       -0.000255       -0.000255       -0.000640       -0.000094        0.000174       -0.000437       -0.004158       -0.003285               0        0.000667       -0.000937        0.001291               0        0.067010               0       -0.003410
+ND(-1)                      0.001583               0        0.423470       -0.113638       -0.060416        0.013530        0.914030        0.013530        0.013530       -0.045336        0.046628        0.046628        0.083723        0.020194       -0.027388       -0.001924       -0.012126       -0.014465               0       -0.022682        0.055001        0.914030               0       -4.462174               0       -0.015015
+ID(-1)                      0.000003               0        0.000810       -0.069576       -0.056408        0.020615        0.001748        0.020615        0.020615       -0.062341        0.067719        0.067719        0.105831        0.030768       -0.037660        0.083893       -0.154106        0.630730               0       -0.063490       -0.065506        0.001748               0        0.090737               0       -0.383329
+epsilon_chi                 0.005268               0        1.409329       -0.099373       -0.060947        0.000378        0.050785        0.000378        0.000378       -0.001462        0.001400        0.001400        0.002966        0.000565       -0.000883       -0.001559       -0.008439       -0.011724        1.385800        0.003693        0.083577        0.050785               0        2.635933               0       -0.012170
+-----------------
+-----------------
+f at the beginning of new iteration,  57047008.0539090860
+x =       1.6357867     0.22596072      4.8992398     -17.567732     -707.10625    -0.16535966     -3.2410717     -5.5681404
+p =          0.4633         0.6041           0.98         0.0108             50
+         0.6277         0.0221      1.0708612
+Predicted improvement: 13695967585562.391000000
+lambda =          1; f =     57047016.5478897
+lambda =    0.33333; f =     57047016.5478897
+lambda =    0.11111; f =     57047016.5478897
+lambda =   0.037037; f =     57047016.5478897
+lambda =   0.012346; f =     57047016.5478897
+lambda =  0.0041152; f =     57047016.5478897
+lambda =  0.0013717; f =     57047016.5478897
+lambda = 0.00045725; f =     57047016.5478897
+lambda = 0.00015242; f =     57047016.5478897
+lambda = 5.0805e-05; f =     57047016.5478897
+lambda = 1.6935e-05; f =     57047016.5478897
+lambda =  5.645e-06; f =     57047016.5478897
+lambda = 1.8817e-06; f =     57047016.5478897
+lambda = 6.2723e-07; f =     57047016.5478897
+lambda = 2.0908e-07; f =     54697633.3742888
+Norm of dx 1.6551e+06
+ih =
+     1
+----
+Improvement on iteration 1 =  2349374.679620333
+-----------------
+-----------------
+f at the beginning of new iteration,  54697633.3742887530
+x =       1.9260265     0.25873437      4.9010302     -17.575071     -707.10819    0.019830927     -3.2473518     -5.5734075
+p =      0.47187648     0.61899056     0.98000708    0.010799334      49.999726
+     0.76491928    0.022020555      1.0707305
+Predicted improvement: 40821168147850.539000000
+lambda =          1; f =     54697670.7370962
+lambda =    0.33333; f =     54697670.7370962
+lambda =    0.11111; f =     54697670.7370962
+lambda =   0.037037; f =     54697670.7370962
+lambda =   0.012346; f =     54697670.7370962
+lambda =  0.0041152; f =     54697670.7370962
+lambda =  0.0013717; f =     54697670.7370962
+lambda = 0.00045725; f =     54697670.7370962
+lambda = 0.00015242; f =     54697670.7370962
+lambda = 5.0805e-05; f =     54697670.7370962
+lambda = 1.6935e-05; f =     54697670.7370962
+lambda =  5.645e-06; f =     54697670.7370962
+lambda = 1.8817e-06; f =     54697670.7370962
+lambda = 6.2723e-07; f =     51514662.1582094
+lambda = 2.0908e-07; f =     46519167.9348255
+Norm of dx 5.7007e+06
+ih =
+     1
+----
+Improvement on iteration 2 =  8178465.439463295
+-----------------
+-----------------
+f at the beginning of new iteration,  46519167.9348254580
+x =       3.1067204     0.40656138      4.9112828     -17.607175     -707.11575    0.067450964     -3.2629488     -5.6045243
+p =      0.48797563     0.68142919     0.98004751    0.010796428      49.998657
+     0.80052017    0.021825056      1.0699654
+Predicted improvement: 18595584279.574806000
+lambda =          1; f =     46519202.4401030
+lambda =    0.33333; f =     46519202.4401030
+lambda =    0.11111; f =     46519202.4401030
+lambda =   0.037037; f =     46519202.4401030
+lambda =   0.012346; f =     46519202.4401030
+lambda =  0.0041152; f =     46519202.4401030
+lambda =  0.0013717; f =     46519202.4401030
+lambda = 0.00045725; f =     46519202.4401030
+lambda = 0.00015242; f =     91708398.6503975
+lambda = 5.0805e-05; f =     50199558.7124849
+lambda = 1.6935e-05; f =     46731295.3417108
+lambda =  5.645e-06; f =     46423373.4051977
+Norm of dx      61032
+ih =
+     1
+----
+Improvement on iteration 3 =    95794.529627778
+-----------------
+-----------------
+f at the beginning of new iteration,  46423373.4051976800
+x =       3.0823919     0.63432146      4.9992316     -17.799654     -707.16105    0.074063538     -3.3433111     -5.7180815
+p =      0.48779879     0.76014551     0.98038456    0.010779337      49.992251
+     0.80544223     0.02085719      1.0672755
+Predicted improvement: 18429470523.745422000
+lambda =          1; f =     46423408.1669792
+lambda =    0.33333; f =     46423408.1669792
+lambda =    0.11111; f =     46423408.1669792
+lambda =   0.037037; f =     46423408.1669792
+lambda =   0.012346; f =     46423408.1669792
+lambda =  0.0041152; f =     46423408.1669792
+lambda =  0.0013717; f =     46423408.1669792
+lambda = 0.00045725; f =    140700258.6535541
+lambda = 0.00015242; f =     48377104.1519579
+lambda = 5.0805e-05; f =     45491870.7486679
+Norm of dx      85682
+ih =
+     1
+----
+Improvement on iteration 4 =   931502.656529829
+-----------------
+-----------------
+f at the beginning of new iteration,  45491870.7486678510
+x =       3.0729845     0.39367897      6.5352144     -21.078941     -707.96704    0.089577911     -4.9563199     -7.3077077
+p =      0.48772939      0.6763258     0.98430479     0.01055609      49.878488
+     0.81696104   0.0098767465      1.0415501
+Predicted improvement: 55252272743.373085000
+lambda =          1; f =     45491895.4141609
+lambda =    0.33333; f =     45491895.4141609
+lambda =    0.11111; f =     45491895.4141609
+lambda =   0.037037; f =     45491895.4141609
+lambda =   0.012346; f =     45491895.4141609
+lambda =  0.0041152; f =     45491895.4141609
+lambda =  0.0013717; f =     45491895.4141609
+lambda = 0.00045725; f =     59918124.0389767
+lambda = 0.00015242; f =     42841131.6866022
+lambda = 5.0805e-05; f =     41562894.6602781
+Norm of dx 2.7752e+05
+ih =
+     1
+----
+Improvement on iteration 5 =  3928976.088389777
+-----------------
+-----------------
+f at the beginning of new iteration,  41562894.6602780740
+x =       3.0244271      0.1840508      10.221683     -30.917092      -710.7581    0.040166362      -13.81683     -8.7470885
+p =      0.48736183      0.5846002     0.98764806    0.010258724      49.487525
+     0.78014849   0.0013912561      1.0291222
+Correct for low angle: 0.00495548
+Predicted improvement: 581036204.453341010
+
+You are attempting to simulate/estimate a loglinear approximation of a model, but
+the steady state level of the following variables is not strictly positive:
+ - CD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
+ - UCD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
+ - GammaD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
+params =
+  Columns 1 through 7
+    0.4998    0.9900    0.9900    1.0000    0.3013    0.0107    0.0003
+  Column 8
+   10.0000
+Error: negative steady state
+lambda =          1; f =  10000000000.0000000
+
+You are attempting to simulate/estimate a loglinear approximation of a model, but
+the steady state level of the following variables is not strictly positive:
+ - CD ( -  0  .  0 -0-101757373553.8.866211449175)
+ - UCD ( -  0  .  0 -0-101757373553.8.866211449175)
+ - GammaD ( -  0  .  0 -0-101757373553.8.866211449175)
+params =
+  Columns 1 through 7
+    0.4988    0.9900    0.9900    1.0000    2.0290    0.0836    0.0006
+  Column 8
+   10.0000
+Error: negative steady state
+lambda =    0.33333; f =  10000000000.0000000
+
+You are attempting to simulate/estimate a loglinear approximation of a model, but
+the steady state level of the following variables is not strictly positive:
+ - CD ( - -0-3.3101.3.120319505748)
+ - UCD ( - -0-3.3101.3.120319505748)
+ - GammaD ( - -0-3.3101.3.120319505748)
+params =
+  Columns 1 through 7
+    0.4959    0.9896    0.9900    0.9987    9.2511    0.3552    0.0010
+  Column 8
+   10.0000
+Error: negative steady state
+lambda =    0.11111; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda =   0.037037; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda =   0.012346; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda =  0.0041152; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda =  0.0013717; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 0.00045725; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 0.00015242; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 5.0805e-05; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 1.6935e-05; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda =  5.645e-06; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 1.8817e-06; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 6.2723e-07; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 2.0908e-07; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 6.9692e-08; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 2.3231e-08; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 7.7435e-09; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = 2.5812e-09; f =  10000000000.0000000
+lambda =
+  -6.2723e-07
+Dynare got a steady state with Inf values. Why?
+lambda = -6.2723e-07; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = -2.0908e-07; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = -6.9692e-08; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = -2.3231e-08; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = -7.7435e-09; f =  10000000000.0000000
+Dynare got a steady state with Inf values. Why?
+lambda = -2.5812e-09; f =  10000000000.0000000
+Norm of dx      11095
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+Dynare got a steady state with Inf values. Why?
+ih = 1
+----
+Improvement on iteration 6 =        0.000000000
+improvement < crit termination
+smallest step still improving too slow, reversed gradient
+[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta]
+params =
+  Columns 1 through 7
+    0.4874    0.5846    0.9876    0.0103   49.4875    0.7801    0.0014
+  Column 8
+    1.0291
+x_start =
+  Columns 1 through 7
+    0.4633    0.6041    0.9800    0.0108   50.0000    0.6277    0.0221
+  Column 8
+    1.3858
+Total computing time : 0h00m12s
+Note: warning(s) encountered in MATLAB/Octave code

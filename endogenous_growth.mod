@@ -92,16 +92,16 @@ chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.875;                   % Survival rate of technologies
-eta    = 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-lambda = 0.075;                   % Adoption probability
+gamma  = .6041; % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = .98;   % 0.875;                   % Survival rate of technologies
+eta    = .4633; % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
+lambda = .0108; % 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta    = 0.0001; 
-rhozeta2   = 0.0001;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
+rhozeta    = .6277; % 0.5; 
+rhozeta2   = .0221; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
 % sigmazeta  = 0.20 * 10;
-sigmazeta  = 3.5;
+sigmazeta  = 1.3858; % 3.5;
 zetabar    = .90;
 
 
@@ -246,12 +246,22 @@ post_processing_irfs_plot;                                                  % Pl
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 plot_var_irfs;                                                              % Plot VAR IRFs
 
+
 % Change parameters, solve again, and plot
-% set_param_value('rhozeta2', 0.1);
+% set_param_value('zetabar', 0.6);
 % stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+% 
+% % Change parameters, solve again, and plot
+% set_param_value('sigmazeta', 5);
+% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
+% post_processing_irfs;                                                       % Create IRFs with trend
+% post_processing_irfs_plot;                                                  % Plot IRFs
+% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+
 
 % You can copy and paste the above lines in order to continue playing around with the calibration
 % set_param_value('eta', 0.3);
@@ -266,7 +276,7 @@ plot_var_irfs;                                                              % Pl
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2]; %, sigmazeta];
+x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
@@ -298,10 +308,13 @@ set_param_value('lambda', params(4) );
 set_param_value('psi_N', params(5) );
 set_param_value('rhozeta', params(6) );
 set_param_value('rhozeta2', params(7) );
-% set_param_value('sigmazeta', params(8) );
+set_param_value('sigmazeta', params(8) );
 
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
+disp('[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta]')
+params
+x_start
