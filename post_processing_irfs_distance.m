@@ -3,7 +3,8 @@
 %%%%            COMPARE MODEL AND VAR IRFs                       %%%%
 %===================================================================%
 
-% load VAR IRFs
+% create a local copy of VAR IRFs (pvarcoirfs_clean is a global, so I only
+% have to load it once)
 pvarcoirfs = pvarcoirfs_clean;
 
 % Select the model irfs
@@ -37,9 +38,3 @@ pvarcoirfs(pvarcoirfs.se == 0, :) = [];
 DDD = pvarcoirfs.irf - pvarcoirfs.model;
 VVV = diag(pvarcoirfs.se.*pvarcoirfs.se); % create diagonal matrix of the variances
 irf_distance = DDD'* inv(VVV) * DDD;
-
-% TODO: is this what we want?
-
-
-% TODO: plot a comparison between model and var irfs
-

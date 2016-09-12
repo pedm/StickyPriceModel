@@ -97,7 +97,7 @@ eta    = 0.375;                   % Curvature of innovations production in R&D e
 lambda = 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta    = 0.00; 
+rhozeta    = 0.0001; 
 sigmazeta  = 0.20 * 10;
 zetabar    = .90;
 
@@ -269,7 +269,7 @@ plot_var_irfs;                                                              % Pl
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi];
+x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, sigmazeta];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
