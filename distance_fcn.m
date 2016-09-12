@@ -18,7 +18,8 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('lambda', params(4) );
     set_param_value('psi_N', params(5) );
     set_param_value('rhozeta', params(6) );
-    % set_param_value('sigmazeta', params(7) );
+    set_param_value('rhozeta2', params(7) );
+    % set_param_value('sigmazeta', params(8) );
     
     try
         % Dynare command - does not work in m file
