@@ -37,4 +37,13 @@ pvarcoirfs(pvarcoirfs.se == 0, :) = [];
 % Use same formula as CEE
 DDD = pvarcoirfs.irf - pvarcoirfs.model;
 VVV = diag(pvarcoirfs.se.*pvarcoirfs.se); % create diagonal matrix of the variances
-irf_distance = DDD'* inv(VVV) * DDD;
+irf_distance_sub = DDD'* inv(VVV) * DDD;
+
+%% Add growth rate
+ss = exp(oo_.steady_state);
+growth_rate = ss(1);
+alpha = 0.9;
+
+irf_distance = alpha * irf_distance_sub + (1-alpha) * (growth_rate - 1.0118)^2;
+
+% TODO: add more weight to the growth rate
