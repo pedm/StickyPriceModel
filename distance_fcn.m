@@ -17,8 +17,8 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('phi', params(3) );
     set_param_value('lambda', params(4) );
     set_param_value('psi_N', params(5) );
-    set_param_value('rhozeta', params(6) );
-    set_param_value('sigmazeta', params(7) );
+%     set_param_value('rhozeta', params(6) );
+%     set_param_value('sigmazeta', params(7) );
     
     try
         % Dynare command - does not work in m file
@@ -40,13 +40,16 @@ function [ f ] = distance_fcn( params_unbounded )
         if sum(oo_.steady_state == Inf) > 0
             % Dynare got a steady state with Inf values
             disp('Dynare got a steady state with Inf values. Why?')
-            f = 1000000000;
+            f = 10000000000;
         else
             f = irf_distance;
         end
     catch
+        
+        keyboard
+        
         % Dynare threw a command. Apply large penalty
-        f = 1000000000;
+        f = 10000000000;
     end
 
 

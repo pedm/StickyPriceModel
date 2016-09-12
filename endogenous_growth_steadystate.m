@@ -120,7 +120,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             
             % Eqn 14
             f = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/M) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
-       
+            
         end
         
     end
@@ -211,7 +211,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     for iter = 1:length(M_.params) %update parameters set in the file
       eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])
     end
-
+    
     %% Output the values of the endogenous vars at steady state
 
     NumberOfEndogenousVariables = M_.endo_nbr;                    % Number of endogenous variables.
