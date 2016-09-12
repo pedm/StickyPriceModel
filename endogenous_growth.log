@@ -10,9 +10,9 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-[Warning: Some of the parameters have no value (gg) when using steady. If
-these parameters are not initialized in a steadystate file, Dynare may not
-be able to solve the model...] 
+[Warning: Some of the parameters have no value (gg) when using steady. If these
+parameters are not initialized in a steadystate file, Dynare may not be able to
+solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m', 276)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\FlexPriceModel\endogenous_growth.m',276,0)">line 276</a>)
@@ -111,252 +111,237 @@ ID(-1)                      0.000003               0        0.000810       -0.06
 epsilon_chi                 0.005268               0        1.409329       -0.099373       -0.060947        0.000378        0.050785        0.000378        0.000378       -0.001462        0.001400        0.001400        0.002966        0.000565       -0.000883       -0.001559       -0.008439       -0.011724        1.385800        0.003693        0.083577        0.050785               0        2.635933               0       -0.012170
 -----------------
 -----------------
-f at the beginning of new iteration,  57047008.0539090860
-x =       1.6357867     0.22596072      4.8992398     -17.567732     -707.10625    -0.16535966     -3.2410717     -5.5681404
+f at the beginning of new iteration,  89658217.7360711990
+x =       1.6357867     0.22596072      4.8992398     -15.182235     -707.10625    -0.16535966     -3.2410717     -5.5681404     -2.6630011
 p =          0.4633         0.6041           0.98         0.0108             50
-         0.6277         0.0221      1.0708612
-Predicted improvement: 13695967585562.391000000
-lambda =          1; f =     57047016.5478897
-lambda =    0.33333; f =     57047016.5478897
-lambda =    0.11111; f =     57047016.5478897
-lambda =   0.037037; f =     57047016.5478897
-lambda =   0.012346; f =     57047016.5478897
-lambda =  0.0041152; f =     57047016.5478897
-lambda =  0.0013717; f =     57047016.5478897
-lambda = 0.00045725; f =     57047016.5478897
-lambda = 0.00015242; f =     57047016.5478897
-lambda = 5.0805e-05; f =     57047016.5478897
-lambda = 1.6935e-05; f =     57047016.5478897
-lambda =  5.645e-06; f =     57047016.5478897
-lambda = 1.8817e-06; f =     57047016.5478897
-lambda = 6.2723e-07; f =     57047016.5478897
-lambda = 2.0908e-07; f =     54697633.3742888
-Norm of dx 1.6551e+06
+         0.6277         0.0221      1.0708612            0.9
+Predicted improvement: 38469009722514.828000000
+lambda =          1; f =     89658552.5769836
+lambda =    0.33333; f =     89658552.5769836
+lambda =    0.11111; f =     89658552.5769836
+lambda =   0.037037; f =     89658552.5769836
+lambda =   0.012346; f =     89658552.5769836
+lambda =  0.0041152; f =     89658552.5769836
+lambda =  0.0013717; f =     89658552.5769836
+lambda = 0.00045725; f =     89658552.5769836
+lambda = 0.00015242; f =     89658552.5769836
+lambda = 5.0805e-05; f =     89658552.5769836
+lambda = 1.6935e-05; f =     89658552.5769836
+lambda =  5.645e-06; f =     89658552.5769836
+lambda = 1.8817e-06; f =     89658552.5769836
+lambda = 6.2723e-07; f =     89658552.5769836
+lambda = 2.0908e-07; f =     75651530.4270374
+lambda = 4.0418e-07; f =     97134895.9777181
+lambda = 2.7215e-07; f =     74749508.2484209
+lambda = 3.4504e-07; f =     80774145.7928127
+Norm of dx 2.7738e+06
 ih =
      1
 ----
-Improvement on iteration 1 =  2349374.679620333
+Improvement on iteration 1 = 14908709.487650335
 -----------------
 -----------------
-f at the beginning of new iteration,  54697633.3742887530
-x =       1.9260265     0.25873437      4.9010302     -17.575071     -707.10819    0.019830927     -3.2473518     -5.5734075
-p =      0.47187648     0.61899056     0.98000708    0.010799334      49.999726
-     0.76491928    0.022020555      1.0707305
-Predicted improvement: 40821168147850.539000000
-lambda =          1; f =     54697670.7370962
-lambda =    0.33333; f =     54697670.7370962
-lambda =    0.11111; f =     54697670.7370962
-lambda =   0.037037; f =     54697670.7370962
-lambda =   0.012346; f =     54697670.7370962
-lambda =  0.0041152; f =     54697670.7370962
-lambda =  0.0013717; f =     54697670.7370962
-lambda = 0.00045725; f =     54697670.7370962
-lambda = 0.00015242; f =     54697670.7370962
-lambda = 5.0805e-05; f =     54697670.7370962
-lambda = 1.6935e-05; f =     54697670.7370962
-lambda =  5.645e-06; f =     54697670.7370962
-lambda = 1.8817e-06; f =     54697670.7370962
-lambda = 6.2723e-07; f =     51514662.1582094
-lambda = 2.0908e-07; f =     46519167.9348255
-Norm of dx 5.7007e+06
+f at the beginning of new iteration,  74749508.2484208640
+x =       2.0555815     0.27334563       4.901831     -15.194508     -707.10905     0.10248655     -3.2501547     -5.5757583     -3.2280979
+p =      0.47480931     0.62551791     0.98001025    0.010798712      49.999604
+     0.82650929    0.021985232      1.0706723     0.81048125
+Predicted improvement: 274253262797396.410000000
+lambda =          1; f =     74749936.2594255
+lambda =    0.33333; f =     74749936.2594255
+lambda =    0.11111; f =     74749936.2594255
+lambda =   0.037037; f =     74749936.2594255
+lambda =   0.012346; f =     74749936.2594255
+lambda =  0.0041152; f =     74749936.2594255
+lambda =  0.0013717; f =     74749936.2594255
+lambda = 0.00045725; f =     74749936.2594255
+lambda = 0.00015242; f =     74749936.2594255
+lambda = 5.0805e-05; f =     74749936.2594255
+lambda = 1.6935e-05; f =     74749936.2594255
+lambda =  5.645e-06; f =     74749936.2594255
+lambda = 1.8817e-06; f =     83032877.2908658
+lambda = 6.2723e-07; f =     42903736.2212077
+lambda = 2.0908e-07; f =     45856121.7152472
+lambda = 6.9692e-08; f =     54894717.6427081
+Norm of dx 2.1116e+07
 ih =
      1
 ----
-Improvement on iteration 2 =  8178465.439463295
+Improvement on iteration 2 = 31845772.027213126
 -----------------
 -----------------
-f at the beginning of new iteration,  46519167.9348254580
-x =       3.1067204     0.40656138      4.9112828     -17.607175     -707.11575    0.067450964     -3.2629488     -5.6045243
-p =      0.48797563     0.68142919     0.98004751    0.010796428      49.998657
-     0.80052017    0.021825056      1.0699654
-Predicted improvement: 18595584279.574806000
-lambda =          1; f =     46519202.4401030
-lambda =    0.33333; f =     46519202.4401030
-lambda =    0.11111; f =     46519202.4401030
-lambda =   0.037037; f =     46519202.4401030
-lambda =   0.012346; f =     46519202.4401030
-lambda =  0.0041152; f =     46519202.4401030
-lambda =  0.0013717; f =     46519202.4401030
-lambda = 0.00045725; f =     46519202.4401030
-lambda = 0.00015242; f =     91708398.6503975
-lambda = 5.0805e-05; f =     50199558.7124849
-lambda = 1.6935e-05; f =     46731295.3417108
-lambda =  5.645e-06; f =     46423373.4051977
-Norm of dx      61032
+f at the beginning of new iteration,  42903736.2212077380
+x =       9.8715505      1.2226931      4.9683328     -15.438935     -707.15948     0.16208162     -3.3471863     -5.7720142      -13.87283
+p =      0.49872705     0.87816803     0.98026811    0.010773701      49.992473
+     0.87003727    0.020812128      1.0660516     0.61216324
+Predicted improvement: 82181606108.187057000
+lambda =          1; f =     42903746.9155181
+lambda =    0.33333; f =     42903746.9155181
+lambda =    0.11111; f =     42903746.9155181
+lambda =   0.037037; f =     42903746.9155181
+lambda =   0.012346; f =     42903746.9155181
+lambda =  0.0041152; f =     42903746.9155181
+lambda =  0.0013717; f =     42903746.9155181
+lambda = 0.00045725; f =     42903746.9155181
+lambda = 0.00015242; f =     42903746.9155181
+lambda = 5.0805e-05; f =     59499213.5960881
+lambda = 1.6935e-05; f =     42407502.2536184
+lambda =  5.645e-06; f =     42250327.9596347
+lambda = 1.0913e-05; f =     42090745.9758469
+Norm of dx 1.2836e+05
 ih =
      1
 ----
-Improvement on iteration 3 =    95794.529627778
+Improvement on iteration 3 =   812990.245360836
 -----------------
 -----------------
-f at the beginning of new iteration,  46423373.4051976800
-x =       3.0823919     0.63432146      4.9992316     -17.799654     -707.16105    0.074063538     -3.3433111     -5.7180815
-p =      0.48779879     0.76014551     0.98038456    0.010779337      49.992251
-     0.80544223     0.02085719      1.0672755
-Predicted improvement: 18429470523.745422000
-lambda =          1; f =     46423408.1669792
-lambda =    0.33333; f =     46423408.1669792
-lambda =    0.11111; f =     46423408.1669792
-lambda =   0.037037; f =     46423408.1669792
-lambda =   0.012346; f =     46423408.1669792
-lambda =  0.0041152; f =     46423408.1669792
-lambda =  0.0013717; f =     46423408.1669792
-lambda = 0.00045725; f =    140700258.6535541
-lambda = 0.00015242; f =     48377104.1519579
-lambda = 5.0805e-05; f =     45491870.7486679
-Norm of dx      85682
+f at the beginning of new iteration,  42090745.9758469020
+x =       10.804929     0.41786214      4.9070242     -15.477079     -707.21527     0.13279049     -3.3171042     -5.3694976     -13.352279
+p =      0.49893613     0.68584975     0.98003075    0.010769904      49.984586
+     0.84876965    0.021165746      1.0760665     0.61312607
+Predicted improvement: 4851625760.574996000
+lambda =          1; f = 127123151474.7505000
+lambda =    0.33333; f =  50252234804.9036250
+lambda =    0.11111; f =  42645479563.4020460
+lambda =   0.037037; f =  41826950246.4104000
+lambda =   0.012346; f =  48704826867.3850250
+lambda =  0.0041152; f =  70983383055.1627810
+lambda =  0.0013717; f = 161162863979.2921100
+lambda = 0.00045725; f =    776655271.2821894
+lambda = 0.00015242; f =     41453950.8252658
+Norm of dx      32058
 ih =
      1
 ----
-Improvement on iteration 4 =   931502.656529829
+Improvement on iteration 4 =   636795.150581151
 -----------------
 -----------------
-f at the beginning of new iteration,  45491870.7486678510
-x =       3.0729845     0.39367897      6.5352144     -21.078941     -707.96704    0.089577911     -4.9563199     -7.3077077
-p =      0.48772939      0.6763258     0.98430479     0.01055609      49.878488
-     0.81696104   0.0098767465      1.0415501
-Predicted improvement: 55252272743.373085000
-lambda =          1; f =     45491895.4141609
-lambda =    0.33333; f =     45491895.4141609
-lambda =    0.11111; f =     45491895.4141609
-lambda =   0.037037; f =     45491895.4141609
-lambda =   0.012346; f =     45491895.4141609
-lambda =  0.0041152; f =     45491895.4141609
-lambda =  0.0013717; f =     45491895.4141609
-lambda = 0.00045725; f =     59918124.0389767
-lambda = 0.00015242; f =     42841131.6866022
-lambda = 5.0805e-05; f =     41562894.6602781
-Norm of dx 2.7752e+05
+f at the beginning of new iteration,  41453950.8252657500
+x =       12.733974      2.6833056      5.7114383     -18.308851     -708.05989     0.12066409     -2.9727708     -3.6359124     -11.765765
+p =      0.49923268     0.95883658     0.98258286    0.010550654      49.865408
+     0.83989037    0.025930663      1.1611136     0.61688427
+Predicted improvement: 2259937494.503052700
+lambda =          1; f =     41453965.0831449
+lambda =    0.33333; f =     41453965.0831449
+lambda =    0.11111; f =     41453965.0831449
+lambda =   0.037037; f =     41453965.0831449
+lambda =   0.012346; f =     41453965.0831449
+lambda =  0.0041152; f =   2198857871.1600542
+lambda =  0.0013717; f =    112767730.5561657
+lambda = 0.00045725; f =    110202746.2366261
+lambda = 0.00015242; f =     42457336.7057738
+lambda = 5.0805e-05; f =     41311457.2638054
+Norm of dx      25980
 ih =
      1
 ----
-Improvement on iteration 5 =  3928976.088389777
+Improvement on iteration 5 =   142493.561460361
 -----------------
 -----------------
-f at the beginning of new iteration,  41562894.6602780740
-x =       3.0244271      0.1840508      10.221683     -30.917092      -710.7581    0.040166362      -13.81683     -8.7470885
-p =      0.48736183      0.5846002     0.98764806    0.010258724      49.487525
-     0.78014849   0.0013912561      1.0291222
-Correct for low angle: 0.00495548
-Predicted improvement: 581036204.453341010
+f at the beginning of new iteration,  41311457.2638053890
+x =       12.982608      2.6593334       6.094078     -19.311435     -708.44963      0.1303058     -2.5362198     -4.0176289      -11.56597
+p =      0.49926166     0.95832523     0.98346727    0.010495074      49.810557
+      0.8469536    0.034599062       1.133234     0.61746937
+Predicted improvement: 3327341092.527507300
+lambda =          1; f =     41311471.0306885
+lambda =    0.33333; f =     41311471.0306885
+lambda =    0.11111; f =     41311471.0306885
+lambda =   0.037037; f =     41311471.0306885
+lambda =   0.012346; f =     41311471.0306885
+lambda =  0.0041152; f =     41311471.0306885
+lambda =  0.0013717; f =     41311471.0306885
+lambda = 0.00045725; f =     63627485.5759449
+lambda = 0.00015242; f =     40653674.5882698
+Norm of dx      46137
+ih =
+     1
+----
+Improvement on iteration 6 =   657782.675535575
+-----------------
+-----------------
+f at the beginning of new iteration,  40653674.5882698150
+x =       12.545308      1.0389826      8.6139608     -25.076521     -710.95342     0.14865693      -1.872442     -3.5692028     -11.934412
+p =      0.49920953     0.85164456     0.98669778    0.010293846      49.460337
+     0.86032347    0.058461567      1.1668584     0.61641294
+Predicted improvement: 13913879007.945072000
+lambda =          1; f =     40653687.2895517
+lambda =    0.33333; f =     40653687.2895517
+lambda =    0.11111; f =     40653687.2895517
+lambda =   0.037037; f =     40653687.2895517
+lambda =   0.012346; f =     40653687.2895517
+lambda =  0.0041152; f =     40653687.2895517
+lambda =  0.0013717; f =     40653687.2895517
+lambda = 0.00045725; f =     40653687.2895517
+lambda = 0.00015242; f =     40653687.2895517
+lambda = 5.0805e-05; f =     45879420.1311151
+lambda = 1.6935e-05; f =     40770921.0910319
+lambda =  5.645e-06; f =     40573703.6937875
+Norm of dx 2.0001e+05
+ih =
+     1
+----
+Improvement on iteration 7 =    79970.894482352
+-----------------
+-----------------
+f at the beginning of new iteration,  40573703.6937874630
+x =       12.523866     0.79946961      9.0138585     -26.002001     -711.36892     0.14832596     -2.0297109     -3.6229639     -11.950904
+p =      0.49920684     0.80409899     0.98698167    0.010273323      49.402575
+     0.86008324    0.051061074      1.1622057      0.6163679
+Predicted improvement: 139281423.945193050
+lambda =          1; f =     40573716.6299094
+lambda =    0.33333; f =     40573716.6299094
+lambda =    0.11111; f =     40573716.6299094
+lambda =   0.037037; f =     40573716.6299094
 
 You are attempting to simulate/estimate a loglinear approximation of a model, but
 the steady state level of the following variables is not strictly positive:
- - CD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
- - UCD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
- - GammaD ( -  4  .  5 -7-232101858553830.3.3e68-2203159)
+ - CD ( -  0  .  0 -0-10856253131..74451783500558)
+ - UCD ( -  0  .  0 -0-10856253131..74451783500558)
+ - GammaD ( -  0  .  0 -0-10856253131..74451783500558)
 params =
   Columns 1 through 7
-    0.4998    0.9900    0.9900    1.0000    0.3013    0.0107    0.0003
-  Column 8
-   10.0000
+    0.4991    0.6788    0.5469    0.0102   41.0505    0.8275    0.0444
+  Columns 8 through 9
+    1.1421    0.6152
 Error: negative steady state
-lambda =          1; f =  10000000000.0000000
-
-You are attempting to simulate/estimate a loglinear approximation of a model, but
-the steady state level of the following variables is not strictly positive:
- - CD ( -  0  .  0 -0-101757373553.8.866211449175)
- - UCD ( -  0  .  0 -0-101757373553.8.866211449175)
- - GammaD ( -  0  .  0 -0-101757373553.8.866211449175)
-params =
-  Columns 1 through 7
-    0.4988    0.9900    0.9900    1.0000    2.0290    0.0836    0.0006
-  Column 8
-   10.0000
-Error: negative steady state
-lambda =    0.33333; f =  10000000000.0000000
-
-You are attempting to simulate/estimate a loglinear approximation of a model, but
-the steady state level of the following variables is not strictly positive:
- - CD ( - -0-3.3101.3.120319505748)
- - UCD ( - -0-3.3101.3.120319505748)
- - GammaD ( - -0-3.3101.3.120319505748)
-params =
-  Columns 1 through 7
-    0.4959    0.9896    0.9900    0.9987    9.2511    0.3552    0.0010
-  Column 8
-   10.0000
-Error: negative steady state
-lambda =    0.11111; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda =   0.037037; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
 lambda =   0.012346; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda =  0.0041152; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda =  0.0013717; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 0.00045725; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 0.00015242; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 5.0805e-05; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 1.6935e-05; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda =  5.645e-06; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 1.8817e-06; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 6.2723e-07; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 2.0908e-07; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 6.9692e-08; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 2.3231e-08; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 7.7435e-09; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = 2.5812e-09; f =  10000000000.0000000
+lambda =  0.0041152; f =   1825212018.3526113
+lambda =  0.0013717; f =   1825897027.1932762
+lambda = 0.00045725; f =   1826144023.3531737
+lambda = 0.00015242; f =   1826228088.3916147
+lambda = 5.0805e-05; f =   1826256295.8012400
+lambda = 1.6935e-05; f =   1826265718.7071259
+lambda =  5.645e-06; f =   1826268861.9290800
+lambda = 1.8817e-06; f =   1826269909.9203751
+lambda = 6.2723e-07; f =   1826270259.2767923
+lambda = 2.0908e-07; f =   1826270375.7355685
+lambda = 6.9692e-08; f =   1826270414.5500062
+lambda = 2.3231e-08; f =   1826270427.4995461
+lambda = 7.7435e-09; f =   1826270431.8094182
+lambda = 2.5812e-09; f =   1826270433.2401795
 lambda =
   -6.2723e-07
-Dynare got a steady state with Inf values. Why?
-lambda = -6.2723e-07; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = -2.0908e-07; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = -6.9692e-08; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = -2.3231e-08; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = -7.7435e-09; f =  10000000000.0000000
-Dynare got a steady state with Inf values. Why?
-lambda = -2.5812e-09; f =  10000000000.0000000
-Norm of dx      11095
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
+lambda = -6.2723e-07; f =   1826270608.6613383
+lambda = -2.0908e-07; f =   1826270492.1929483
+lambda = -6.9692e-08; f =   1826270453.3829479
+lambda = -2.3231e-08; f =   1826270440.4374926
+lambda = -7.7435e-09; f =   1826270436.1218200
+lambda = -2.5812e-09; f =   1826270434.6851444
+Norm of dx     5642.3
 ih = 1
 ----
-Improvement on iteration 6 =        0.000000000
+Improvement on iteration 8 =        0.000000000
 improvement < crit termination
 smallest step still improving too slow, reversed gradient
-[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta]
+[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]
 params =
   Columns 1 through 7
-    0.4874    0.5846    0.9876    0.0103   49.4875    0.7801    0.0014
-  Column 8
-    1.0291
+    0.4992    0.8041    0.9870    0.0103   49.4026    0.8601    0.0511
+  Columns 8 through 9
+    1.1622    0.6164
 x_start =
   Columns 1 through 7
     0.4633    0.6041    0.9800    0.0108   50.0000    0.6277    0.0221
-  Column 8
-    1.3858
-Total computing time : 0h00m12s
+  Columns 8 through 9
+    1.3858    0.9000
+Total computing time : 0h00m15s
 Note: warning(s) encountered in MATLAB/Octave code

@@ -42,8 +42,7 @@ irf_distance_sub = DDD'* inv(VVV) * DDD;
 %% Add growth rate
 ss = exp(oo_.steady_state);
 growth_rate = ss(1);
-alpha = 0.9;
 
-irf_distance = alpha * irf_distance_sub + (1-alpha) * (growth_rate - 1.0118)^2;
+irf_distance = irf_distance_sub + abs(growth_rate - 1.0118)*10e+08;
 
 % TODO: add more weight to the growth rate

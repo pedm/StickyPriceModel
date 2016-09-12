@@ -290,7 +290,7 @@ post_processing_irfs;
 post_processing_irfs_plot;                                                  
 post_processing_irfs_distance;                                              
 plot_var_irfs;                                                              
-x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta];
+x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar];
 x_start_unbounded = boundsINV(x_start);
 H0 = 1e-2*eye(length(x_start)); 
 H0 = 1e-1*eye(length(x_start)); 
@@ -310,6 +310,7 @@ set_param_value('psi_N', params(5) );
 set_param_value('rhozeta', params(6) );
 set_param_value('rhozeta2', params(7) );
 set_param_value('sigmazeta', params(8) );
+set_param_value('zetabar', params(9) );
 options_.irf = 11;
 options_.loglinear = 1;
 options_.nocorr = 1;
@@ -324,7 +325,7 @@ var_list_=[];
 info = stoch_simul(var_list_);
 post_processing_irfs;                                                       
 post_processing_irfs_plot;                                                  
-disp('[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta]')
+disp('[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
 params
 x_start
 save('endogenous_growth_results.mat', 'oo_', 'M_', 'options_');

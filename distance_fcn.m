@@ -20,7 +20,8 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('rhozeta', params(6) );
     set_param_value('rhozeta2', params(7) );
     set_param_value('sigmazeta', params(8) );
-    
+    set_param_value('zetabar', params(9) );
+
     try
         % Dynare command - does not work in m file
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
@@ -41,12 +42,14 @@ function [ f ] = distance_fcn( params_unbounded )
         if sum(oo_.steady_state == Inf) > 0
             % Dynare got a steady state with Inf values
             disp('Dynare got a steady state with Inf values. Why?')
+            % params
+            % keyboard
             f = 10000000000;
         else
             f = irf_distance;
         end
     catch
-        params
+        % params
         disp('Error: negative steady state')
         
         % Dynare threw a command. Apply large penalty
