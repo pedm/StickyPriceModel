@@ -11,7 +11,7 @@ close all;
 %===================================================================%
 
 var
-
+%% comment
 % ENDOGENOUS VARIABLES
 g            ${g}$                         % notes ...
 ZD           ${Z_D}$                       % Total Measure of Technologies (adopted or not)
