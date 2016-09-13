@@ -27,10 +27,15 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     rhozeta2  = [];
     sigmazeta = [];
     zetabar   = [];
-    M         = [];
+    M_ss      = [];
     psi_N     = [];
     psi_I     = [];
     gg        = [];
+    R_nom_ss  = [];
+    gamma_pi  = [];
+    gamma_y  = [];
+    omega  = [];
+    theta  = [];
 
     %% Load the values of the structural parameters in a loop.
     
@@ -82,6 +87,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             
             % Eqn 5
             Pi = H - ( phi * Lambda * H ) ;
+            
+            M = M_ss;
             
             % Eqn 6
             YDW = Pi / ( (1/vartheta) * (1/M) );
@@ -202,6 +209,12 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
 	g_fcn   = 1;
 	f_fcn_prime = 1;
 	g_fcn_prime = 1;	
+    
+    % No inflation steady state
+    pi = 1;
+    pi_star = 1;
+    
+    x1D = UCD*(1/M)*YD / (1 - theta*beta*g^(1-rho)
     
     %% Save local parameter values to the M_ global
     % This is useful for any parameters that depend on the steady state

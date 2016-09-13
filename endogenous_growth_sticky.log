@@ -1,0 +1,154 @@
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
+Found 33 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+print_info.m',45,0)">line 45</a>)
+Blanchard Kahn conditions are not satisfied: indeterminacy
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 98)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\stoch_simul.m',98,0)">line 98</a>)
+    print_info(info, options_.noprint, options_);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 336)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',336,0)">line 336</a>)
+info = stoch_simul(var_list_);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
+evalin('base',fname) ;} 
+dynare endogenous_growth_sticky.mod
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Starting Dynare (version 4.4.3).
+Starting preprocessing of the model file ...
+Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
+Found 33 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...done
+Preprocessing completed.
+Starting MATLAB/Octave computing.
+
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
+be cleared because it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
+be cleared because it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
+it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
+be cleared because it contains MATLAB code that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: Some of the parameters have no value (gg, R_nom_ss) when using steady.
+If these parameters are not initialized in a steadystate file, Dynare may not be
+able to solve the model...] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 324)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',324,0)">line 324</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+
+STEADY-STATE RESULTS:
+
+g                 		 0.989848
+ZD                		 1.00159
+VD                		 0.00669447
+J                 		 2.08652
+H                 		 2.19909
+Pi                		 0.0957436
+ND                		 0.0139542
+YDW               		 0.313998
+YD                		 0.313998
+CD                		 0.267723
+Lambda            		 0.969846
+UCD               		 4.23204
+muD               		 10.0977
+L                 		 0.293659
+GammaD            		 0.342896
+KD                		 0.356076
+Q                 		 1
+ID                		 0.0323208
+zeta              		 1
+SD                		 2.90768
+XD                		 0.335236
+RD                		 0.0139542
+M                 		 1.31576
+pi                		 1
+pi_star           		 1
+x1D               		 1.94222
+x2D               		 2.55548
+R_nom             		 1.03109
+f_fcn             		 1
+f_fcn_prime       		 1
+g_fcn             		 1
+g_fcn_prime       		 1
+
+EIGENVALUES:
+         Modulus             Real        Imaginary
+
+       1.089e-16       -1.089e-16                0
+       2.273e-16       -2.273e-16                0
+       2.712e-16       -2.712e-16                0
+         0.00073          0.00073                0
+           0.548            0.548                0
+          0.5515           0.5515                0
+          0.7047           0.6973           0.1018
+          0.7047           0.6973          -0.1018
+          0.9311           0.9282          0.07224
+          0.9311           0.9282         -0.07224
+           0.994            0.994                0
+           1.042            1.042                0
+           1.055            1.055          0.02787
+           1.055            1.055         -0.02787
+            1.11             1.11                0
+           1.385            1.364            0.242
+           1.385            1.364           -0.242
+           1.889            1.889                0
+           2.083            2.083                0
+           2.694            2.694                0
+       9.883e+16       -9.883e+16                0
+       1.046e+17        1.046e+17                0
+        3.52e+17        -3.52e+17                0
+       1.084e+18       -1.084e+18                0
+         9.4e+19          9.4e+19                0
+       7.151e+23       -7.151e+23                0
+
+
+There are 15 eigenvalue(s) larger than 1 in modulus 
+for 16 forward-looking variable(s)
+
+The rank condition ISN'T verified!
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print_info', 'C:\dynare\4.4.3\matlab\print_info.m', 45)" style="font-weight:bold">print_info</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\

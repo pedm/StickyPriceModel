@@ -26,7 +26,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 6
-{\Pi}_{t}=\frac{1}{\vartheta}\, \frac{1}{\mathcal{M}}\, {Y^W_D}_{t}
+{\Pi}_{t}=\frac{1}{\vartheta}\, \frac{1}{\mathcal{M}_{t}}\, {Y^W_D}_{t}
 \end{dmath}
 \begin{dmath}
 % Equation 7
@@ -58,7 +58,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 14
-\left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}\, {\Gamma_D}_{t}\, \chi\, {L}_{t}^{\epsilon}\, \frac{1}{{U_{CD}}_{t}}=\left(1-\alpha\right)\, \frac{1}{\mathcal{M}}\, \frac{\vartheta-1}{\vartheta}\, \frac{{Y_D}_{t}}{{L}_{t}}
+\left({C_D}_{t}-{\Gamma_D}_{t}\, \frac{\chi}{1+\epsilon}\, {L}_{t}^{1+\epsilon}\right)^{\left(-\rho\right)}\, {\Gamma_D}_{t}\, \chi\, {L}_{t}^{\epsilon}\, \frac{1}{{U_{CD}}_{t}}=\left(1-\alpha\right)\, \frac{1}{\mathcal{M}_{t}}\, \frac{\vartheta-1}{\vartheta}\, \frac{{Y_D}_{t}}{{L}_{t}}
 \end{dmath}
 \begin{dmath}
 % Equation 15
@@ -74,7 +74,7 @@
 \end{dmath}
 \begin{dmath}
 % Equation 18
-{Q}_{t}={\Lambda}_{t+1}\, \left(\frac{\alpha\, {g}_{t}\, \left(\vartheta-1\right)\, {Y^W_D}_{t+1}}{\vartheta\, \mathcal{M}\, {K_D}_{t}}+\left(1-\delta\right)\, {Q}_{t+1}\right)
+{Q}_{t}={\Lambda}_{t+1}\, \left(\frac{\alpha\, {g}_{t}\, \left(\vartheta-1\right)\, {Y^W_D}_{t+1}}{\vartheta\, \mathcal{M}_{t}\, {K_D}_{t}}+\left(1-\delta\right)\, {Q}_{t+1}\right)
 \end{dmath}
 \begin{dmath}
 % Equation 19
@@ -110,6 +110,30 @@ log\left({\zeta}_{t}\right)={\sigma}_{\zeta}\, {\epsilon}^{\chi}_{t}+{\rho}_{\ze
 \end{dmath}
 \begin{dmath}
 % Equation 27
+{\pi}_{t}^{1-{\omega}}={\theta}+\left(1-{\theta}\right)\, {\pi^*}_{t}^{1-{\omega}}
+\end{dmath}
+\begin{dmath}
+% Equation 28
+{\pi^*}_{t}={\pi}_{t}\, \frac{{\omega}}{{\omega}-1}\, \frac{{x_{1D}}_{t}}{{x_{2D}}_{t}}
+\end{dmath}
+\begin{dmath}
+% Equation 29
+{x_{1D}}_{t}={Y_D}_{t}\, \frac{1}{\mathcal{M}_{t}}\, {U_{CD}}_{t}+\beta\, {\theta}\, {g}_{t}^{1-\rho}\, {\pi}_{t+1}^{{\omega}}\, {x_{1D}}_{t+1}
+\end{dmath}
+\begin{dmath}
+% Equation 30
+{x_{2D}}_{t}={Y_D}_{t}\, {U_{CD}}_{t}+\beta\, {\theta}\, {g}_{t}^{1-\rho}\, {\pi}_{t+1}^{{\omega}-1}\, {x_{2D}}_{t+1}
+\end{dmath}
+\begin{dmath}
+% Equation 31
+1=\frac{{\Lambda}_{t+1}\, {R}_{t}}{{\pi}_{t+1}}
+\end{dmath}
+\begin{dmath}
+% Equation 32
+\frac{{R}_{t}}{{R^{ss}}}={\pi}_{t}^{{{\gamma}_{\pi}}}\, \left(\frac{\frac{1}{\mathcal{M}_{t}}}{\frac{1}{\{mathcal{M}^{ss}}}}\right)^{{{\gamma}_{y}}}
+\end{dmath}
+\begin{dmath}
+% Equation 33
 AUX\_ENDO\_LAG\_18\_1_{t}={\zeta}_{t-1}
 \end{dmath}
 \end{document}

@@ -1,7 +1,7 @@
-% Flex Price Model of Endogenous Growth
+% Sticky Price Model of Endogenous Growth  
 % August/Sept 2016 Update
 % Includes Jaimovich-Rebelo Preferences, a simplified innovation sector, and adjustment costs
-% Requires endogenous_growth_steadystate.m
+% Requires endogenous_growth_sticky_steadystate.m
 
 % If you comment out this command, this code will plot the IRFs on top of your previous plots
 % close all;
@@ -11,10 +11,10 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
-%% comment
+
 % ENDOGENOUS VARIABLES
 g            ${g}$                         % notes ...
 ZD           ${Z_D}$                       % Total Measure of Technologies (adopted or not)
@@ -38,6 +38,14 @@ zeta         ${\zeta}$                     %
 SD           ${\mathcal{S}_{D}}$           % 
 XD           ${X_D}$                       % 
 RD           ${\mathcal{R}_{D}}$           % 
+
+% Sticky Price Variables
+M            $\mathcal{M}$                 % Markup
+pi           ${\pi}$                       % Inflation
+pi_star      ${\pi^*}$                     % Inflation in the optimal reset price (or is it slighly different? in eqn 213, P_t-1 is not P*_t-1)
+x1D          ${x_{1D}}$                    % Simplification 1 used in Optimal Reset Price
+x2D          ${x_{2D}}$                    % Simplification 2 used in Optimal Reset Price
+R_nom        ${R}$                         % R_t is nominal interest rate between t and t+1
 
 % "Functions"
 % Note: these are technically detrended
@@ -73,11 +81,18 @@ rhozeta2       ${\rho}_{\zeta2}$      % AR(2) parameter (after a minus sign)
 sigmazeta      ${\sigma}_{\zeta}$     % size of impulse on exogenous "innovation productivity" shock
 zetabar        $\overline{\zeta}$
 
-% NEW PARAMETERS
-M              $\mathcal{M}$          % Markup
+% NEW PARAMETERS (FLEX PRICE)
+M_ss           $\{mathcal{M}^{ss}}$   % Markup
 psi_N          $\psi_N$               % Magnitude of N adjustment cost
 psi_I          $\psi_I$               % Magniturde if I investment cost
 gg             $g^{BGP}$              % Steady state growth rate (seen in adjustment cost functions)
+
+% NEW PARAMETERS (STICKY PRICE)
+R_nom_ss       ${R^{ss}}$             % Nominal interest rate in steady state
+gamma_pi       ${{\gamma}_{\pi}}$
+gamma_y        ${{\gamma}_{y}}$
+omega          ${\omega}$
+theta          ${\theta}$
 ;
 
 %=========================================================================%
@@ -106,11 +121,16 @@ rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of 
 sigmazeta  = 1.0613; % 3.5;
 zetabar    = 0.4777;
 
-
 % NEW VARIABLES
-M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
-psi_N   = 21.8893;                           % Adjustment cost to N
-psi_I   = 1;                           % Adjustment cost to I
+% TODO: any suggested calibration?
+gamma_pi = .5;
+gamma_y  = .5;
+theta    = .5;
+
+omega    = 4.167;  
+M_ss     = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
+psi_N   = 21.8893;                      % Adjustment cost to N
+psi_I   = 1;                            % Adjustment cost to I
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
@@ -129,7 +149,6 @@ g = phi* (1 + lambda * (ZD + VD - 1));
 ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
 
 % 3. Innovators' production function. Q: Why is this not the supply curve of new firms?
-% PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
 VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta ;
 
 % 4. Euler equation for entrepreneurs
@@ -139,12 +158,9 @@ J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
 H = Pi + phi * ( Lambda(+1) * H(+1) );
 
 % 6. Profits per period
-% NOTE: in the flex price model, M is an endogenous var
 Pi = (1/vartheta) * (1/M) * YDW;
 
 % 7. Innovators' FOC wrt N
-% PAT'S MODIFICATION (I replace exp(zeta) with zeta to account for zeta being 1 in steady state)
-% log() added so that f_fcn can be 1 in ss
 zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 
 % 8. Aggregate production function
@@ -154,26 +170,18 @@ YD = YDW;
 YDW = ((KD(-1) / g(-1))^alpha) * L^(1-alpha);
 
 % 10. Resource constraint, with adjustment cost
-% log() added so that g_fcn can be 1 in ss
 YD = CD + (1 + log(g_fcn)) * ID + ND;
 
 % 11. HH's stochastic discount factor
 Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 
 % 12. Marginal utility of consumption
-% Make muD positive, multiply by -1
 UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
 % 13. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
-% Albert: equation 258 needs to be corrected - it will need a “g�? term as well.
-% To use dynare notation, here's the change C(+1) / Gamma = CD(+1) * g / GammaD
-% Original:
-% muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
-% New so that muD is positive
 muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
 % 14. Labor market equilibrium (eqn 259)
-% NOTE: in this equation, it seems that M is an exogenous param
 chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/M) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
 
 % 15. Labor disutility term
@@ -183,14 +191,9 @@ GammaD = (CD^gamma) * (GammaD(-1) / g(-1) )^(1-gamma);
 KD = (1-delta) * (KD(-1) / g(-1)) + ID ;
 
 % 17. Q-equation (capital producers)
-% log() added so that g_fcn can be 1 in ss
 Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * ((ID(+1) * g) / ID)^2 * log(g_fcn_prime(+1));
 
-% PREVIOUS: 17. Q-equation
-% Q = ((ID * g(-1) * (I_K_ss^-1)) / (KD(-1) )  )^varphi;
-
 % 18. Equation 263. Capital Euler Equation (perhaps?)
-% NOTE: in this equation, it seems that M is an exogenous param
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
@@ -216,6 +219,25 @@ f_fcn_prime = exp( psi_N * ((ND * g(-1) / ND(-1) ) - gg)   );
 g_fcn = exp( (psi_I / 2) * ((ID * g(-1) / ID(-1) ) - gg)^2 );
 g_fcn_prime = exp( psi_I * ((ID * g(-1) / ID(-1) ) - gg)   );
 
+%=========================STICKY PRICE EQNS===============================%
+
+% Pricing Equation
+pi ^(1-omega) = theta + (1-theta)*pi_star^(1-omega);
+
+% Optimal Pricing Equation 
+pi_star = (omega / (omega - 1)) * (x1D / x2D) * pi;
+
+% Simplifications used in the Optimal Pricing Equation
+x1D = UCD * (1/M) * YD + beta * theta * g^(1-rho) * pi(+1)^omega * x1D(+1);
+
+x2D = UCD * YD + beta * theta * g^(1-rho) * pi(+1)^(omega-1) * x2D(+1);
+
+% Euler Equation
+1 = Lambda(+1) * R_nom / pi(+1);
+
+% Taylor Rule
+R_nom / R_nom_ss = pi ^ gamma_pi * (  (1/M) / (1/M_ss)   )^gamma_y;
+
 end; 
 
 write_latex_dynamic_model;
@@ -236,7 +258,6 @@ stderr 1;
 end;
 
 steady;
-return
 check;
 
 % Set seed for simulation
