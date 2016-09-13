@@ -210,10 +210,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
 	f_fcn_prime = 1;
 	g_fcn_prime = 1;	
     
-    % No inflation steady state
+    % Zero inflation steady state
     pi = 1;
     pi_star = 1;
-    
     x1D = UCD*(1/M)*YD / (1 - theta*beta*g^(1-rho)*pi^omega);
     x2D = UCD*YD / (1 - theta*beta*g^(1-rho)*pi^(omega-1));
     R_nom = pi / Lambda;

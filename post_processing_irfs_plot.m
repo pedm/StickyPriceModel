@@ -11,8 +11,8 @@ catch
     figure('name', 'original vars');
     suptitle('Unmodified Dynare IRFs (Detrended)');
 end
-for ii = 1:26;
-    subplot(6,5,ii);
+for ii = 1:32;
+    subplot(6,6,ii);
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
     hold off;
@@ -39,8 +39,8 @@ catch
     figure('name', 'un detrended vars');
     suptitle('Modified IRFs (With Trend Added)');
 end
-for ii = 27:size(IR_dynare,1);
-    subplot(4,4,ii-26);
+for ii = 33:size(IR_dynare,1);
+    subplot(4,4,ii-32);
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
     hold off;

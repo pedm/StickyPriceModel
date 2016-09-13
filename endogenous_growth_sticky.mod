@@ -123,8 +123,8 @@ zetabar    = 0.4777;
 
 % NEW VARIABLES
 % TODO: any suggested calibration?
-gamma_pi = .5;
-gamma_y  = .5;
+gamma_pi = 2;
+gamma_y  = 2;
 theta    = .5;
 
 omega    = 4.167;  
