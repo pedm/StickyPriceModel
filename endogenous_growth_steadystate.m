@@ -69,7 +69,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             zeta = 1;
             
             % Eqn 3
-            ND = (      VD / (zeta * zetabar * ZD ^ (1-eta))      )^(1/eta);
+            ND = (      VD / (zeta * zetabar * ZD ^ (1-eta))      )^(1/(eta));
             
             % Eqn 11
             Lambda = beta * g^(-rho);
@@ -208,6 +208,10 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     
     % Currently, only parameter that depends on the ss is gg
     gg = g_sol;
+    
+    if gg>=1.5
+        disp('g in steady state > 1.5')
+    end
     
     for iter = 1:length(M_.params) %update parameters set in the file
       eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])

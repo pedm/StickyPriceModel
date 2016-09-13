@@ -10,38 +10,8 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-              0        0.918394       -0.106992       -0.061872        0.007887        0.933897        0.007887        0.007887       -0.046559        0.048738        0.048738        0.069233        0.011771       -0.018768       -0.001856       -0.013329       -0.016323               0       -0.027628        0.165025        0.933897               0       -1.426862               0       -0.016575
-ID(-1)                      0.000003               0        0.004557       -0.079967       -0.068102        0.014579        0.004634        0.014579        0.014579       -0.066106        0.075250        0.075250        0.081869        0.021760       -0.026647        0.072129       -0.151257        0.634490               0       -0.070302       -0.058275        0.004634               0        0.100023               0       -0.371151
-epsilon_chi                 0.000729               0        0.983290       -0.043736       -0.023376        0.000467        0.094356        0.000467        0.000467       -0.005310        0.004785        0.004785        0.009997        0.000697       -0.002141       -0.000003        0.001508       -0.000027        0.890500        0.000725        0.112163        0.094356               0        2.036704               0       -0.000027
-dynare endogenous_growth.mod
-
-Configuring Dynare ...
-[mex] Generalized QZ.
-[mex] Sylvester equation solution.
-[mex] Kronecker products.
-[mex] Sparse kronecker products.
-[mex] Local state space iteration (second order).
-[mex] Bytecode evaluation.
-[mex] k-order perturbation solver.
-[mex] k-order solution simulation.
-[mex] Quasi Monte-Carlo sequence (Sobol).
-[mex] Markov Switching SBVAR.
-
-Starting Dynare (version 4.4.1).
-Starting preprocessing of the model file ...
-Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
-Found 27 equation(s).
-Evaluating expressions...done
-Computing static model derivatives:
- - order 1
-Computing dynamic model derivatives:
- - order 1
-Processing outputs ...done
-Preprocessing completed.
-Starting MATLAB/Octave computing.
-
-[Warning: Some of the parameters have no value (gg) when using steady. If these parameters are
-not initialized in a steadystate file, Dynare may not be able to solve the model...] 
+[Warning: Some of the parameters have no value (gg) when using steady. If these parameters are not
+initialized in a steadystate file, Dynare may not be able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.1\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.1\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\steady.m',33,0)">line 33</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth', 'P:\Patrick\endogenous_growth.m', 277)" style="font-weight:bold">endogenous_growth</a> (<a href="matlab: opentoline('P:\Patrick\endogenous_growth.m',277,0)">line 277</a>)
@@ -49,90 +19,93 @@ not initialized in a steadystate file, Dynare may not be able to solve the model
 
 STEADY-STATE RESULTS:
 
-g                 		 1.01543
-ZD                		 7.1313
-VD                		 0.185452
-J                 		 0.0933632
-H                 		 1.5501
-Pi                		 0.0995705
-ND                		 0.0170269
-YDW               		 0.326549
-YD                		 0.326549
-CD                		 0.273633
-Lambda            		 0.945408
-UCD               		 3.70478
-muD               		 2.15317
-L                 		 0.334545
-GammaD            		 0.267497
-KD                		 0.315695
+g                 		 0.989848
+ZD                		 1.00159
+VD                		 0.00669447
+J                 		 2.08652
+H                 		 2.19909
+Pi                		 0.0957436
+ND                		 0.0139542
+YDW               		 0.313998
+YD                		 0.313998
+CD                		 0.267723
+Lambda            		 0.969846
+UCD               		 4.23204
+muD               		 10.0977
+L                 		 0.293659
+GammaD            		 0.342896
+KD                		 0.356076
 Q                 		 1
-ID                		 0.0358882
+ID                		 0.0323208
 zeta              		 1
-SD                		 2.87109
-XD                		 0.415544
-RD                		 0.0170269
+SD                		 2.90768
+XD                		 0.335236
+RD                		 0.0139542
 f_fcn             		 1
 f_fcn_prime       		 1
 g_fcn             		 1
 g_fcn_prime       		 1
-
-EIGENVALUES:
-         Modulus             Real        Imaginary
-
-       6.136e-17        6.136e-17                0
-       8.775e-16       -8.775e-16                0
-       5.628e-14        5.628e-14                0
-             0.1              0.1                0
-          0.3834           0.3834                0
-          0.7919           0.7854            0.101
-          0.7919           0.7854           -0.101
-          0.9416           0.9401          0.05261
-          0.9416           0.9401         -0.05261
-               1                1                0
-           1.042            1.042                0
-           1.084            1.084                0
-           1.084            1.083          0.05257
-           1.084            1.083         -0.05257
-           1.365            1.332           0.2954
-           1.365            1.332          -0.2954
-           2.022            2.022                0
-       3.449e+15        3.449e+15                0
-             Inf             -Inf                0
-             Inf              Inf                0
-             Inf              Inf                0
-             Inf              Inf                0
-             Inf              Inf                0
+set_param_value('eta', params(1) );
+{Undefined function or variable 'params'.
+} 
+set_param_value('eta', 0.95 );
+steady
 
 
-There are 13 eigenvalue(s) larger than 1 in modulus 
-for 13 forward-looking variable(s)
-
-The rank condition is verified.
 
 
-MODEL SUMMARY
+Residuals of the static equations:
 
-  Number of variables:         27
-  Number of stochastic shocks: 1
-  Number of state variables:   10
-  Number of jumpers:           13
-  Number of static variables:  7
+Equation number 1 : 0
+Equation number 2 : 8388608
+Equation number 3 : -150994944
+Equation number 4 : 0
+Equation number 5 : 0
+Equation number 6 : 0
+Equation number 7 : 0
+Equation number 8 : 0
+Equation number 9 : 0
+Equation number 10 : 233.2258
+Equation number 11 : 0
+Equation number 12 : 0
+Equation number 13 : NaN
+Equation number 14 : 0
+Equation number 15 : 0
+Equation number 16 : 0
+Equation number 17 : 0
+Equation number 18 : 0
+Equation number 19 : 0
+Equation number 20 : 0
+Equation number 21 : 0
+Equation number 22 : 0
+Equation number 23 : NaN
+Equation number 24 : Inf
+Equation number 25 : NaN
+Equation number 26 : NaN
 
 
-MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print_info', 'C:\dynare\4.4.1\matlab\print_info.m', 82)" style="font-weight:bold">print_info</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\print_info.m',82,0)">line 82</a>)
+Some updated params are complex
 
-Variables     epsilon_chi 
-epsilon_chi       1.000000
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resid', 'C:\dynare\4.4.1\matlab\resid.m', 112)" style="font-weight:bold">resid</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\resid.m',112,0)">line 112</a>)
+    print_info(info,options_.noprint, options_)
 
-POLICY AND TRANSITION FUNCTIONS
-                        g                ZD               VD               J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
-Constant                    1.015435        7.131300        0.185452        0.093363        1.550095        0.099570        0.017027        0.326549        0.326549        0.273633        0.945408        3.704781        2.153175        0.334545        0.267497        0.315695        1.000000        0.035888        1.000000        2.871087        0.415544        0.017027        1.000000        1.000000        1.000000        1.000000
-g(-1)                      -0.029168       -1.000000       -0.900540        0.344193        0.233134       -0.100974       -0.898861       -0.100974       -0.100974       -0.043291       -0.971681        0.028319        0.602768        0.341830       -0.614351       -0.904762        0.497836       -0.162226               0       -0.064266        0.146739       -0.898861               0        2.183115               0        0.850705
-ZD(-1)                      0.027738        0.974755       -0.057845       -0.272511       -0.203551       -0.000587       -0.075276       -0.000587       -0.000587        0.010828       -0.009103       -0.009103       -0.022158       -0.000876        0.004365       -0.005932       -0.045583       -0.052186               0       -0.007438       -0.425574       -0.075276               0       -1.624847               0       -0.052991
-UCD(-1)                            0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                 -0.000024               0       -0.032823       -0.378931       -0.384133       -0.357563       -0.033377       -0.357563       -0.357563       -0.380704        0.387001        0.387001       -0.439751       -0.533677        0.443438       -0.038075       -0.322619       -0.334930               0       -0.385154       -0.415007       -0.033377               0       -0.720454               0       -0.340100
-KD(-1)                      0.000052               0        0.069755        0.501266        0.489795        0.436673        0.070933        0.436673        0.436673        0.525553       -0.529970       -0.529970       -0.291386        0.159214        0.211850        0.878650        0.036133       -0.067473               0        0.554980        0.598114        0.070933               0        1.531107               0       -0.068515
-zeta(-1)                    0.000995               0        1.341917       -0.510024       -0.164770        0.000596        0.246000        0.000596        0.000596       -0.019502        0.015570        0.015570        0.042151        0.000890       -0.007861        0.004252        0.017721        0.037404        1.100000        0.102471        1.973864        0.246000               0        5.309989               0        0.037981
-zeta(-2)                   -0.000092               0       -0.123754        0.050866        0.016386       -0.000056       -0.024155       -0.000056       -0.000056        0.001930       -0.001535       -0.001535       -0.004185       -0.000084        0.000778       -0.000428       -0.001790       -0.003763       -0.100000       -0.010262       -0.197372       -0.024155               0       -0.521386               0       -0.003821
-VD(-1)                      0.000718        0.025245       -0.001498       -0.007058       -0.005272       -0.000015       -0.001950       -0.000015       -0.000015        0.000280       -0.000236       -0.000236       -0.000574       -0.000023        0.000113       -0.000154       -0.001181       -0.001352               0       -0.000193       -0.011022       -0.001950               0       -0.042081               0       -0.001372
-ND(-1)                      0.000681 
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.1\matlab\steady.m', 90)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.1\matlab\steady.m',90,0)">line 90</a>)
+        resid;
+} 
+set_param_value('eta', 0.99 );
+steady
+
+STEADY-STATE RESULTS:
+
+g                 		 0.999519
+ZD                		 1.0057
+VD                		 0.0245442
+J                 		 2.05193
+H                 		 2.18616
+Pi                		 0.115414
+ND                		 0.0498594
+YDW               		 0.378507
+YD                		 0.378507
+CD                		 0.288573
+L

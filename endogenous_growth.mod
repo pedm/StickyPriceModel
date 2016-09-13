@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 0; % if 0, just simulate
+do_estimate = 1; % if 0, just simulate
 
 var
 %% comment
@@ -95,21 +95,21 @@ chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-gamma  = 0.4031;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.9898;       % 0.875;                   % Survival rate of technologies
-eta    = 0.9834;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-lambda = 0.0041;       % 0.075;                   % Adoption probability
+eta    = 0.999;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
+gamma  = 0.0396;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.9862;       % 0.875;                   % Survival rate of technologies
+lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta    = 0.7012; % 0.5; 
+rhozeta    = 0.5487; % 0.5; 
 rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
-sigmazeta  = 0.8905; % 3.5;
-zetabar    = 9.8530;
+sigmazeta  = 1.0613; % 3.5;
+zetabar    = 0.4777;
 
 
 % NEW VARIABLES
 M       = 4.167 / (4.167 - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
-psi_N   = 21.2572;                           % Adjustment cost to N
+psi_N   = 21.8893;                           % Adjustment cost to N
 psi_I   = 1;                           % Adjustment cost to I
 
 % Note: gg is not set here, as it depends on the steady state. 
@@ -236,6 +236,7 @@ stderr 1;
 end;
 
 steady;
+return
 check;
 
 % Set seed for simulation
@@ -293,7 +294,7 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
-nit = 50;
+nit = 500;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
