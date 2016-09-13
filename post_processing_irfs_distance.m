@@ -36,6 +36,9 @@ pvarcoirfs.se_scaled = pvarcoirfs.se*100;
 % drop table rows with 0 standard errors
 pvarcoirfs(pvarcoirfs.se == 0, :) = [];
 
+% drop sp 
+pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :) = [];
+
 % Calculate the distance between irfs
 % Use same formula as CEE
 DDD = pvarcoirfs.irf - pvarcoirfs.model;

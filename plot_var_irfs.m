@@ -24,9 +24,10 @@ end
 jj = 1;
    subplot(2,2,jj);
    hold on;
-   plot( pvar_irf_rd, 'k--', 'linewidth', 2); hold on;
    plot( pvar_irf_rd + pvar_irf_rd_se, 'k:', 'linewidth', 1.66); 
    plot( pvar_irf_rd - pvar_irf_rd_se, 'k:', 'linewidth', 1.66);
+   plot( pvar_irf_rd, 'k--', 'linewidth', 2); hold on;
+
    hold off;
    axis tight;
    jj = jj + 1;
@@ -38,27 +39,29 @@ jj = 1;
 
    subplot(2,2,jj);
    hold on;
-   plot( pvar_irf_tfp, 'k--', 'linewidth', 2); 
    plot( pvar_irf_tfp + pvar_irf_tfp_se, 'k:', 'linewidth', 1.66);
    plot( pvar_irf_tfp - pvar_irf_tfp_se, 'k:', 'linewidth', 1.66);
+   plot( pvar_irf_tfp, 'k--', 'linewidth', 2); 
+
    hold off;
    axis tight;
    jj = jj + 1;
 
    subplot(2,2,jj);
    hold on;
-   plot( pvar_irf_gdp, 'k--', 'linewidth', 2); 
    plot( pvar_irf_gdp + pvar_irf_gdp_se, 'k:', 'linewidth', 1.66); 
    plot( pvar_irf_gdp - pvar_irf_gdp_se, 'k:', 'linewidth', 1.66);
+   plot( pvar_irf_gdp, 'k--', 'linewidth', 2); 
+
    hold off;
    axis tight;
    jj = jj + 1;
 
    subplot(2,2,jj);
-   hold on;
-   plot( pvar_irf_sp, 'k--', 'linewidth', 2);   
+   hold on;  
    plot( pvar_irf_sp + pvar_irf_sp_se, 'k:', 'linewidth', 1.66); 
    plot( pvar_irf_sp - pvar_irf_sp_se, 'k:', 'linewidth', 1.66);
+   plot( pvar_irf_sp, 'k--', 'linewidth', 2); 
    hold off;
    axis tight;
   jj = jj + 1;

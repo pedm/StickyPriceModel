@@ -10,69 +10,9 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-.000104        0.000033       -0.000773        0.000365        0.548700        0.009239        0.108657        0.050953       -0.000586        0.005620        0.011241        0.025261        0.019640        0.006323               0        1.104000               0        0.000361
-zeta(-2)                   -0.000001               0       -0.000437        0.000006        0.000006               0       -0.000037               0               0        0.000002       -0.000002       -0.000002       -0.000004               0               0               0               0               0       -0.000400       -0.000007       -0.000079       -0.000037               0       -0.000004       -0.000008       -0.000018       -0.000014       -0.000005               0       -0.000805               0               0
-VD(-1)                      0.001644        0.003685        0.000535       -0.002809       -0.002657        0.001748        0.000532        0.000744        0.000744        0.000793       -0.000599       -0.000599        0.000626        0.001111        0.000031        0.000039       -0.001341        0.000434               0        0.001413        0.008214        0.000532       -0.001004        0.001501        0.003002        0.004140        0.002639        0.002705               0        0.011519               0        0.000429
-ND(-1)                      0.002880               0        0.966798       -0.069358       -0.065813        0.007037        0.967766        0.002030        0.002030       -0.045727        0.054515        0.054515        0.050456        0.003030       -0.001811       -0.001754       -0.012063       -0.019328               0        0.024343        0.620831        0.967766       -0.005007        0.041220        0.082441        0.211199        0.169978        0.047229               0       -0.698415               0       -0.019132
-ID(-1)                      0.000034               0        0.011407       -0.069708       -0.064930        0.070005        0.011418        0.032471        0.032471       -0.040890        0.072207        0.072207        0.023007        0.048464       -0.001619        0.058930       -0.133017        0.649232               0       -0.059559       -0.008851        0.011418       -0.037534        0.027545        0.055091        0.106604        0.079058        0.072587               0        0.247405               0       -0.347207
-epsilon_chi                 0.003455               0        1.159821       -0.016285       -0.015430        0.001249        0.098620        0.000117        0.000117       -0.005088        0.005291        0.005291        0.011409        0.000175       -0.000201        0.000064       -0.001494        0.000706        1.061300        0.017887        0.210392        0.098620       -0.001132        0.010881        0.021762        0.048906        0.038025        0.012239               0        2.136805               0        0.000699
-dynare endogenous_growth_sticky.mod
-
-Configuring Dynare ...
-[mex] Generalized QZ.
-[mex] Sylvester equation solution.
-[mex] Kronecker products.
-[mex] Sparse kronecker products.
-[mex] Local state space iteration (second order).
-[mex] Bytecode evaluation.
-[mex] k-order perturbation solver.
-[mex] k-order solution simulation.
-[mex] Quasi Monte-Carlo sequence (Sobol).
-[mex] Markov Switching SBVAR.
-
-Starting Dynare (version 4.4.3).
-Starting preprocessing of the model file ...
-Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
-Found 33 equation(s).
-Evaluating expressions...done
-Computing static model derivatives:
- - order 1
-Computing dynamic model derivatives:
- - order 1
-Processing outputs ...done
-Preprocessing completed.
-Starting MATLAB/Octave computing.
-
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: Some of the parameters have no value (gg, R_nom_ss) when using steady.
-If these parameters are not initialized in a steadystate file, Dynare may not be
-able to solve the model...] 
+[Warning: Some of the parameters have no value (gg, R_nom_ss) when using
+steady. If these parameters are not initialized in a steadystate file,
+Dynare may not be able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 324)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',324,0)">line 324</a>)
@@ -105,8 +45,8 @@ RD                		 0.0139542
 M                 		 1.31576
 pi                		 1
 pi_star           		 1
-x1D               		 1.94222
-x2D               		 2.55548
+x1D               		 4.0052
+x2D               		 5.26987
 R_nom             		 1.03109
 f_fcn             		 1
 f_fcn_prime       		 1
@@ -116,32 +56,32 @@ g_fcn_prime       		 1
 EIGENVALUES:
          Modulus             Real        Imaginary
 
-       9.879e-17       -9.879e-17                0
-        8.78e-16         8.78e-16                0
-       8.918e-14       -8.918e-14                0
+       1.116e-16        1.116e-16                0
+       3.598e-16        3.598e-16                0
+       4.382e-14       -4.382e-14                0
          0.00073          0.00073                0
            0.548            0.548                0
-          0.5518           0.5518                0
-          0.6009           0.6009                0
-          0.9288           0.9255          0.07887
-          0.9288           0.9255         -0.07887
-          0.9946           0.9946                0
+          0.5514           0.5514                0
+           0.802            0.802                0
+          0.9001            0.892           0.1206
+          0.9001            0.892          -0.1206
+          0.9974           0.9974                0
            1.042            1.042                0
-           1.055            1.055          0.02812
-           1.055            1.055         -0.02812
+           1.056            1.055          0.02958
+           1.056            1.055         -0.02958
+            1.07            1.039           0.2551
+            1.07            1.039          -0.2551
             1.11             1.11                0
-            1.26             1.26                0
-           1.396            1.375           0.2436
-           1.396            1.375          -0.2436
-           1.889            1.889                0
-           2.083            2.083                0
-            4.45             4.45                0
-       1.438e+17       -1.438e+17                0
-       2.694e+18        2.694e+18                0
-       6.084e+18       -6.084e+18                0
-        8.85e+19         8.85e+19                0
-       2.617e+21       -2.617e+21                0
-       1.256e+25        1.256e+25                0
+           1.337            1.337                0
+           1.363            1.355            0.152
+           1.363            1.355           -0.152
+           1.888            1.888                0
+       3.954e+17        3.954e+17                0
+       1.138e+18       -1.138e+18                0
+       5.497e+18        5.497e+18                0
+       2.314e+19        2.314e+19                0
+       4.597e+22       -4.597e+22                0
+       3.127e+24       -3.127e+24                0
 
 
 There are 16 eigenvalue(s) larger than 1 in modulus 
@@ -166,10 +106,168 @@ epsilon_chi       1.000000
 
 POLICY AND TRANSITION FUNCTIONS
                         g                ZD               VD               J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               M                pi               pi_star          x1D              x2D              R_nom            f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
-Constant                   -0.010204        0.001587       -5.006473        0.735499        0.788044       -2.346082       -4.271974       -1.158369       -1.158369       -1.317803       -0.030618        1.442684        2.312306       -1.225335       -1.070328       -1.032611               0       -3.432045               0        1.067357       -1.092920       -4.271974        0.274412               0               0        0.663830        0.938241        0.030618               0               0               0               0
-g(-1)                      -0.448284       -1.000000       -0.880639        1.065663        1.029380       -0.133560       -0.880520        0.035451        0.035451        0.075931       -1.139708       -0.139708        0.946041        0.545449       -0.957393       -0.900552        0.905839        0.095609               0        0.091434        0.250566       -0.880520        0.169011       -0.150188       -0.300376       -0.302644       -0.152456       -0.638397               0        2.588786               0        1.084486
-ZD(-1)                      0.444395        0.996315        0.126426       -0.850258       -0.814556        0.231321        0.125555        0.095945        0.095945        0.106993       -0.089008       -0.089008        0.127521        0.143202        0.004237       -0.000758       -0.454984       -0.008352               0        0.272329        2.017082        0.125555       -0.135376        0.158636        0.317272        0.377954        0.219318        0.588024               0        2.720418               0       -0.008267
+Constant                   -0.010204        0.001587       -5.006473        0.735499        0.788044       -2.346082       -4.271974       -1.158369       -1.158369       -1.317803       -0.030618        1.442684        2.312306       -1.225335       -1.070328       -1.032611               0       -3.432045               0        1.067357       -1.092920       -4.271974        0.274412               0               0        1.387595        1.662006        0.030618               0               0               0               0
+g(-1)                      -0.448485       -1.000000       -0.948066        0.471885        0.399485       -1.815084       -0.948014       -0.704695       -0.704695       -0.700395       -0.615852        0.384148        0.782305       -0.559246       -0.988136       -0.966893        0.257351       -0.635259               0       -0.548327       -0.373741       -0.948014        1.110390       -0.160299       -0.725335       -1.056988       -0.491952       -0.351488               0        1.126380               0        0.361038
+ZD(-1)                      0.444788        0.996315        0.258297       -0.274251       -0.202659        1.692865        0.257558        0.730902        0.730902        0.739494       -0.516553       -0.516553        0.445933        1.090898        0.029284        0.078433        0.098872        0.864094               0        0.894841        2.694938        0.257558       -0.961963        0.256504        1.160652        2.268203        1.364055        0.480952               0        5.580535               0        0.855322
 UCD(-1)                            0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                 -0.001075               0       -0.360895       -0.684559       -0.688795       -0.684563       -0.361257       -0.713179       -0.713179       -0.722169        0.757344        0.757344       -1.079085       -1.064446        0.931802       -0.071767       -0.353589       -0.790651               0       -1.008866       -3.729937       -0.361257       -0.028615        0.015593        0.031185       -0.010299       -0.025891        0.088416               0       -7.827377               0       -0.782624
-KD(-1)                      0.000417               0        0.139891        0.625696        0.622907        0.546919        0.140031        0.563499        0.563499        0.642423       -0.666596       -0.666596       -0.061461        0.348506        0.025440        0.917634        0.064305        0.092575               0        0.699191        0.897236        0.140031        0.016579       -0.049025       -0.098050       -0.244832       -0.195807       -0.131209               0        3.034056               0        0.091635
-zeta(-1)                    0.001785               0        0.599150       -0.008987       -0.008566       -0.000224        0.050500       -0.000285       -0.000285       -0.002905        0.002957        0.002957        0.005069       -0.000426       -0
+GammaD(-1)                 -0.001105               0       -0.370808       -0.625872       -0.628998       -0.477330       -0.371179       -0.619184       -0.619184       -0.606990        0.676893        0.676893       -1.120836       -0.924155        0.936363       -0.075090       -0.267432       -0.827265               0       -0.933155       -3.556106       -0.371179       -0.141854       -0.016842       -0.076210       -0.275074       -0.215707       -0.011078               0       -8.042358               0       -0.818866
+KD(-1)                      0.000218               0        0.073346        0.486316        0.475216        0.270621        0.073419        0.447577        0.447577        0.541328       -0.596610       -0.596610       -0.206855        0.175488        0.021437        0.894032       -0.039226       -0.167448               0        0.530029        0.543819        0.073419        0.176957       -0.110166       -0.498489       -1.224532       -0.836209       -0.182945               0        1.590779               0       -0.165748
+zeta(-1)                    0.001788               0        0.600264       -0.007930       -0.007500        0.000550        0.051616       -0.000041       -0.000041       -0.002848        0.002808        0.002808        0.007063       -0.000061       -0.000113        0.000083       -0.000809        0.000912        0.548700        0.010379        0.115388        0.051616       -0.000591        0.001661        0.007516        0.026003        0.020147        0.002551               0        1.118364               0        0.000903
+zeta(-2)                   -0.000001               0       -0.000438        0.000006        0.000005               0       -0.000038               0               0        0.000002       -0.000002       -0.000002       -0.000005               0               0               0               0               0       -0.000400       -0.000008       -0.000084       -0.000038               0       -0.000001       -0.000005       -0.000019       -0.000015       -0.000002               0       -0.000816               0               0
+VD(-1)                      0.001645        0.003685        0.000955       -0.001014       -0.000750        0.006262        0.000953        0.002703        0.002703        0.002735       -0.001911       -0.001911        0.001649        0.004035        0.000108        0.000290        0.000366        0.003196               0        0.003310        0.009968        0.000953       -0.003558        0.000949        0.004293        0.008390        0.005045        0.001779               0        0.020642               0        0.003164
+ND(-1)                      0.002889               0        0.969825       -0.066996       -0.063665        0.007471        0.970796        0.002009        0.002009       -0.045569        0.053827        0.053827        0.054330        0.002998       -0.001805       -0.002011       -0.011589       -0.022158               0        0.032178        0.674216        0.970796       -0.005462        0.009331        0.042223        0.178120        0.145228        0.014543               0       -0.632773               0       -0.021933
+ID(-1)                      0.000049               0        0.016451        0.009933        0.021370        0.315196        0.016467        0.140688        0.140688        0.069397        0.000206        0.000206        0.043474        0.209981        0.002748        0.071239       -0.038341        0.784839               0        0.021125        0.006907        0.016467       -0.174509        0.020523        0.092866        0.101881        0.029539        0.048236               0        0.356795               0       -0.212976
+epsilon_chi                 0.003459               0        1.161103       -0.015354       -0.014521        0.001053        0.099903       -0.000085       -0.000085       -0.005519        0.005438        0.005438        0.013675       -0.000126       -0.000219        0.000160       -0.001567        0.001762        1.061300        0.020091        0.223421        0.099903       -0.001138        0.003215        0.014550        0.050340        0.039006        0.004937               0        2.164611               0        0.001744
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9476829000
+x =       16.643324     -2.3610036      5.6114879      1.2639805     -1068.6954    -0.27871798     -28.708304     -1.8700127     -2.4109616
+p =           0.999         0.0396         0.9862         0.4466        21.8893
+         0.5487         0.0004         1.0613         0.4777
+Predicted improvement:        3.748159138
+lambda =          1; f =   2193500428.9478035
+lambda =    0.33333; f =   2193500428.9478035
+lambda =    0.11111; f =   2193500428.9478035
+lambda =   0.037037; f =   2193500429.5227356
+lambda =   0.012346; f =   2193500429.0326424
+lambda =  0.0041152; f =   2193500428.9392066
+lambda =  0.0013717; f =   2193500428.9399905
+lambda =  0.0026518; f =   2193500428.9373064
+Norm of dx    0.86581
+ih =
+     1
+----
+Improvement on iteration 1 =        0.010376453
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9373064000
+x =       16.643325     -2.3613751      5.6114246      1.2639144     -1068.6954    -0.27930267     -28.708304     -1.8701523     -2.4131442
+p =           0.999    0.039588985     0.98619992     0.44659609        21.8893
+     0.54830815         0.0004      1.0612305     0.47709313
+Predicted improvement:        0.283511442
+lambda =          1; f =   2193500429.7658782
+lambda =    0.33333; f =   2193500428.9978123
+lambda =    0.11111; f =   2193500428.9077840
+Norm of dx    0.24699
+ih =
+     1
+----
+Improvement on iteration 2 =        0.029522419
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9077840000
+x =       16.643325      -2.361106      5.6114863      1.2638919     -1068.6953     -0.3061254     -28.708304     -1.8759442      -2.413307
+p =           0.999    0.039596963         0.9862     0.44659476      21.889301
+       0.530527         0.0004      1.0583564     0.47704793
+Predicted improvement:        0.000211216
+lambda =          1; f =   2193500428.9074492
+lambda =     1.9332; f =   2193500428.9071784
+lambda =     3.7372; f =   2193500428.9067736
+Norm of dx  0.0063436
+ih =
+     1
+----
+Improvement on iteration 3 =        0.001010418
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9067736000
+x =        16.64327     -2.3628764       5.611762      1.2668036     -1068.6954    -0.31123867     -28.708304     -1.8530496     -2.4135005
+p =      0.99899999    0.039544512     0.98620036     0.44676655      21.889298
+     0.52718166         0.0004      1.0698395      0.4769942
+Predicted improvement:        0.002100377
+lambda =          1; f =   2193500428.9055409
+lambda =    0.33333; f =   2193500428.9059358
+Norm of dx   0.080607
+ih =
+     1
+----
+Improvement on iteration 4 =        0.001232624
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9055409000
+x =       16.643227     -2.3634124      5.6132204      1.2690553     -1068.6956    -0.33070869     -28.708304     -1.7748812     -2.4142147
+p =      0.99899999    0.039528653     0.98620229     0.44689889      21.889289
+     0.51457758         0.0004      1.1116405     0.47679601
+Predicted improvement:        0.000956635
+lambda =          1; f =   2193500428.9049835
+lambda =    0.33333; f =   2193500428.9052057
+Norm of dx   0.026961
+ih =
+     1
+----
+Improvement on iteration 5 =        0.000557423
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9049835000
+x =       16.643165     -2.3625845      5.6124395      1.2686626     -1068.6956    -0.32532031     -28.708304     -1.8012673        -2.4138
+p =      0.99899998    0.039553152     0.98620126     0.44687584      21.889292
+      0.5180443         0.0004       1.097064     0.47691107
+Predicted improvement:        0.000199503
+lambda =          1; f =   2193500428.9046841
+lambda =     1.9332; f =   2193500428.9045725
+Norm of dx  0.0081817
+ih =
+     1
+----
+Improvement on iteration 6 =        0.000411034
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9045725000
+x =       16.643138     -2.3604473      5.6127891      1.2671499     -1068.6956     -0.3308202     -28.708304     -1.7866749     -2.4138327
+p =      0.99899998    0.039616504     0.98620172     0.44678693       21.88929
+     0.51450601         0.0004      1.1050645       0.476902
+Predicted improvement:        0.000105083
+lambda =          1; f =   2193500428.9043941
+lambda =     1.9332; f =   2193500428.9043002
+Norm of dx   0.012086
+ih =
+     1
+----
+Improvement on iteration 7 =        0.000272274
+-----------------
+-----------------
+f at the beginning of new iteration, 2193500428.9043002000
+x =        16.64347     -2.3621866      5.6139387      1.2642796     -1068.6957    -0.33655847     -28.708304     -1.7643097     -2.4136178
+p =      0.99900002    0.039564936     0.98620324     0.44661768      21.889288
+     0.51083288         0.0004      1.1176202     0.47696163
+Predicted improvement:        0.000066507
+lambda =          1; f =   2193500428.9043717
+lambda =    0.33333; f =   2193500428.9043159
+lambda =    0.11111; f =   2193500428.9043045
+lambda =   0.037037; f =   2193500428.9043016
+lambda =   0.012346; f =   2193500428.9043007
+lambda =  0.0041152; f =   2193500428.9043007
+lambda =  0.0013717; f =   2193500428.9043002
+lambda = 0.00045725; f =   2193500428.9043002
+lambda = 0.00015242; f =   2193500428.9043002
+lambda = 5.0805e-05; f =   2193500428.9043002
+lambda = 1.6935e-05; f =   2193500428.9043002
+lambda =  5.645e-06; f =   2193500428.9043002
+lambda = 1.8817e-06; f =   2193500428.9043002
+lambda = 6.2723e-07; f =   2193500428.9043002
+lambda = 2.0908e-07; f =   2193500428.9043002
+lambda = 6.9692e-08; f =   2193500428.9043002
+lambda = 2.3231e-08; f =   2193500428.9043002
+lambda = 7.7435e-09; f =   2193500428.9043002
+lambda = 2.5812e-09; f =   2193500428.9043002
+lambda =
+  -6.2723e-07
+lambda = -6.2723e-07; f =   2193500428.9043002
+Norm of dx   0.010372
+ih = 1
+----
+Improvement on iteration 8 =        0.000000000
+improvement < crit termination
+[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]
+params =
+  Columns 1 through 7
+    0.9990    0.0396    0.9862    0.4466   21.8893    0.5108    0.0004
+  Columns 8 through 9
+    1.1176    0.4770
+x_start =
+  Columns 1 through 7
+    0.9990    0.0396    0.9862    0.4466   21.8893    0.5487    0.0004
+  Columns 8 through 9
+    1.0613    0.4777
+Total computing time : 0h00m14s
+Note: warning(s) encountered in MATLAB/Octave code
