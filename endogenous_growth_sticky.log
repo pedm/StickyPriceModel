@@ -10,63 +10,10 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-s_growth_sticky.mod
-
-Configuring Dynare ...
-[mex] Generalized QZ.
-[mex] Sylvester equation solution.
-[mex] Kronecker products.
-[mex] Sparse kronecker products.
-[mex] Local state space iteration (second order).
-[mex] Bytecode evaluation.
-[mex] k-order perturbation solver.
-[mex] k-order solution simulation.
-[mex] Quasi Monte-Carlo sequence (Sobol).
-[mex] Markov Switching SBVAR.
-
-Starting Dynare (version 4.4.3).
-Starting preprocessing of the model file ...
-Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
-Found 33 equation(s).
-Evaluating expressions...done
-Computing static model derivatives:
- - order 1
-Computing dynamic model derivatives:
- - order 1
-Processing outputs ...done
-Preprocessing completed.
-Starting MATLAB/Octave computing.
-
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared
-because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could
-not be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared
-because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could
-not be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared
-because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could
-not be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: Some of the parameters have no value (gg, R_nom_ss) when using
-steady. If these parameters are not initialized in a steadystate file,
-Dynare may not be able to solve the model...] 
+[Warning: Some of the parameters have no value (gg,
+R_nom_ss) when using steady. If these parameters
+are not initialized in a steadystate file, Dynare
+may not be able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 324)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',324,0)">line 324</a>)
@@ -172,27 +119,6 @@ VD(-1)                      0.001645        0.003685        0.000955       -0.00
 ND(-1)                      0.002889               0        0.969825       -0.066996       -0.063665        0.007471        0.970796        0.002009        0.002009       -0.045569        0.053827        0.053827        0.054330        0.002998       -0.001805       -0.002011       -0.011589       -0.022158               0        0.032178        0.674216        0.970796       -0.005462        0.009331        0.042223        0.178120        0.145228        0.014543               0       -0.632773               0       -0.021933
 ID(-1)                      0.000049               0        0.016451        0.009933        0.021370        0.315196        0.016467        0.140688        0.140688        0.069397        0.000206        0.000206        0.043474        0.209981        0.002748        0.071239       -0.038341        0.784839               0        0.021125        0.006907        0.016467       -0.174509        0.020523        0.092866        0.101881        0.029539        0.048236               0        0.356795               0       -0.212976
 epsilon_chi                 0.003459               0        1.161103       -0.015354       -0.014521        0.001053        0.099903       -0.000085       -0.000085       -0.005519        0.005438        0.005438        0.013675       -0.000126       -0.000219        0.000160       -0.001567        0.001762        1.061300        0.020091        0.223421        0.099903       -0.001138        0.003215        0.014550        0.050340        0.039006        0.004937               0        2.164611               0        0.001744
-{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('AbstractGlobalSolver/checkProblem', 'C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\AbstractGlobalSolver.m', 276)" style="font-weight:bold">AbstractGlobalSolver/checkProblem</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\AbstractGlobalSolver.m',276,0)">line 276</a>)
-Invalid solver in given PROBLEM structure. Valid solvers are: fmincon.
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('GlobalSearch/run', 'C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\GlobalSearch.m', 305)" style="font-weight:bold">GlobalSearch/run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\GlobalSearch.m',305,0)">line 305</a>)
-        obj.checkProblem(problem, probRequiredFields, probValidValues,
-        validSolvers);
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 356)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',356,0)">line 356</a>)
-[params_unbounded,f] = run(gs,problem)
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
-evalin('base',fname) ;} 
-problem = createOptimProblem('fmincon','objective',@distance_function,'x0',x_start_unbounded);
-gs = GlobalSearch;
-[params_unbounded,f] = run(gs,problem)
-{Undefined function or variable 'distance_function'.
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fmincon', 'C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\fmincon.p', 535)" style="font-weight:bold">fmincon</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\fmincon.p',535,0)">line 535</a>)
-      initVals.f = feval(funfcn{3},X,varargin{:});
-Error in globalsearchnlp
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('GlobalSearch/run', 'C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\GlobalSearch.m', 340)" style="font-weight:bold">GlobalSearch/run</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\globaloptim\globaloptim\GlobalSearch.m',340,0)">line 340</a>)
-                globalsearchnlp(FUN,X0,A,B,Aeq,Beq,LB,UB,NONLCON,options,localOptions);} 
-problem = createOptimProblem('fmincon','objective',@distance_fcn,'x0',x_start_unbounded);
-gs = GlobalSearch;
-[params_unbounded,f] = run(gs,problem)
 g in steady state > 1.5
 g in steady state > 1.5
 g in steady state > 1.5
@@ -6182,169 +6108,8 @@ Dynare got a steady state with Inf values. Why?
 Dynare got a steady state with Inf values. Why?
 Dynare got a steady state with Inf values. Why?
 Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
-Dynare got a steady state with Inf values. Why?
+{Operation terminated by user during
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky_steadystate/subfunction', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky_steadystate.m', 56)" style="font-weight:bold">endogenous_growth_sticky_steadystate/subfunction</a>
+(<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky_steadystate.m',56,0)">line 56</a>)
 
-GlobalSearch stopped because it analyzed all the trial points.
-
-All 37 local solver runs converged with a positive local solver exit flag.
-params_unbounded =
-   1.0e+03 *
-  Columns 1 through 7
-    0.0166   -0.0024    0.0056    0.0013   -1.0687   -0.0003   -0.0287
-  Columns 8 through 9
-   -0.0019   -0.0057
-f =
-   2.1935e+09
-[ params ] = bounds( params_unbounded );
-
-[ params ] = bounds( params_unbounded )
-params =
-  Columns 1 through 7
-    0.9990    0.0396    0.9862    0.4466   21.8893    0.5487    0.0004
-  Columns 8 through 9
-    1.0613    0.1737
-set_param_value('eta', params(1) );
-set_param_value('gamma', params(2) );
-set_param_value('phi', params(3) );
-set_param_value('lambda', params(4) );
-set_param_value('psi_N', params(5) );
-set_param_value('rhozeta', params(6) );
-set_param_value('rhozeta2', params(7) );
-set_param_value('sigmazeta', params(8) );
-set_param_value('zetabar', params(9) );
-
-var_list_=[];
-        info = stoch_simul(var_list_);
-
-
-post_processing_irfs;                                                       % Create IRFs with trend
-post_processing_irfs_plot;                                                  % Plot IRFs
-axis tight;
-
-
-log(1)
-ans =
-     0
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('csolve', 'C:\dynare\4.4.3\matlab\c

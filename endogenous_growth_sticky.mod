@@ -323,13 +323,8 @@ options_.noprint=1;
 options_.verbosity=0;
 
 % options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
-% [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+[fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
 %                          csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
-
-% [params_unbounded, fhat] = fminunc(@distance_fcn, x_start_unbounded)
-problem = createOptimProblem('fmincon','objective',@distance_fcn,'x0',x_start_unbounded);
-gs = GlobalSearch;
-[params_unbounded,f] = run(gs,problem)
 
 %=========================================================================%
 %%%%                       PLOT SOLUTION                               %%%%
@@ -348,7 +343,6 @@ set_param_value('zetabar', params(9) );
 
 var_list_=[];
 info = stoch_simul(var_list_);
-% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 axis tight;
