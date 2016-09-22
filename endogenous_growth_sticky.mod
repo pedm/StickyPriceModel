@@ -40,7 +40,7 @@ XD           ${X_D}$                       %
 RD           ${\mathcal{R}_{D}}$           % 
 
 % Sticky Price Variables
-M            $\mathcal{M}$                 % Markup
+mkup         $\mathcal{M}$                 % Markup
 pi           ${\pi}$                       % Inflation
 pi_star      ${\pi^*}$                     % Inflation in the optimal reset price (or is it slighly different? in eqn 213, P_t-1 is not P*_t-1)
 x1D          ${x_{1D}}$                    % Simplification 1 used in Optimal Reset Price
@@ -82,7 +82,7 @@ sigmazeta      ${\sigma}_{\zeta}$     % size of impulse on exogenous "innovation
 zetabar        $\overline{\zeta}$
 
 % NEW PARAMETERS (FLEX PRICE)
-M_ss           $\{mathcal{M}^{ss}}$   % Markup
+mkup_ss        $\{mathcal{M}^{ss}}$   % Markup
 psi_N          $\psi_N$               % Magnitude of N adjustment cost
 psi_I          $\psi_I$               % Magniturde if I investment cost
 gg             $g^{BGP}$              % Steady state growth rate (seen in adjustment cost functions)
@@ -128,7 +128,7 @@ gamma_y  = 0.1;
 theta    = .779;
 
 omega    = 4.167;  
-M_ss     = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
+mkup_ss  = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
 psi_N   = 21.8893;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
 
@@ -158,7 +158,7 @@ J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
 H = Pi + phi * ( Lambda(+1) * H(+1) );
 
 % 6. Profits per period
-Pi = (1/vartheta) * (1/M) * YDW;
+Pi = (1/vartheta) * (1/mkup) * YDW;
 
 % 7. Innovators' FOC wrt N
 zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
@@ -182,7 +182,7 @@ UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD *
 muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
 % 14. Labor market equilibrium (eqn 259)
-chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/M) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
+chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
 
 % 15. Labor disutility term
 GammaD = (CD^gamma) * (GammaD(-1) / g(-1) )^(1-gamma);
@@ -194,7 +194,7 @@ KD = (1-delta) * (KD(-1) / g(-1)) + ID ;
 Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * ((ID(+1) * g) / ID)^2 * log(g_fcn_prime(+1));
 
 % 18. Equation 263. Capital Euler Equation (perhaps?)
-Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(M * KD * vartheta) + Q(+1) * (1 - delta));
+Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(mkup * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 19. Exogenous shock to entrepreneurs' production function
 log(zeta) = rhozeta * log(zeta(-1)) - rhozeta2 * log(zeta(-2)) + sigmazeta * epsilon_chi;
@@ -228,7 +228,7 @@ pi ^(1-omega) = theta + (1-theta)*pi_star^(1-omega);
 pi_star = (omega / (omega - 1)) * (x1D / x2D) * pi;
 
 % Simplifications used in the Optimal Pricing Equation
-x1D = UCD * (1/M) * YD + beta * theta * g^(1-rho) * pi(+1)^omega * x1D(+1);
+x1D = UCD * (1/mkup) * YD + beta * theta * g^(1-rho) * pi(+1)^omega * x1D(+1);
 
 x2D = UCD * YD + beta * theta * g^(1-rho) * pi(+1)^(omega-1) * x2D(+1);
 
@@ -236,7 +236,7 @@ x2D = UCD * YD + beta * theta * g^(1-rho) * pi(+1)^(omega-1) * x2D(+1);
 1 = Lambda(+1) * R_nom / pi(+1);
 
 % Taylor Rule
-R_nom / R_nom_ss = pi ^ gamma_pi * (  (1/M) / (1/M_ss)   )^gamma_y;
+R_nom / R_nom_ss = pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y;
 
 end; 
 

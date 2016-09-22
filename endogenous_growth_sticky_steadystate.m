@@ -27,7 +27,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     rhozeta2  = [];
     sigmazeta = [];
     zetabar   = [];
-    M_ss      = [];
+    mkup_ss   = [];
     psi_N     = [];
     psi_I     = [];
     gg        = [];
@@ -88,10 +88,10 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             % Eqn 5
             Pi = H - ( phi * Lambda * H ) ;
             
-            M = M_ss;
+            mkup = mkup_ss;
             
             % Eqn 6
-            YDW = Pi / ( (1/vartheta) * (1/M) );
+            YDW = Pi / ( (1/vartheta) * (1/mkup) );
             
             % Eqn 8
             YD = YDW;
@@ -100,7 +100,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             Q = 1;
             
             % Eqn 18
-            block = (g* (vartheta - 1) *YDW * alpha)/(M * vartheta);
+            block = (g* (vartheta - 1) *YDW * alpha)/(mkup * vartheta);
             KD = Lambda * block / ( Q - Lambda * Q * (1 - delta) ); 
             
             % Eqn 9
@@ -127,7 +127,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + muD * gamma * (GammaD / ( CD * g )) ^ (1-gamma);
             
             % Eqn 14
-            f = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/M) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
+            f = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
             
         end
         
@@ -164,7 +164,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     Pi = H - phi * ( Lambda * H ) ;
 
     % Eqn 6
-    YDW = Pi / ( (1/vartheta) * (1/M) );
+    YDW = Pi / ( (1/vartheta) * (1/mkup) );
 
     % Eqn 8
     YD = YDW;
@@ -173,7 +173,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     Q = 1;
 
     % Eqn 18
-    block = (g* (vartheta - 1) *YDW * alpha)/(M * vartheta);
+    block = (g* (vartheta - 1) *YDW * alpha)/(mkup * vartheta);
     KD = Lambda * block / ( Q - Lambda * Q * (1 - delta) ); 
 
     % Eqn 9
@@ -213,7 +213,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % Zero inflation steady state
     pi = 1;
     pi_star = 1;
-    x1D = UCD*(1/M)*YD / (1 - theta*beta*g^(1-rho)*pi^omega);
+    x1D = UCD*(1/mkup)*YD / (1 - theta*beta*g^(1-rho)*pi^omega);
     x2D = UCD*YD / (1 - theta*beta*g^(1-rho)*pi^(omega-1));
     R_nom = pi / Lambda;
     
