@@ -351,7 +351,9 @@ nit = 500;
 options_.nocorr=1;
 options_.noprint=1;
 options_.verbosity=0;
-[fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+problem = createOptimProblem('fminunc','objective',@distance_function,'x0',x_start_unbounded);
+gs = GlobalSearch;
+[params_unbounded,f] = run(gs,problem)
 [ params ] = bounds( params_unbounded );
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
