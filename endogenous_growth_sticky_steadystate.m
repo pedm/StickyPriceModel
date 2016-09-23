@@ -60,34 +60,24 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         f_fcn = 0;
         f_fcn_prime = 0;
         
-        % for i=1:cols
+        for i=1:cols
             
-            g =  xx(1,1);
+            g =  xx(1,i);
 
-            %% Sticky Price Model (September Update)
-
-
-            % Eqn 11
-            Lambda = beta * g^(-rho);
-            
-            mkup = mkup_ss;
-
-            % Eqn 17
-            Q = 1;
-
+            %% Flex Price Model (August Update)
             
             % Use eqns 1 and 2
-            VD = xx(2,1);
-            ZD = xx(3,1);
-            
-            % VD = ( (g-phi) * (g - phi + phi*lambda) ) / ( phi * lambda * (g - phi*lambda) );
-            % ZD = VD * phi * (1-lambda) / (g-phi);
+            VD = ( (g-phi) * (g - phi + phi*lambda) ) / ( phi * lambda * (g - phi*lambda) );
+            ZD = VD * phi * (1-lambda) / (g-phi);
             
             % Eqn 19
             zeta = 1;
             
             % Eqn 3
             ND = (      VD / (zeta * zetabar * ZD ^ (1-eta))      )^(1/(eta));
+            
+            % Eqn 11
+            Lambda = beta * g^(-rho);
             
             % Eqn 7
             J =  1 / ( eta * zeta * zetabar * ( ZD / ND )^(1-eta)  );
@@ -97,12 +87,17 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             
             % Eqn 5
             Pi = H - ( phi * Lambda * H ) ;
-
+            
+            mkup = mkup_ss;
+            
             % Eqn 6
             YDW = Pi / ( (1/vartheta) * (1/mkup) );
             
             % Eqn 8
             YD = YDW;
+            
+            % Eqn 17
+            Q = 1;
             
             % Eqn 18
             block = (g* (vartheta - 1) *YDW * alpha)/(mkup * vartheta);
@@ -132,34 +127,22 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + muD * gamma * (GammaD / ( CD * g )) ^ (1-gamma);
             
             % Eqn 14
-            f1 = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
-            % f2 = VD - ( (g-phi) * (g - phi + phi*lambda) ) / ( phi * lambda * (g - phi*lambda) );
+            f = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
             
-            f2 = ZD*g - phi*(ZD + (1-lambda)*VD);
-            f3 = g - phi*(1+lambda*(ZD+VD-1));
-            f = [f1; f2; f3];
-            
-            
-        % end
+        end
         
     end
 
     %% 2. Find growth rate g such that residual is zero
-    g0 = [1.0001; 1.001; 1.001];
+    g0 = 1.0001;
     [g_sol, rc]=csolve(@subfunction, g0, [], 1e-12, 800);
     % This tells me whether it worked
     % rc
-    
-    if rc == 4
-        error('rc is 4 in steady state solver (maxit reached)')
-    end
-    
-    g = g_sol(1,1);
-    VD = g_sol(2,1);
+    g = g_sol;
+
     %% 3. Given solution g, find the remaining steady state variables (same equations as above)
     % Use eqns 1 and 2
-    % VD_check = ( (g-phi) * (g - phi + phi*lambda) ) / ( phi * lambda * (g - phi*lambda) )
-    
+    VD = ( (g-phi) * (g - phi + phi*lambda) ) / ( phi * lambda * (g - phi*lambda) );
     ZD = VD * phi * (1-lambda) / (g-phi);
 
     % Eqn 19
@@ -238,7 +221,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % This is useful for any parameters that depend on the steady state
     
     % Currently, only parameter that depends on the ss is gg
-    gg = g_sol(1,1);
+    gg = g_sol;
     R_nom_ss = R_nom;
     
     if gg>=1.5
@@ -246,7 +229,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     end
     
     for iter = 1:length(M_.params) %update parameters set in the file
-        eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])
+      eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])
     end
     
     %% Output the values of the endogenous vars at steady state
