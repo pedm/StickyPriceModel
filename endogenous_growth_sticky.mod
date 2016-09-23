@@ -16,9 +16,11 @@ do_estimate = 1; % if 0, just simulate
 var
 
 % ENDOGENOUS VARIABLES
-g            ${g}$                         % notes ...
+g            ${g}$   (long_name='Growth')  % notes ...
 ZD           ${Z_D}$                       % Total Measure of Technologies (adopted or not)
+lambda       ${\lambda}$                     % Adoption probability
 VD           ${V_D}$                       % New innovation / technologies created this period (adopted or not)
+M            ${M}$                         %
 J            ${J}$                         % Value of unadopted tech
 H            ${H}$                         % Value of adopted tech
 Pi           ${\Pi}$                       % 
@@ -68,21 +70,19 @@ beta           $\beta$
 alpha          $\alpha$        
 epsilon        $\epsilon$             % Inverse Frisch labor supply elasticity
 rho            $\rho$                 % Inverse of intertemporal elasticity of substitution
-% varphi         $\varphi$              % elasticity of Q to I/K ratio 
 delta          $\delta$               
 chi            $\chi$                 % disutility of labor supply
 vartheta       $\vartheta$              
 gamma          $\gamma$               % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
 phi            $\phi$                 
 eta            $\eta$                 
-lambda         $\lambda$              % adoption probability
 rhozeta        ${\rho}_{\zeta}$       % persistence of exogenous "innovation productivity" shock
 rhozeta2       ${\rho}_{\zeta2}$      % AR(2) parameter (after a minus sign)
 sigmazeta      ${\sigma}_{\zeta}$     % size of impulse on exogenous "innovation productivity" shock
 zetabar        $\overline{\zeta}$
 
 % NEW PARAMETERS (FLEX PRICE)
-mkup_ss        $\{mathcal{M}^{ss}}$   % Markup
+mkup_ss        ${\mathcal{M}^{ss}}$   % Markup
 psi_N          $\psi_N$               % Magnitude of N adjustment cost
 psi_I          $\psi_I$               % Magniturde if I investment cost
 gg             $g^{BGP}$              % Steady state growth rate (seen in adjustment cost functions)
@@ -93,6 +93,10 @@ gamma_pi       ${{\gamma}_{\pi}}$
 gamma_y        ${{\gamma}_{y}}$
 omega          ${\omega}$
 theta          ${\theta}$
+
+% SEPTEMBER ADDITIONS
+lambda_bar     ${\bar{\lambda}}$
+rho_lambda     ${\rho_\lambda}$       % 0 < rho_lambda < 1
 ;
 
 %=========================================================================%
@@ -113,7 +117,7 @@ vartheta = 1 + 1/(1-alpha);
 eta    = 0.999;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
 gamma  = 0.0396;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
 phi    = 0.9862;       % 0.875;                   % Survival rate of technologies
-lambda = 0.4466;       % 0.075;                   % Adoption probability
+% lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
 rhozeta    = 0.5487; % 0.5; 
@@ -143,16 +147,20 @@ model;
 %=========================ENDOGENOUS VARIABLES============================%
 
 % 1. Evolution of number of firm varieties
-g = phi* (1 + lambda * (ZD + VD - 1));
+% g = phi* (1 + lambda * (ZD + VD - 1));
+g = lambda * phi * (ZD-1) + phi;
 
 % 2. Evolution of technological fronteir Z
-ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
+% ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
+ZD * g(-1) = phi * ZD(-1) + VD(-1);
 
 % 3. Innovators' production function. Q: Why is this not the supply curve of new firms?
-VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta ;
+% VD = zetabar * zeta * ZD ^ (1-eta) * ND ^ eta ;
+VD = zetabar * zeta * ZD * (ND * g(-1) / KD(-1))^eta;
 
 % 4. Euler equation for entrepreneurs
-J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
+% J =  lambda * H + (1 - lambda) * phi * Lambda(+1) * J(+1);
+J = -M + phi * Lambda(+1) * (lambda*H(+1) + (1-lambda)*J(+1)   );
 
 % 5. Price of adopted technology H
 H = Pi + phi * ( Lambda(+1) * H(+1) );
@@ -161,7 +169,14 @@ H = Pi + phi * ( Lambda(+1) * H(+1) );
 Pi = (1/vartheta) * (1/mkup) * YDW;
 
 % 7. Innovators' FOC wrt N
-zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
+% zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
+Lambda(+1) * J(+1) * zetabar * zeta * ZD * (1 /  (KD(-1)/g(-1))^eta)   * (1 / ND^(1-eta) ) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
+
+% New1.
+rho_lambda * lambda_bar * phi * Lambda(+1) * (H(+1) - J(+1)) = M ^ (1 - rho_lambda);
+
+% New2
+lambda = lambda_bar * M ^ rho_lambda;
 
 % 8. Aggregate production function
 YD = YDW;
@@ -170,7 +185,8 @@ YD = YDW;
 YDW = ((KD(-1) / g(-1))^alpha) * L^(1-alpha);
 
 % 10. Resource constraint, with adjustment cost
-YD = CD + (1 + log(g_fcn)) * ID + ND;
+% YD = CD + (1 + log(g_fcn)) * ID + ND;
+YD = CD + (1 + log(g_fcn)) * ID + (1 + log(f_fcn)) * ND + (ZD-1)*M;
 
 % 11. HH's stochastic discount factor
 Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
@@ -200,9 +216,6 @@ Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(mkup * KD * vartheta) + 
 log(zeta) = rhozeta * log(zeta(-1)) - rhozeta2 * log(zeta(-2)) + sigmazeta * epsilon_chi;
 
 % 20. Stock market value (taken directly from May model)
-% original
-% SD =  Q * KD + (H - Pi)  +  J * ( ZD - 1 )  + XD;
-% new
 SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
 
 % 21. 
@@ -212,7 +225,8 @@ XD =  ( Lambda(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
 % are given by the variable N)
 RD = ND;   
 
-% ADJUSTMENT COST FUNCTIONS
+%====================== ADJUSTMENT COST FCNS =============================%
+
 f_fcn = exp( (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - gg)^2 );
 f_fcn_prime = exp( psi_N * ((ND * g(-1) / ND(-1) ) - gg)   );
 
