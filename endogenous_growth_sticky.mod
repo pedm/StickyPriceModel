@@ -137,7 +137,7 @@ psi_N   = 21.8893;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
 
 % SEPTEMBER ADDITIONS
-lambda_bar = 0.5;
+lambda_bar = 0.7;
 rho_lambda = 0.95;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 

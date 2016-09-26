@@ -95,9 +95,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             %% Sticky Price Model (September Update)
             ss_given_g_and_lambda;
             
-            % Residuals: Equations 318 and 322
-            f1 = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
-            f2 = -Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta));
+            %% Residuals: Equations 318 and 322
+            f2 = (( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L)));
+            f1 = (-Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta)));
             f = [f1; f2];
             
         % end
@@ -106,9 +106,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
 
     %% 2. Find growth rate g such that residual is zero
     g0 = [1.0001; 0.5];
-    [g_sol, rc]=csolve(@subfunction, g0, [], 1e-12, 800);
+    [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 800);
     % This tells me whether it worked
-    rc
+    % rc
     
     if rc == 4
         error('rc is 4 in steady state solver (maxit reached)')
@@ -120,6 +120,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;
 
+    f3 = ZD - 1 + (g - phi) / lambda*phi     
+    f3 = ZD - 1 + (g - phi) / lambda*phi
+    
     %% State the remaining steady state variables
 
     XD =  ( Lambda * g * ( J * VD )  ) / (1 - Lambda * g ) ;
