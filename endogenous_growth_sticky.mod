@@ -154,7 +154,7 @@ model;
 % g = phi* (1 + lambda * (ZD + VD - 1));
 g = lambda * phi * (ZD-1) + phi;
 
-% 2. Evolution of technological fronteir Z
+% 2. Evolution of technological frontier Z
 % ZD * g(-1) = phi * ( ZD(-1) + (1-lambda) * VD(-1) );
 ZD * g(-1) = phi * ZD(-1) + VD(-1);
 
@@ -196,12 +196,18 @@ YD = CD + (1 + log(g_fcn)) * ID + (1 + log(f_fcn)) * ND + (ZD-1)*M;
 Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 
 % 14. Marginal utility of consumption
+% Original:
+% UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
+% To make muD positive, multiply by -1
 UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
-% 15. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
+% 15. Lagrange multiplier on labor disutility law of motion (new)
+% Original:
+% muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
+% To make muD positive, replace - with +
 muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
-% 16. Labor market equilibrium (eqn 259)
+% 16. Labor market equilibrium
 chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
 
 % 17. Labor disutility term
@@ -213,7 +219,7 @@ KD = (1-delta) * (KD(-1) / g(-1)) + ID ;
 % 19. Q-equation (capital producers)
 Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * ((ID(+1) * g) / ID)^2 * log(g_fcn_prime(+1));
 
-% 20. Equation 263. Capital Euler Equation (perhaps?)
+% 20. Equation 263. Capital Euler Equation
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(mkup * KD * vartheta) + Q(+1) * (1 - delta));
 
 % 21. Exogenous shock to entrepreneurs' production function

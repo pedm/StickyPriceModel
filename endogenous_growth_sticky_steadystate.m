@@ -92,62 +92,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             g =  xx(1,1);
             lambda = xx(2,1);
 
-            %% Obvious SS Solutions
-            Lambda = beta * g^(-rho);
-            mkup = mkup_ss;
-            zeta = 1;
-            Q = 1;
-
             %% Sticky Price Model (September Update)
-            
-            % Equation 303
-            ZD = 1 + (g - phi) / lambda*phi;            
-
-            % Equation 304
-            VD = g*ZD - phi*ZD;
-
-            % Equation 311
-            M = (lambda / lambda_bar) ^ (1/rho_lambda);
-
-            % Equations 310 and 306
-            % Solve jointly for J and H
-            J = (1/(1 - phi*Lambda)) * (-M + (lambda * M^(1 - rho_lambda)) / (rho_lambda * lambda_bar));
-
-            H = J + (M^(1 - rho_lambda)) / (rho_lambda * lambda_bar * phi * Lambda);
-            
-            % Equation 307
-            Pi = H - phi * Lambda * H;
-
-            % Equation 308
-            YDW = vartheta * mkup * Pi;
-            YD = YDW;
-
-            % Equations 305 and 309
-            % Solve jointly for N and K
-            ND = Lambda * J * VD;
-            KD = (zetabar * zeta * (ZD/VD)) ^ (1/eta) * ND * g;
-            
-            % Equation 312
-            L = ( YDW * (g/KD) ^ alpha  )^(1/(1 - alpha));
-
-            % Equation 320
-            ID = KD - ((1-delta)/g)*KD;
-
-            % Equation 314
-            CD = YD - ID - ND - (ZD-1)*M;
-
-            % Equation 319
-            GammaD = CD * g^((gamma - 1)/gamma);
-
-            % Equation 317
-            % muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
-            AA = beta * (1-gamma) * ( (g^(-rho)) * (CD * g/ GammaD)^gamma );
-            BB = ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
-            % muD = AA*muD + BB;
-            muD = BB / (1-AA);
-
-            % Equation 316
-            UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) - muD * gamma * (GammaD / ( CD * g )) ^ (1-gamma);
+            ss_given_g_and_lambda;
             
             % Residuals: Equations 318 and 322
             f1 = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L));
@@ -172,73 +118,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     lambda = g_sol(2,1)
 
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
-    % ss_given_g_and_lambda;
-    
-    %% Obvious SS Solutions
-Lambda = beta * g^(-rho);
-mkup = mkup_ss;
-zeta = 1;
-Q = 1;
-
-%% Sticky Price Model (September Update)
-
-% Equation 303
-ZD = 1 + (g - phi) / lambda*phi;            
-
-% Equation 304
-VD = g*ZD - phi*ZD;
-
-% Equation 311
-M = (lambda / lambda_bar) ^ (1/rho_lambda);
-
-% Equations 310 and 306
-% Solve jointly for J and H
-J = (1/(1 - phi*Lambda)) * (-M + (lambda * M^(1 - rho_lambda)) / (rho_lambda * lambda_bar));
-
-H = J + (M^(1 - rho_lambda)) / (rho_lambda * lambda_bar * phi * Lambda);
-
-% Equation 307
-Pi = H - phi * Lambda * H;
-
-% Equation 308
-YDW = vartheta * mkup * Pi;
-YD = YDW;
-
-% Equations 305 and 309
-% Solve jointly for N and K
-ND = Lambda * J * VD;
-KD = (zetabar * zeta * (ZD/VD)) ^ (1/eta) * ND * g;
-
-% Equation 312
-L = ( YDW * (g/KD) ^ alpha  )^(1/(1 - alpha))
-
-% Equation 320
-ID = KD - ((1-delta)/g)*KD
-
-% Equation 314
-CD = YD - ID - ND - (ZD-1)*M
-
-% Equation 319
-GammaD = CD * g^((gamma - 1)/gamma)
-
-% Equation 317
-% muD = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) - ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
-AA = beta * (1-gamma) * ( (g^(-rho)) * (CD * g/ GammaD)^gamma );
-BB = ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
-% muD = AA*muD + BB;
-muD = BB / (1-AA)
-
-% Equation 316
-UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) - muD * gamma * (GammaD / ( CD * g )) ^ (1-gamma)
-
-f1 = ( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L))
-f2 = -Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta))
-
-% 14. Marginal utility of consumption
-f14 = -UCD + ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD / ( CD * g )) ^ (1-gamma)
-
-% 15. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
-f15 = -muD   + beta * (1-gamma) * ( g^(-rho) * muD * (CD * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon)
+    ss_given_g_and_lambda;
 
     %% State the remaining steady state variables
 
