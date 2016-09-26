@@ -114,7 +114,7 @@ chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-eta    = 0.999;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
+eta    = 0.90;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
 gamma  = 0.0396;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
 phi    = 0.9862;       % 0.875;                   % Survival rate of technologies
 % lambda = 0.4466;       % 0.075;                   % Adoption probability
@@ -135,6 +135,10 @@ omega    = 4.167;
 mkup_ss  = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
 psi_N   = 21.8893;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
+
+% SEPTEMBER ADDITIONS
+lambda_bar = 0.5;
+rho_lambda = 0.95;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
@@ -172,56 +176,56 @@ Pi = (1/vartheta) * (1/mkup) * YDW;
 % zetabar * eta * J * zeta * ( ZD / ND )^(1-eta) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 Lambda(+1) * J(+1) * zetabar * zeta * ZD * (1 /  (KD(-1)/g(-1))^eta)   * (1 / ND^(1-eta) ) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - Lambda(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 
-% New1.
+% 8.
 rho_lambda * lambda_bar * phi * Lambda(+1) * (H(+1) - J(+1)) = M ^ (1 - rho_lambda);
 
-% New2
+% 9
 lambda = lambda_bar * M ^ rho_lambda;
 
-% 8. Aggregate production function
+% 10. Aggregate production function
 YD = YDW;
 
-% 9. Aggregate production function W
+% 11. Aggregate production function W
 YDW = ((KD(-1) / g(-1))^alpha) * L^(1-alpha);
 
-% 10. Resource constraint, with adjustment cost
+% 12. Resource constraint, with adjustment cost
 % YD = CD + (1 + log(g_fcn)) * ID + ND;
 YD = CD + (1 + log(g_fcn)) * ID + (1 + log(f_fcn)) * ND + (ZD-1)*M;
 
-% 11. HH's stochastic discount factor
+% 13. HH's stochastic discount factor
 Lambda = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 
-% 12. Marginal utility of consumption
+% 14. Marginal utility of consumption
 UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
-% 13. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
+% 15. Lagrange multiplier on labor disutility law of motion (new) (equation 258)
 muD   = beta * (1-gamma) * ( g^(-rho) * muD(+1) * (CD(+1) * g/ GammaD)^gamma ) + ((CD - GammaD*( chi / (1+epsilon)) * L^(1+epsilon))^(-rho)) * ( chi / (1+epsilon)) * L^(1+epsilon);
 
-% 14. Labor market equilibrium (eqn 259)
+% 16. Labor market equilibrium (eqn 259)
 chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) = (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L);
 
-% 15. Labor disutility term
+% 17. Labor disutility term
 GammaD = (CD^gamma) * (GammaD(-1) / g(-1) )^(1-gamma);
 
-% 16. Capital evolution
+% 18. Capital evolution
 KD = (1-delta) * (KD(-1) / g(-1)) + ID ;
 
-% 17. Q-equation (capital producers)
+% 19. Q-equation (capital producers)
 Q = 1 + log(g_fcn) + ((ID * g(-1)) / ID(-1)) * log(g_fcn_prime) - Lambda(+1) * ((ID(+1) * g) / ID)^2 * log(g_fcn_prime(+1));
 
-% 18. Equation 263. Capital Euler Equation (perhaps?)
+% 20. Equation 263. Capital Euler Equation (perhaps?)
 Q = Lambda(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(mkup * KD * vartheta) + Q(+1) * (1 - delta));
 
-% 19. Exogenous shock to entrepreneurs' production function
+% 21. Exogenous shock to entrepreneurs' production function
 log(zeta) = rhozeta * log(zeta(-1)) - rhozeta2 * log(zeta(-2)) + sigmazeta * epsilon_chi;
 
-% 20. Stock market value (taken directly from May model)
+% 22. Stock market value (taken directly from May model)
 SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
 
-% 21. 
+% 23. 
 XD =  ( Lambda(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
 
-% 22. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
+% 24. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
 % are given by the variable N)
 RD = ND;   
 
