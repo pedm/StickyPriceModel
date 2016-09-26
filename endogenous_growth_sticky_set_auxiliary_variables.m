@@ -5,4 +5,4 @@ function y = endogenous_growth_sticky_set_auxiliary_variables(y, x, params)
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-y(33)=y(19);
+y(35)=y(21);

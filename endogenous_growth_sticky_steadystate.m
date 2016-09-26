@@ -120,9 +120,6 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;
 
-    f3 = ZD - 1 + (g - phi) / lambda*phi     
-    f3 = ZD - 1 + (g - phi) / lambda*phi
-    
     %% State the remaining steady state variables
 
     XD =  ( Lambda * g * ( J * VD )  ) / (1 - Lambda * g ) ;

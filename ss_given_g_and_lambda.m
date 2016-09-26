@@ -9,7 +9,8 @@ Q = 1;
 
 %% Other Variables
 % Equation 303
-ZD = 1 + (g - phi) / lambda*phi;            
+ZD = 1 + ((g - phi) / lambda*phi);         
+% g = lambda * phi * (ZD-1) + phi;
 
 % Equation 304
 VD = g*ZD - phi*ZD;

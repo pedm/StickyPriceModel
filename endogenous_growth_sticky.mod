@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
 
@@ -137,7 +137,7 @@ psi_N   = 21.8893;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
 
 % SEPTEMBER ADDITIONS
-lambda_bar = 0.7;
+lambda_bar = 0.5;
 rho_lambda = 0.95;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 
@@ -328,6 +328,9 @@ else
 %%%%                       OPTIMIZATION                                %%%%
 %=========================================================================%
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
+
+% DOES NOT CURRENTLY WORK
+% TODO: REPLACE LAMBDA WITH ANOTHER PARAMETER
 
 % Starting point (based on earlier calibration)
 x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar];
