@@ -89,7 +89,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         % for i=1:cols
             
             %% Guess Two SS Values
-            g =  xx(1,1);
+            g =  xx(1,1); % 1.0118; 
+            % rho_lambda = xx(1,1);
             lambda = xx(2,1);
 
             %% Sticky Price Model (September Update)
@@ -108,13 +109,14 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     g0 = [1.0001; 0.5];
     [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 800);
     % This tells me whether it worked
-    % rc
+    rc
     
     if rc == 4
         error('rc is 4 in steady state solver (maxit reached)')
     end
     
-    g = g_sol(1,1)
+    g = g_sol(1,1) % 1.0118; % 
+    % rho_lambda = g_sol(1,1)
     lambda = g_sol(2,1)
 
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
@@ -142,7 +144,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % This is useful for any parameters that depend on the steady state
     
     % Currently, only parameter that depends on the ss is gg
-    gg = g_sol(1,1);
+    gg = g;
     R_nom_ss = R_nom;
     
     if gg>=1.5
