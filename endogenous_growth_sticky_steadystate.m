@@ -89,7 +89,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         % for i=1:cols
             
             %% Guess Two SS Values
-            g = abs(xx(1,1));
+            g = xx(1,1);
             lambda = mintomod_ab(xx(2,1), 0.01, 0.99);
 
             %% Sticky Price Model (September Update)
@@ -97,7 +97,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             
             %% Residuals: Equations 318 and 322
             f2 = (( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L)));
-            f1 = (-Q + (Lambda * (g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta)) + Q * (1 - delta));
+            f1 = (-Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta)));
             f = [f1; f2];
             
             % We get imaginary residuals if g, lambda, Z, K, V, or others are negative
@@ -110,7 +110,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     end
 
     %% 2. Find growth rate g such that residual is zero
-    g0 = [1.0001; 0.99];
+    g0 = [1.01; 0];
     [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 500);
     % This tells me whether it worked
     rc
@@ -119,7 +119,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         disp('rc is 4 in steady state solver (maxit reached)')
     end
     
-    g = abs(g_sol(1,1))
+    g = g_sol(1,1)
     lambda = mintomod_ab(g_sol(2,1), 0.01, 0.99)
 
 
