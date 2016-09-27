@@ -114,16 +114,16 @@ chi     = 1.5652;                % Disutility of labor supply
 vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
-eta    = 0.90;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-gamma  = 0.0396;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.9862;       % 0.875;                   % Survival rate of technologies
+eta    = 0.3;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
+gamma  = 0.1;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.5;       % 0.875;                   % Survival rate of technologies
 % lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
 rhozeta    = 0.5487; % 0.5; 
 rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
 sigmazeta  = 1.0613; % 3.5;
-zetabar    = 0.4777;
+zetabar    = 0.7;
 
 % NEW VARIABLES
 % TODO: any suggested calibration?
@@ -137,8 +137,8 @@ psi_N   = 21.8893;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
 
 % SEPTEMBER ADDITIONS
-lambda_bar = 0.5;
-rho_lambda = 0.95;       % 0 < rho_lambda < 1
+lambda_bar = 2;
+rho_lambda = 0.5;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m

@@ -89,35 +89,39 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         % for i=1:cols
             
             %% Guess Two SS Values
-            g =  xx(1,1); % 1.0118; 
-            % rho_lambda = xx(1,1);
-            lambda = xx(2,1);
+            g = abs(xx(1,1));
+            lambda = mintomod_ab(xx(2,1), 0.01, 0.99);
 
             %% Sticky Price Model (September Update)
             ss_given_g_and_lambda;
             
             %% Residuals: Equations 318 and 322
             f2 = (( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L)));
-            f1 = (-Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta)));
+            f1 = (-Q + (Lambda * (g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta)) + Q * (1 - delta));
             f = [f1; f2];
             
+            % We get imaginary residuals if g, lambda, Z, K, V, or others are negative
+            % To prevent negative VD, make phi small
+            if imag(f2) ~= 0
+                % keyboard
+            end
         % end
         
     end
 
     %% 2. Find growth rate g such that residual is zero
-    g0 = [1.0001; 0.5];
-    [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 800);
+    g0 = [1.0001; 0.99];
+    [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 500);
     % This tells me whether it worked
     rc
     
     if rc == 4
-        error('rc is 4 in steady state solver (maxit reached)')
+        disp('rc is 4 in steady state solver (maxit reached)')
     end
     
-    g = g_sol(1,1) % 1.0118; % 
-    % rho_lambda = g_sol(1,1)
-    lambda = g_sol(2,1)
+    g = abs(g_sol(1,1))
+    lambda = mintomod_ab(g_sol(2,1), 0.01, 0.99)
+
 
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;
