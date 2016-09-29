@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 0; % if 0, just simulate
+do_estimate = 1; % if 0, just simulate
 
 var
 
@@ -115,21 +115,21 @@ vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
 eta    = 0.3;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-gamma  = 0.1;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.5;       % 0.875;                   % Survival rate of technologies
+gamma  = 0.9;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.3;       % 0.875;                   % Survival rate of technologies
 % lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
 rhozeta    = 0.5487; % 0.5; 
 rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
 sigmazeta  = 1.0613; % 3.5;
-zetabar    = 0.7;
+zetabar    = 0.9;
 
 % NEW VARIABLES
 % TODO: any suggested calibration?
 gamma_pi = 1.5;
 gamma_y  = 0.1;
-theta    = .779;
+theta    = 1;
 
 omega    = 4.167;  
 mkup_ss  = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
@@ -138,10 +138,22 @@ psi_I   = 1;                            % Adjustment cost to I
 
 % SEPTEMBER ADDITIONS
 lambda_bar = 2;
-rho_lambda = 0.5;       % 0 < rho_lambda < 1
+rho_lambda = 0.2;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
+
+%% NEW GUESS
+eta =       0.2000;
+gamma =     0.2000;
+phi =     0.5980;
+lambda_bar =     2.0040;
+psi_N =    80.0000;
+rhozeta =     1.2000;
+rhozeta2 =     0.7920;
+sigmazeta =     2.4000;
+zetabar =     2.0800;
+
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -333,7 +345,7 @@ else
 % TODO: REPLACE LAMBDA WITH ANOTHER PARAMETER
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar];
+x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
@@ -361,7 +373,7 @@ options_.verbosity=0;
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
 set_param_value('phi', params(3) );
-set_param_value('lambda', params(4) );
+set_param_value('lambda_bar', params(4) );
 set_param_value('psi_N', params(5) );
 set_param_value('rhozeta', params(6) );
 set_param_value('rhozeta2', params(7) );
@@ -376,7 +388,7 @@ axis tight;
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 legend('initial','var', 'b', 'b', 'final');
 
-disp('[eta, gamma, phi, lambda, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
+disp('[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
 params
 x_start
 

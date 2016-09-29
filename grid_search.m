@@ -1,3 +1,5 @@
+% Search over 2^9 grid of parameters
+
 LB.eta = 0;  
 LB.gamma = 0.00001;
 LB.phi = 0.5;
@@ -18,7 +20,7 @@ UB.rhozeta2 = 0.99;
 UB.sigmazeta = 10;  
 UB.zetabar = 10;
 
-FF = fields(LB)
+FF = fields(LB);
  
 DIST.(char(FF(1))) = UB.(char(FF(1))) - LB.(char(FF(1)));
 DIST.(char(FF(2))) = UB.(char(FF(2))) - LB.(char(FF(2)));
@@ -72,6 +74,9 @@ v={
 %% Guess
 
 
+% 29
+
+disp('Grid Search')
 for kk = 1:length(permutations);
     guess = permutations(kk,:);
 

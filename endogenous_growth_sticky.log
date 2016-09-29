@@ -10,7 +10,83 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-ucts.
+0.0000
+VD               15.6860     0.0000     0.0000
+M                 0.0263     0.0000     0.0000
+J                 0.1272     0.0000     0.0000
+H                 0.9170     0.0000     0.0000
+Pi                0.7592     0.0000     0.0000
+ND                0.5740     0.0000     0.0000
+YDW               2.4899     0.0000     0.0000
+YD                2.4899     0.0000     0.0000
+CD                1.4377     0.0000     0.0000
+Lambda            0.2878     0.0000     0.0000
+UCD               0.7311     0.0000     0.0000
+muD             137.4538     0.0000     0.0000
+L                10.0937     0.0000     0.0000
+GammaD            0.0116     0.0000     0.0000
+KD                0.4845     0.0000     0.0000
+Q                 1.0000     0.0000     0.0000
+ID                0.3538     0.0000     0.0000
+zeta              1.0000     0.0000     0.0000
+SD               51.8701     0.0000     0.0000
+XD               47.8725     0.0000     0.0000
+RD                0.5740     0.0000     0.0000
+mkup              1.3158     0.0000     0.0000
+pi                1.0000     0.0000     0.0000
+pi_star           1.0000     0.0000     0.0000
+x1D              34.5867     0.0000     0.0000
+x2D              45.5077     0.0000     0.0000
+R_nom             3.4750     0.0000     0.0000
+f_fcn             1.0000     0.0000     0.0000
+f_fcn_prime       1.0000     0.0000     0.0000
+g_fcn             1.0000     0.0000     0.0000
+g_fcn_prime       1.0000     0.0000     0.0000
+
+All endogenous are constant or non stationary, not displaying correlations and auto-correlations
+
+Success!
+guess =
+  Columns 1 through 7
+    0.2000    0.2000    0.5980    2.0040   80.0000    1.2000    0.7920
+  Columns 8 through 9
+    2.4000    2.0800
+kk =
+    29
+
+
+
+   post_processing_irfs;                                                       % Create IRFs with trend
+{Reference to non-existent field 'irfs'.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('post_processing_irfs', 'C:\Users\pedm\Documents\StickyPriceModel\post_processing_irfs.m', 22)" style="font-weight:bold">post_processing_irfs</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\post_processing_irfs.m',22,0)">line 22</a>)
+A_lead = cumsum(oo_.irfs.g_epsilon_chi);} 
+    post_processing_irfs;                                                       % Create IRFs with trend
+{Reference to non-existent field 'irfs'.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('post_processing_irfs', 'C:\Users\pedm\Documents\StickyPriceModel\post_processing_irfs.m', 22)" style="font-weight:bold">post_processing_irfs</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\post_processing_irfs.m',22,0)">line 22</a>)
+A_lead = cumsum(oo_.irfs.g_epsilon_chi);} 
+guess
+guess =
+  Columns 1 through 7
+    0.2000    0.2000    0.5980    2.0040   80.0000    1.2000    0.7920
+  Columns 8 through 9
+    2.4000    2.0800
+guess'
+ans =
+    0.2000
+    0.2000
+    0.5980
+    2.0040
+   80.0000
+    1.2000
+    0.7920
+    2.4000
+    2.0800
+dynare endogenous_growth_sticky.mod
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
 [mex] Sparse kronecker products.
 [mex] Local state space iteration (second order).
 [mex] Bytecode evaluation.
@@ -59,3 +135,275 @@ it contains MATLAB code that is currently executing.]
 be cleared because it contains MATLAB code that is currently executing.] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: Some of the parameters have no value (gg, R_nom_ss) when using steady.
+If these parameters are not initialized in a steadystate file, Dynare may not be
+able to solve the model...] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 355)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',355,0)">line 355</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3366
+lambda =
+    0.9900
+g in steady state > 1.5
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3366
+lambda =
+    0.9900
+g in steady state > 1.5
+
+
+
+
+Residuals of the static equations:
+
+Equation number 1 : 0
+Equation number 2 : 0
+Equation number 3 : 0
+Equation number 4 : 0
+Equation number 5 : 0
+Equation number 6 : 0
+Equation number 7 : 0
+Equation number 8 : 0
+Equation number 9 : 0
+Equation number 10 : 0
+Equation number 11 : 0
+Equation number 12 : 0
+Equation number 13 : 0
+Equation number 14 : 0
+Equation number 15 : 0
+Equation number 16 : 0.015244
+Equation number 17 : 0
+Equation number 18 : 0
+Equation number 19 : 0
+Equation number 20 : 0
+Equation number 21 : 0
+Equation number 22 : 0
+Equation number 23 : 0
+Equation number 24 : 0
+Equation number 25 : 0
+Equation number 26 : 0
+Equation number 27 : 0
+Equation number 28 : 0
+Equation number 29 : 0
+Equation number 30 : 0
+Equation number 31 : 0
+Equation number 32 : 0
+Equation number 33 : 0
+Equation number 34 : 0
+
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print_info', 'C:\dynare\4.4.3\matlab\print_info.m', 72)" style="font-weight:bold">print_info</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\print_info.m',72,0)">line 72</a>)
+The steadystate file did not compute the steady state
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resid', 'C:\dynare\4.4.3\matlab\resid.m', 112)" style="font-weight:bold">resid</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resid.m',112,0)">line 112</a>)
+    print_info(info,options_.noprint, options_)
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 90)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',90,0)">line 90</a>)
+        resid;
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 355)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',355,0)">line 355</a>)
+steady;
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
+evalin('base',fname) ;} 
+eta
+eta =
+    0.2000
+gamma
+gamma =
+    0.2000
+phi
+phi =
+    0.5980
+lambda_bar
+lambda_bar =
+    2.0040
+psi_N
+psi_N =
+    80
+sigmazeta
+sigmazeta =
+    2.4000
+grid_search
+FF = 
+    'eta'
+    'gamma'
+    'phi'
+    'lambda_bar'
+    'psi_N'
+    'rhozeta'
+    'rhozeta2'
+    'sigmazeta'
+    'zetabar'
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    29
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+   15.6327
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    30
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    31
+grid_search
+FF = 
+    'eta'
+    'gamma'
+    'phi'
+    'lambda_bar'
+    'psi_N'
+    'rhozeta'
+    'rhozeta2'
+    'sigmazeta'
+    'zetabar'
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    25
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+   15.6327
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    26
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    27
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+   15.6327
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    28
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    29
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+   15.6327
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+    30
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+   -2.2675
+lambda =
+    0.0100
+No ss found
+kk =
+    31
+grid_search
+Grid Search
+rc =
+     4
+rc is 4 in steady state solver (maxit reached)
+g =
+    3.3365
+lambda =
+    0.9900
+g in steady state > 1.5
+No ss found
+kk =
+     1
+
+
+fzero
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fzero', 'C:\Program Files\MATLAB\R2016a\toolbox\matlab\optimfun\fzero.m', 121)" style="font-weight:bold">fzero</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\matlab\optimfun\fzero.m',121,0)">line 121</a>)
+FZERO requires at least two input arguments.} 
+help fzero
+ <strong>fzero</strong>  Single-variable nonlinear zero finding. 
+    X = <strong>fzero</strong>(FUN,X0) tries to find a zero of the function FUN near X0, 
+    if X0 is a scalar.  It first finds an interval containing X0 where the 
+    function values of the interval endpoints differ in sign, then searches 
+    that interval for a zero.  FUN is a function handle.  FUN accepts real 
+    scalar input X and returns a real scalar function value F, evaluated 
+    at X. The value X returned by <strong>fzero</strong> is near a point where FUN changes 
+    sign (if FUN is continuous), or NaN if the search fails.  
+ 
+    X = <strong>fzero</strong>(FUN,X0), where X0 is a vector of length 2, assumes X0 is a 
+    finite interval where the sign of FUN(X0(1)) differs from the sign of 
+    FUN(X0(2)). An error occurs if this is not true.  Calling <strong>fzero</strong> with a
+    finite interval guarantees <strong>fzero</strong> will return a value near a point where
+    FUN changes sign.
+ 
+    X = <strong>fzero</strong>(FUN,X0), where X0 is a scalar value, uses X0 as a starting 
+    guess. <strong>fzero</strong> looks for an interval containing a sign change for FUN and 
+    containing X0.  If no such interval is found, NaN is returned.  
+    In this case, the search terminates when the search interval 
+    is expanded until an Inf, NaN, or complex value is found. Note: if
+    the option FunValCheck is 'on', then an error will occur if an NaN or 
+    complex value is found.
+ 
+    X = <strong>fzero</strong>(FUN,X0,OPTIONS) solves the equation with the default optimization
+    parameters replaced by values in the structure OPTIONS, an argument
+    created with the OPTIMSET function.  See OPTIMSET for details.  Used
+    options are Display, TolX, FunValCheck, OutputFcn, and PlotFcns. 
+ 
+   

@@ -10,7 +10,6 @@ Q = 1;
 %% Other Variables
 % Equation 303
 ZD = 1 + ((g - phi) / (lambda*phi));         
-% g = lambda * phi * (ZD-1) + phi;
 
 % Equation 304
 VD = g*ZD - phi*ZD;
@@ -34,10 +33,10 @@ YD = YDW;
 % Equations 305 and 309
 % Solve jointly for N and K
 ND = Lambda * J * VD;
-KD = (zetabar * zeta * (ZD/VD)) ^ (1/eta) * ND * g;
+KD = ((zetabar * zeta * (ZD/VD)) ^ (1/eta)) * ND * g;
 
 % Equation 312
-L = ( YDW * (g/KD) ^ alpha  )^(1/(1 - alpha));
+L = ( YDW * ((g/KD) ^ alpha)  )^(1/(1 - alpha));
 
 % Equation 320
 ID = KD - ((1-delta)/g)*KD;
