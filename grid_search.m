@@ -74,10 +74,12 @@ v={
 %% Guess
 
 
-% 29
+
+DIST_save = [];
+global oo_ M_ options_ pvarcoirfs_clean
 
 disp('Grid Search')
-for kk = 1:length(permutations);
+for kk = 2:length(permutations);
     guess = permutations(kk,:);
 
     set_param_value('eta', guess(1) );
@@ -95,12 +97,16 @@ for kk = 1:length(permutations);
         info = stoch_simul(var_list_);
 
         disp('Success!')
-        guess
         kk
-        return
+        post_processing_irfs;                                                       % Create IRFs with trend
+        post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+        DIST_save(kk) = irf_distance;
+        % return
     catch
         disp('No ss found')
         kk
+        DIST_save(kk) = Inf;
     end
     
 

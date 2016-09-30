@@ -12,6 +12,7 @@ Q = 1;
 ZD = 1 + ((g - phi) / (lambda*phi));         
 
 % Equation 304
+% ISSUE: can become negative => causes KD to be imaginary
 VD = g*ZD - phi*ZD;
 
 % Equation 311
@@ -34,6 +35,9 @@ YD = YDW;
 % Solve jointly for N and K
 ND = Lambda * J * VD;
 KD = ((zetabar * zeta * (ZD/VD)) ^ (1/eta)) * ND * g;
+% POTENTIAL ISSUE:
+% KD sometimes becomes complex if there's a guess for g that is less than
+% phi (which causes VD to be negative)
 
 % Equation 312
 L = ( YDW * ((g/KD) ^ alpha)  )^(1/(1 - alpha));

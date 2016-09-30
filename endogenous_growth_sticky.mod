@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
 
@@ -115,8 +115,8 @@ vartheta = 1 + 1/(1-alpha);
 
 % GROWTH PARAMETERS
 eta    = 0.3;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
-gamma  = 0.9;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.3;       % 0.875;                   % Survival rate of technologies
+gamma  = 0.5;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi    = 0.8;       % 0.875;                   % Survival rate of technologies
 % lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
@@ -144,15 +144,15 @@ rho_lambda = 0.2;       % 0 < rho_lambda < 1
 % The param gg is instead defined in endogenous_growth_steadystate.m
 
 %% NEW GUESS
-eta =       0.2000;
-gamma =     0.2000;
-phi =     0.5980;
-lambda_bar =     2.0040;
-psi_N =    80.0000;
-rhozeta =     1.2000;
-rhozeta2 =     0.7920;
-sigmazeta =     2.4000;
-zetabar =     2.0800;
+% eta =       0.2000;
+% gamma =     0.2000;
+% phi =     0.5980;
+% lambda_bar =     2.0040;
+% psi_N =    80.0000;
+% rhozeta =     1.2000;
+% rhozeta2 =     0.7920;
+% sigmazeta =     2.4000;
+% zetabar =     2.0800;
 
 
 %=========================================================================%

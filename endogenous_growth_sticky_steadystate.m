@@ -73,14 +73,14 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % TODO what does this do?
     check = 0;
     
+
+    
     %% Solve for Steady State:
     % Search over g, find other steady state values, then look at the residual of the final equation
     
     % 1. Function: residual given guess for growth rate g
     function f = subfunction(xx)
 
-        [~,cols]=size(xx);
-        
         g_fcn = 0;
         g_fcn_prime = 0;
         f_fcn = 0;
@@ -89,8 +89,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
         % for i=1:cols
             
             %% Guess Two SS Values
-            g = xx(1,1);
-            lambda = mintomod_ab(xx(2,1), 0.01, 0.99);
+            g = mintomod_ab(xx(1,1), phi*1.001, 2);
+            lambda = mintomod_ab(xx(2,1), 0.0001, 0.9999);
 
             %% Sticky Price Model (September Update)
             ss_given_g_and_lambda;
@@ -98,31 +98,85 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             %% Residuals: Equations 318 and 322
             f2 = (( chi * GammaD * L^epsilon * (1/UCD) * (CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon))^(-rho) ) - ( (1/mkup) * ((vartheta - 1)/vartheta) * (1 - alpha) * (YD/L)));
             f1 = (-Q + Lambda * ((g* (vartheta - 1) *YDW * alpha)/(mkup * KD * vartheta) + Q * (1 - delta)));
-            f = [f1; f2];
+            
             
             % We get imaginary residuals if g, lambda, Z, K, V, or others are negative
             % To prevent negative VD, make phi small
-            if imag(f2) ~= 0
-                % keyboard
-            end
+%             if imag(f2) ~= 0
+%                 disp('Imaginary residual')
+%                 % keyboard
+%                 
+%                 % Not sure if this will work.... might still cause issues
+%                 % because f is positive. I think that messes with root
+%                 % finding algorithms (think: mean value theorem)
+%                 f = [1000000; 1000000];
+%             else
+                 f = [f1; f2];
+%             end
         % end
         
     end
 
     %% 2. Find growth rate g such that residual is zero
-    g0 = [1.01; 0];
-    [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 500);
+    % g0 = [1.01; 0];
+    
+    save TEMP.mat
+    x0 = [1.01, 0.5];
+%     opts = optimoptions(@fsolve,'Display', 'iter','Algorithm','trust-region-dogleg');
+%     [x1, ff] = fsolve(@fbnd,x0, opts)
+
+    % Solve for the roots of fbnd, while also imposing a lower bound
+    % Point of the lower bound is to avoid complex results
+    % For more info, look in matlab documentation on "Nonlinear Systems
+    % with Constraints"
+    lb = [phi,0];
+    [x1b, RESNORM] = lsqnonlin(@fbnd,x0,lb);
+    F = fbnd(x1b);
+  
+    
+% Other Solution Suggested by Matlab:::::::::::::::::::::::::::::::::::::::
+% Set Equations and Inequalities as fmincon Constraints
+% You can reformulate the problem and use fmincon as follows:
+% 
+% Give a constant objective function, such as @(x)0, which evaluates to 0 for each x.
+% Set the fsolve objective function as the nonlinear equality constraints in fmincon.
+% Give any other constraints in the usual fmincon syntax.
+% For this example, write a function file for the nonlinear inequality constraint.
+% 
+% function [c,ceq] = fminconstr(x)
+% 
+% c = []; % no nonlinear inequality
+% ceq = fbnd(x); % the fsolve objective is fmincon constraints
+% Save this code as the file fminconstr.m on your MATLAB path.
+% 
+% Solve the constrained problem.
+% 
+% lb = [0,0]; % lower bound constraint
+% rng default % reproducible initial point
+% x0 = 100*randn(2,1);
+% opts = optimoptions(@fmincon,'Algorithm','interior-point','Display','off');
+% x = fmincon(@(x)0,x0,[],[],[],[],lb,[],@fminconstr,opts)
+
+    
+    %[xVal, fVal] = fzero(@subfunction, [phi*1.0001 2])
+    
+    % perhaps this fails because of complex f
+    % [g_sol, rc]=csolve(@subfunction, g0, [], 1e-10, 1000);
     % This tells me whether it worked
-    rc
+    % rc
     
-    if rc == 4
-        disp('rc is 4 in steady state solver (maxit reached)')
-    end
+%     if rc == 4
+%         disp('rc is 4 in steady state solver (maxit reached)')
+%     end
     
-    g = g_sol(1,1)
-    lambda = mintomod_ab(g_sol(2,1), 0.01, 0.99)
+    %g = g_sol(1,1)
+    %lambda = mintomod_ab(g_sol(2,1), 0.01, 0.99)
 
+     %           g = mintomod_ab(g_sol(1,1), phi*1.001, 2)
+     %      lambda = mintomod_ab(g_sol(2,1), 0.0001, 0.9999);
 
+     g = x1b(1)
+     lambda = x1b(2)
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;
 
