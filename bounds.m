@@ -13,8 +13,8 @@ function [ x_bounded ] = bounds( params )
     x_bounded(6) = mintomod_ab(params(6), 0.0001, 1.5); % rhozeta
     x_bounded(7) = mintomod_ab(params(7), 0.0001, 0.99); % rhozeta2
     x_bounded(8) = mintomod_ab(params(8),  .2, 10); % sigmazeta If too small, I get "Warning: Matrix is close to singular or badly scaled. Results may be inaccurate."
-    x_bounded(9) = mintomod_ab(params(9),  .1, 10); % zetabar
-    x_bounded(10)= mintomod_ab(params(10), .01, .99); % rho_lambda
+    % x_bounded(9) = mintomod_ab(params(9),  .1, 10); % zetabar
+    x_bounded(9)= mintomod_ab(params(9), .01, .99); % rho_lambda
     % sigmazeta 
     % If too small, I get 
     % "Warning: Matrix is close to singular or badly scaled. Results may be inaccurate."

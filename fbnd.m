@@ -11,7 +11,8 @@ f_fcn = 0;
 f_fcn_prime = 0;
 
 %% Guess Two SS Values
-g = x(1);
+g = 1.0118; % x(1);
+zetabar = x(1);
 lambda = x(2);
 
 %% Sticky Price Model (September Update)

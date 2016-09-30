@@ -154,16 +154,26 @@ rho_lambda = 0.7;       % 0 < rho_lambda < 1
 % sigmazeta =     2.4000;
 % zetabar =     2.0800;
 
-eta        =    0.9530;
-gamma        =    0.7589;
-phi        =    0.9416;
-lambda_bar        =    1.5305;
-psi_N        =    15;
-rhozeta        =    0.5;
-rhozeta2        =    0.0004;
-sigmazeta        =    0.8;
-zetabar        =    0.2617;
-rho_lambda        =    0.7000;
+% eta        =    0.9530;
+% gamma        =    0.7589;
+% phi        =    0.9416;
+% lambda_bar        =    1.5305;
+% psi_N        =    15;
+% rhozeta        =    0.5;
+% rhozeta2        =    0.0004;
+% sigmazeta        =    0.8;
+% zetabar        =    0.2617;
+% rho_lambda        =    0.7000;
+
+eta            =     0.6331;
+gamma            =   0.9769;
+phi            =   0.9890;
+lambda_bar            =   0.3;
+psi_N            =  20;
+rhozeta            =   0.6557;
+rhozeta2            =      0.0004;
+sigmazeta            =   0.4957;
+rho_lambda            =   0.7905;
 
 
 %=========================================================================%
@@ -356,7 +366,7 @@ else
 % TODO: REPLACE LAMBDA WITH ANOTHER PARAMETER
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar, rho_lambda];
+x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
@@ -365,7 +375,7 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
-nit = 500;
+nit = 800;
 
 % nit = 20;
 
@@ -391,7 +401,7 @@ set_param_value('psi_N', params(5) );
 set_param_value('rhozeta', params(6) );
 set_param_value('rhozeta2', params(7) );
 set_param_value('sigmazeta', params(8) );
-set_param_value('zetabar', params(9) );
+% set_param_value('zetabar', params(9) );
 set_param_value('rho_lambda', params(9) );
 
 

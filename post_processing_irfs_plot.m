@@ -4,6 +4,7 @@
 %===================================================================%
 
 % Plot in same format as Albert
+plot_cutoff = 34;
 try
     h = findobj('name', 'original vars');
     figure(h);
@@ -11,7 +12,7 @@ catch
     figure('name', 'original vars');
     suptitle('Unmodified Dynare IRFs (Detrended)');
 end
-for ii = 1:32;
+for ii = 1:plot_cutoff;
     subplot(6,6,ii);
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
@@ -39,8 +40,8 @@ catch
     figure('name', 'un detrended vars');
     suptitle('Modified IRFs (With Trend Added)');
 end
-for ii = 33:size(IR_dynare,1);
-    subplot(4,4,ii-32);
+for ii = plot_cutoff+1:size(IR_dynare,1);
+    subplot(4,4,ii-plot_cutoff);
     hold on;
     plot( IR_dynare(ii,:), 'linewidth', 2); 
     hold off;

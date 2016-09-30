@@ -13,8 +13,8 @@ function [ x_unbounded ] = boundsINV( params )
     x_unbounded(6) = modtomin_ab(params(6), 0.0001, 1.5); % rhozeta
     x_unbounded(7) = modtomin_ab(params(7), 0.0001, 0.99); % rhozeta2
     x_unbounded(8) = modtomin_ab(params(8),  .2, 10); % sigmazeta If too small, I get "Warning: Matrix is close to singular or badly scaled. Results may be inaccurate."
-    x_unbounded(9) = modtomin_ab(params(9),  .1, 10); % zetabar
-    x_unbounded(10)= modtomin_ab(params(10), .01, .99); % rho_lambda
+    % x_unbounded(9) = modtomin_ab(params(9),  .1, 10); % zetabar
+    x_unbounded(9)= modtomin_ab(params(9), .01, .99); % rho_lambda
 
     
 

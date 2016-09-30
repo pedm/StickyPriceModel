@@ -121,7 +121,13 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % g0 = [1.01; 0];
     
     save TEMP.mat
+    % Usually the best choice of bounds
     x0 = [1.01, 0.5];
+    
+    % Sometimes this works better
+    % x0 = [1.01, 0.1];
+    % But it usually results in lambda in ss being VERY close to zero
+    
 %     opts = optimoptions(@fsolve,'Display', 'iter','Algorithm','trust-region-dogleg');
 %     [x1, ff] = fsolve(@fbnd,x0, opts)
 
@@ -129,9 +135,21 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % Point of the lower bound is to avoid complex results
     % For more info, look in matlab documentation on "Nonlinear Systems
     % with Constraints"
-    lb = [phi,0];
-    [x1b, RESNORM] = lsqnonlin(@fbnd,x0,lb);
-    F = fbnd(x1b);
+    
+    % lb when guessing g
+    % lb = [phi,0];
+    
+    % lb when guessing zetabar
+    lb = [0.01, 0];
+    
+    opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed');
+    [x1b, RESNORM, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);    
+%     RESNORM
+%     F = fbnd(x1b)
+    
+    % TODO: if resnorm is large, try the algorithm again using the lower x0
+    
+    
   
     
 % Other Solution Suggested by Matlab:::::::::::::::::::::::::::::::::::::::
@@ -175,8 +193,11 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
      %           g = mintomod_ab(g_sol(1,1), phi*1.001, 2)
      %      lambda = mintomod_ab(g_sol(2,1), 0.0001, 0.9999);
 
-     g = x1b(1)
+     % g = x1b(1)
+     g = 1.0118;
+     zetabar = x1b(1)
      lambda = x1b(2)
+     
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;
 
