@@ -6,7 +6,7 @@
 % If you comment out this command, this code will plot the IRFs on top of your previous plots
 % close all;
 
-% close all;
+close all;
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
@@ -157,13 +157,13 @@ rho_lambda = 0.7;       % 0 < rho_lambda < 1
 eta        =    0.9530;
 gamma        =    0.7589;
 phi        =    0.9416;
-lambda_bar        =    1.2;
-psi_N        =    9.9999;
+lambda_bar        =    1.5305;
+psi_N        =    15;
 rhozeta        =    0.5;
 rhozeta2        =    0.0004;
-sigmazeta        =    0.3353;
+sigmazeta        =    0.8;
 zetabar        =    0.2617;
-rho_lambda        =    0.5000;
+rho_lambda        =    0.7000;
 
 
 %=========================================================================%

@@ -131,7 +131,6 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % with Constraints"
     lb = [phi,0];
     [x1b, RESNORM] = lsqnonlin(@fbnd,x0,lb);
-    RESNORM
     F = fbnd(x1b);
   
     

@@ -1,17 +1,14 @@
 function F = fbnd(x)
-load TEMP.mat
+% Root finding function used by the steady state solver
+% Computes the residuals given an initial guess
 
-alpha = 0.33;
-
-% F(1) = (x(1)+1)*(10-x(1))*(1+x(2)^2)/(1+x(2)^2+x(2));
-% F(2) = (x(2)+2)*(20-x(2))*(1+x(1)^2)/(1+x(1)^2+x(1));
-
+alpha = []; % Needed because otherwise matlab thinks alpha is a function
+load TEMP.mat % This might not be the cleanest way to import all the params
 
 g_fcn = 0;
 g_fcn_prime = 0;
 f_fcn = 0;
 f_fcn_prime = 0;
-
 
 %% Guess Two SS Values
 g = x(1);
