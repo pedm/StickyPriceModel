@@ -6,7 +6,7 @@
 % If you comment out this command, this code will plot the IRFs on top of your previous plots
 % close all;
 
-close all;
+% close all;
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
@@ -116,14 +116,14 @@ vartheta = 1 + 1/(1-alpha);
 % GROWTH PARAMETERS
 eta    = 0.3;       % 0.375;                   % Curvature of innovations production in R&D expenditure (original = 0.33)
 gamma  = 0.5;       % 0.35;                    % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi    = 0.8;       % 0.875;                   % Survival rate of technologies
+phi    = 0.95;       % 0.875;                   % Survival rate of technologies
 % lambda = 0.4466;       % 0.075;                   % Adoption probability
 
 % SHOCKS
-rhozeta    = 0.5487; % 0.5; 
+rhozeta    = 0.4; % 0.5; 
 rhozeta2   = 0.0004; % 0.1;                 % Note: there's a minus in front of this (also, in estimation, must be greater than 0)
-sigmazeta  = 1.0613; % 3.5;
-zetabar    = 0.9;
+sigmazeta  = 0.5; % 3.5;
+zetabar    = 0.6;
 
 % NEW VARIABLES
 % TODO: any suggested calibration?
@@ -133,12 +133,12 @@ theta    = 1;
 
 omega    = 4.167;  
 mkup_ss  = omega / (omega - 1);         % Markup. In the flex price model, markup is exogenous and given by M = ω/(ω − 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy�?, who take them from estimates by Primiceri et al
-psi_N   = 21.8893;                      % Adjustment cost to N
+psi_N   = 10;                      % Adjustment cost to N
 psi_I   = 1;                            % Adjustment cost to I
 
 % SEPTEMBER ADDITIONS
-lambda_bar = 2;
-rho_lambda = 0.2;       % 0 < rho_lambda < 1
+lambda_bar = 1.5;
+rho_lambda = 0.7;       % 0 < rho_lambda < 1
 
 % Note: gg is not set here, as it depends on the steady state. 
 % The param gg is instead defined in endogenous_growth_steadystate.m
@@ -153,6 +153,17 @@ rho_lambda = 0.2;       % 0 < rho_lambda < 1
 % rhozeta2 =     0.7920;
 % sigmazeta =     2.4000;
 % zetabar =     2.0800;
+
+eta        =    0.9530;
+gamma        =    0.7589;
+phi        =    0.9416;
+lambda_bar        =    1.2;
+psi_N        =    9.9999;
+rhozeta        =    0.5;
+rhozeta2        =    0.0004;
+sigmazeta        =    0.3353;
+zetabar        =    0.2617;
+rho_lambda        =    0.5000;
 
 
 %=========================================================================%
@@ -345,7 +356,7 @@ else
 % TODO: REPLACE LAMBDA WITH ANOTHER PARAMETER
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar];
+x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar, rho_lambda];
 x_start_unbounded = boundsINV(x_start);
 
 % Optimizer options
@@ -355,6 +366,8 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
 nit = 500;
+
+% nit = 20;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -379,6 +392,8 @@ set_param_value('rhozeta', params(6) );
 set_param_value('rhozeta2', params(7) );
 set_param_value('sigmazeta', params(8) );
 set_param_value('zetabar', params(9) );
+set_param_value('rho_lambda', params(9) );
+
 
 var_list_=[];
 info = stoch_simul(var_list_);

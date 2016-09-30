@@ -21,7 +21,9 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('rhozeta2', params(7) );
     set_param_value('sigmazeta', params(8) );
     set_param_value('zetabar', params(9) );
+    set_param_value('rho_lambda', params(9) );
 
+    
     try
         % Dynare command - does not work in m file
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);

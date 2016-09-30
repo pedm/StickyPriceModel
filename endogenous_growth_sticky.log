@@ -10,92 +10,15 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('evaluate_steady_state', 'C:\dynare\4.4.3\matlab\evaluate_steady_state.m', 58)" style="font-weight:bold">evaluate_steady_state</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\evaluate_steady_state.m',58,0)">line 58</a>)
-        [ys,params,info] = evaluate_steady_state_file(ys_init,exo_ss,M, ...
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resol', 'C:\dynare\4.4.3\matlab\resol.m', 104)" style="font-weight:bold">resol</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resol.m',104,0)">line 104</a>)
-[dr.ys,M.params,info] = evaluate_steady_state(oo.steady_state,M,options,oo,0);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 88)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\stoch_simul.m',88,0)">line 88</a>)
-    [oo_.dr,info,M_,options_,oo_] = resol(0,M_,options_,oo_);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('grid_search', 'C:\Users\pedm\Documents\StickyPriceModel\grid_search.m', 97)" style="font-weight:bold">grid_search</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\grid_search.m',97,0)">line 97</a>)
-        info = stoch_simul(var_list_);} 
-check
-{Not enough input arguments.
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('check', 'C:\dynare\4.4.3\matlab\check.m', 61)" style="font-weight:bold">check</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\check.m',61,0)">line 61</a>)
-if ~options.initval_file && M.exo_nbr > 1} 
-steady
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.456433e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-   15.6479
-lambda =
-    1.4637
-g in steady state > 1.5
-
-
-oo_
-oo_ = 
-               exo_simul: [602x1 double]
-              endo_simul: [35x600 double]
-                      dr: [1x1 struct]
-        exo_steady_state: 0
-    exo_det_steady_state: []
-           exo_det_simul: []
-            steady_state: [35x1 double]
-                    irfs: [1x1 struct]
-oo_.steady_state
-ans =
-   1.0e+03 *
-    0.0156
-    0.0182
-    0.0015
-    0.2738
-    0.0002
-    0.0009
-    0.0202
-    0.0195
-    0.0145
-    0.0639
-    0.0639
-    0.0366
-    0.0001
-    0.0000
-    2.6342
-    0.6248
-    0.0000
-    0.0097
-    0.0010
-    0.0092
-    0.0010
-    5.9533
-    5.6722
-    0.0145
-    0.0013
-    0.0010
-    0.0010
-    0.0349
-    0.0459
-    0.0163
-    0.0010
-    0.0010
-    0.0010
-    0.0010
-    0.0010
-oo_.steady_state(1)
-ans =
-   15.6479
-oo_.steady_state(2)
-ans =
-   18.1941
-oo_.steady_state(3)
-ans =
-    1.4637
+did not compute the steady state
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resid', 'C:\dynare\4.4.3\matlab\resid.m', 112)" style="font-weight:bold">resid</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resid.m',112,0)">line 112</a>)
+    print_info(info,options_.noprint, options_)
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 90)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',90,0)">line 90</a>)
+        resid;
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 356)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',356,0)">line 356</a>)
+steady;
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
+evalin('base',fname) ;} 
 dynare endogenous_growth_sticky.mod
 
 Configuring Dynare ...
@@ -123,39 +46,46 @@ Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 [Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 [Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: Some of the parameters have no value (gg, R_nom_ss) when using steady.
-If these parameters are not initialized in a steadystate file, Dynare may not be
-able to solve the model...] 
+[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: The file
+'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m'
+could not be cleared because it contains MATLAB code
+that is currently executing.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+[Warning: Some of the parameters have no value (gg,
+R_nom_ss) when using steady. If these parameters are
+not initialized in a steadystate file, Dynare may not
+be able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 337)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',337,0)">line 337</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 356)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',356,0)">line 356</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 
 <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
@@ -163,154 +93,14 @@ able to solve the model...]
 Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
 the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
 
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842547e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',5.969971e-09,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
 
+RESNORM =
+    0.3372
 g =
-    1.8266
+    1.5413
 lambda =
-    0.6954
-g in steady state > 1.5
-
-STEADY-STATE RESULTS:
-
-g                 		 1.82659
-ZD                		 2.84533
-lambda            		 0.695398
-VD                		 2.92099
-M                 		 0.00508179
-J                 		 0.0350744
-H                 		 0.121977
-Pi                		 0.0706911
-ND                		 0.0538455
-YDW               		 0.231837
-YD                		 0.231837
-CD                		 0.136438
-Lambda            		 0.525569
-UCD               		 7.428
-muD               		 9.01254
-L                 		 0.590613
-GammaD            		 0.0746956
-KD                		 0.0634271
-Q                 		 1
-ID                		 0.0321752
-zeta              		 1
-SD                		 2.81142
-XD                		 2.45884
-RD                		 0.0538455
-mkup              		 1.31576
-pi                		 1
-pi_star           		 1
-x1D               		 32.7204
-x2D               		 43.0521
-R_nom             		 1.9027
-f_fcn             		 1
-f_fcn_prime       		 1
-g_fcn             		 1
-g_fcn_prime       		 1
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842547e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-
-EIGENVALUES:
-         Modulus             Real        Imaginary
-
-       2.558e-15       -2.558e-15                0
-       3.578e-14        3.578e-14                0
-       1.748e-12       -1.748e-12                0
-         0.00073          0.00073                0
-          0.1133           0.1133                0
-          0.4962           0.4962                0
-           0.548            0.548                0
-          0.5591           0.4899           0.2695
-          0.5591           0.4899          -0.2695
-          0.9197           0.9197                0
-           1.038            1.038                0
-           1.042            1.042                0
-           1.042            1.042                0
-           1.042            1.042                0
-           1.275            1.275                0
-            1.82            1.788           0.3386
-            1.82            1.788          -0.3386
-           2.308            2.308                0
-            3.68            3.534            1.026
-            3.68            3.534           -1.026
-       2.967e+17       -2.967e+17                0
-       1.399e+19       -1.399e+19                0
-       2.916e+20        2.916e+20                0
-        3.86e+32         3.86e+32                0
-       7.951e+33        7.951e+33                0
-             Inf              Inf                0
-
-
-There are 16 eigenvalue(s) larger than 1 in modulus 
-for 16 forward-looking variable(s)
-
-The rank condition is verified.
-
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842547e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-
-MODEL SUMMARY
-
-  Number of variables:         35
-  Number of stochastic shocks: 1
-  Number of state variables:   10
-  Number of jumpers:           16
-  Number of static variables:  12
-
-
-MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
-
-Variables     epsilon_chi 
-epsilon_chi       1.000000
-
-POLICY AND TRANSITION FUNCTIONS
-                        g                ZD               lambda           VD               M                J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               mkup             pi               pi_star          x1D              x2D              R_nom            f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
-Constant                    0.602451        1.045679       -0.363271        1.071922       -5.282092       -3.350285       -2.103922       -2.649435       -2.921636       -1.461722       -1.461722       -1.991883       -0.643273        2.005257        2.198617       -0.526594       -2.594334       -2.757864               0       -3.436558               0        1.033691        0.899691       -2.921636        0.274412               0               0        3.487999        3.762410        0.643273               0               0               0               0
-g(-1)                      -0.875464       -1.000000       -0.015785       -0.997937       -0.078925        0.068198       -1.771188       -3.080069       -0.993123       -1.129909       -1.129909       -1.142116       -0.241746        0.758254       -0.187862       -1.193894       -1.071058       -1.083181       -0.783177       -1.163976               0       -0.849411       -0.757670       -0.993123        1.950160               0       -0.081503       -0.101704       -0.020202       -0.195016               0        0.274964               0       -0.299517
-ZD(-1)                      0.355902        0.437974       -0.042068        0.443184       -0.210338       -0.259588        0.439113        0.912978        0.017364        0.298157        0.298157        0.433641       -0.304510       -0.304510        0.027186        0.445011        0.216821        0.073520        0.398132        0.144930               0        0.243058        0.225368        0.017364       -0.614821               0       -0.010543       -0.050612       -0.040070        0.061482               0        0.694259               0        0.264728
-UCD(-1)                            0               0               0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                  0.014959               0        0.026617       -0.000904        0.133083        0.051587        0.361822        0.581964       -0.003014        0.002404        0.002404       -0.019581        0.113550        0.113550       -0.049806        0.003587        0.490210        0.033789        0.254524        0.066608               0       -0.070386       -0.109335       -0.003014       -0.579561               0        0.034902        0.044810        0.009908        0.057956               0       -0.120510               0        0.121665
-KD(-1)                     -0.066727               0       -0.118725       -0.301892       -0.593626       -0.258742       -0.916373       -1.378047       -0.006305       -0.168376       -0.168376       -0.169019       -0.014214       -0.014214       -0.811747       -0.743844       -0.084509        0.333976       -0.958229       -0.312935               0       -0.033833        0.053048       -0.006305        1.209672               0       -0.053666       -0.048993        0.004673       -0.120967               0       -0.252096               0       -0.571603
-zeta(-1)                    0.097824               0        0.174056        0.557391        0.870281        0.480139        0.778796        0.995964        0.028969        0.309300        0.309300        0.387706       -0.322811       -0.322811        0.310833        0.461641        0.193853        0.143283        0.602562        0.282454        0.548700        0.312829        0.243944        0.028969       -0.686665               0        0.020844       -0.023861       -0.044706        0.068666               0        1.158250               0        0.515927
-zeta(-2)                   -0.000071               0       -0.000127       -0.000406       -0.000635       -0.000350       -0.000568       -0.000726       -0.000021       -0.000226       -0.000226       -0.000283        0.000235        0.000235       -0.000227       -0.000337       -0.000141       -0.000105       -0.000440       -0.000206       -0.000400       -0.000228       -0.000178       -0.000021        0.000501               0       -0.000015        0.000017        0.000033       -0.000050               0       -0.000845               0       -0.000376
-VD(-1)                      0.456707        0.562026       -0.053983        0.568710       -0.269914       -0.333113        0.563487        1.171568        0.022282        0.382607        0.382607        0.556465       -0.390759       -0.390759        0.034887        0.571055        0.278232        0.094344        0.510898        0.185980               0        0.311901        0.289201        0.022282       -0.788961               0       -0.013529       -0.064948       -0.051419        0.078896               0        0.890900               0        0.339710
-ND(-1)                      0.145497               0        0.258880        0.292319        1.294399        0.996669        1.309808        1.602519        0.974396        0.530625        0.530625        0.310163       -0.208060       -0.208060        0.987735        0.791978        0.155081        0.253756        0.905606        0.500231               0        0.459341        0.350382        0.974396       -1.071894               0        0.145976        0.228389        0.082413        0.107189               0       -1.023710               0        0.913716
-ID(-1)                     -0.030875               0       -0.054936       -0.003480       -0.274678       -0.265010        0.013330        0.189086       -0.011600        0.084492        0.084492        0.030446        0.045740        0.045740       -0.000394        0.126107        0.015223        0.293796       -0.327752        0.579162               0       -0.060671       -0.050993       -0.011600       -0.104594               0       -0.021637       -0.006942        0.014696        0.010459               0       -0.463807               0       -0.768699
-epsilon_chi                 0.189334               0        0.336877        1.078121        1.684386        0.929524        1.507355        1.927580        0.056071        0.598611        0.598611        0.750336       -0.624760       -0.624760        0.601670        0.893450        0.375168        0.277340        1.166209        0.546720        1.061300        0.605466        0.472152        0.056071       -1.328969               0        0.040363       -0.046159       -0.086522        0.132897               0        2.241874               0        0.998634
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842432e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
+   8.7473e+03
 g in steady state > 1.5
 
 <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
@@ -318,82 +108,55 @@ g in steady state > 1.5
 Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
 the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
 
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842432e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',5.969971e-09,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
 
+RESNORM =
+    0.3372
 g =
-    1.8266
+    1.5413
 lambda =
-    0.6954
+   8.7473e+03
 g in steady state > 1.5
 
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
 
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
 
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.839540e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
 
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
+Residuals of the static equations:
 
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
+Equation number 1 : 0
+Equation number 2 : 0
+Equation number 3 : 0
+Equation number 4 : -2.0564e-06
+Equation number 5 : 0
+Equation number 6 : 0
+Equation number 7 : 0
+Equation number 8 : 0
+Equation number 9 : 0
+Equation number 10 : 0
+Equation number 11 : 0
+Equation number 12 : 0
+Equation number 13 : 0
+Equation number 14 : 0
+Equation number 15 : 0
+Equation number 16 : -0.44639
+Equation number 17 : 0
+Equation number 18 : 0
+Equation number 19 : 0
+Equation number 20 : -0.3714
+Equation number 21 : 0
+Equation number 22 : 0
+Equation number 23 : 0
+Equation number 24 : 0
+Equation number 25 : 0
+Equation number 26 : 0
+Equation number 27 : 0
+Equation number 28 : 0
+Equation number 29 : 0
+Equation number 30 : 0
+Equation number 31 : 0
+Equation number 32 : 0
+Equation number 33 : 0
+Equation number 34 : 0
 
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
 
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.845281e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842216e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.842645e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-
-<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_lsq','CSHelpWindow');">Local minimum found</a>.
-
-Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> is less than
-the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_lsq','CSHelpWindow');">optimality tolerance</a>.
-
-<<a href = "matlab: createExitMsg('snls',1.000000e+00,true,true,'lsqnonlin',1.841622e-08,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
-
-g =
-    1.8266
-lambda =
-    0.6954
-g in steady state > 1.5
-{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 213)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\stoch_simul.m',213,0)">line 213</a>)
-
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distance_fcn', 'C:\Users\pedm\Documents\StickyPriceModel\distance_fcn.m', 31)" style="font-weight:bold">distance_fcn</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\distance_fcn.m',31,0)">line 31</a>)
-        info = stoch_simul(var_list_);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('numgradcd', 'C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\numgradcd.m', 89)" style="font-weight:bold">numgradcd</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\numgradcd.m',89,0)">line 89</a>)
-    fp = fcn(argplus(:,i),varargin{:});
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('csminwel', 'C:\Users\pedm\Documents\StickyPriceMod
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print_info', 'C:\dynare\4.4.3\matlab\print_info.m', 72)" style="font-weight:bold">print_info</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\print_info.m'
