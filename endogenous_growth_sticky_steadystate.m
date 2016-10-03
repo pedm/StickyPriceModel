@@ -142,7 +142,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % lb when guessing zetabar
     lb = [0.01, 0];
     
-    opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed');
+    opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed'); % debuggin
+    opts = optimoptions(@lsqnonlin,'Display', 'off'); % estimation
+
     [x1b, RESNORM, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);    
 %     RESNORM
 %     F = fbnd(x1b)
@@ -195,8 +197,8 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
 
      % g = x1b(1)
      g = 1.0118;
-     zetabar = x1b(1)
-     lambda = x1b(2)
+     zetabar = x1b(1);
+     lambda = x1b(2);
      
     %% 3. Given solution, find the remaining steady state variables (same equations as above)
     ss_given_g_and_lambda;

@@ -172,7 +172,7 @@ lambda_bar            =   0.3;
 psi_N            =  20;
 rhozeta            =   0.6557;
 rhozeta2            =      0.0004;
-sigmazeta            =   0.4957;
+sigmazeta            =   0.9087;
 rho_lambda            =   0.7905;
 
 
@@ -378,6 +378,7 @@ nit = 1000; % Number of iterations
 nit = 800;
 
 % nit = 20;
+nit = 200;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
