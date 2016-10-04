@@ -145,7 +145,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % lb = [phi,0];
     
     % lb when guessing zetabar
-    % lb = [0.01, 0];
+    lb = [0.01, 0];
     
     opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed'); % debuggin
     opts = optimoptions(@lsqnonlin,'Display', 'off'); % estimation
