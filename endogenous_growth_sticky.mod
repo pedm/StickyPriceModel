@@ -176,6 +176,53 @@ sigmazeta            =   0.9087;
 rho_lambda            =   0.7905;
 
 
+% Grid Search Results (1):
+eta = 0.09999;
+gamma = 0.899911;
+phi = 0.941;
+lambda_bar = 1.0045;
+psi_N = 10;
+rhozeta = 0.15009;
+% rhozeta2 = 0.89101;
+sigmazeta = 1.45;
+rho_lambda = 0.892;
+
+% Estimation results using Grid Search Results (1) as starting point:
+% These params don't have a steady state... unless I modify start point in
+% ss solver
+eta = 0.2602055353;
+gamma = 0.949986429;
+phi = 0.9870225118;
+lambda_bar = 0.09206466431;
+psi_N = 9.999704175;
+rhozeta = 0.8243755448;
+rhozeta2 = 0.0003999698952;
+sigmazeta = 0.4447255525;
+rho_lambda = 0.7168501364;
+
+% Estimation Results when I include 'steady;' command in distance_fcn
+% eta = 0.06983957799;
+% gamma = 0.8833204851;
+% phi = 0.986685405;
+% lambda_bar = 0.3615669612;
+% psi_N = 10.00021269;
+% rhozeta = 0.6684293896;
+% rhozeta2 = 0.0004;
+% sigmazeta = 0.7063087393;
+% rho_lambda = 0.8823283013;
+
+
+% TODO: why did the param results from csminwel() not have a ss?
+% Shouldnt csminwel pick up on this?
+% Also for some reason the plot worked...!
+
+% Perhaps if I run GSR(1), plot it, then go to the most recent params,
+% perhaps it will work then. If so, why is that? Very weird....
+
+% TODO: try estimation again with GSR(1) as starting point. Perhaps print
+% out param results with more accuracy. Does that help???
+
+
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
 %=========================================================================%
@@ -406,8 +453,10 @@ set_param_value('sigmazeta', params(8) );
 set_param_value('rho_lambda', params(9) );
 
 
+oo_.irfs = {}; % erase the old IRFs
+steady;
 var_list_=[];
-info = stoch_simul(var_list_);
+info = stoch_simul(var_list_);                                              % WARNING: this does not compute the steady state. It just uses the pre defined ss
 post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
 axis tight;
@@ -417,5 +466,16 @@ legend('initial','var', 'b', 'b', 'final');
 disp('[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
 params
 x_start
+
+% Print Estimation Results
+disp(sprintf('eta = %0.10g;', params(1) ));
+disp(sprintf('gamma = %0.10g;', params(2) ));
+disp(sprintf('phi = %0.10g;', params(3) ));
+disp(sprintf('lambda_bar = %0.10g;', params(4) ));
+disp(sprintf('psi_N = %0.10g;', params(5) ));
+disp(sprintf('rhozeta = %0.10g;', params(6) ));
+disp(sprintf('rhozeta2 = %0.10g;', params(7) ));
+disp(sprintf('sigmazeta = %0.10g;', params(8) ));
+disp(sprintf('rho_lambda = %0.10g;', params(9) ));
 
 end

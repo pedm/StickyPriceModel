@@ -29,8 +29,12 @@ function [ f ] = distance_fcn( params_unbounded )
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
         % Here's what that dynare command translates to (assuming options_ already
         % defined)
+        
+        % TODO: is this useful?
+        oo_.irfs = {}; % erase old IRFs
+        steady;
         var_list_=[];
-        info = stoch_simul(var_list_);
+        info = stoch_simul(var_list_); % TODO: will this sometimes run without an error even if no ss found?
         
         % TODO: perhaps I can refactor this code so it's faster (for instance,
         % dont load the VAR irfs every single time. and dont compute so many

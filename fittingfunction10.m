@@ -26,6 +26,8 @@ function [ f ] = fittingfunction10( p1,p2,p3,p4,p5,p6,p7,p8,p9,p10)
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
         % Here's what that dynare command translates to (assuming options_ already
         % defined)
+        oo_.irfs = {};                                                              % erase old IRFs
+        steady;                                                                     % Needed because stoch_simul does not compute the ss
         var_list_=[];
         info = stoch_simul(var_list_);
         

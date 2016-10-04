@@ -124,6 +124,11 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % Usually the best choice of bounds
     x0 = [1.01, 0.5];
     
+    % Find a ss.... but it's one where lambda is almost zero
+    x0 = [1.01, 0.2];
+    
+    % x0 = [0.4, 0.089];
+    
     % Sometimes this works better
     % x0 = [1.01, 0.1];
     % But it usually results in lambda in ss being VERY close to zero
@@ -140,14 +145,17 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % lb = [phi,0];
     
     % lb when guessing zetabar
-    lb = [0.01, 0];
+    % lb = [0.01, 0];
     
     opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed'); % debuggin
     opts = optimoptions(@lsqnonlin,'Display', 'off'); % estimation
 
+    % rng(23942374) % TODO: or is this why the results changed slightly?
+    
     [x1b, RESNORM, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);    
-%     RESNORM
-%     F = fbnd(x1b)
+    % RESNORM
+    % F = fbnd(x1b)
+    % x1b
     
     % TODO: if resnorm is large, try the algorithm again using the lower x0
     
