@@ -50,11 +50,29 @@ DIST.(char(FF(10))) = UB.(char(FF(10))) - LB.(char(FF(10)));
 
 %% Extended Grid Search - 10 Params
 para = {};
-for ii = 1:length(FF)
+
+ii = 1
+dist_from_bound = 0.1;
+para{ii} = linspace(LB.(char(FF(ii))) + dist_from_bound*DIST.(char(FF(ii))), UB.(char(FF(ii))) - dist_from_bound*DIST.(char(FF(ii))), 3);
+
+ii = 2
+para{ii} = linspace(LB.(char(FF(ii))) + dist_from_bound*DIST.(char(FF(ii))), UB.(char(FF(ii))) - dist_from_bound*DIST.(char(FF(ii))), 3);
+
+
+ii = 3
+para{ii} = linspace(LB.(char(FF(ii))) + dist_from_bound*DIST.(char(FF(ii))), UB.(char(FF(ii))) - dist_from_bound*DIST.(char(FF(ii))), 3);
+
+
+ii = 4
+para{ii} = linspace(LB.(char(FF(ii))) + dist_from_bound*DIST.(char(FF(ii))), UB.(char(FF(ii))) - dist_from_bound*DIST.(char(FF(ii))), 3);
+
+
+
+for ii = 5:length(FF)
     %list of places to search for each parameter
     % KEY INPUT: how fine should the grid be?
-    grid_fineness = 3;
-    dist_from_bound = 0.1;
+    grid_fineness = 1;
+    dist_from_bound = 0.5;
     para{ii} = linspace(LB.(char(FF(ii))) + dist_from_bound*DIST.(char(FF(ii))), UB.(char(FF(ii))) - dist_from_bound*DIST.(char(FF(ii))), grid_fineness);
 end
 
@@ -86,7 +104,7 @@ p8_opt  =  X8(I_row, I_col, I3, I4, I5, I6, I7, I8, I9, I10);
 p9_opt  =  X9(I_row, I_col, I3, I4, I5, I6, I7, I8, I9, I10);
 p10_opt = X10(I_row, I_col, I3, I4, I5, I6, I7, I8, I9, I10);
 
-f_opt  = fittingfunction3(p1_opt,p2_opt,p3_opt,p4_opt)
+f_opt_real = fittingfunction10(p1_opt, p2_opt, p3_opt, p4_opt, p5_opt, p6_opt, p7_opt, p8_opt, p9_opt, p10_opt)
 
 disp(sprintf('%% Grid Search Results:'))
 disp(sprintf([char(FF(1)), ' = %0.10g;'], p1_opt));

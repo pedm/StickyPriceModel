@@ -1,40 +1,44 @@
-function [ f ] = fittingfunction10( p1,p2,p3,p4,p5,p6,p7,p8,p9,p10)
+function [ f ] = distance_fcn( params_unbounded )
 
 % WARNING: stoch_simul() will inherit whatever options were previously run
 % PERHAPS: hard code these options_ in this function
-    tic
-    % get Dynare structures
-    global oo_ M_ options_ pvarcoirfs_clean COUNT
 
-    %% Set parameters, solve again, and plot
+    % get Dynare structures
+    global oo_ M_ options_ pvarcoirfs_clean
+
+    %% Change parameters, solve again, and plot
+    [ params ] = bounds( params_unbounded );
+    % params
     
     % some of these restrictions arent entirely needed, but perhaps good
     % TODO: include gamma, phi, eta, lambda, psi_N (0 to Inf), rhozeta (0 to 1), sigmazeta (0 to inf), zetabar
-    set_param_value('eta', p1 );
-    set_param_value('gamma', p2 );
-    set_param_value('phi', p3 );
-    set_param_value('lambda_bar', p4 );
-    set_param_value('psi_N', p5 );
-    set_param_value('rhozeta', p6 );
-    set_param_value('rhozeta2', p7 );
-    set_param_value('sigmazeta', p8 );
-    % set_param_value('zetabar', p9 );
-    set_param_value('rho_lambda', p10 ); % woops. before I was setting rho_lambda = zetabar
+    set_param_value('eta', params(1) );
+    set_param_value('gamma', params(2) );
+    set_param_value('phi', params(3) );
+    set_param_value('lambda_bar', params(4) );
+    set_param_value('psi_N', params(5) );
+    set_param_value('rhozeta', params(6) );
+    set_param_value('rhozeta2', params(7) );
+    set_param_value('sigmazeta', params(8) );
+    % set_param_value('zetabar', params(9) );
+    set_param_value('rho_lambda', params(9) ); % woops. before I was setting rho_lambda = zetabar
+
     
-    COUNT.total = COUNT.total + 1;
-
-COUNT.ss_notfound = 0;
-COUNT.ss_neg = 0;
-
     try
         % Dynare command - does not work in m file
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
         % Here's what that dynare command translates to (assuming options_ already
         % defined)
-        oo_.irfs = {};                                                              % erase old IRFs
-        steady;                                                                     % Needed because stoch_simul does not compute the ss
+        
+        % TODO: is this useful?
+        oo_.irfs = {}; % erase old IRFs
+        steady;
         var_list_=[];
-        info = stoch_simul(var_list_);
+        info = stoch_simul(var_list_); % TODO: will this sometimes run without an error even if no ss found?
+                                       % EXPLANATION: oo_ still contains
+                                       % the previous steady state, so it
+                                       % just uses that. TODO: prevent that
+                                       
         
         % TODO: perhaps I can refactor this code so it's faster (for instance,
         % dont load the VAR irfs every single time. and dont compute so many
@@ -53,19 +57,18 @@ COUNT.ss_neg = 0;
             f = 10000000000;
         else
             f = irf_distance;
-            COUNT.ss_found = COUNT.ss_found + 1;
         end
     catch
         % params
         disp('Error: negative steady state')
+        disp('Error: steady state not found')
         keyboard
         
         % Dynare threw a command. Apply large penalty
         f = 10000000000;
     end
-    toc
+
 
     
 end
-
 

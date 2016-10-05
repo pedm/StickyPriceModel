@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
 
@@ -190,16 +190,27 @@ rho_lambda = 0.892;
 % Estimation results using Grid Search Results (1) as starting point:
 % These params don't have a steady state... unless I modify start point in
 % ss solver
-% eta = 0.2602055353;
-% gamma = 0.949986429;
-% phi = 0.9870225118;
-% lambda_bar = 0.09206466431;
-% psi_N = 9.999704175;
-% rhozeta = 0.8243755448;
-% rhozeta2 = 0.0003999698952;
-% sigmazeta = 0.4447255525;
-% rho_lambda = 0.7168501364;
+eta = 0.2602055353;
+gamma = 0.949986429;
+phi = 0.9870225118;
+lambda_bar = 0.09206466431;
+psi_N = 9.999704175;
+rhozeta = 0.8243755448;
+rhozeta2 = 0.0003999698952;
+sigmazeta = 0.4447255525;
+rho_lambda = 0.7168501364;
 
+
+% Grid Search Results:
+eta = 0.49995;
+gamma = 0.499955;
+phi = 0.745;
+lambda_bar = 5.0025;
+% psi_N = 0;
+% rhozeta = 0;
+% rhozeta2 = 0.10005;
+% sigmazeta = 5.25;
+rho_lambda = 0.5;
 
 % Estimation Results when I include 'steady;' command in distance_fcn
 % eta = 0.06983957799;
@@ -211,20 +222,6 @@ rho_lambda = 0.892;
 % rhozeta2 = 0.0004;
 % sigmazeta = 0.7063087393;
 % rho_lambda = 0.8823283013;
-
-
-% Grid Search Results:
-% eta = 0.05;
-% gamma = 0.9;
-% phi = 0.9;
-% lambda_bar = 0.2;
-% % psi_N = 0;
-% % rhozeta = 0;
-% % rhozeta2 = 0.10005;
-% % sigmazeta = 5.25;
-% rho_lambda = 0.7;
-
-
 
 
 % TODO: why did the param results from csminwel() not have a ss?
@@ -376,20 +373,11 @@ var epsilon_chi;
 stderr 1;
 end;
 
-% Setup counters
-COUNT.total = 0;
-COUNT.ss_found = 0;
-COUNT.ss_notfound = 0;
-COUNT.ss_neg = 0;
-
-% steady;
-% check;
+steady;
+check;
 
 % Set seed for simulation
 set_dynare_seed(092677);
-
-evalin('base','save level0workspace oo_ M_ options_')
-
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
@@ -421,6 +409,8 @@ post_processing_irfs_distance;                                              % Co
 % post_processing_irfs;                                                       % Create IRFs with trend
 % post_processing_irfs_plot;                                                  % Plot IRFs
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+ 
 
 if do_estimate == 0;
     return;
@@ -457,8 +447,6 @@ options_.verbosity=0;
 % options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
 [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
 %                          csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
-
-fhat
 
 %=========================================================================%
 %%%%                       PLOT SOLUTION                               %%%%

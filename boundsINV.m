@@ -5,7 +5,7 @@ function [ x_unbounded ] = boundsINV( params )
 
     % TODO: include gamma, phi, eta, lambda, psi_N, rhozeta, sigmazeta, zetabar
 
-    x_unbounded(1) = modtomin_ab(params(1), 0, 0.9999); % eta (if eta is large, then ND becomes larger than YD in ss. Thus CD is negative)
+    x_unbounded(1) = modtomin_ab(params(1), 0.04, 0.9999); % eta (if eta is large, then ND becomes larger than YD in ss. Thus CD is negative)
     x_unbounded(2) = modtomin_ab(params(2), 0.00001, 0.9999); % gamma
     x_unbounded(3) = modtomin_ab(params(3), 0.2, 0.99); % phi
     x_unbounded(4) = modtomin_ab(params(4), 0.005, 100); % lambda_bar

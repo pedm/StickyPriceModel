@@ -43,12 +43,18 @@ pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :) = [];
 % Use same formula as CEE
 DDD = pvarcoirfs.irf - pvarcoirfs.model;
 VVV = diag(pvarcoirfs.se_scaled.*pvarcoirfs.se_scaled); % create diagonal matrix of the variances
-irf_distance_sub = DDD'* inv(VVV) * DDD;
+irf_distance = DDD'* inv(VVV) * DDD;
 
 %% Add growth rate
-ss = exp(oo_.steady_state);
-growth_rate = ss(1);
 
-irf_distance = 0.001 * irf_distance_sub + abs( log(growth_rate) - log(1.0118) )*10e+10;
+% Removed: the growth_rate is now pre-set
 
-% TODO: add more weight to the growth rate
+% Also, this was causing an issue because the growth rate was already in
+% levels, then logged. Perhaps caused by computing the ss before computing
+% the irfs
+% ss = exp(oo_.steady_state);
+% growth_rate = ss(1);
+
+% irf_distance = 0.001 * irf_distance_sub + abs( log(growth_rate) - log(1.0118) )*10e+10;
+% disp(growth_rate)
+

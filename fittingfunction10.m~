@@ -53,12 +53,10 @@ COUNT.ss_neg = 0;
             f = 10000000000;
         else
             f = irf_distance;
-            COUNT.ss_found = COUNT.ss_found + 1;
         end
     catch
         % params
         disp('Error: negative steady state')
-        keyboard
         
         % Dynare threw a command. Apply large penalty
         f = 10000000000;
