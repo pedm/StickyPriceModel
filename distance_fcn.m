@@ -7,9 +7,7 @@ function [ f ] = distance_fcn( params_unbounded )
     global oo_ M_ options_ pvarcoirfs_clean
     % this ensures that we don't use the dr or irfs from the last stoch_simul()
     load level0workspace oo_
-    
-    % Question: it starts without a ss right?
-    oo_.steady_state
+    % It now starts without a ss of zeros
 
     %% Change parameters, solve again, and plot
     [ params ] = bounds( params_unbounded );
@@ -36,13 +34,14 @@ function [ f ] = distance_fcn( params_unbounded )
         
         % TODO: is this useful?
         % oo_.irfs = {}; % erase old IRFs
-        % steady;
+        steady;
         var_list_=[];
         info = stoch_simul(var_list_); % TODO: will this sometimes run without an error even if no ss found?
                                        % EXPLANATION: oo_ still contains
                                        % the previous steady state, so it
                                        % just uses that. TODO: prevent that
                                        
+        % oo_.steady_state
         
         % TODO: perhaps I can refactor this code so it's faster (for instance,
         % dont load the VAR irfs every single time. and dont compute so many
@@ -62,6 +61,7 @@ function [ f ] = distance_fcn( params_unbounded )
         else
             f = irf_distance;
         end
+        disp('Good')
     catch
         % params
         disp('Error: steady state not found')

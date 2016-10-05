@@ -224,16 +224,16 @@ rho_lambda = 0.892;
 % % sigmazeta = 5.25;
 % rho_lambda = 0.7;
 
-%% Estimation Results (Oct 5)
-eta = 0.04372746517;
-gamma = 0.9998401381;
-phi = 0.9899956566;
-lambda_bar = 0.2291965598;
-psi_N = 6.651634179;
-rhozeta = 0.8779613822;
-rhozeta2 = 0.0003455172107;
-sigmazeta = 0.3618846256;
-rho_lambda = 0.8497168674;
+% Estimation Results (Oct 5)
+% eta = 0.04372746517;
+% gamma = 0.9998401381;
+% phi = 0.9899956566;
+% lambda_bar = 0.2291965598;
+% psi_N = 6.651634179;
+% rhozeta = 0.8779613822;
+% rhozeta2 = 0.0003455172107;
+% sigmazeta = 0.3618846256;
+% rho_lambda = 0.8497168674;
 
 % TODO: why did the param results from csminwel() not have a ss?
 % Shouldnt csminwel pick up on this?
@@ -390,13 +390,13 @@ COUNT.ss_found = 0;
 COUNT.ss_notfound = 0;
 COUNT.ss_neg = 0;
 
-% steady;
-% check;
-
 % Set seed for simulation
 set_dynare_seed(092677);
 
 evalin('base','save level0workspace oo_ M_ options_')
+
+steady;
+check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
@@ -432,15 +432,12 @@ post_processing_irfs_distance;                                              % Co
 
 if do_estimate == 0;
     return;
-else
+elseif do_estimate == 1
     
 %=========================================================================%
 %%%%                       OPTIMIZATION                                %%%%
 %=========================================================================%
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
-
-% DOES NOT CURRENTLY WORK
-% TODO: REPLACE LAMBDA WITH ANOTHER PARAMETER
 
 % Starting point (based on earlier calibration)
 x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
@@ -469,9 +466,22 @@ options_.verbosity=0;
 fhat
 
 %=========================================================================%
+%%%%                       ALT ESTIMATION                              %%%%
+%=========================================================================%
+elseif do_estimate == 2
+    % Starting point (based on earlier calibration)
+    x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
+    x_start_unbounded = boundsINV(x_start);
+    
+    opts = psoptimset('Display','diagnose'); % debugging % , 'MaxIter', 20
+    % opts = psoptimset('Display', 'off'); % estimation
+    [params_unbounded, FVAL,EXITFLAG] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
+end
+
+%=========================================================================%
 %%%%                       PLOT SOLUTION                               %%%%
 %=========================================================================%
-
+if do_estimate > 0
 [ params ] = bounds( params_unbounded );
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );
@@ -509,5 +519,4 @@ disp(sprintf('rhozeta = %0.10g;', params(6) ));
 disp(sprintf('rhozeta2 = %0.10g;', params(7) ));
 disp(sprintf('sigmazeta = %0.10g;', params(8) ));
 disp(sprintf('rho_lambda = %0.10g;', params(9) ));
-
 end

@@ -277,7 +277,7 @@ M_.NNZDerivatives(1) = 171;
 M_.NNZDerivatives(2) = -1;
 M_.NNZDerivatives(3) = -1;
 close all;
-do_estimate = 1; 
+do_estimate = 2; 
 M_.params( 1 ) = 0.96;
 beta = M_.params( 1 );
 M_.params( 2 ) = 0.33;
@@ -374,6 +374,8 @@ COUNT.ss_notfound = 0;
 COUNT.ss_neg = 0;
 set_dynare_seed(092677);
 evalin('base','save level0workspace oo_ M_ options_')
+steady;
+oo_.dr.eigval = check(M_,options_,oo_);
 options_.irf = 11;
 options_.loglinear = 1;
 options_.nocorr = 1;
@@ -390,7 +392,7 @@ post_processing_irfs_plot;
 post_processing_irfs_distance;                                              
 if do_estimate == 0;
 return;
-else
+elseif do_estimate == 1
 x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
 x_start_unbounded = boundsINV(x_start);
 H0 = 1e-2*eye(length(x_start)); 
@@ -404,6 +406,13 @@ options_.noprint=1;
 options_.verbosity=0;
 [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
 fhat
+elseif do_estimate == 2
+x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
+x_start_unbounded = boundsINV(x_start);
+opts = psoptimset('Display','diagnose'); 
+[params_unbounded, FVAL,EXITFLAG] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
+end
+if do_estimate > 0
 [ params ] = bounds( params_unbounded );
 set_param_value('eta', params(1) );
 set_param_value('gamma', params(2) );

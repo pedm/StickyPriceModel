@@ -122,9 +122,9 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
             if RESNORM_2 < RESNORM
                 x1b = x1b_2;
                 disp('2nd try worked and gave better x1b')
+            else
+                disp('2nd try worked bud did not give better x1b')
             end
-            disp('2nd try worked bud did not give better x1b')
-            
         catch
             disp('2nd try failed')
 %             % Try with a new ss
