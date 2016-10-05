@@ -5035,4 +5035,2427 @@ lambda =  0.0013717; f =          196.6564403
 2nd try worked
 lambda = 0.00045725; f =          196.6548494
 2nd try worked
-lambda = 0.00088394; f =         
+lambda = 0.00088394; f =          196.6514121
+Norm of dx     140.32
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 156 =        0.015208845
+-----------------
+-----------------
+f at the beginning of new iteration,       196.6514121469
+x =      -6.6148882      54.503361      176.18343      -10.68428     -1870.9279     0.16244831     -31.375632     -3.5724291     0.99186329
+p =      0.04539205     0.99981587     0.98999364     0.22256338      7.1420985
+     0.87030175   0.0003511977     0.38138024     0.84506407
+Correct for low angle: 0.00169658
+Predicted improvement:        9.240780211
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          771.7935167
+2nd try worked
+lambda =    0.11111; f =          280.6892994
+2nd try worked
+lambda =   0.037037; f =          206.5795108
+2nd try worked
+lambda =   0.012346; f =          197.6452498
+2nd try worked
+lambda =  0.0041152; f =          196.7127650
+2nd try worked
+lambda =  0.0013717; f =          196.6413850
+Norm of dx     140.58
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 157 =        0.010027196
+-----------------
+-----------------
+f at the beginning of new iteration,       196.6413849506
+x =      -6.6182281      54.528386      176.27341     -10.684485     -1871.0965     0.16203905     -31.376581     -3.5733515     0.99193914
+p =     0.045386701     0.99981595     0.98999364     0.22255511      7.1408109
+     0.87000656  0.00035118252     0.38129175     0.84507737
+Correct for low angle: 0.000911922
+Predicted improvement:       17.270487688
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =        10679.3002343
+2nd try worked
+lambda =    0.11111; f =          527.5006524
+2nd try worked
+lambda =   0.037037; f =          225.4952604
+2nd try worked
+lambda =   0.012346; f =          199.3553412
+2nd try worked
+lambda =  0.0041152; f =          196.8409877
+2nd try worked
+lambda =  0.0013717; f =          196.6317175
+2nd try worked
+lambda = 0.00045725; f =          196.6297730
+2nd try worked
+lambda = 0.00088394; f =          196.6264950
+Norm of dx     141.02
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 158 =        0.014889955
+-----------------
+-----------------
+f at the beginning of new iteration,       196.6264949953
+x =       -6.620386      54.544559      176.33158     -10.684613     -1871.2056     0.16254166     -31.377193     -3.5737833     0.99200477
+p =     0.045383249       0.999816     0.98999365     0.22254993      7.1399787
+     0.87036908  0.00035117271     0.38125034     0.84508888
+Correct for low angle: 0.00166953
+Predicted improvement:        9.460638356
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          805.5921717
+2nd try worked
+lambda =    0.11111; f =          286.4942756
+2nd try worked
+lambda =   0.037037; f =          207.3042205
+2nd try worked
+lambda =   0.012346; f =          197.7047779
+2nd try worked
+lambda =  0.0041152; f =          196.6962037
+2nd try worked
+lambda =  0.0013717; f =          196.6169989
+Norm of dx     141.44
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 159 =        0.009496145
+-----------------
+-----------------
+f at the beginning of new iteration,       196.6169988503
+x =      -6.6237448      54.569717       176.4221     -10.684813     -1871.3753     0.16211501     -31.378146     -3.5747053     0.99208058
+p =     0.045377882     0.99981608     0.98999365     0.22254182      7.1386838
+     0.87006135  0.00035115748     0.38116197     0.84510217
+Correct for low angle: 0.00088585
+Predicted improvement:       17.828084624
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          538.9930979
+2nd try worked
+lambda =   0.037037; f =          226.3760422
+2nd try worked
+lambda =   0.012346; f =          199.4128266
+2nd try worked
+lambda =  0.0041152; f =          196.8222763
+2nd try worked
+lambda =  0.0013717; f =          196.6069157
+2nd try worked
+lambda = 0.00045725; f =          196.6049953
+2nd try worked
+lambda = 0.00088394; f =          196.6015798
+Norm of dx     141.38
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 160 =        0.015419090
+-----------------
+-----------------
+f at the beginning of new iteration,       196.6015797606
+x =      -6.6259076      54.585925      176.48041      -10.68494     -1871.4846     0.16262422     -31.378759     -3.5751322     0.99214635
+p =      0.04537443     0.99981613     0.98999366     0.22253669      7.1378499
+     0.87042862  0.00035114767     0.38112108      0.8451137
+Correct for low angle: 0.0017092
+Predicted improvement:        9.308122698
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          788.6780095
+2nd try worked
+lambda =    0.11111; f =          283.5646765
+2nd try worked
+lambda =   0.037037; f =          206.9079181
+2nd try worked
+lambda =   0.012346; f =          197.6388192
+2nd try worked
+lambda =  0.0041152; f =          196.6675095
+2nd try worked
+lambda =  0.0013717; f =          196.5919518
+Norm of dx     142.21
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 161 =        0.009627934
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5919518265
+x =       -6.629284       54.61121      176.57142     -10.685139     -1871.6552     0.16220633     -31.379715     -3.5760589     0.99222454
+p =     0.045369049      0.9998162     0.98999367     0.22252862      7.1365484
+     0.87012723  0.00035113238     0.38103236     0.84512741
+Correct for low angle: 0.000898398
+Predicted improvement:       17.803889209
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          544.6864242
+2nd try worked
+lambda =   0.037037; f =          226.8080069
+2nd try worked
+lambda =   0.012346; f =          199.4342185
+2nd try worked
+lambda =  0.0041152; f =          196.8023773
+2nd try worked
+lambda =  0.0013717; f =          196.5824848
+2nd try worked
+lambda = 0.00045725; f =          196.5800332
+2nd try worked
+lambda = 0.00088394; f =          196.5768053
+Norm of dx     142.79
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 162 =        0.015146556
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5768052701
+x =      -6.6314664      54.627552      176.63029      -10.68526     -1871.7656     0.16271906     -31.380332     -3.5764905     0.99229178
+p =     0.045365574     0.99981625     0.98999367     0.22252375      7.1357065
+     0.87049701  0.00035112252     0.38099106     0.84513919
+Correct for low angle: 0.00166795
+Predicted improvement:        9.596472819
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          832.0005097
+2nd try worked
+lambda =    0.11111; f =          291.0796819
+2nd try worked
+lambda =   0.037037; f =          207.8559251
+2nd try worked
+lambda =   0.012346; f =          197.7236818
+2nd try worked
+lambda =  0.0041152; f =          196.6535577
+2nd try worked
+lambda =  0.0013717; f =          196.5678534
+Norm of dx     142.99
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 163 =        0.008951877
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5678533927
+x =      -6.6348592      54.652947      176.72179     -10.685452     -1871.9372     0.16227902     -31.381289     -3.5774154     0.99236884
+p =      0.04536018     0.99981633     0.98999368     0.22251596      7.1343983
+     0.87017966   0.0003511072      0.3809026      0.8451527
+Correct for low angle: 0.000868103
+Predicted improvement:       18.563204636
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          559.8985996
+2nd try worked
+lambda =   0.037037; f =          227.9687539
+2nd try worked
+lambda =   0.012346; f =          199.5167272
+2nd try worked
+lambda =  0.0041152; f =          196.7855617
+2nd try worked
+lambda =  0.0013717; f =          196.5578018
+2nd try worked
+lambda = 0.00045725; f =          196.5554098
+2nd try worked
+lambda = 0.00088394; f =          196.5519893
+Norm of dx      143.6
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 164 =        0.015864128
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5519892651
+x =      -6.6370546      54.669388        176.781     -10.685576     -1872.0483     0.16280035      -31.38191     -3.5778427     0.99243575
+p =     0.045356694     0.99981638     0.98999368     0.22251096       7.133552
+     0.87055563  0.00035109728     0.38086175     0.84516442
+Correct for low angle: 0.00171628
+Predicted improvement:        9.442045889
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          815.0164716
+2nd try worked
+lambda =    0.11111; f =          288.1052465
+2nd try worked
+lambda =   0.037037; f =          207.4521791
+2nd try worked
+lambda =   0.012346; f =          197.6568607
+2nd try worked
+lambda =  0.0041152; f =          196.6248492
+2nd try worked
+lambda =  0.0013717; f =          196.5428922
+Norm of dx      144.3
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 165 =        0.009097043
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5428922222
+x =      -6.6404782      54.695011      176.87332     -10.685771     -1872.2214     0.16236934     -31.382876     -3.5787762     0.99251466
+p =     0.045351264     0.99981646     0.98999369     0.22250309      7.1322325
+      0.8702448  0.00035108184     0.38077257     0.84517825
+Correct for low angle: 0.000876878
+Predicted improvement:       18.520402329
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          564.1018042
+2nd try worked
+lambda =   0.037037; f =          228.2801476
+2nd try worked
+lambda =   0.012346; f =          199.5262199
+2nd try worked
+lambda =  0.0041152; f =          196.7645255
+2nd try worked
+lambda =  0.0013717; f =          196.5333445
+2nd try worked
+lambda = 0.00045725; f =          196.5305285
+2nd try worked
+lambda = 0.00088394; f =          196.5272618
+Norm of dx     144.51
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 166 =        0.015630399
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5272618228
+x =      -6.6426862      54.711538       176.9329      -10.68589     -1872.3332     0.16289309     -31.383498     -3.5792062     0.99258246
+p =     0.045347766     0.99981651     0.98999369     0.22249826      7.1313811
+      0.8706225  0.00035107189     0.38073152     0.84519012
+Correct for low angle: 0.00168228
+Predicted improvement:        9.618790816
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          846.0387572
+2nd try worked
+lambda =    0.11111; f =          293.5309933
+2nd try worked
+lambda =   0.037037; f =          208.1342045
+2nd try worked
+lambda =   0.012346; f =          197.7122889
+2nd try worked
+lambda =  0.0041152; f =          196.6081806
+2nd try worked
+lambda =  0.0013717; f =          196.5187234
+Norm of dx     144.37
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 167 =        0.008538418
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5187234049
+x =      -6.6461095      54.737146      177.02525     -10.686077     -1872.5065     0.16244605     -31.384461     -3.5801348     0.99266089
+p =      0.04534235     0.99981659      0.9899937      0.2224907      7.1300614
+     0.87030012  0.00035105649     0.38064289     0.84520386
+Correct for low angle: 0.00085418
+Predicted improvement:       18.982536410
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          572.1047155
+2nd try worked
+lambda =   0.037037; f =          228.8739212
+2nd try worked
+lambda =   0.012346; f =          199.5563565
+2nd try worked
+lambda =  0.0041152; f =          196.7436101
+2nd try worked
+lambda =  0.0013717; f =          196.5086775
+2nd try worked
+lambda = 0.00045725; f =          196.5060201
+2nd try worked
+lambda = 0.00088394; f =          196.5025927
+Norm of dx     144.53
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 168 =        0.016130685
+-----------------
+-----------------
+f at the beginning of new iteration,       196.5025927203
+x =       -6.648317      54.753665      177.08483     -10.686194     -1872.6182     0.16297399     -31.385082     -3.5805599     0.99272865
+p =     0.045338862     0.99981664      0.9899937     0.22248598      7.1292102
+     0.87068083  0.00035104657     0.38060235     0.84521573
+Correct for low angle: 0.0017299
+Predicted improvement:        9.453369965
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          827.1378287
+2nd try worked
+lambda =    0.11111; f =          290.2034731
+2nd try worked
+lambda =   0.037037; f =          207.6841107
+2nd try worked
+lambda =   0.012346; f =          197.6403673
+2nd try worked
+lambda =  0.0041152; f =          196.5791113
+2nd try worked
+lambda =  0.0013717; f =          196.4938819
+Norm of dx     145.56
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 169 =        0.008710818
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4938819024
+x =      -6.6517657      54.779444      177.17792     -10.686371     -1872.7929     0.16253681     -31.386048     -3.5814961     0.99280903
+p =     0.045333419     0.99981672     0.98999371     0.22247879      7.1278801
+     0.87036558  0.00035103112     0.38051309     0.84522981
+Correct for low angle: 0.00086665
+Predicted improvement:       19.015259043
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          580.8360143
+2nd try worked
+lambda =   0.037037; f =          229.5351618
+2nd try worked
+lambda =   0.012346; f =          199.5999309
+2nd try worked
+lambda =  0.0041152; f =          196.7259859
+2nd try worked
+lambda =  0.0013717; f =          196.4845839
+2nd try worked
+lambda = 0.00045725; f =          196.4812466
+2nd try worked
+lambda = 0.00088394; f =          196.4780462
+Norm of dx     146.36
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 170 =        0.015835729
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4780461735
+x =      -6.6539985      54.796134      177.23823     -10.686479     -1872.9062     0.16306983     -31.386672      -3.581927     0.99287796
+p =       0.0453299     0.99981677     0.98999371     0.22247443      7.1270184
+     0.87074994  0.00035102114     0.38047203     0.84524188
+Correct for low angle: 0.00167943
+Predicted improvement:        9.824980508
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          879.1900969
+2nd try worked
+lambda =    0.11111; f =          299.4050430
+2nd try worked
+lambda =   0.037037; f =          208.8579323
+2nd try worked
+lambda =   0.012346; f =          197.7510321
+2nd try worked
+lambda =  0.0041152; f =          196.5678549
+2nd try worked
+lambda =  0.0013717; f =          196.4701394
+2nd try worked
+lambda = 0.00045725; f =          196.4711805
+2nd try worked
+lambda = 0.00088394; f =          196.4685922
+Norm of dx     146.49
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 171 =        0.009453997
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4685921769
+x =      -6.6562369      54.812877      177.29862     -10.686603     -1873.0194     0.16277121     -31.387302     -3.5825288     0.99292878
+p =     0.045326375     0.99981682     0.98999372     0.22246944      7.1261563
+     0.87053461  0.00035101108     0.38041471     0.84525078
+Correct for low angle: 0.00146606
+Predicted improvement:       11.234252443
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         4368.1647445
+2nd try worked
+lambda =    0.11111; f =          402.9617923
+2nd try worked
+lambda =   0.037037; f =          215.1855446
+2nd try worked
+lambda =   0.012346; f =          198.2504616
+2nd try worked
+lambda =  0.0041152; f =          196.6009588
+2nd try worked
+lambda =  0.0013717; f =          196.4626000
+2nd try worked
+lambda = 0.00045725; f =          196.4610691
+2nd try worked
+lambda = 0.00088394; f =          196.4590279
+Norm of dx     146.49
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 172 =        0.009564323
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4590278536
+x =      -6.6584722      54.829584      177.35898     -10.686714     -1873.1328     0.16318996     -31.387927      -3.583046     0.99300291
+p =     0.045322859     0.99981687     0.98999372     0.22246493      7.1252941
+     0.87083655  0.00035100109     0.38036547     0.84526376
+Correct for low angle: 0.00139517
+Predicted improvement:       11.865734135
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1089.6270557
+2nd try worked
+lambda =    0.11111; f =          338.7051625
+2nd try worked
+lambda =   0.037037; f =          214.0380229
+2nd try worked
+lambda =   0.012346; f =          198.3168183
+2nd try worked
+lambda =  0.0041152; f =          196.6042305
+2nd try worked
+lambda =  0.0013717; f =          196.4536092
+2nd try worked
+lambda = 0.00045725; f =          196.4511985
+2nd try worked
+lambda = 0.00088394; f =          196.4493305
+Norm of dx     147.16
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 173 =        0.009697398
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4493304553
+x =      -6.6607153      54.846332       177.4196     -10.686816     -1873.2466     0.16282411     -31.388551      -3.583629     0.99304999
+p =     0.045319333     0.99981692     0.98999373     0.22246081      7.1244281
+     0.87057276  0.00035099112     0.38030999       0.845272
+Correct for low angle: 0.0013815
+Predicted improvement:       12.091931497
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         5483.7950341
+2nd try worked
+lambda =    0.11111; f =          433.0432240
+2nd try worked
+lambda =   0.037037; f =          217.7000220
+2nd try worked
+lambda =   0.012346; f =          198.4767862
+2nd try worked
+lambda =  0.0041152; f =          196.6035782
+2nd try worked
+lambda =  0.0013717; f =          196.4441918
+2nd try worked
+lambda = 0.00045725; f =          196.4413844
+2nd try worked
+lambda = 0.00088394; f =          196.4395856
+Norm of dx     148.05
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 174 =        0.009744848
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4395856068
+x =      -6.6629728      54.863195      177.48059     -10.686923     -1873.3611     0.16326605      -31.38918     -3.5841391     0.99312488
+p =     0.045315789     0.99981697     0.98999373     0.22245648      7.1235571
+      0.8708914  0.00035098106     0.38026146     0.84528511
+Correct for low angle: 0.00136874
+Predicted improvement:       12.220577837
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1124.3640823
+2nd try worked
+lambda =    0.11111; f =          345.5104961
+2nd try worked
+lambda =   0.037037; f =          214.9387737
+2nd try worked
+lambda =   0.012346; f =          198.4017010
+2nd try worked
+lambda =  0.0041152; f =          196.5947321
+2nd try worked
+lambda =  0.0013717; f =          196.4346301
+2nd try worked
+lambda = 0.00045725; f =          196.4315901
+2nd try worked
+lambda = 0.00088394; f =          196.4298564
+Norm of dx     148.24
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 175 =        0.009729233
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4298563737
+x =      -6.6652332      54.880076      177.54166     -10.687029     -1873.4758     0.16288949      -31.38981     -3.5847222     0.99317158
+p =     0.045312244     0.99981702     0.98999373     0.22245219       7.122685
+      0.8706199    0.000350971     0.38020602     0.84529328
+Correct for low angle: 0.00136368
+Predicted improvement:       12.268060373
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         5789.1394443
+2nd try worked
+lambda =    0.11111; f =          440.3590831
+2nd try worked
+lambda =   0.037037; f =          218.2940576
+2nd try worked
+lambda =   0.012346; f =          198.5170441
+2nd try worked
+lambda =  0.0041152; f =          196.5895589
+2nd try worked
+lambda =  0.0013717; f =          196.4249853
+2nd try worked
+lambda = 0.00045725; f =          196.4218292
+2nd try worked
+lambda = 0.00088394; f =          196.4201083
+Norm of dx     148.26
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 176 =        0.009748074
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4201082993
+x =      -6.6674945      54.896972      177.60275     -10.687139     -1873.5905     0.16333664     -31.390441     -3.5852292     0.99324636
+p =     0.045308701     0.99981707     0.98999374     0.22244776       7.121813
+      0.8709423  0.00035096092     0.38015784     0.84530637
+Correct for low angle: 0.00136516
+Predicted improvement:       12.300004020
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1133.8273530
+2nd try worked
+lambda =    0.11111; f =          347.3789916
+2nd try worked
+lambda =   0.037037; f =          215.1760969
+2nd try worked
+lambda =   0.012346; f =          198.4117497
+2nd try worked
+lambda =  0.0041152; f =          196.5782004
+2nd try worked
+lambda =  0.0013717; f =          196.4153413
+2nd try worked
+lambda = 0.00045725; f =          196.4120865
+2nd try worked
+lambda = 0.00088394; f =          196.4104086
+Norm of dx     148.65
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 177 =        0.009699711
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4104085884
+x =      -6.6697627      54.913919        177.664     -10.687251     -1873.7055     0.16295711     -31.391074     -3.5858118     0.99329289
+p =      0.04530515     0.99981713     0.98999374     0.22244322       7.120939
+     0.87066867   0.0003509508     0.38010248     0.84531451
+Correct for low angle: 0.0013611
+Predicted improvement:       12.385729502
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         6053.1125377
+2nd try worked
+lambda =    0.11111; f =          446.2156293
+2nd try worked
+lambda =   0.037037; f =          218.7631523
+2nd try worked
+lambda =   0.012346; f =          198.5455274
+2nd try worked
+lambda =  0.0041152; f =          196.5746526
+2nd try worked
+lambda =  0.0013717; f =          196.4058262
+2nd try worked
+lambda = 0.00045725; f =          196.4023436
+2nd try worked
+lambda = 0.00088394; f =          196.4007075
+Norm of dx     149.18
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 178 =        0.009701041
+-----------------
+-----------------
+f at the beginning of new iteration,       196.4007075475
+x =       -6.672037      54.930905      177.72545     -10.687358     -1873.8209     0.16340853     -31.391707     -3.5863197     0.99336861
+p =     0.045301594     0.99981718     0.98999375     0.22243891      7.1200619
+     0.87099412  0.00035094069     0.38005425     0.84532776
+Correct for low angle: 0.00135428
+Predicted improvement:       12.486701404
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1153.8591440
+2nd try worked
+lambda =    0.11111; f =          351.3583060
+2nd try worked
+lambda =   0.037037; f =          215.7001313
+2nd try worked
+lambda =   0.012346; f =          198.4544988
+2nd try worked
+lambda =  0.0041152; f =          196.5648756
+2nd try worked
+lambda =  0.0013717; f =          196.3962827
+2nd try worked
+lambda = 0.00045725; f =          196.3926109
+2nd try worked
+lambda = 0.00088394; f =          196.3910340
+Norm of dx     149.57
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 179 =        0.009673505
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3910340424
+x =       -6.674317      54.947927      177.78706     -10.687463     -1873.9366     0.16302292     -31.392341     -3.5869035     0.99341482
+p =     0.045298032     0.99981723     0.98999375     0.22243465      7.1191827
+     0.87071611  0.00035093056     0.37999884     0.84533585
+Correct for low angle: 0.00134951
+Predicted improvement:       12.569734800
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         6420.8160712
+2nd try worked
+lambda =    0.11111; f =          454.0989051
+2nd try worked
+lambda =   0.037037; f =          219.3986931
+2nd try worked
+lambda =   0.012346; f =          198.5898932
+2nd try worked
+lambda =  0.0041152; f =          196.5611469
+2nd try worked
+lambda =  0.0013717; f =          196.3867599
+2nd try worked
+lambda = 0.00045725; f =          196.3828905
+2nd try worked
+lambda = 0.00088394; f =          196.3813448
+Norm of dx     149.93
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 180 =        0.009689277
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3813447656
+x =      -6.6766023      54.964991      177.84881     -10.687569     -1874.0526     0.16347992     -31.392976     -3.5874107     0.99349057
+p =     0.045294466     0.99981728     0.98999376     0.22243039      7.1183015
+     0.87104558  0.00035092041     0.37995072      0.8453491
+Correct for low angle: 0.00134572
+Predicted improvement:       12.640786599
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1169.7462272
+2nd try worked
+lambda =    0.11111; f =          354.5362022
+2nd try worked
+lambda =   0.037037; f =          216.1164376
+2nd try worked
+lambda =   0.012346; f =          198.4849571
+2nd try worked
+lambda =  0.0041152; f =          196.5503642
+2nd try worked
+lambda =  0.0013717; f =          196.3771849
+2nd try worked
+lambda = 0.00045725; f =          196.3731844
+2nd try worked
+lambda = 0.00088394; f =          196.3716854
+Norm of dx     150.23
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 181 =        0.009659328
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3716854381
+x =      -6.6788931      54.982099       177.9107     -10.687678     -1874.1688     0.16308941     -31.393614     -3.5879945     0.99353736
+p =     0.045290894     0.99981733     0.98999376     0.22242598      7.1174187
+     0.87076405  0.00035091023     0.37989535     0.84535728
+Correct for low angle: 0.00134215
+Predicted improvement:       12.689354780
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         6697.0228871
+2nd try worked
+lambda =    0.11111; f =          459.7327774
+2nd try worked
+lambda =   0.037037; f =          219.8468853
+2nd try worked
+lambda =   0.012346; f =          198.6161657
+2nd try worked
+lambda =  0.0041152; f =          196.5460489
+2nd try worked
+lambda =  0.0013717; f =          196.3676547
+2nd try worked
+lambda = 0.00045725; f =          196.3634942
+2nd try worked
+lambda = 0.00088394; f =          196.3620198
+Norm of dx     150.39
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 182 =        0.009665596
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3620198416
+x =      -6.6811861      54.999226      177.97265     -10.687787     -1874.2851     0.16355025     -31.394253     -3.5885005     0.99361364
+p =     0.045287323     0.99981738     0.98999376     0.22242157      7.1165352
+     0.87109628  0.00035090003     0.37984737     0.84537063
+Correct for low angle: 0.00133902
+Predicted improvement:       12.759042364
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1183.0373303
+2nd try worked
+lambda =    0.11111; f =          357.2097316
+2nd try worked
+lambda =   0.037037; f =          216.4655641
+2nd try worked
+lambda =   0.012346; f =          198.5080324
+2nd try worked
+lambda =  0.0041152; f =          196.5352513
+2nd try worked
+lambda =  0.0013717; f =          196.3581224
+2nd try worked
+lambda = 0.00045725; f =          196.3538186
+2nd try worked
+lambda = 0.00088394; f =          196.3523975
+Norm of dx     150.84
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 183 =        0.009622339
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3523975023
+x =      -6.6834849      55.016384      178.03477     -10.687891     -1874.4018     0.16315566     -31.394891     -3.5890846      0.9936606
+p =     0.045283746     0.99981743     0.98999377     0.22241737      7.1156491
+     0.87081182  0.00035088984     0.37979202     0.84537884
+Correct for low angle: 0.00133335
+Predicted improvement:       12.840543009
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         7083.1350886
+2nd try worked
+lambda =    0.11111; f =          467.1611471
+2nd try worked
+lambda =   0.037037; f =          220.4405639
+2nd try worked
+lambda =   0.012346; f =          198.6567194
+2nd try worked
+lambda =  0.0041152; f =          196.5323778
+2nd try worked
+lambda =  0.0013717; f =          196.3487050
+2nd try worked
+lambda = 0.00045725; f =          196.3441506
+2nd try worked
+lambda = 0.00088394; f =          196.3427761
+Norm of dx     151.23
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 184 =        0.009621398
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3427761039
+x =      -6.6857867      55.033553      178.09704     -10.687985     -1874.5188     0.16362161     -31.395526     -3.5895909     0.99373749
+p =     0.045280168     0.99981749     0.98999377     0.22241354      7.1147608
+     0.87114772  0.00035087968     0.37974406     0.84539229
+Correct for low angle: 0.00132457
+Predicted improvement:       12.908665114
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1199.4181106
+2nd try worked
+lambda =    0.11111; f =          360.5243715
+2nd try worked
+lambda =   0.037037; f =          216.9027977
+2nd try worked
+lambda =   0.012346; f =          198.5411183
+2nd try worked
+lambda =  0.0041152; f =          196.5211212
+2nd try worked
+lambda =  0.0013717; f =          196.3391638
+2nd try worked
+lambda = 0.00045725; f =          196.3345103
+2nd try worked
+lambda = 0.00088394; f =          196.3331730
+Norm of dx     151.19
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 185 =        0.009603132
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3331729718
+x =      -6.6880875      55.050706      178.15929     -10.688077     -1874.6358     0.16322192     -31.396161      -3.590174     0.99378469
+p =     0.045276596     0.99981754     0.98999378     0.22240984      7.1138728
+     0.87085959  0.00035086955     0.37968885     0.84540054
+Correct for low angle: 0.00132472
+Predicted improvement:       12.907697369
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         7267.2140717
+2nd try worked
+lambda =    0.11111; f =          470.6528740
+2nd try worked
+lambda =   0.037037; f =          220.7114773
+2nd try worked
+lambda =   0.012346; f =          198.6658700
+2nd try worked
+lambda =  0.0041152; f =          196.5158194
+2nd try worked
+lambda =  0.0013717; f =          196.3296418
+2nd try worked
+lambda = 0.00045725; f =          196.3249001
+2nd try worked
+lambda = 0.00088394; f =          196.3235731
+Norm of dx      151.2
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 186 =        0.009599861
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3235731109
+x =       -6.690389      55.067872      178.22154     -10.688172     -1874.7528     0.16369006     -31.396797     -3.5906778     0.99386166
+p =     0.045273026     0.99981759     0.98999378       0.222406       7.112985
+     0.87119705   0.0003508594     0.37964117       0.845414
+Correct for low angle: 0.00132408
+Predicted improvement:       12.936238010
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1204.7878337
+2nd try worked
+lambda =    0.11111; f =          361.6152631
+2nd try worked
+lambda =   0.037037; f =          217.0373228
+2nd try worked
+lambda =   0.012346; f =          198.5399588
+2nd try worked
+lambda =  0.0041152; f =          196.5038233
+2nd try worked
+lambda =  0.0013717; f =          196.3201224
+2nd try worked
+lambda = 0.00045725; f =          196.3153079
+Norm of dx     151.44
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 187 =        0.008265232
+-----------------
+-----------------
+f at the beginning of new iteration,       196.3153078784
+x =      -6.6915815      55.076765       178.2538     -10.688221     -1874.8134     0.16348241     -31.397126     -3.5909792     0.99388603
+p =     0.045271177     0.99981762     0.98999378     0.22240402      7.1125251
+     0.87104738  0.00035085414     0.37961266     0.84541826
+Correct for low angle: 0.00289049
+Predicted improvement:        5.954842061
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          199.6488269
+2nd try worked
+lambda =    0.11111; f =          195.6717293
+Norm of dx        152
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 188 =        0.643578534
+-----------------
+-----------------
+f at the beginning of new iteration,       195.6717293449
+x =      -6.9824741      57.246033      186.12054     -10.700579     -1889.5968     0.17092782     -31.477459     -3.6662987      1.0026991
+p =      0.04484762     0.99982374      0.9899943     0.22190541      7.0016696
+      0.8764048  0.00034957635     0.37269012     0.84694897
+Correct for low angle: 0.000118828
+Predicted improvement:      160.464691537
+2nd try worked
+lambda =          1; f =         5053.8739550
+2nd try worked
+lambda =    0.33333; f =         2079.9113750
+2nd try worked
+lambda =    0.11111; f =          562.6311414
+2nd try worked
+lambda =   0.037037; f =          240.5222139
+2nd try worked
+lambda =   0.012346; f =          198.5770122
+2nd try worked
+lambda =  0.0041152; f =          195.1368324
+Norm of dx     164.46
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 189 =        0.534896977
+-----------------
+-----------------
+f at the beginning of new iteration,       195.1368323681
+x =      -6.9941191       57.33277      186.43543      -10.70105     -1890.1894     0.16771399     -31.480632     -3.6682763      1.0027846
+p =     0.044831734     0.99982397     0.98999432     0.22188645        6.99728
+     0.87409464  0.00034952607      0.3725137     0.84696373
+Correct for low angle: 0.000572122
+Predicted improvement:       38.923732513
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =         1182.6139426
+2nd try worked
+lambda =   0.037037; f =          269.5787543
+2nd try worked
+lambda =   0.012346; f =          201.9474049
+2nd try worked
+lambda =  0.0041152; f =          195.6527210
+2nd try worked
+lambda =  0.0013717; f =          195.1219853
+2nd try worked
+lambda = 0.00045725; f =          195.1114163
+2nd try worked
+lambda = 0.00088394; f =          195.1061253
+Norm of dx     188.82
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 190 =        0.030707079
+-----------------
+-----------------
+f at the beginning of new iteration,       195.1061252896
+x =      -6.9969665      57.353818      186.51288     -10.701082     -1890.3357     0.16847023     -31.481373     -3.6686874      1.0028766
+p =     0.044827861     0.99982403     0.98999432     0.22188517      6.9961969
+     0.87463857  0.00034951433     0.37247705      0.8469796
+Correct for low angle: 0.00208721
+Predicted improvement:       10.648129808
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1294.0479169
+2nd try worked
+lambda =    0.11111; f =          380.6637859
+2nd try worked
+lambda =   0.037037; f =          218.8173087
+2nd try worked
+lambda =   0.012346; f =          197.7224346
+2nd try worked
+lambda =  0.0041152; f =          195.3445724
+2nd try worked
+lambda =  0.0013717; f =          195.1133852
+2nd try worked
+lambda = 0.00045725; f =          195.1004520
+Norm of dx     189.19
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 191 =        0.005673315
+-----------------
+-----------------
+f at the beginning of new iteration,       195.1004519745
+x =      -6.9984424       57.36472      186.55301       -10.7011     -1890.4116     0.16824644     -31.481757     -3.6689973      1.0029138
+p =     0.044825856     0.99982405     0.98999433     0.22188444      6.9956356
+     0.87447763  0.00034950825     0.37244944     0.84698602
+Correct for low angle: 0.00330991
+Predicted improvement:        6.701582236
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1278.3651588
+2nd try worked
+lambda =    0.11111; f =          273.6567721
+2nd try worked
+lambda =   0.037037; f =          202.5673446
+2nd try worked
+lambda =   0.012346; f =          195.7892077
+2nd try worked
+lambda =  0.0041152; f =          195.1391027
+2nd try worked
+lambda =  0.0013717; f =          195.0924460
+Norm of dx     188.99
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 192 =        0.008005957
+-----------------
+-----------------
+f at the beginning of new iteration,       195.0924460180
+x =      -7.0028651      57.397396       186.6733     -10.701154     -1890.6388     0.16867192     -31.482907     -3.6698134       1.003059
+p =     0.044819853     0.99982414     0.98999433     0.22188224      6.9939539
+      0.8747836  0.00034949004     0.37237674     0.84701105
+Correct for low angle: 0.0011089
+Predicted improvement:       19.937692237
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =         1882.4767885
+2nd try worked
+lambda =    0.11111; f =          519.1035659
+2nd try worked
+lambda =   0.037037; f =          238.8870710
+2nd try worked
+lambda =   0.012346; f =          200.0324097
+2nd try worked
+lambda =  0.0041152; f =          195.5480029
+2nd try worked
+lambda =  0.0013717; f =          195.1072024
+2nd try worked
+lambda = 0.00045725; f =          195.0819507
+Norm of dx     188.44
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 193 =        0.010495285
+-----------------
+-----------------
+f at the beginning of new iteration,       195.0819507325
+x =      -7.0043354      57.408261      186.71328     -10.701172     -1890.7144     0.16835565     -31.483289     -3.6701079      1.0030873
+p =     0.044817861     0.99982417     0.98999433     0.22188152      6.9933951
+     0.87455617  0.00034948398     0.37235052     0.84701594
+Predicted improvement:        4.434406409
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+lambda =    0.33333; f =          192.1979929
+2nd try worked
+Error: steady state not found
+lambda =    0.64439; f =  10000000000.0000000
+2nd try worked
+lambda =     0.4339; f =          191.3737652
+2nd try worked
+lambda =    0.55011; f =          190.4664939
+2nd try worked
+Error: steady state not found
+lambda =    0.69744; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.60488; f =  10000000000.0000000
+2nd try worked
+lambda =    0.55535; f =          190.4269272
+2nd try worked
+lambda =    0.58456; f =          190.2091572
+2nd try worked
+Error: steady state not found
+lambda =     0.6153; f =  10000000000.0000000
+2nd try worked
+lambda =    0.59667; f =          190.1201731
+2nd try worked
+Error: steady state not found
+lambda =    0.60778; f =  10000000000.0000000
+2nd try worked
+lambda =    0.60109; f =          190.0878879
+Norm of dx     188.97
+ 
+************************* Random search. *****************************************
+************************* Random search. *****************************************
+ 
+Cliff.  Perturbing search direction.
+Predicted improvement:        5.407577074
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+lambda =    0.11111; f =          193.9553393
+2nd try worked
+Error: steady state not found
+lambda =     0.2148; f =  10000000000.0000000
+2nd try worked
+lambda =    0.14463; f =          193.6393898
+2nd try worked
+lambda =    0.18337; f =          193.2840759
+2nd try worked
+Error: steady state not found
+lambda =    0.23248; f =  10000000000.0000000
+2nd try worked
+lambda =    0.20163; f =          193.1195735
+2nd try worked
+Error: steady state not found
+lambda =    0.21961; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.20864; f =  10000000000.0000000
+2nd try worked
+lambda =    0.20232; f =          193.1133937
+2nd try worked
+Error: steady state not found
+lambda =    0.20608; f =  10000000000.0000000
+2nd try worked
+lambda =    0.20382; f =          193.1001184
+Norm of dx     201.25
+Cliff again.  Try traversing
+
+gcliff =
+
+    0.0007
+   -0.0054
+   -0.0199
+   -0.0001
+    0.0360
+   -0.0000
+    0.0002
+    0.0001
+   -0.0000
+
+Predicted improvement:        0.000860652
+2nd try worked
+lambda =          1; f =          195.0801641
+2nd try worked
+lambda =     1.9332; f =          195.0784975
+2nd try worked
+lambda =     3.7372; f =          195.0752759
+2nd try worked
+lambda =     7.2247; f =          195.0690503
+2nd try worked
+lambda =     13.967; f =          195.0570244
+2nd try worked
+lambda =         27; f =          195.0338114
+2nd try worked
+lambda =     52.196; f =          194.9890775
+2nd try worked
+lambda =      100.9; f =          194.9032471
+2nd try worked
+lambda =     195.07; f =          194.7377252
+2nd try worked
+lambda =      377.1; f =          194.4253520
+2nd try worked
+lambda =        729; f =          193.8492253
+2nd try worked
+Error: steady state not found
+lambda =     1409.3; f =  10000000000.0000000
+2nd try worked
+lambda =     948.94; f =          193.5098224
+2nd try worked
+lambda =     1203.1; f =          193.1405867
+2nd try worked
+Error: steady state not found
+lambda =     1525.3; f =  10000000000.0000000
+2nd try worked
+lambda =     1322.9; f =          192.9762662
+2nd try worked
+Error: steady state not found
+lambda =     1440.9; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =     1368.9; f =  10000000000.0000000
+2nd try worked
+lambda =     1327.4; f =          192.9702232
+2nd try worked
+Error: steady state not found
+lambda =     1352.1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =     1337.2; f =  10000000000.0000000
+Norm of dx   0.041489
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+badg3 =
+
+     0
+
+
+ih =
+
+     3
+
+----
+Improvement on iteration 194 =        2.111727570
+warning: possible inaccuracy in H matrix
+-----------------
+-----------------
+f at the beginning of new iteration,       192.9702231626
+x =      -7.9730049      64.585191       213.1326      -10.52408     -1938.4887     0.17436415      -31.73565     -3.7924903      1.0189315
+p =      0.04373108     0.99984008     0.98999565     0.22919257      6.6529362
+     0.87887079  0.00034553493     0.36194298     0.84971591
+Correct for low angle: 0.000194489
+Predicted improvement:      193.591489196
+2nd try worked
+lambda =          1; f =         6349.6421302
+2nd try worked
+lambda =    0.33333; f =         4198.7480064
+2nd try worked
+lambda =    0.11111; f =         1447.4188180
+2nd try worked
+Error: steady state not found
+lambda =   0.037037; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =   0.012346; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =  0.0041152; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =  0.0013717; f =  10000000000.0000000
+2nd try worked
+lambda = 0.00045725; f =          192.8391975
+2nd try worked
+Error: steady state not found
+lambda = 0.00088394; f =  10000000000.0000000
+2nd try worked
+lambda =  0.0005952; f =          192.8176522
+Norm of dx      366.1
+2nd try worked
+2nd try worked
+Error: steady state not found
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 195 =        0.152570923
+-----------------
+-----------------
+f at the beginning of new iteration,       192.8176522393
+x =      -7.9769203      64.614832      213.23699      -10.52402     -1938.6776     0.17335117     -31.736809     -3.7931671      1.0189427
+p =     0.043727461     0.99984014     0.98999566     0.22919513      6.6516397
+      0.8781443    0.000345517     0.36188803      0.8497178
+Correct for low angle: 3.03486e-13
+Predicted improvement: 40414316207953.125000000
+2nd try worked
+lambda =          1; f =         8050.7676962
+2nd try worked
+lambda =    0.33333; f =         7861.3382269
+2nd try worked
+lambda =    0.11111; f =         7296.4477322
+2nd try worked
+lambda =   0.037037; f =         6509.9249972
+2nd try worked
+lambda =   0.012346; f =         4144.5682499
+2nd try worked
+lambda =  0.0041152; f =         1400.5065491
+2nd try worked
+lambda =  0.0013717; f =          401.6227199
+2nd try worked
+lambda = 0.00045725; f =          219.5997648
+2nd try worked
+lambda = 0.00015242; f =          195.6976993
+2nd try worked
+lambda = 5.0805e-05; f =          193.0478159
+2nd try worked
+lambda = 1.6935e-05; f =          192.8109788
+2nd try worked
+lambda =  5.645e-06; f =          192.8060745
+2nd try worked
+lambda = 1.8817e-06; f =          192.8127505
+2nd try worked
+lambda = 6.2723e-07; f =          192.8159023
+2nd try worked
+lambda = 2.0908e-07; f =          192.8170561
+2nd try worked
+lambda = 6.9692e-08; f =          192.8174521
+2nd try worked
+lambda = 2.3231e-08; f =          192.8175854
+2nd try worked
+lambda = 7.7435e-09; f =          192.8176298
+2nd try worked
+lambda = 2.5812e-09; f =          192.8176448
+Norm of dx     156.18
+2nd try worked
+2nd try worked
+Error: steady state not found
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+
+ih =
+
+     1
+
+----
+Improvement on iteration 196 =        0.011577747
+smallest step still improving too slow
+-----------------
+-----------------
+f at the beginning of new iteration,       192.8060744918
+x =      -7.9769159      64.614768      213.23723     -10.523986     -1938.6785      0.1730962     -31.736796      -3.793209      1.0189372
+p =     0.043727465     0.99984014     0.98999566     0.22919656      6.6516342
+     0.87796138  0.00034551721     0.36188463     0.84971687
+Correct for low angle: 2.12324e-08
+Predicted improvement: 12811829943877541888.000000000
+2nd try worked
+Error: steady state not found
+lambda =          1; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.33333; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =    0.11111; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =   0.037037; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =   0.012346; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =  0.0041152; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =  0.0013717; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = 0.00045725; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = 0.00015242; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = 5.0805e-05; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = 1.6935e-05; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda =  5.645e-06; f =  10000000000.0000000
+2nd try worked
+lambda = 1.8817e-06; f =         8052.2416272
+2nd try worked
+lambda = 6.2723e-07; f =         7583.9803891
+2nd try worked
+lambda = 2.0908e-07; f =         6993.2004868
+2nd try worked
+lambda = 6.9692e-08; f =         5620.5087946
+2nd try worked
+lambda = 2.3231e-08; f =         2617.0240983
+2nd try worked
+lambda = 7.7435e-09; f =          734.6500687
+2nd try worked
+lambda = 2.5812e-09; f =          272.4143517
+
+lambda =
+
+  -6.2723e-07
+
+2nd try worked
+Error: steady state not found
+lambda = -6.2723e-07; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = -2.0908e-07; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = -6.9692e-08; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = -2.3231e-08; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = -7.7435e-09; f =  10000000000.0000000
+2nd try worked
+Error: steady state not found
+lambda = -2.5812e-09; f =  10000000000.0000000
+Norm of dx 4.9509e+07
+2nd try worked
+2nd try worked
+Error: steady state not found
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+2nd try worked
+ih = 1
+----
+Improvement on iteration 197 =        0.000000000
+improvement < crit termination
+smallest step still improving too slow, reversed gradient
+
+fhat =
+
+  192.8061
+
+2nd try worked
+2nd try worked
+[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]
+
+params =
+
+    0.0437    0.9998    0.9900    0.2292    6.6516    0.8780    0.0003    0.3619    0.8497
+
+
+x_start =
+
+    0.1000    0.8999    0.9410    1.0045   10.0000    0.1501    0.0004    1.4500    0.8920
+
+eta = 0.04372746517;
+gamma = 0.9998401381;
+phi = 0.9899956566;
+lambda_bar = 0.2291965598;
+psi_N = 6.651634179;
+rhozeta = 0.8779613822;
+rhozeta2 = 0.0003455172107;
+sigmazeta = 0.3618846256;
+rho_lambda = 0.8497168674;
+Total computing time : 0h35m54s
+Note: warning(s) encountered in MATLAB/Octave code

@@ -224,8 +224,16 @@ rho_lambda = 0.892;
 % % sigmazeta = 5.25;
 % rho_lambda = 0.7;
 
-
-
+%% Estimation Results (Oct 5)
+eta = 0.04372746517;
+gamma = 0.9998401381;
+phi = 0.9899956566;
+lambda_bar = 0.2291965598;
+psi_N = 6.651634179;
+rhozeta = 0.8779613822;
+rhozeta2 = 0.0003455172107;
+sigmazeta = 0.3618846256;
+rho_lambda = 0.8497168674;
 
 % TODO: why did the param results from csminwel() not have a ss?
 % Shouldnt csminwel pick up on this?
