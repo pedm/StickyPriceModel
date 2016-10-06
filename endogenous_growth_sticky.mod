@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
 
@@ -234,6 +234,19 @@ rho_lambda = 0.892;
 % rhozeta2 = 0.0003455172107;
 % sigmazeta = 0.3618846256;
 % rho_lambda = 0.8497168674;
+
+% Estimation Results (Oct 6)
+% Issue: csminwel() gets stuck around a point where it cant find a ss, so
+% it ends prematurely
+eta = 0.05170475943;
+gamma = 0.9893840947;
+phi = 0.9898787385;
+lambda_bar = 0.1053043122;
+psi_N = 10.1111927;
+rhozeta = 0.836779638;
+rhozeta2 = 0.0003359981795;
+sigmazeta = 0.4911254073;
+rho_lambda = 0.8050435049;
 
 % TODO: why did the param results from csminwel() not have a ss?
 % Shouldnt csminwel pick up on this?

@@ -10,154 +10,83 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-line 111</a>)
-    [x1b, RESNORM, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('evaluate_steady_state_file', 'C:\dynare\4.4.3\matlab\evaluate_steady_state_file.m', 49)" style="font-weight:bold">evaluate_steady_state_file</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\evaluate_steady_state_file.m',49,0)">line 49</a>)
-        [ys,check] = h_steadystate(ys_init, exo_ss);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('evaluate_steady_state', 'C:\dynare\4.4.3\matlab\evaluate_steady_state.m', 58)" style="font-weight:bold">evaluate_steady_state</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\evaluate_steady_state.m',58,0)">line 58</a>)
-        [ys,params,info] = evaluate_steady_state_file(ys_init,exo_ss,M, ...
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resol', 'C:\dynare\4.4.3\matlab\resol.m', 104)" style="font-weight:bold">resol</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resol.m',104,0)">line 104</a>)
-[dr.ys,M.params,info] = evaluate_steady_state(oo.steady_state,M,options,oo,0);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 88)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\stoch_simul.m',88,0)">line 88</a>)
-    [oo_.dr,info,M_,options_,oo_] = resol(0,M_,options_,oo_);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distance_fcn', 'C:\Users\pedm\Documents\StickyPriceModel\distance_fcn.m', 50)" style="font-weight:bold">distance_fcn</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\distance_fcn.m',50,0)">line 50</a>)
-        info = stoch_simul(var_list_);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('numgradcd', 'C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\numgradcd.m', 90)" style="font-weight:bold">numgradcd</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\..\contrib\ms-sbvar\TZcode\MatlabFiles\numgradcd.m',90,0)">line 90</a>)
-    fm = fcn(argminus(:,i),varargin{:});
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('csminwel', 'C:\Users\pedm\Documents\StickyPriceModel\csminwel.m', 123)" style="font-weight:bold">csminwel</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\csminwel.m',123,0)">line 123</a>)
-            [g1 badg1] = numgradcd(fcn, x1,varargin{:});
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 407)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',407,0)">line 407</a>)
-[fhat, params_unbounded] = csminwel(@distance_fcn
-,x_start_unbounded,H0,[],crit,nit);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
-evalin('base',fname) ;} 
-clear; clc; dynare endogenous_growth_sticky.mod
-
-Configuring Dynare ...
-[mex] Generalized QZ.
-[mex] Sylvester equation solution.
-[mex] Kronecker products.
-[mex] Sparse kronecker products.
-[mex] Local state space iteration (second order).
-[mex] Bytecode evaluation.
-[mex] k-order perturbation solver.
-[mex] k-order solution simulation.
-[mex] Quasi Monte-Carlo sequence (Sobol).
-[mex] Markov Switching SBVAR.
-
-Starting Dynare (version 4.4.3).
-Starting preprocessing of the model file ...
-Substitution of endo lags >= 2: added 1 auxiliary variables and equations.
-Found 35 equation(s).
-Evaluating expressions...done
-Computing static model derivatives:
- - order 1
-Computing dynamic model derivatives:
- - order 1
-Processing outputs ...done
-Preprocessing completed.
-Starting MATLAB/Octave computing.
-
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file 'C:\dynare\4.4.3\matlab\dynare.m' could not be cleared because
-it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
-[Warning: The file
-'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m' could not
-be cleared because it contains MATLAB code that is currently executing.] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 7)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',7,0)">line 7</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
 [Warning: Some of the parameters have no value (gg, R_nom_ss) when using steady.
 If these parameters are not initialized in a steadystate file, Dynare may not be
 able to solve the model...] 
 [> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_for_deep_parameters_calibration', 'C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m', 46)" style="font-weight:bold">test_for_deep_parameters_calibration</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\test_for_deep_parameters_calibration.m',46,0)">line 46</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('steady', 'C:\dynare\4.4.3\matlab\steady.m', 33)" style="font-weight:bold">steady</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\steady.m',33,0)">line 33</a>)
-  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 377)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',377,0)">line 377</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 395)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',395,0)">line 395</a>)
   In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)] 
+resnorm too large
+2nd try worked and gave better x1b
 
 STEADY-STATE RESULTS:
 
 g                 		 1.0118
-ZD                		 1.84395
-lambda            		 0.089151
-VD                		 0.130552
-M                 		 0.0661951
-J                 		 0.0747807
-H                 		 1.00711
-Pi                		 0.107937
-ND                		 0.00926294
-YDW               		 0.353987
-YD                		 0.353987
-CD                		 0.250255
+ZD                		 893.32
+lambda            		 2.48178e-05
+VD                		 19.5827
+M                 		 3.11749e-05
+J                 		 0.000124173
+H                 		 1.66148
+Pi                		 0.101017
+ND                		 0.00230715
+YDW               		 0.331291
+YD                		 0.331291
+CD                		 0.265036
 Lambda            		 0.948804
-UCD               		 4.00103
-muD               		 1.27441
-L                 		 0.358347
-GammaD            		 0.249928
-KD                		 0.349374
+UCD               		 3.77349
+muD               		 0.968819
+L                 		 0.335367
+GammaD            		 0.265002
+KD                		 0.326982
 Q                 		 1
-ID                		 0.0386044
+ID                		 0.0361302
 zeta              		 1
-SD                		 1.66366
-XD                		 0.234306
-RD                		 0.00926294
+SD                		 2.16006
+XD                		 0.0583594
+RD                		 0.00230715
 mkup              		 1.31576
 pi                		 1
 pi_star           		 1
-x1D               		 26.9106
-x2D               		 35.4078
+x1D               		 23.7529
+x2D               		 31.2531
 R_nom             		 1.05396
 f_fcn             		 1
 f_fcn_prime       		 1
 g_fcn             		 1
 g_fcn_prime       		 1
+resnorm too large
+2nd try worked and gave better x1b
 
 EIGENVALUES:
          Modulus             Real        Imaginary
 
-       1.194e-16       -1.194e-16                0
-       3.001e-16       -3.001e-16                0
-       1.832e-15       -1.832e-15                0
-        0.002714         0.002714                0
-         0.09404          0.09404                0
-          0.1474           0.1474                0
-          0.7373           0.7373                0
-          0.7544           0.7544                0
-          0.7882           0.7549           0.2264
-          0.7882           0.7549          -0.2264
-           1.022            1.022                0
+       1.323e-13       -1.323e-13                0
+        3.59e-13         3.59e-13                0
+       3.879e-13       -3.879e-13                0
+       0.0004017        0.0004017                0
+        0.009647         0.009647                0
+          0.7514           0.7514                0
+          0.7935           0.7613           0.2236
+          0.7935           0.7613          -0.2236
+          0.8364           0.8364                0
+          0.9741           0.9741                0
+            1.04             1.04                0
            1.042            1.042                0
            1.042            1.042                0
            1.042            1.042                0
-           1.127            1.127                0
-           1.345            1.342           0.0802
-           1.345            1.342          -0.0802
-           1.379            1.346           0.2957
-           1.379            1.346          -0.2957
-           15.28            15.28                0
-       4.074e+16       -4.074e+16                0
-        4.37e+17        -4.37e+17                0
-       2.625e+21        2.625e+21                0
-       1.255e+35       -1.255e+35                0
-       2.578e+35       -2.578e+35                0
+           1.068            1.068                0
+           1.185            1.185                0
+           1.363            1.343           0.2328
+           1.363            1.343          -0.2328
+           1.381            1.381                0
+           206.1            206.1                0
+             Inf              Inf                0
+             Inf              Inf                0
+             Inf              Inf                0
+             Inf              Inf                0
+             Inf              Inf                0
              Inf              Inf                0
 
 
@@ -166,6 +95,8 @@ for 16 forward-looking variable(s)
 
 The rank condition is verified.
 
+resnorm too large
+2nd try worked and gave better x1b
 
 MODEL SUMMARY
 
@@ -183,168 +114,61 @@ epsilon_chi       1.000000
 
 POLICY AND TRANSITION FUNCTIONS
                         g                ZD               lambda           VD               M                J                H                Pi               ND               YDW              YD               CD               Lambda           UCD              muD              L                GammaD           KD               Q                ID               zeta             SD               XD               RD               mkup             pi               pi_star          x1D              x2D              R_nom            f_fcn            f_fcn_prime      g_fcn            g_fcn_prime      
-Constant                    0.011731        0.611911       -2.417423       -2.035986       -2.715149       -2.593195        0.007082       -2.226207       -4.681734       -1.038494       -1.038494       -1.385276       -0.052553        1.386551        0.242482       -1.026254       -1.386581       -1.051613               0       -3.254388               0        0.509021       -1.451127       -4.681734        0.274412               0               0        3.292521        3.566933        0.052553               0               0               0               0
-g(-1)                      -0.259497       -1.000000       -1.523558       -0.999281       -1.708025       -0.136123       -0.439940       -2.714785       -0.992812       -1.097154       -1.097154       -0.452920       -0.567729        0.432271       -1.712855       -1.145006       -0.507677       -1.027914       -0.172821       -1.252627               0       -0.683315       -0.497918       -0.992812        1.617631               0       -0.205200       -0.294684       -0.089484       -0.161763               0        0.072725               0       -0.255608
-ZD(-1)                      0.250900        0.930026        1.553581        0.950397        1.741683       -0.008346        0.426041        2.659659        0.203730        0.867611        0.867611        0.198103       -0.183548       -0.183548        2.258006        1.294942        0.178275        0.128346        0.540771        1.161544               0        0.515396        0.246217        0.203730       -1.792048               0        0.271372        0.380241        0.108868        0.179205               0        2.061335               0        1.175250
+Constant                    0.011731        6.794945      -10.603951        2.974647      -10.375898       -8.993836        0.507712       -2.292471       -6.071742       -1.104758       -1.104758       -1.327890       -0.052553        1.327999       -0.031677       -1.092531       -1.328016       -1.117852               0       -3.320626               0        0.770136       -2.841135       -6.071742        0.274412               0               0        3.167706        3.442117        0.052553               0               0               0               0
+g(-1)                      -0.031439       -1.000000       -0.449984       -1.000453       -0.558957       -0.110511       -0.128680       -0.433151       -1.008752       -0.389096       -0.389096       -0.257664       -0.742659        0.257341        0.090931       -0.088203       -0.265545       -0.935037        0.251339       -0.412076               0       -0.281523       -0.768972       -1.008752        0.044054               0       -0.092802       -0.167364       -0.074562       -0.004405               0       -0.089537               0        0.594861
+ZD(-1)                      0.023793        0.978334        0.118780        0.989690        0.147545       -0.145288        0.053852        0.441615        0.219619        0.150379        0.150379        0.019536       -0.019649       -0.019649        0.403266        0.224447        0.019328        0.039100        0.125926        0.353856               0        0.124520        0.532193        0.219619       -0.291236               0        0.170263        0.265715        0.095453        0.029124               0        2.246817               0        0.358032
 UCD(-1)                            0               0               0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
-GammaD(-1)                 -0.003850               0       -0.055021       -0.000078       -0.061683       -0.015186        0.001490        0.071214       -0.000779       -0.016331       -0.016331       -0.009931        0.011883        0.011883       -0.014506       -0.024374        0.091152        0.000451        0.004432        0.004078               0       -0.000366       -0.011553       -0.000779       -0.087545               0        0.004604        0.004756        0.000151        0.008755               0       -0.007879               0        0.004126
-KD(-1)                     -0.009176               0       -0.131127       -0.098394       -0.147003        0.167391       -0.057435       -0.540346        0.015963        0.068891        0.068891        0.242293       -0.243761       -0.243761       -1.000509       -0.389715        0.218042        0.808835       -0.381184       -0.730063               0        0.095154        0.236870        0.015963        0.609237               0       -0.098272       -0.133229       -0.034957       -0.060924               0        0.161510               0       -0.738678
-zeta(-1)                    0.002178               0        0.031120        0.151512        0.034888        0.002079        0.006022        0.028283        0.014217        0.009138        0.009138        0.002123       -0.002208       -0.002208        0.024576        0.013639        0.001911        0.001782        0.007324        0.016129        0.150090        0.007144        0.004299        0.014217       -0.019145               0        0.003774        0.005315        0.001541        0.001914               0        0.143845               0        0.016319
-zeta(-2)                   -0.000006               0       -0.000083       -0.000404       -0.000093       -0.000006       -0.000016       -0.000076       -0.000038       -0.000024       -0.000024       -0.000006        0.000006        0.000006       -0.000066       -0.000036       -0.000005       -0.000005       -0.000020       -0.000043       -0.000400       -0.000019       -0.000012       -0.000038        0.000051               0       -0.000010       -0.000014       -0.000004       -0.000005               0       -0.000384               0       -0.000044
-VD(-1)                      0.018877        0.069974        0.116890        0.071507        0.131043       -0.000628        0.032055        0.200110        0.015328        0.065278        0.065278        0.014905       -0.013810       -0.013810        0.169890        0.097430        0.013413        0.009657        0.040687        0.087394               0        0.038778        0.018525        0.015328       -0.134832               0        0.020418        0.028609        0.008191        0.013483               0        0.155093               0        0.088425
-ND(-1)                      0.004765               0        0.068097        0.075860        0.076342        0.007543        0.016684        0.092529        0.758675        0.033312        0.033312       -0.003362        0.003955        0.003955        0.097869        0.049719       -0.003026        0.003838        0.017509        0.034736               0        0.016099        0.005262        0.758675       -0.059217               0        0.009106        0.014973        0.005868        0.005922               0       -2.441727               0        0.035146
-ID(-1)                     -0.002020               0       -0.028862       -0.000010       -0.032357       -0.014651        0.021105        0.231618       -0.000105        0.078393        0.078393        0.010912       -0.006990       -0.006990        0.202105        0.117004        0.009820        0.076788       -0.049394        0.694938               0        0.018253        0.002597       -0.000105       -0.153226               0       -0.002028       -0.000666        0.001362        0.015323               0       -0.001058               0       -0.308661
-epsilon_chi                 0.021095               0        0.301473        1.463760        0.337974        0.020185        0.058341        0.273965        0.137614        0.088519        0.088519        0.020568       -0.021384       -0.021384        0.238046        0.132117        0.018509        0.017264        0.070936        0.156239        1.450000        0.069199        0.041793        0.137614       -0.185446               0        0.036559        0.051491        0.014932        0.018545               0        1.392374               0        0.158082
------------------
------------------
-f at the beginning of new iteration,     58250.4172285845
-x =      -1.8074611      1.3333333      1.8158039     -4.9258278     -1581.1386     -1.3333333     -28.708304     -1.1164899      1.3333333
-p =         0.09999       0.899911          0.941         1.0045             10
-        0.15009         0.0004           1.45          0.892
-Predicted improvement: 1226309038.814424000
+GammaD(-1)                 -0.000089               0       -0.004088       -0.000004       -0.005079       -0.001243       -0.000395        0.008797       -0.000071       -0.001233       -0.001233       -0.001044        0.001070        0.001070        0.000184       -0.001840        0.009583        0.000030        0.000418        0.000268               0       -0.000329       -0.001025       -0.000071       -0.010029               0        0.000410        0.000410               0        0.001003               0       -0.000723               0        0.000271
+KD(-1)                      0.007376               0        0.340428       -0.050289        0.422869        0.252541        0.060501       -0.278605        0.027385        0.149152        0.149152        0.232364       -0.232263       -0.232263       -0.741381       -0.269923        0.229897        0.816109       -0.339770       -0.664228               0        0.137699        0.217431        0.027385        0.427756               0       -0.083146       -0.110384       -0.027238       -0.042776               0        0.280161               0       -0.672066
+zeta(-1)                    0.000538               0        0.024812        0.845045        0.030821       -0.005984        0.006898        0.020643        0.159855        0.007175        0.007175        0.000476       -0.000504       -0.000504        0.019786        0.010709        0.000471        0.003134        0.008509        0.028362        0.836780        0.013011        0.196354        0.159855       -0.013468               0        0.017736        0.028495        0.010759        0.001347               0        1.635393               0        0.028697
+zeta(-2)                           0               0       -0.000010       -0.000339       -0.000012        0.000002       -0.000003       -0.000008       -0.000064       -0.000003       -0.000003               0               0               0       -0.000008       -0.000004               0       -0.000001       -0.000003       -0.000011       -0.000336       -0.000005       -0.000079       -0.000064        0.000005               0       -0.000007       -0.000011       -0.000004               0               0       -0.000657               0       -0.000012
+VD(-1)                      0.000527        0.021666        0.002630        0.021917        0.003267       -0.003217        0.001193        0.009780        0.004864        0.003330        0.003330        0.000433       -0.000435       -0.000435        0.008930        0.004970        0.000428        0.000866        0.002789        0.007836               0        0.002758        0.011786        0.004864       -0.006450               0        0.003771        0.005884        0.002114        0.000645               0        0.049757               0        0.007929
+ND(-1)                     -0.000003               0       -0.000151        0.038889       -0.000187       -0.001873        0.000562        0.009802        0.752140        0.004125        0.004125       -0.001797        0.001803        0.001803        0.013362        0.006156       -0.001777        0.000344        0.001698        0.003115               0        0.000794        0.003978        0.752140       -0.005677               0        0.001226        0.002365        0.001139        0.000568               0       -2.535728               0        0.003152
+ID(-1)                     -0.000165               0       -0.007615        0.000249       -0.009459        0.009592        0.012968        0.241762        0.004814        0.083343        0.083343        0.008172       -0.007866       -0.007866        0.224706        0.124392        0.008085        0.078588       -0.042400        0.711229               0        0.016080        0.004609        0.004814       -0.158419               0        0.000278        0.003373        0.003095        0.015842               0        0.049254               0       -0.292178
+epsilon_chi                 0.000316               0        0.014569        0.495978        0.018097       -0.003513        0.004050        0.012121        0.093850        0.004213        0.004213        0.000279       -0.000296       -0.000296        0.011617        0.006288        0.000277        0.001840        0.004996        0.016652        0.491125        0.007639        0.115297        0.093850       -0.007908               0        0.010414        0.016731        0.006317        0.000791               0        0.960128               0        0.016849
 resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =          1; f =  10000000000.0000000
+2nd try worked and gave better x1b
 resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =    0.33333; f =  10000000000.0000000
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =    0.11111; f =  10000000000.0000000
-resnorm too large
-2nd try failed
-Error: No ss or no irfs found
-lambda =   0.037037; f =  10000000000.0000000
-Error: No ss or no irfs found
-lambda =   0.012346; f =  10000000000.0000000
+2nd try worked and gave better x1b
 resnorm too large
 2nd try worked and gave better x1b
 Error: No ss or no irfs found
-lambda =  0.0041152; f =  10000000000.0000000
-lambda =  0.0013717; f =         9069.0730586
-lambda = 0.00045725; f =         8413.3489426
-lambda = 0.00015242; f =         6569.3182993
-lambda = 5.0805e-05; f =        11181.2403315
-Norm of dx      15661
-ih =
-     1
-----
-Improvement on iteration 1 =    51681.098929331
------------------
------------------
-f at the beginning of new iteration,      6569.3182992531
-x =      -1.8318339      1.3585261      3.0909847     -5.2453124     -1581.1384     -1.6745144     -28.708262     -3.0695711      1.1403135
-p =     0.098683113     0.90258285     0.97082146     0.88956484      10.000002
-     0.10617579  0.00040000088     0.44100027     0.86840601
-Predicted improvement:    50001.124107293
+resnorm too large
+2nd try worked and gave better x1b
+resnorm too large
+2nd try worked and gave better x1b
+resnorm too large
+2nd try worked and gave better x1b
+resnorm too large
+2nd try worked and gave better x1b
+resnorm too large
+2nd try worked and gave better x1b
+resnorm too large
+2nd try worked and gave better x1b
 resnorm too large
 2nd try worked and gave better x1b
 Error: No ss or no irfs found
-lambda =          1; f =  10000000000.0000000
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =    0.33333; f =  10000000000.0000000
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =    0.11111; f =  10000000000.0000000
-lambda =   0.037037; f =         2865.4084472
-lambda =   0.071599; f =       272258.0730868
-lambda =   0.048211; f =         3323.9660753
-Norm of dx        100
-ih =
-     1
-----
-Improvement on iteration 2 =     3703.909852081
------------------
------------------
-f at the beginning of new iteration,      2865.4084471719
-x =      -1.7355177      1.4543281      4.4782169     -8.1388009     -1581.1502    -0.77524006     -28.708446     -1.7806953     0.17462404
-p =      0.10409359     0.91191088     0.98050544     0.37817614      9.9998534
-     0.29056299  0.00039999704     0.82759844     0.58429027
-Predicted improvement: 73271731.125477910
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =          1; f =  10000000000.0000000
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =    0.33333; f =  10000000000.0000000
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =    0.11111; f =  10000000000.0000000
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =   0.037037; f =  10000000000.0000000
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =   0.012346; f =  10000000000.0000000
 resnorm too large
 2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =  0.0041152; f =  10000000000.0000000
-resnorm too large
-2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =  0.0013717; f =  10000000000.0000000
-resnorm too large
-2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda = 0.00045725; f =  10000000000.0000000
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda = 0.00015242; f =  10000000000.0000000
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda = 5.0805e-05; f =  10000000000.0000000
-lambda = 1.6935e-05; f =        41201.6819948
-lambda =  5.645e-06; f =         2679.6942993
-lambda = 1.8817e-06; f =         2630.4540378
-lambda = 3.6376e-06; f =         2529.5278489
-Norm of dx  1.466e+05
-ih =
-     1
-----
-Improvement on iteration 3 =      335.880598311
------------------
------------------
-f at the beginning of new iteration,      2529.5278488607
-x =      -1.7215218      1.4681327      4.6824613     -8.5534578     -1581.1519    -0.63705766     -28.708473     -1.5949732    0.045273737
-p =      0.10493712     0.91315413     0.98128907     0.34322869      9.9998321
-     0.34710783  0.00039999648     0.94848778     0.52216143
-Predicted improvement:    68329.967114228
-resnorm too large
-2nd try worked bud did not give better x1b
-Error: No ss or no irfs found
-lambda =          1; f =  10000000000.0000000
-resnorm too large
-2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =    0.33333; f =  10000000000.0000000
-resnorm too large
-2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =    0.11111; f =  10000000000.0000000
-resnorm too large
-2nd try worked and gave better x1b
-Error: No ss or no irfs found
-lambda =   0.037037; f =  10000000000.0000000
-lambda =   0.012346; f =         1935.6862324
-Norm of dx     179.74
 {Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fbnd', 'C:\Users\pedm\Documents\StickyPriceModel\fbnd.m', 6)" style="font-weight:bold">fbnd</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\fbnd.m',6,0)">line 6</a>)
 
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snls', 'C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\snls.p', 337)" style="font-weight:bold">snls</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\snls.p',337,0)">line 337</a>)
-            newfvec = feval(funfcn{3},xcurr,varargin{:});
+In finDiffEvalAndChkErr
+In finitedifferences
+In computeFinDiffGradAndJac
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('sfdnls', 'C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\sfdnls.m', 97)" style="font-weight:bold">sfdnls</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\sfdnls.m',97,0)">line 97</a>)
+        computeFinDiffGradAndJac(x,funfcn,confcn,valx, ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('snls', 'C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\snls.p', 342)" style="font-weight:bold">snls</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\snls.p',342,0)">line 342</a>)
+         [newA, findiffevals] = sfdnls(xcurr,newfvec,Jstr,group,[], ...
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('lsqncommon', 'C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\lsqncommon.m', 166)" style="font-weight:bold">lsqncommon</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016a\toolbox\shared\optimlib\lsqncommon.m',166,0)">line 166</a>)
             snls(funfcn,xC,lb,ub,flags.verbosity,options,defaultopt,initVals.F,initVals.J,caller,
             ...
@@ -358,6 +182,4 @@ In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eval
         [ys,params,info] = evaluate_steady_state_file(ys_init,exo_ss,M, ...
 In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('resol', 'C:\dynare\4.4.3\matlab\resol.m', 104)" style="font-weight:bold">resol</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\resol.m',104,0)">line 104</a>)
 [dr.ys,M.params,info] = evaluate_steady_state(oo.steady_state,M,options,oo,0);
-In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 88)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\stoch_simul.m',88,0)">line 88</a>)
-    [oo_.dr,info,M_,options_,oo_] = resol(0,M_,options_,oo_);
-In <a href="matlab:matlab.internal.lang
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('stoch_simul', 'C:\dynare\4.4.3\matlab\stoch_simul.m', 88)" style="font-weight:bold">stoch_simul</a> (<a href="matlab: opentoline
