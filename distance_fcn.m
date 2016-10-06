@@ -42,7 +42,8 @@ function [ f ] = distance_fcn( params_unbounded )
         % extra objects
         post_processing_irfs;                                                       % Create IRFs with trend
         post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-
+        disp('ss and irfs found')
+        
         if sum(oo_.steady_state == Inf) > 0
             % Dynare got a steady state with Inf values
             disp('Dynare got a steady state with Inf values. Why?')
@@ -51,7 +52,7 @@ function [ f ] = distance_fcn( params_unbounded )
             f = irf_distance;
         end
     catch
-        disp('Error: No ss or no irfs found')
+        % disp('Error: No ss or no irfs found')
 
         % Dynare threw an error. Apply large penalty
         f = 10000000000;

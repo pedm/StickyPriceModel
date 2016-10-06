@@ -114,7 +114,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     
     % if resnorm is large, try the algorithm using a lower starting value
     if RESNORM > 1e-10
-        disp('resnorm too high. try low x0')
+        % disp('resnorm too high. try low x0')
         try
             x0 = [0.4, 0.1];
             [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
@@ -127,7 +127,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     
     % if resnorm is still too large, try the algorithm using a high starting value
     if RESNORM > 1e-10
-        disp('resnorm too high. try high x0')
+        % disp('resnorm too high. try high x0')
         try
             x0 = [20, 0.9];
             [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);

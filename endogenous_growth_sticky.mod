@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 0; % if 0, just simulate
+do_estimate = 3; % if 0, just simulate
 
 var
 
@@ -458,6 +458,12 @@ elseif do_estimate == 1
 x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
 x_start_unbounded = boundsINV(x_start);
 
+% Select random start
+% TODO: I can do a better job of getting random x within the bounds
+x_start_unbounded = randn(size(x_start));
+x_start_unbounded(5) = -1.1180e+03;
+bounds(x_start_unbounded)
+
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
 H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
@@ -491,6 +497,50 @@ elseif do_estimate == 2
     opts = psoptimset('Display','diagnose'); % debugging % , 'MaxIter', 20
     % opts = psoptimset('Display', 'off'); % estimation
     [params_unbounded, FVAL,EXITFLAG] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
+
+%=========================================================================%
+%%%%                    MULTI START ESTIMATION                         %%%%
+%=========================================================================%
+elseif do_estimate == 3
+
+    fhat = 100;
+    while fhat > 50
+
+        % Starting point (based on earlier calibration)
+        x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
+
+        %% Select random start
+        % Search until I find an inital guess that solves
+        dist_guess = 1e+10;
+        while dist_guess >= 1e+10
+            % Generate guess along uniform [0,1] then scale based on bounds
+            rand_guess;
+            guess
+            x_start_unbounded = boundsINV(guess);
+            
+            % original way of guessing x0
+            % x_start_unbounded = randn(size(x_start));
+            % x_start_unbounded(5) = -1.1180e+03;
+            
+            dist_guess = distance_fcn(x_start_unbounded)
+        end
+        
+        disp('========================New Guess============================')
+        bounds(x_start_unbounded)
+
+        % Optimizer options
+        H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
+
+        crit = 1e-7; % Tolerance
+        nit = 1000; % Number of iterations
+        nit = 800;
+
+        % nit = 20;
+        nit = 100;
+
+        [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+        fhat
+    end
 end
 
 %=========================================================================%
