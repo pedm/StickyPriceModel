@@ -398,9 +398,14 @@ evalin('base','save level0workspace oo_ M_ options_')
 steady;
 check;
 
+oo_.dr
+
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
 stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
+
+oo_.dr
+
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
 post_processing_irfs_plot;                                                  % Plot IRFs

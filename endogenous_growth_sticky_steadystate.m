@@ -114,6 +114,7 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     
     % if resnorm is large, try the algorithm again using the lower x0
     if RESNORM > 1e-10
+        disp('resnorm too large')
         % Find a ss.... but it's one where lambda is almost zero
         % x0 = [1.01, 0.2];
         x0 = [0.4, 0.1];

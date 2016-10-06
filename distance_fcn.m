@@ -6,8 +6,8 @@ function [ f ] = distance_fcn( params_unbounded )
     % get Dynare structures
     global oo_ M_ options_ pvarcoirfs_clean
     % this ensures that we don't use the dr or irfs from the last stoch_simul()
-    load level0workspace oo_
-    % It now starts without a ss of zeros
+    load level0workspace oo_ options_
+    % It now starts with a ss of zeros
 
     %% Change parameters, solve again, and plot
     [ params ] = bounds( params_unbounded );
@@ -25,7 +25,7 @@ function [ f ] = distance_fcn( params_unbounded )
     set_param_value('sigmazeta', params(8) );
     % set_param_value('zetabar', params(9) );
     set_param_value('rho_lambda', params(9) ); % woops. before I was setting rho_lambda = zetabar
-
+tic
     try
         % Dynare command - does not work in m file
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
@@ -34,7 +34,17 @@ function [ f ] = distance_fcn( params_unbounded )
         
         % TODO: is this useful?
         % oo_.irfs = {}; % erase old IRFs
-        steady;
+        % steady;
+        
+        % Options related to stoch_simul
+        options_.irf = 11;
+        options_.loglinear = 1;
+        options_.nocorr = 1;
+        options_.nodisplay = 1;
+        options_.nograph = 1;
+        options_.nomoments = 1;
+        options_.order = 1;
+        options_.periods = 600;
         var_list_=[];
         info = stoch_simul(var_list_); % TODO: will this sometimes run without an error even if no ss found?
                                        % EXPLANATION: oo_ still contains
@@ -61,10 +71,12 @@ function [ f ] = distance_fcn( params_unbounded )
         else
             f = irf_distance;
         end
-        disp('Good')
+        toc
     catch
         % params
-        disp('Error: steady state not found')
+        disp('Error: No ss or no irfs found')
+        
+        % keyboard
         
         
         % Dynare threw a command. Apply large penalty
