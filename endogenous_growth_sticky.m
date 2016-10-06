@@ -376,7 +376,6 @@ set_dynare_seed(092677);
 evalin('base','save level0workspace oo_ M_ options_')
 steady;
 oo_.dr.eigval = check(M_,options_,oo_);
-oo_.dr
 options_.irf = 11;
 options_.loglinear = 1;
 options_.nocorr = 1;
@@ -387,7 +386,6 @@ options_.order = 1;
 options_.periods = 600;
 var_list_=[];
 info = stoch_simul(var_list_);
-oo_.dr
 post_processing_irfs;                                                       
 plot_var_irfs;                                                              
 post_processing_irfs_plot;                                                  
