@@ -177,15 +177,15 @@ rho_lambda            =   0.7905;
 
 
 % Grid Search Results (1):
-eta = 0.09999;
-gamma = 0.899911;
-phi = 0.941;
-lambda_bar = 1.0045;
-psi_N = 10;
-rhozeta = 0.15009;
-% rhozeta2 = 0.89101;
-sigmazeta = 1.45;
-rho_lambda = 0.892;
+% eta = 0.09999;
+% gamma = 0.899911;
+% phi = 0.941;
+% lambda_bar = 1.0045;
+% psi_N = 10;
+% rhozeta = 0.15009;
+% % rhozeta2 = 0.89101;
+% sigmazeta = 1.45;
+% rho_lambda = 0.892;
 
 % Estimation results using Grid Search Results (1) as starting point:
 % These params don't have a steady state... unless I modify start point in
@@ -238,15 +238,15 @@ rho_lambda = 0.892;
 % Estimation Results (Oct 6)
 % Issue: csminwel() gets stuck around a point where it cant find a ss, so
 % it ends prematurely
-eta = 0.05170475943;
-gamma = 0.9893840947;
-phi = 0.9898787385;
-lambda_bar = 0.1053043122;
-psi_N = 10.1111927;
-rhozeta = 0.836779638;
-rhozeta2 = 0.0003359981795;
-sigmazeta = 0.4911254073;
-rho_lambda = 0.8050435049;
+% eta = 0.05170475943;
+% gamma = 0.9893840947;
+% phi = 0.9898787385;
+% lambda_bar = 0.1053043122;
+% psi_N = 10.1111927;
+% rhozeta = 0.836779638;
+% rhozeta2 = 0.0003359981795;
+% sigmazeta = 0.4911254073;
+% rho_lambda = 0.8050435049;
 
 % TODO: why did the param results from csminwel() not have a ss?
 % Shouldnt csminwel pick up on this?

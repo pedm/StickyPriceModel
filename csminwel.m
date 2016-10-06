@@ -288,6 +288,8 @@ while ~done
       if dispIndx, disp('iteration count termination'), end
       done = 1;
    elseif stuck
+       
+      % We get this a lot
       if dispIndx, disp('improvement < crit termination'), end
       done = 1;
    end

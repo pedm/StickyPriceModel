@@ -112,34 +112,31 @@ function[ys,check]=endogenous_growth_steadystate(ys,exe)
     % RESNORM
     % F = fbnd(x1b)
     
-    % if resnorm is large, try the algorithm again using the lower x0
+    % if resnorm is large, try the algorithm using a lower starting value
     if RESNORM > 1e-10
-        disp('resnorm too large')
-        % Find a ss.... but it's one where lambda is almost zero
-        % x0 = [1.01, 0.2];
-        x0 = [0.4, 0.1];
+        disp('resnorm too high. try low x0')
         try
+            x0 = [0.4, 0.1];
             [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
             if RESNORM_2 < RESNORM
                 x1b = x1b_2;
-                disp('2nd try worked and gave better x1b')
-            else
-                disp('2nd try worked bud did not give better x1b')
+                RESNORM = RESNORM_2;
             end
-        catch
-            disp('2nd try failed')
-%             % Try with a new ss
-%             x0 = [0.1, 0.1];
-%             try
-%                 [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
-%                 if RESNORM_2 < RESNORM
-%                     x1b = x1b_2;
-%                 end
-%             end
         end
     end
     
-
+    % if resnorm is still too large, try the algorithm using a high starting value
+    if RESNORM > 1e-10
+        disp('resnorm too high. try high x0')
+        try
+            x0 = [20, 0.9];
+            [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
+            if RESNORM_2 < RESNORM
+                x1b = x1b_2;
+                RESNORM = RESNORM_2;
+            end
+        end
+    end
 
     
 

@@ -1,6 +1,12 @@
 %% Grid Search with Dynare
 % Perhaps useful for finding the best starting point
 
+global COUNT
+COUNT.total = 0;
+COUNT.ss_notfound = 0;
+COUNT.ss_neg = 0;
+COUNT.ss_found = 0;
+
 %% Define parameter bounds
 % Search over 2^9 grid of parameters
 
@@ -125,4 +131,5 @@ disp(sprintf([char(FF(10)), ' = %0.10g;'], p10_opt));
 % TODO: try with csminwel() being called for each grid point (slow. so only
 % do this with very few grid points)
 
+COUNT
 
