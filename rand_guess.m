@@ -26,6 +26,8 @@ UB.rho_lambda = .99;
 %% Not actual bounds, but useful restrictions
 LB.rhozeta2 = 0.0001;
 UB.rhozeta2 = 0.2;
+UB.sigmazeta = 40;  
+UB.lambda_bar = 40; 
 
 %% Set distance between
 

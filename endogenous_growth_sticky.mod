@@ -248,6 +248,17 @@ rho_lambda            =   0.7905;
 % sigmazeta = 0.4911254073;
 % rho_lambda = 0.8050435049;
 
+% Est results Oct 6 (do_estimate ==3)
+eta              = 0.63416332     ;
+gamma              = 0.98137659    ;
+phi              = 0.98989883    ;
+lambda_bar              = 0.085861657      ;
+psi_N              = 41.222348;
+rhozeta              = 0.48634546  ;
+rhozeta2              = 0.00072689214      ;
+sigmazeta              = 2.2603972     ;
+rho_lambda              = 0.69228975;
+
 % TODO: why did the param results from csminwel() not have a ss?
 % Shouldnt csminwel pick up on this?
 % Also for some reason the plot worked...!
@@ -404,7 +415,7 @@ COUNT.ss_notfound = 0;
 COUNT.ss_neg = 0;
 
 % Set seed for simulation
-set_dynare_seed(092677);
+% set_dynare_seed(092677);
 
 % This saves everything, which is then called in each loop
 evalin('base','save level0workspace oo_ M_ options_')
@@ -503,8 +514,8 @@ elseif do_estimate == 2
 %=========================================================================%
 elseif do_estimate == 3
 
-    fhat = 100;
-    while fhat > 50
+    fhat = 101;
+    while fhat > 100
 
         % Starting point (based on earlier calibration)
         x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
@@ -536,7 +547,7 @@ elseif do_estimate == 3
         nit = 800;
 
         % nit = 20;
-        nit = 100;
+        nit = 200;
 
         [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
         fhat
