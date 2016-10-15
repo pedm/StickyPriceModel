@@ -54,8 +54,23 @@ function [ f ] = distance_fcn( params_unbounded )
     catch
         % disp('Error: No ss or no irfs found')
         
+%         %% Add penalty
+%         % I notice that csminwel often fails because its gradient is zero
+%         % when it cannot find a steady state. Hopefully this creates a
+%         % nonzero gradient
+%         
+%         compute_residuals;
+%         
+%         % Hmm. I'm not sure what to do with NaN
+%         % should I replace with 0 or with something large?
+%         how_many_nan = sum(isnan(z));
+%         z(isnan(z)) = 1;
+%         
+%         sum_residuals = sum(abs(z));
+        sum_residuals = 0;
+        
         % Dynare threw an error. Apply large penalty
-        f = 10000000000;
+        f = 10000000000 + 10000*sum_residuals;
     end
 end
 
