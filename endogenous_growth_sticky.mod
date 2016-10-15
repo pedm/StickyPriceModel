@@ -11,7 +11,7 @@ close all;
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
 
-do_estimate = 3; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 var
 
@@ -74,7 +74,7 @@ delta          $\delta$
 chi            $\chi$                 % disutility of labor supply
 vartheta       $\vartheta$              
 gamma          $\gamma$               % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi            $\phi$                 
+phi            $\phi$                 % lower phi means that tech becomes obsolte faster
 eta            $\eta$                 
 rhozeta        ${\rho}_{\zeta}$       % persistence of exogenous "innovation productivity" shock
 rhozeta2       ${\rho}_{\zeta2}$      % AR(2) parameter (after a minus sign)
@@ -177,15 +177,15 @@ rho_lambda            =   0.7905;
 
 
 % Grid Search Results (1):
-% eta = 0.09999;
-% gamma = 0.899911;
-% phi = 0.941;
-% lambda_bar = 1.0045;
-% psi_N = 10;
-% rhozeta = 0.15009;
-% % rhozeta2 = 0.89101;
-% sigmazeta = 1.45;
-% rho_lambda = 0.892;
+eta = 0.09999;
+gamma = 0.899911;
+phi = 0.941;
+lambda_bar = 1.0045;
+psi_N = 10;
+rhozeta = 0.15009;
+% rhozeta2 = 0.89101;
+sigmazeta = 1.45;
+rho_lambda = 0.892;
 
 % Estimation results using Grid Search Results (1) as starting point:
 % These params don't have a steady state... unless I modify start point in
@@ -414,13 +414,14 @@ check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
-stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments); %%% loglinear BIG CHANGE
 
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 
+error('tew')
 
 % Change parameters, solve again, and plot
 % set_param_value('zetabar', 0.6);
@@ -504,7 +505,7 @@ elseif do_estimate == 2
 elseif do_estimate == 3
 
     fhat = 100;
-    while fhat > 50
+    while fhat > 99
 
         % Starting point (based on earlier calibration)
         x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
