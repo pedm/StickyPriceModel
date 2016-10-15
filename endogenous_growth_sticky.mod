@@ -5,7 +5,7 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 0; % if 0, just simulate
+do_estimate = 1; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -80,7 +80,6 @@ zeta_bar       ${\overline{\zeta}}$
 psi_N          ${\psi_N}$               % Magnitude of N adjustment cost
 psi_I          ${\psi_I}$               % Magniturde if I investment cost
 
-
 % NEW PARAMETERS (STICKY PRICE)
 gamma_pi       ${{\gamma}_{\pi}}$
 gamma_y        ${{\gamma}_{y}}$
@@ -115,7 +114,7 @@ vartheta  = 2.4925; % elast. of subst. across varieties (mkup = vartheta/(varthe
 gamma     = 0.90;   % Jaimovich-Rebelo term on preferences (0-> no wealth effect)
 phi       = 0.90;   % Survival rate of technologies
 eta       = 0.25;   % elasticity of innovations to R&D
-rho_lambda= 0.80;   % param. on tech adoption function (2): elasticity of adoption prob. to adoption expenditure
+rho_lambda= 0.80;   % elasticity of adoption prob. to adoption expenditure
 
 % NEW VARIABLES - sticky price part
 gamma_pi = 1.5;
@@ -275,7 +274,7 @@ check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
-stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear); %%% loglinear BIG CHANGE
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
 
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
@@ -315,14 +314,8 @@ elseif do_estimate == 1
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
+x_start=[eta, phi, lambda_ss]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
 x_start_unbounded = boundsINV(x_start);
-
-% Select random start
-% TODO: I can do a better job of getting random x within the bounds
-x_start_unbounded = randn(size(x_start));
-x_start_unbounded(5) = -1.1180e+03;
-bounds(x_start_unbounded)
 
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
@@ -350,6 +343,9 @@ fhat
 %%%%                       ALT ESTIMATION                              %%%%
 %=========================================================================%
 elseif do_estimate == 2
+    
+    % Needs to be updated
+    
     % Starting point (based on earlier calibration)
     x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
     x_start_unbounded = boundsINV(x_start);
@@ -362,6 +358,8 @@ elseif do_estimate == 2
 %%%%                    MULTI START ESTIMATION                         %%%%
 %=========================================================================%
 elseif do_estimate == 3
+    
+    % Needs to be updated
     
     fhat = 101;
     while fhat > 100
@@ -408,16 +406,8 @@ end
 if do_estimate > 0
 [ params ] = bounds( params_unbounded );
 set_param_value('eta', params(1) );
-set_param_value('gamma', params(2) );
-set_param_value('phi', params(3) );
-set_param_value('lambda_bar', params(4) );
-set_param_value('psi_N', params(5) );
-set_param_value('rhozeta', params(6) );
-set_param_value('rhozeta2', params(7) );
-set_param_value('sigmazeta', params(8) );
-% set_param_value('zetabar', params(9) );
-set_param_value('rho_lambda', params(9) );
-
+set_param_value('phi', params(2) );
+set_param_value('lambda_ss', params(3) );
 
 oo_.irfs = {}; % erase the old IRFs
 steady;
@@ -429,18 +419,12 @@ axis tight;
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 legend('initial','var', 'b', 'b', 'final');
 
-disp('[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, zetabar]')
+disp('[eta, phi, lambda_ss]')
 params
 x_start
 
 % Print Estimation Results
 disp(sprintf('eta = %0.10g;', params(1) ));
-disp(sprintf('gamma = %0.10g;', params(2) ));
-disp(sprintf('phi = %0.10g;', params(3) ));
-disp(sprintf('lambda_bar = %0.10g;', params(4) ));
-disp(sprintf('psi_N = %0.10g;', params(5) ));
-disp(sprintf('rhozeta = %0.10g;', params(6) ));
-disp(sprintf('rhozeta2 = %0.10g;', params(7) ));
-disp(sprintf('sigmazeta = %0.10g;', params(8) ));
-disp(sprintf('rho_lambda = %0.10g;', params(9) ));
+disp(sprintf('phi = %0.10g;', params(2) ));
+disp(sprintf('lambda_ss = %0.10g;', params(3) ));
 end

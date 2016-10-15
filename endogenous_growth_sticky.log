@@ -9,16 +9,7 @@ Computing dynamic model derivatives:
 Processing outputs ...done
 Preprocessing completed.
 Starting MATLAB/Octave computing.
-       -0.128567       -0.028318        0.018004        0.014147       -0.039837       -0.194252       -0.025453       -0.022173       -0.035539       -0.022173        0.900000       -0.905685        0.108248        0.004904        0.184826        0.007730        0.030919        1.407907        1.730481       -0.002585               0        0.415810               0       -0.104125
-VD(-1)                      0.082025        0.988338       -0.068963        0.110978       -0.206628       -0.378498       -0.542194        0.129028        0.001126        0.159864        0.159864       -0.029433        0.022831        0.017939        0.062172        0.241540       -0.026455        0.003939       -0.033736        0.003939               0       -0.442039       -0.123637        0.001126       -0.175341        0.072432        0.289728        2.839872        2.593528        0.128556               0        0.095445               0        0.018498
-ND(-1)                     -0.037221               0       -0.049939        0.324294       -0.149627       -0.497563       -0.645106        0.064429        0.757334        0.235161        0.235161       -0.367096        0.260760        0.204889        0.154160        0.355306       -0.329956       -0.031163       -0.073299       -0.031163               0       -1.690548       -0.557147        0.757334        0.015892        0.078637        0.314546        4.714486        4.962149        0.123046               0      -20.576006               0       -0.146341
-ID(-1)                      0.009693               0        0.013005        0.003646        0.038966        0.093859        0.709273        0.560212        0.008514        0.676858        0.676858       -0.087891        0.071378        0.056085        0.255702        1.022669       -0.078999        0.723964       -0.319628        0.723964               0        0.761699       -0.147431        0.008514       -0.772777        0.120367        0.481467        2.636829        1.569913        0.252194               0        0.721950               0       -1.296242
-epsilon_chi                -0.002769               0       -0.003716        0.020672       -0.011133       -0.042157       -0.071687       -0.013759        0.000545       -0.014285       -0.014285       -0.003146        0.002000        0.001572       -0.004426       -0.021584       -0.002828       -0.002464       -0.003949       -0.002464        0.100000       -0.100632        0.012028        0.000545        0.020536        0.000859        0.003435        0.156434        0.192276       -0.000287               0        0.046201               0       -0.011569
-{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 348)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',348,0)">line 348</a>)
-tew
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
-evalin('base',fname) ;} 
-clear; clc; dynare endogenous_growth_sticky.mod
+ynare endogenous_growth_sticky.mod
 
 Configuring Dynare ...
 [mex] Generalized QZ.
@@ -186,4 +177,2475 @@ ZD(-1)                      0.133384        0.889504       -0.756450        0.89
 UCD(-1)                            0               0               0               0               0               0               0               0               0               0               0               0       -1.000000               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0               0
 GammaD(-1)                 -0.006687               0       -0.060521       -0.000667       -0.075652       -0.030081       -0.008874        0.033940       -0.002670       -0.026414       -0.026414       -0.020337        0.021801        0.021801       -0.030627       -0.039424        0.081697       -0.001040       -0.008419       -0.009408               0       -0.014469       -0.022037       -0.002670       -0.060354        0.006760        0.027041        0.024458        0.004177        0.016176               0       -0.027013               0       -0.009519
 KD(-1)                      0.066076               0        0.597992       -0.231398        0.747491        0.597798        0.242940        0.420497        0.074408        0.358336        0.358336        0.391922       -0.388991       -0.388991       -0.330927        0.042292        0.352729        0.863916       -0.130400       -0.231569               0        0.406861        0.389251        0.074408       -0.062161       -0.048962       -0.195848       -0.642898       -0.496012       -0.067227               0        0.752861               0       -0.234301
-zeta(-1)                   -0.024635               0       -0.222946        0.910274       -0.278683       -0.616592       -0.156444       -0.205546        0.041096       -0.065075
+zeta(-1)                   -0.024635               0       -0.222946        0.910274       -0.278683       -0.616592       -0.156444       -0.205546        0.041096       -0.065075       -0.065075       -0.021083        0.018976        0.018976       -0.161344       -0.097126       -0.018975       -0.011371       -0.035539       -0.102910        0.900000       -0.093103        0.035863        0.041096        0.140471        0.007730        0.030919        0.352156        0.328967       -0.002453               0        0.415810               0       -0.104125
+VD(-1)                      0.016569        0.110496       -0.093968        0.110978       -0.117460       -0.125720       -0.026871        0.043775        0.001928        0.016538        0.016538       -0.004479        0.004918        0.004918        0.051465        0.024684       -0.004031        0.000413       -0.006895        0.003737               0       -0.009287       -0.008372        0.001928       -0.027237        0.014804        0.059217        0.145182        0.100770        0.024930               0        0.019508               0        0.003781
+ND(-1)                     -0.004390               0       -0.039727        0.189334       -0.049659       -0.096489       -0.018666        0.012762        0.757334        0.014203        0.014203       -0.032614        0.032795        0.032795        0.074504        0.021199       -0.029352       -0.001907       -0.008747       -0.017259               0       -0.020737       -0.022026        0.757334        0.001441        0.009384        0.037534        0.140714        0.112564        0.013931               0       -2.455293               0       -0.017463
+ID(-1)                      0.002064               0        0.018681        0.003843        0.023351        0.032865        0.037056        0.200364        0.015374        0.073817        0.073817       -0.014099        0.016209        0.016209        0.223137        0.110174       -0.012689        0.079995       -0.068868        0.723964               0        0.016871       -0.010524        0.015374       -0.126547        0.025935        0.103739        0.142108        0.064304        0.051557               0        0.155554               0       -0.279293
+epsilon_chi                -0.002737               0       -0.024772        0.101142       -0.030965       -0.068510       -0.017383       -0.022838        0.004566       -0.007231       -0.007231       -0.002343        0.002108        0.002108       -0.017927       -0.010792       -0.002108       -0.001263       -0.003949       -0.011434        0.100000       -0.010345        0.003985        0.004566        0.015608        0.000859        0.003435        0.039128        0.036552       -0.000273               0        0.046201               0       -0.011569
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+rc =
+     0
+chi =
+    0.1224
+ss and irfs found
+-----------------
+-----------------
+f at the beginning of new iteration,     10142.5372684204
+x =     -0.80064077           0.75    -0.47434165
+p =            0.25            0.9           0.15
+Predicted improvement:   114004.315462588
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8165.1210437
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         8202.2799636
+rc =
+     0
+chi =
+    0.1166
+ss and irfs found
+lambda =    0.11111; f =         8410.2843873
+rc =
+     0
+chi =
+    0.1169
+ss and irfs found
+lambda =   0.037037; f =         8818.5770174
+rc =
+     0
+chi =
+    0.1180
+ss and irfs found
+lambda =   0.012346; f =         9110.4363151
+Norm of dx        151
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 1 =     1977.416224761
+-----------------
+-----------------
+f at the beginning of new iteration,      8165.1210436597
+x =      -16.088388       149.6044     -20.710819
+p =      0.10077046     0.94999721    0.010285091
+Predicted improvement:        0.014972679
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8165.0912164
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         8165.0635893
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8165.0107405
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     7.2247; f =         8164.9106207
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     13.967; f =         8164.7244118
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =         27; f =         8164.3898157
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     52.196; f =         8163.8250111
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      100.9; f =         8162.9687687
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     195.07; f =         8161.8717563
+Norm of dx   0.054725
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 2 =        3.249287397
+-----------------
+-----------------
+f at the beginning of new iteration,      8161.8717562628
+x =      -14.996018      149.62206     -31.329724
+p =      0.10088641     0.94999721    0.010124707
+Predicted improvement:        0.376937647
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8161.2477838
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         8160.8330254
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8160.2836526
+Norm of dx     4.5842
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 3 =        1.588103634
+-----------------
+-----------------
+f at the beginning of new iteration,      8160.2836526289
+x =      -13.214851      149.65068     -48.368851
+p =      0.10114037     0.94999721    0.010052344
+Predicted improvement:        0.220069330
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8159.9068451
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         8159.6252113
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8159.1289010
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     7.2247; f =         8157.7211808
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     13.967; f =         8099.9271232
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =         27; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     52.196; f =         7913.5433432
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      100.9; f =         7913.5727162
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     195.07; f =         7913.5750200
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      377.1; f =         7913.5722386
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =        729; f =         7913.5660427
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1409.3; f =         7913.5553186
+Norm of dx     8.2298
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 4 =      247.139255155
+-----------------
+-----------------
+f at the beginning of new iteration,      7913.1443974741
+x =       10.202458       150.0238     -269.33646
+p =      0.89809232     0.94999722    0.010001689
+Predicted improvement:        0.155966097
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7912.5500549
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         7909.8968377
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8147.0400136
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.5164; f =         7900.5257395
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.1904; f =         8089.8285857
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      2.767; f =         7904.7801519
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.0137; f =         8012.7912517
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.8632; f =         7930.8583917
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.7201; f =         7899.9197758
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.8051; f =         7912.0942980
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.8927; f =         7944.0852882
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.8398; f =         7922.1241613
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.7879; f =         7908.3521635
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.8189; f =         7915.6796906
+Norm of dx     33.163
+ 
+************************* Random search. *****************************************
+************************* Random search. *****************************************
+ 
+Cliff.  Perturbing search direction.
+Predicted improvement:        0.241610524
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7911.6219522
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         7980.8545843
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.3017; f =         7909.4521752
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.6503; f =         7900.2232857
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.0923; f =         8093.4118272
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.8146; f =         7906.5341851
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9765; f =         8019.6578314
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.8777; f =         7935.7190252
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.7839; f =         7900.6986160
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.8396; f =         7914.9539538
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      1.806; f =         7904.4454720
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.8261; f =         7909.9241053
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.8464; f =         7917.9329288
+Norm of dx     32.891
+Cliff again.  Try traversing
+gcliff =
+    0.0002
+    0.0000
+   -0.0084
+Predicted improvement:        0.000035236
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7913.1443935
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7913.1443962
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7913.1443970
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7913.1443973
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0041152; f =         7913.1443974
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0013717; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00045725; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00015242; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 5.0805e-05; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.6935e-05; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  5.645e-06; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.8817e-06; f =         7913.1443975
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 3.6376e-06; f =         7913.1443975
+Norm of dx  0.0083947
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+badg3 =
+     0
+ih =
+     3
+----
+Improvement on iteration 5 =        0.000011851
+-----------------
+-----------------
+f at the beginning of new iteration,      7913.1443856234
+x =         10.2023      150.02379     -269.32806
+p =      0.89809226     0.94999722    0.010001689
+Predicted improvement:        0.174148987
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7912.4004434
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         7907.4860457
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8155.0220378
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.5164; f =         7925.3161764
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9848; f =         7906.6382335
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.2885; f =         7898.6849854
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.6387; f =         7997.2807904
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.4227; f =         7901.8249661
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.5501; f =         7941.3222224
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.4728; f =         7910.8256203
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.5189; f =         7926.3557476
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.4912; f =         7916.0730927
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.4637; f =         7908.6428795
+Norm of dx     52.759
+ 
+************************* Random search. *****************************************
+************************* Random search. *****************************************
+ 
+Cliff.  Perturbing search direction.
+Predicted improvement:        0.351371846
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7906.8296680
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         8155.2436209
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.3017; f =         7950.0697866
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.0267; f =         7905.8471300
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.1838; f =         7897.9244097
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      1.365; f =         8030.5898281
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2532; f =         7910.1004366
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.3191; f =         7971.4459696
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2792; f =         7927.3607678
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2404; f =         7904.8970916
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2635; f =         7915.8161690
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2496; f =         7908.4402964
+Norm of dx     53.012
+Cliff again.  Try traversing
+gcliff =
+    0.0000
+   -0.0000
+    0.0130
+Predicted improvement:        0.000085018
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7913.1443830
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7913.1443848
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7913.1443853
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7913.1443855
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0041152; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0013717; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00045725; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00015242; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 5.0805e-05; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.6935e-05; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  5.645e-06; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.0913e-05; f =         7913.1443856
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 7.3481e-06; f =         7913.1443856
+Norm of dx    0.01304
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+badg3 =
+     0
+ih =
+     3
+----
+Improvement on iteration 6 =        0.000007771
+-----------------
+-----------------
+f at the beginning of new iteration,      7913.1443778527
+x =       10.202261      150.02381      -269.3411
+p =      0.89809225     0.94999722    0.010001689
+Predicted improvement:        0.215543882
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7912.0725253
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         7899.3684361
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         8157.6367520
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.5164; f =         8118.8434877
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9848; f =         7898.0072830
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.2885; f =         8020.4665317
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1012; f =         7906.7404543
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.2117; f =         7961.2988562
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1447; f =         7921.1579336
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.0797; f =         7902.6390887
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1185; f =         7911.4020579
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1579; f =         7927.4061055
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1341; f =         7916.8295676
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     2.1107; f =         7909.1366464
+Norm of dx     15.537
+ 
+************************* Random search. *****************************************
+************************* Random search. *****************************************
+ 
+Cliff.  Perturbing search direction.
+Predicted improvement:        0.366078898
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7906.4107830
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         8155.4866234
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.3017; f =         7967.7462506
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.0267; f =         7905.3424283
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.1838; f =         7898.0261810
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      1.365; f =         8047.7822707
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2532; f =         7918.1854569
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.1906; f =         7898.3403551
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2278; f =         7905.2271385
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2661; f =         7928.2811716
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =      1.243; f =         7911.9283422
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.2568; f =         7920.7508167
+Norm of dx     17.173
+Cliff again.  Try traversing
+gcliff =
+   -0.0000
+   -0.0000
+    0.0017
+Predicted improvement:        0.000001377
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7913.1443795
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7913.1443784
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7913.1443780
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0041152; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0013717; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00045725; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00015242; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 5.0805e-05; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.6935e-05; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  5.645e-06; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 1.8817e-06; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 6.2723e-07; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 2.0908e-07; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 6.9692e-08; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 2.3231e-08; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 7.7435e-09; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 2.5812e-09; f =         7913.1443779
+lambda =
+  -6.2723e-07
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -6.2723e-07; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -2.0908e-07; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -6.9692e-08; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -2.3231e-08; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -7.7435e-09; f =         7913.1443779
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = -2.5812e-09; f =         7913.1443779
+Norm of dx  0.0016597
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+badg3 =
+     0
+ih = 1
+----
+Improvement on iteration 7 =       15.137094860
+back and forth on step length never finished
+-----------------
+-----------------
+f at the beginning of new iteration,      7898.0072829924
+x =       1.0093893      150.07214     -298.77712
+p =      0.78416125     0.94999722    0.010001372
+Predicted improvement:        0.215543882
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8151.4488510
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         8041.2779627
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7905.5846929
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7898.0777021
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7897.8856432
+Norm of dx     15.537
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 8 =        0.121639791
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8856432009
+x =      0.95220952      150.07244     -298.96021
+p =      0.77583603     0.94999722    0.010001371
+Predicted improvement:       28.040926102
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         8159.8823246
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         8159.5107212
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         8155.2196444
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         8092.8201628
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7918.3846707
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0041152; f =         7898.9742201
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =  0.0013717; f =         7897.9272171
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda = 0.00045725; f =         7897.8722658
+Norm of dx     157.13
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 9 =        0.013377358
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8722658433
+x =      0.92803702      150.07255     -299.02787
+p =      0.77209629     0.94999722     0.01000137
+Predicted improvement:        0.000181385
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7897.8719151
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     1.9332; f =         7897.8716100
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     3.7372; f =         7897.8710810
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     7.2247; f =         7897.8702848
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =     13.967; f =         7897.8695877
+Norm of dx     1.4815
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 10 =        0.002678159
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8695876844
+x =      0.91881012      150.10842     -319.71965
+p =      0.77063274     0.94999723    0.010001198
+Correct for low angle: 0.000547452
+Predicted improvement:        0.019984616
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.0012989
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8770215
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8675193
+Norm of dx     20.179
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 11 =        0.002068372
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8675193128
+x =      0.92894449      150.11234     -321.96177
+p =      0.77223914     0.94999723    0.010001182
+Correct for low angle: 0.00277379
+Predicted improvement:        0.005936588
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.0105441
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8795569
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8679354
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8672711
+Norm of dx      34.87
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 12 =        0.000248233
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8672710796
+x =      0.92604076      150.11464     -323.25323
+p =      0.77178136     0.94999723    0.010001172
+Correct for low angle: 0.00293662
+Predicted improvement:        0.005632809
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7897.9691601
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8769940
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8675522
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8670255
+Norm of dx     35.743
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 13 =        0.000245618
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8670254621
+x =      0.92878509        150.117     -324.57704
+p =      0.77221406     0.94999723    0.010001163
+Correct for low angle: 0.00300394
+Predicted improvement:        0.005768183
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7897.9981479
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8779622
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8673502
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8667759
+Norm of dx     37.886
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 14 =        0.000249541
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8667759211
+x =      0.92599528      150.11951     -325.98022
+p =      0.77177417     0.94999723    0.010001153
+Correct for low angle: 0.0027794
+Predicted improvement:        0.006531192
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.0148063
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8818883
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8675508
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8665424
+Norm of dx     40.105
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 15 =        0.000233493
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8665424281
+x =      0.92930651      150.12217      -327.4656
+p =      0.77229608     0.94999723    0.010001142
+Correct for low angle: 0.00213163
+Predicted improvement:        0.008714453
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.2283280
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8983745
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8686347
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8663391
+Norm of dx     41.367
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 16 =        0.000203352
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8663390764
+x =      0.92488449      150.12492     -328.99772
+p =      0.77159851     0.94999723    0.010001132
+Correct for low angle: 0.00156191
+Predicted improvement:        0.012105684
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.2402421
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.9089127
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8695368
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8661060
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7897.8661141
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.023866; f =         7897.8660373
+Norm of dx     41.977
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 17 =        0.000301748
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8660373286
+x =      0.92837227      150.12671     -329.99956
+p =      0.77214909     0.94999723    0.010001125
+Correct for low angle: 0.0041126
+Predicted improvement:        0.004597339
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7897.8926907
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8668472
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8654462
+Norm of dx     43.225
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 18 =        0.000591178
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8654461511
+x =      0.92413077      150.13526     -334.80231
+p =      0.77147915     0.94999723    0.010001093
+Correct for low angle: 0.00113673
+Predicted improvement:        0.017214748
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.4036882
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.9290048
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8704318
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8651670
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7897.8651320
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.023866; f =         7897.8650389
+Norm of dx     45.964
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 19 =        0.000407273
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8650388782
+x =      0.92840366      150.13722     -335.89929
+p =      0.77215403     0.94999723    0.010001086
+Correct for low angle: 0.00373478
+Predicted improvement:        0.005362943
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7897.9484572
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8713652
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8649291
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8647617
+Norm of dx     48.505
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 20 =        0.000277186
+-----------------
+-----------------
+f at the beginning of new iteration,      7897.8647616921
+x =      0.92612597      150.14045     -337.69577
+p =      0.77179482     0.94999723    0.010001074
+Correct for low angle: 0.00273209
+Predicted improvement:        0.007619207
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =          1; f =         7898.1104028
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.33333; f =         7897.8919923
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =    0.11111; f =         7897.8667956
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.037037; f =         7897.8646179
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.012346; f =         7897.8646209
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+lambda =   0.023866; f =         7897.8645735
+Norm of dx     51.312
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+rc =
+     0
+chi =
+    0.1165
+ss and irfs found
+ih =
+     1
+----
+Improvement on iteration 21 =        0.000188189
+iteration count termination
+fhat =
+   7.8979e+03
+rc =
+     0
+chi =
+    0.1165
+rc =
+     0
+chi =
+    0.1165
+[eta, phi, lambda_ss]
+params =
+    0.7722    0.9500    0.0100
+x_start =
+    0.2500    0.9000    0.1500
+eta = 0.7722312296;
+gamma = 0.9499972276;
+phi = 0.01000106644;
+{Index exceeds matrix dimensions.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('endogenous_growth_sticky', 'C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m', 412)" style="font-weight:bold">endogenous_growth_sticky</a> (<a href="matlab: opentoline('C:\Users\pedm\Documents\StickyPriceModel\endogenous_growth_sticky.m',412,0)">line 412</a>)
+disp(sprintf('lambda_bar = %0.10g;', params(4) ));
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.4.3\matlab\dynare.m', 180)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.4.3\matlab\dynare.m',180,0)">line 180</a>)
+evalin('base',fname) ;} 
+clear
+load g1.mat
+g1
+g1 =
+    0.0662
+   -0.0014
+    0.0002
+clear
+load g3.mat
+x3
+x3 =
+   10.2023  150.0238 -269.3411
+load H.dat
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Number of columns on line 2 of ASCII file H.dat must be the same as previous
+lines.} 
+clear
+load H.dat
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
+Number of columns on lin
