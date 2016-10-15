@@ -1,200 +1,164 @@
-function[ys,check]=endogenous_growth_steadystate(ys,exe)
-    % Steady state file for the Flex Price Model of Endogenous Growth
-    % August/Sept 2016 Update
-    % Includes Jaimovich-Rebelo Preferences, a simplified innovation sector, and adjustment costs
-    % Patrick Moran (based on example code by Steffen Esser)
-    
-    global M_
-    
-    %% Name the structural parameters 
-    % Matlab requires each variable to be named somewhere in the function. 
-    % Otherwise it throws an error when using eval() to define the variables.
-    % This has to do with static vs dynamic assignment. Super boring.
-    
-    beta      = [];
-    alpha     = [];
-    epsilon   = [];
-    rho       = [];
-    varphi    = [];
-    delta     = [];
-    chi       = [];
-    vartheta  = [];
-    gamma     = [];
-    phi       = [];
-    eta       = [];
-    lambda    = [];
-    rhozeta   = [];
-    rhozeta2  = [];
-    sigmazeta = [];
-    zetabar   = [];
-    mkup_ss   = [];
-    psi_N     = [];
-    psi_I     = [];
-    gg        = [];
-    R_nom_ss  = [];
-    gamma_pi  = [];
-    gamma_y  = [];
-    omega  = [];
-    theta  = [];
-    lambda_bar = [];
-    rho_lambda = [];
+function [ys,check] = endogenous_growth_sticky_steadystate(ys,exe);
 
-    % Name the endogenous variables
-    Lambda = [];
-    mkup = [];
-    zeta = [];
-    Q = [];
-    ZD = [];
-    VD = [];
-    M = [];
-    J = [];
-    H = [];
-    Pi = [];
-    YDW = [];
-    YD = [];
-    ND = [];
-    KD = [];
-    L = [];
-    ID = [];
-    CD = [];
-    GammaD = [];
-    AA = [];
-    BB = [];
-    muD = [];
-    UCD = [];
-
-    %% Load the values of the structural parameters in a loop.
+% Inputs: 
+%   - ys        [vector] vector of initial values for the steady state of
+%                   the endogenous variables
+%   - exo       [vector] vector of values for the exogenous variables
+%
+% Output: 
+%   - ys        [vector] vector of steady state values fpr the the endogenous variables
+%   - check     [scalar] set to 0 if steady state computation worked and to
+%                    1 of not (allows to impos restriction on parameters)
     
-    NumberOfParameters = M_.param_nbr;                            % Number of structural parameters.
-    for i = 1:NumberOfParameters                                  % Loop...
-      paramname = deblank(M_.param_names(i,:));                   %    Get the name of parameter i. 
-      eval([ paramname ' = M_.params(' int2str(i) ');']);         %    Get the value of parameter i.
-    end                                                           % End of the loop.  
-    % TODO what does this do?
-    check = 0;
     
+global M_ CD GammaD epsilon L rho beta gamma g mkup_ss vartheta alpha YD
 
     
-    %% Solve for Steady State:
-    % Search over lambda and zetabar, find other steady state values, then look at the residual of the final equation
-    
-    %% 1. Find lambda and zetabarsuch that residual is zero
-    % g0 = [1.01; 0];
-    
-    save TEMP.mat
-    % Usually the best choice of bounds
-    x0 = [1.01, 0.5];
+alpha = [];
+beta  = [];
+gamma = []; % these 3 are needed so they don't clash with functions with the same name - in the future better to use different parameter names: bet, alph, gam
 
-    % Sometimes this works better
-    % x0 = [1.01, 0.1];
-    % But it usually results in lambda in ss being VERY close to zero
-    
-%     opts = optimoptions(@fsolve,'Display', 'iter','Algorithm','trust-region-dogleg');
-%     [x1, ff] = fsolve(@fbnd,x0, opts)
+% read out parameters to access them with their name
+NumberOfParameters = M_.param_nbr;
+for ii = 1:NumberOfParameters
+  paramname = deblank(M_.param_names(ii,:));
+  eval([ paramname ' = M_.params(' int2str(ii) ');']);
+end
 
-    % Solve for the roots of fbnd, while also imposing a lower bound
-    % Point of the lower bound is to avoid complex results
-    % For more info, look in matlab documentation on "Nonlinear Systems
-    % with Constraints"
-    
-    % lb when guessing g
-    % lb = [phi,0];
-    
-    % lb when guessing zetabar
-    lb = [0.01, 0];
-    
-    opts = optimoptions(@lsqnonlin,'Display', 'iter-detailed'); % debugging
-    opts = optimoptions(@lsqnonlin,'Display', 'off'); % estimation
+% initialize indicator (check=failure indicator -- indicates ss computation
+% failed)
+check = 0;
 
-    % rng(23942374) % TODO: or is this why the results changed slightly?
-    
-    [x1b, RESNORM, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);    
-    % RESNORM
-    % F = fbnd(x1b)
-    
-    % if resnorm is large, try the algorithm using a lower starting value
-    if RESNORM > 1e-10
-        % disp('resnorm too high. try low x0')
-        try
-            x0 = [0.4, 0.1];
-            [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
-            if RESNORM_2 < RESNORM
-                x1b = x1b_2;
-                RESNORM = RESNORM_2;
-            end
-        end
-    end
-    
-    % if resnorm is still too large, try the algorithm using a high starting value
-    if RESNORM > 1e-10
-        % disp('resnorm too high. try high x0')
-        try
-            x0 = [20, 0.9];
-            [x1b_2, RESNORM_2, ~, ~] = lsqnonlin(@fbnd,x0,lb, [Inf, 1], opts);
-            if RESNORM_2 < RESNORM
-                x1b = x1b_2;
-                RESNORM = RESNORM_2;
-            end
-        end
-    end
+
+
+%%%% ---------------------- %%%    
+%% Solve for Steady State %%%%%
+%%% ------------------------%%%
+% solve for YD, KD
+L     = L_ss;
+g     = g_ss;
+lambda= lambda_ss;
+LAMBDA = beta*g^(-rho);
+YD_KD_g= ( LAMBDA^(-1) + delta - 1 )/( (vartheta-1)/vartheta * 1/mkup_ss * alpha   ) ;
+KD_g   = L * (YD_KD_g)^(-1/(1-alpha));
+KD = KD_g * g;
+YD = (KD/g)^alpha * L^(1-alpha);
+PI = (1/vartheta)*(1/mkup_ss)*YD;
+H  = (1/(1-phi*LAMBDA))*PI;
+YDW = YD;
+
+% solve for M and lambdabar (following the notes)
+% M_coef_num   = 1-phi*( (1-lambda)*LAMBDA + lambda);
+% M_coef_denom = 1-phi*( (1-lambda)*LAMBDA + lambda*rho_lambda);
+
+denom = 1 - phi*LAMBDA*(1-lambda);
+M_coef_num = 1 - phi * lambda * LAMBDA * (1/denom);
+M_coef_denom = 1 - rho_lambda * lambda * phi * LAMBDA * (1/denom);
+
+M = (M_coef_num/M_coef_denom) * rho_lambda * phi * LAMBDA * lambda * H;
+J = (1/(1-phi*LAMBDA*(1-lambda)))*(-M + phi*LAMBDA*lambda*H);
+lambda_bar = lambda/(M^rho_lambda);
+
+ZD = 1 + (g-phi)/(lambda*phi);
+VD = (g-phi)*ZD;
+zeta_bar = VD^(1-eta) * (KD/g)^eta * (LAMBDA*J)^(-eta) * ZD^(-1) ;
+
+ND = VD^(1/eta) * (zeta_bar*ZD)^(-1/eta) * KD/g;
+
+
+% solve for the rest
+ID = ( 1 - (1-delta)/g ) * KD;
+CD = YD - ID - ND - (ZD-1)*M;
+GammaD = CD * g^((gamma-1)/gamma);
+
+
+% next solve for labor disutility parameter chi
+
+% set starting value for chi
+yy0(1,1) = 0.0001;
+
+% solve for chi (see subfunction below)
+[yy, rc]=csolve(@subfunction, yy0, [], 1e-12, 1000);rc
+chi = yy
+W  = ( CD - GammaD * (chi/(1+epsilon)) * L^(1+epsilon) )^(-rho);
+kappa_mu = beta*(1-gamma)*g^(-rho)*(CD*g/GammaD)^gamma;
+muD = (1/(1-kappa_mu))*W*(chi/(1+epsilon))*L^(1+epsilon);
+UCD= W - muD*gamma*( GammaD/(CD*g) )^(1-gamma);
 
     
 
-     g = 1.0118;
-     zetabar = x1b(1);
-     lambda = x1b(2);
-     
-    %% 3. Given solution, find the remaining steady state variables (same equations as above)
-    ss_given_g_and_lambda;
+% sol. for adjustment cost functions
+f_fcn   = 1;
+g_fcn   = 1;
+f_fcn_prime = 1;
+g_fcn_prime = 1;	
+    
+% sol. for sticky-price variables (zero inflation steady state)
+mkup = mkup_ss;
+pi = 1;
+pi_star = 1;
+x1D = UCD*(1/mkup)*YD / (1 - theta*beta*g^(1-rho)*pi^omega);
+x2D = UCD*YD / (1 - theta*beta*g^(1-rho)*pi^(omega-1));
+R_nom = pi / LAMBDA;
+    
+Q = 1;
+zeta = 1;
 
-    %% State the remaining steady state variables
+%%%%---------------------------%%%%
+%% End Own Steady State Solution %%
+%%%%---------------------------%%%%
 
-    XD =  ( Lambda * g * ( J * VD )  ) / (1 - Lambda * g ) ;
-    SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
-    RD = ND;
-    
-    f_fcn   = 1;
-	g_fcn   = 1;
-	f_fcn_prime = 1;
-	g_fcn_prime = 1;	
-    
-    % Zero inflation steady state
-    pi = 1;
-    pi_star = 1;
-    x1D = UCD*(1/mkup)*YD / (1 - theta*beta*g^(1-rho)*pi^omega);
-    x2D = UCD*YD / (1 - theta*beta*g^(1-rho)*pi^(omega-1));
-    R_nom = pi / Lambda;
-    
-    %% Save local parameter values to the M_ global
-    % This is useful for any parameters that depend on the steady state
-    
-    % Currently, only parameter that depends on the ss is gg
-    gg = g;
-    R_nom_ss = R_nom;
-    
-    if gg>=1.5
-        disp('g in steady state > 1.5')
-    end
-    
-    for iter = 1:length(M_.params) %update parameters set in the file
-        eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])
-    end
-    
-    %% Output the values of the endogenous vars at steady state
 
-    NumberOfEndogenousVariables = M_.endo_nbr;                    % Number of endogenous variables.
-    ys = zeros(NumberOfEndogenousVariables,1);                    % Initialization of ys (steady state).
-    for i = 1:NumberOfEndogenousVariables                         % Loop...
-      varname = deblank(M_.endo_names(i,:));                      %    Get the name of endogenous variable i.  
-      
-      % Hardcode ss = 1 for AUX_ENDO_LAG_... variable (appears if using AR(2))
-      if length(varname) >= 8 && strcmp(varname(1:8), 'AUX_ENDO')
-          eval(['ys(' int2str(i) ') = 1;']);
-      else
-          eval(['ys(' int2str(i) ') = ' varname ';']);
-      end
-      % ys(i)=0;%    Or just save every ss as zero
-    end   
+for iter = 1:length(M_.params) %update parameters set in the file
+    c = [ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ];
+    % disp(c)
+    eval(c)
+end
+
+
+
+NumberOfEndogenousVariables = M_.orig_endo_nbr; %auxiliary variables are set automatically
+for ii = 1:NumberOfEndogenousVariables
+  varname = deblank(M_.endo_names(ii,:));
+  eval(['ys(' int2str(ii) ') = ' varname ';']);
+end   
+    
+  
+   
     
 end
+
+
+
+%%-------------------------%%%%
+%%   subfunction of chi    %%%%
+%%-------------------------%%%%
+    function ff = subfunction(yy)
+        global CD GammaD epsilon L rho beta gamma g mkup_ss vartheta alpha YD
+        [~,cols]=size(yy);
+         
+        for i=1:cols            
+            
+            chi =  yy(1,i);   
+            
+            W  = ( CD - GammaD * (chi/(1+epsilon)) * L^(1+epsilon) )^(-rho);
+            kappa_mu = beta*(1-gamma)*g^(-rho)*(CD*g/GammaD)^gamma;
+            muD = -(1/(1-kappa_mu))*W*(chi/(1+epsilon))*L^(1+epsilon);
+            UCD= W + muD*gamma*( GammaD/(CD*g) )^(1-gamma);
+  
+            ff(1,i) =  chi*W*GammaD*L^epsilon - UCD*(1/mkup_ss)*((vartheta-1)/vartheta)*(1-alpha)*YD/L;           
+       
+        end        
+    end
+%%-----------------------------%%%%
+%%   end subfunction of chi    %%%%
+%%-----------------------------%%%%
+
+
+
+
+
+
+
+
 
