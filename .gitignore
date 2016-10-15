@@ -5,3 +5,11 @@
 
 # Windows default autosave extension
 *.asv 
+endogenous_growth_sticky.log
+endogenous_growth_sticky.m
+endogenous_growth_sticky_dynamic.m
+endogenous_growth_sticky
+endogenous_growth_sticky_set_auxiliary_variables.m
+endogenous_growth_sticky_static.m
+IR_dynare.mat
+level0workspace.mat

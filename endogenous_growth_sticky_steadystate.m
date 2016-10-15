@@ -104,6 +104,10 @@ R_nom = pi / LAMBDA;
 Q = 1;
 zeta = 1;
 
+XD =  ( LAMBDA * g * ( J * VD )  ) / (1 - LAMBDA * g ) ;
+SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
+RD = ND;
+ 
 %%%%---------------------------%%%%
 %% End Own Steady State Solution %%
 %%%%---------------------------%%%%
