@@ -34,6 +34,9 @@ KD           ${K_D}$                       %
 Q            ${Q}$                         % 
 ID           ${I_D}$                       % 
 zeta         ${\zeta}$                     % 
+SD           ${\mathcal{S}_{D}}$           % 
+XD           ${X_D}$                       % 
+RD           ${\mathcal{R}_{D}}$           % 
 
 % Sticky Price Variables
 mkup         ${\mathcal{M}}$               % Markup
@@ -206,6 +209,16 @@ Q = LAMBDA(+1) * ((g* (vartheta - 1) *YDW(+1) * alpha)/(mkup * KD * vartheta) + 
 % 21. Exogenous shock to entrepreneurs' production function
 log(zeta) = rhozeta * log(zeta(-1)) + sigmazeta * epsilon_chi;
 
+% 22. Stock market value (taken directly from May model)
+SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
+
+% 23. 
+XD =  ( LAMBDA(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
+ 
+% 24. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
+% are given by the variable N)
+RD = ND;   
+ 
 %====================== ADJUSTMENT COST FCNS =============================%
 f_fcn = exp( (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - g_ss)^2 ); % 22
 f_fcn_prime = exp( psi_N * ((ND * g(-1) / ND(-1) ) - g_ss)   ); % 23
@@ -213,6 +226,7 @@ g_fcn = exp( (psi_I / 2) * ((ID * g(-1) / ID(-1) ) - g_ss)^2 ); % 24
 g_fcn_prime = exp( psi_I * ((ID * g(-1) / ID(-1) ) - g_ss)   ); % 25
 
 %=========================STICKY PRICE EQNS===============================%
+
 % 26. Pricing Equation
 pi ^(1-omega) = theta + (1-theta)*pi_star^(1-omega);
 % 27. Optimal Pricing Equation 
@@ -261,14 +275,12 @@ check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
-stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments); %%% loglinear BIG CHANGE
+stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear); %%% loglinear BIG CHANGE
 
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-
-error('tew')
 
 % Change parameters, solve again, and plot
 % set_param_value('zetabar', 0.6);
