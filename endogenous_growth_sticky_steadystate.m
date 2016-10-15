@@ -78,8 +78,12 @@ GammaD = CD * g^((gamma-1)/gamma);
 yy0(1,1) = 0.0001;
 
 % solve for chi (see subfunction below)
-[yy, rc]=csolve(@subfunction, yy0, [], 1e-12, 1000);rc
-chi = yy
+[yy, rc]=csolve(@subfunction, yy0, [], 1e-12, 1000);
+if rc > 0
+    rc
+    keyboard
+end
+chi = yy;
 W  = ( CD - GammaD * (chi/(1+epsilon)) * L^(1+epsilon) )^(-rho);
 kappa_mu = beta*(1-gamma)*g^(-rho)*(CD*g/GammaD)^gamma;
 muD = (1/(1-kappa_mu))*W*(chi/(1+epsilon))*L^(1+epsilon);

@@ -44,7 +44,7 @@ function [ f ] = distance_fcn( params_unbounded )
         % extra objects
         post_processing_irfs;                                                       % Create IRFs with trend
         post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-        disp('ss and irfs found')
+        % disp('ss and irfs found')
         
         if sum(oo_.steady_state == Inf) > 0
             % Dynare got a steady state with Inf values

@@ -323,10 +323,11 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
-nit = 800;
-
+% nit = 800;
+% 
+% nit = 200;
 % nit = 20;
-nit = 200;
+nit = 10000;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -410,7 +411,14 @@ set_param_value('phi', params(2) );
 set_param_value('lambda_ss', params(3) );
 
 oo_.irfs = {}; % erase the old IRFs
+
+options_.irf = 11;
+options_.loglinear = 1;
+options_.nodisplay = 0;
+options_.noprint = 0;
+
 steady;
+
 var_list_=[];
 info = stoch_simul(var_list_);                                              % WARNING: this does not compute the steady state. It just uses the pre defined ss
 post_processing_irfs;                                                       % Create IRFs with trend
@@ -419,12 +427,15 @@ axis tight;
 % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 legend('initial','var', 'b', 'b', 'final');
 
-disp('[eta, phi, lambda_ss]')
-params
-x_start
+% disp('[eta, phi, lambda_ss]')
+% params
+% x_start
 
 % Print Estimation Results
 disp(sprintf('eta = %0.10g;', params(1) ));
 disp(sprintf('phi = %0.10g;', params(2) ));
 disp(sprintf('lambda_ss = %0.10g;', params(3) ));
+
+steady_state_targets
+
 end
