@@ -135,7 +135,7 @@ mkup_ss   = omega/(omega-1);
 
 % AR(1) parameters for zeta shock (productivity of R&D)
 rhozeta    = 0.90;
-sigmazeta  = 0.10;
+sigmazeta  = 0.50;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -314,8 +314,13 @@ elseif do_estimate == 1
 % Much of this code comes from Bonn and Pfeifer 2014 replication files
 
 % Starting point (based on earlier calibration)
-x_start=[eta, phi, lambda_ss]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
+x_start=[eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
 x_start_unbounded = boundsINV(x_start);
+
+if sum(imag(x_start_unbounded)) ~= 0
+    x_start_unbounded
+    error('Error: your bounds do not make sense. You are using an initial value that lies outside the bounds.')
+end
 
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
@@ -324,10 +329,9 @@ H0 = 1e-1*eye(length(x_start)); % Initial Hessian
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
 % nit = 800;
-% 
-% nit = 200;
+ 
+nit = 2000;
 % nit = 20;
-nit = 10000;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -359,13 +363,12 @@ elseif do_estimate == 2
 %%%%                    MULTI START ESTIMATION                         %%%%
 %=========================================================================%
 elseif do_estimate == 3
-    
-    % Needs to be updated
+
     
     fhat = 101;
     while fhat > 100
         % Starting point (based on earlier calibration)
-        x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; 
+        x_start=[eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
 
         %% Select random start
         % Search until I find an inital guess that solves
@@ -391,11 +394,12 @@ elseif do_estimate == 3
 
         crit = 1e-7; % Tolerance
         nit = 1000; % Number of iterations
-        nit = 800;
+        % nit = 800;
 
         % nit = 20;
-        nit = 200;
-
+        % nit = 200;
+        nit = 2000;
+        
         [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
         fhat
     end
@@ -409,6 +413,8 @@ if do_estimate > 0
 set_param_value('eta', params(1) );
 set_param_value('phi', params(2) );
 set_param_value('lambda_ss', params(3) );
+set_param_value('rhozeta', params(4) );
+set_param_value('sigmazeta', params(5) );
 
 oo_.irfs = {}; % erase the old IRFs
 
@@ -432,9 +438,12 @@ legend('initial','var', 'b', 'b', 'final');
 % x_start
 
 % Print Estimation Results
+disp(sprintf('\nEstimation Results:'));
 disp(sprintf('eta = %0.10g;', params(1) ));
 disp(sprintf('phi = %0.10g;', params(2) ));
 disp(sprintf('lambda_ss = %0.10g;', params(3) ));
+disp(sprintf('rhozeta = %0.10g;', params(4) ));
+disp(sprintf('sigmazeta = %0.10g;', params(5) ));
 
 steady_state_targets
 

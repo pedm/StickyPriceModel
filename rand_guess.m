@@ -1,14 +1,14 @@
 %% Define parameter bounds
 % Search over 2^9 grid of parameters
 
-LB.eta = 0;  
+LB.eta = 0.1;  
 LB.gamma = 0.00001;
-LB.phi = 0.5;
+LB.phi = 0.7;
 LB.lambda_bar = 0.005;
 LB.psi_N = 0;
 LB.rhozeta = 0.0001; 
 LB.rhozeta2 = 0.0001;  
-LB.sigmazeta = .5;
+LB.sigmazeta = .05;
 LB.zetabar = .1;
 LB.rho_lambda = .01;
 
