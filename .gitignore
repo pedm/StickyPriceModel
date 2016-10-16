@@ -12,8 +12,10 @@ endogenous_growth_sticky_dynamic.m
 endogenous_growth_sticky
 endogenous_growth_sticky_set_auxiliary_variables.m
 endogenous_growth_sticky_static.m
+endogenous_growth_sticky_results.mat
 IR_dynare.mat
 level0workspace.mat
 g1.mat
+g2.mat
 g3.mat
 H.dat
