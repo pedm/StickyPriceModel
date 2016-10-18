@@ -50,17 +50,9 @@ pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :) = [];
 % drop gdp
 pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :) = [];
 
-% drop rd
-%%% TESTING ONLY
-% pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :) = [];
-
-% drop tfp
-%%% TESTING ONLY
-% pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :) = [];
-
 % Calculate the distance between irfs
 % Use same formula as CEE
-DDD = pvarcoirfs.irf - pvarcoirfs.model;
+DDD = pvarcoirfs.weight.*(pvarcoirfs.irf - pvarcoirfs.model);
 VVV = diag(pvarcoirfs.se_scaled.*pvarcoirfs.se_scaled); % create diagonal matrix of the variances
 irf_distance = DDD'* inv(VVV) * DDD;
 

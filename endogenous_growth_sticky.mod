@@ -154,14 +154,43 @@ sigmazeta  = 0.50;
 
 % 2) Pretty good match of both
 % But TFP increases too much
-eta = 0.6962027055;
-phi = 0.9942372411;
-lambda_ss = 0.1000000012;
-psi_N = 0.5199199482;
-rhozeta = 0.9899;
-sigmazeta = 0.1279661829;
-gamma = 0.9099;
-rho_lambda = 0.2997568403;
+% eta = 0.6962027055;
+% phi = 0.9942372411;
+% lambda_ss = 0.1000000012;
+% psi_N = 0.5199199482;
+% rhozeta = 0.9899;
+% sigmazeta = 0.1279661829;
+% gamma = 0.9099;
+% rho_lambda = 0.2997568403;
+
+% Attempt to Match TFP Only
+% eta = 0.89;
+% phi = 0.99;
+% lambda_ss = 0.11;
+% psi_N = 1;
+% rhozeta = 0.001;
+% sigmazeta = 0.1988991265;
+% gamma = 0.9;
+
+% Attempt to Match TFP Only (2)
+% eta = 0.9;
+% phi = 0.9623362683;
+% lambda_ss = 0.5;
+% psi_N = 200;
+% rhozeta = 0.0001;
+% sigmazeta = 0.2190798804;
+% gamma = 0.91;
+% rho_lambda = 0.7543615721;
+
+% Attempt to Match TFP (weight=1) and R&D (weight = 0.3)
+eta = 0.9;
+phi = 0.999;
+lambda_ss = 0.5;
+psi_N = 3.132485312;
+rhozeta = 0.4655720529;
+sigmazeta = 0.2647972323;
+gamma = 0.03725332262;
+rho_lambda = 0.01;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -360,7 +389,7 @@ elseif do_estimate == 2
     
     opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3); % debugging % , 'MaxIter', 20
     % opts = psoptimset('Display', 'off'); % estimation
-    [params_unbounded, FVAL,EXITFLAG] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
+    [params_unbounded, FVAL,EXITFLAG,Output] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
 
 %=========================================================================%
 %%%%                    MULTI START ESTIMATION                         %%%%

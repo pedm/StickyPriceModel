@@ -5,7 +5,7 @@ options_.EST = [];
 options_.EST.irf_length = 11; 
 
 %% 2. Which parameters to estimate
-options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmazeta', 'gamma'}; 
+options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmazeta', 'gamma', 'rho_lambda'}; 
 
 %% 3. Define parameter bounds
 
@@ -27,7 +27,16 @@ options_.EST.UB.sigmazeta = 10;
 options_.EST.UB.rho_lambda = .99;
 options_.EST.UB.lambda_ss = 0.5;
 
-%% 4. Distance between bounds
+%% 4. Weight the impulse responses used in estimation
+% Select weights between [0,1]
+% Default is 1 (no impact)
+
+weight_rd = 0.3;
+weight_tfp = 1;
+
+%% No need to edit code beyond this line
+
+%% Distance between bounds
 % No need to edit this
 
 % (Only used in grid search)
@@ -39,4 +48,16 @@ for ii = 1:length(FF)
     options_.EST.DIST.(var_ii) = options_.EST.UB.(var_ii) - options_.EST.LB.(var_ii);
 end
 
+%% Add Weights to IRFs
+
+% add weights to irfs
+pvarcoirfs_clean.weight = ones(size(pvarcoirfs_clean.irf));
+
+% rd weights
+match_rd = strmatch('rd : rd', pvarcoirfs_clean.id1);
+pvarcoirfs_clean(match_rd, :).weight = weight_rd * pvarcoirfs_clean(match_rd, :).weight;
+
+% tfp weights
+match_tfp = strmatch('rd : tfp', pvarcoirfs_clean.id1);
+pvarcoirfs_clean(match_tfp, :).weight = weight_tfp * pvarcoirfs_clean(match_tfp, :).weight;
 
