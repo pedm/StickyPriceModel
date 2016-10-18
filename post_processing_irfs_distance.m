@@ -22,25 +22,37 @@ mod_irf_sp = IR_dynare(ii,:);
 
 %% Add model IRFs to table
 
+% drop all IRF steps beyond irf_length
+% to modify this, go to estimation_init.m
+irf_length = options_.EST.irf_length;
+pvarcoirfs(pvarcoirfs.step >= irf_length, :) = [];
+
+% Add model IRFs
 pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).model    = mod_irf_sp';
 pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).model    = mod_irf_rd';
 pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).model   = mod_irf_tfp';
 pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).model   = mod_irf_gdp';
+
+% drop table rows with 0 standard errors
+% pvarcoirfs(pvarcoirfs.se == 0, :) = [];
+
+% rather than get rid for observations with 0 se, just give them a very small se
+pvarcoirfs(pvarcoirfs.se == 0, :).se   = ones(size(pvarcoirfs(pvarcoirfs.se == 0, :).se)) * 0.0001;
 
 % Scale by 100
 pvarcoirfs.model = pvarcoirfs.model*100;
 pvarcoirfs.se_scaled = pvarcoirfs.se*100;
 %pvarcoirfs.variance = pvarcoirfs.se_scaled.^2;
 
-
-% drop table rows with 0 standard errors
-pvarcoirfs(pvarcoirfs.se == 0, :) = [];
-
 % drop sp 
 pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :) = [];
 
 % drop gdp
 pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :) = [];
+
+% drop rd
+%%% TESTING ONLY
+pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :) = [];
 
 % Calculate the distance between irfs
 % Use same formula as CEE
