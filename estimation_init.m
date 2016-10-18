@@ -1,16 +1,13 @@
 %% Initialize Estimation
-
-% List the parameters to estimate
 options_.EST = [];
-options_.EST.irf_length = 11; % 11 or 31. note: you also have to change this in stoch_simul()
+
+%% 1. IRF Length (you can choose between 11 and 31)
+options_.EST.irf_length = 11; 
+
+%% 2. Which parameters to estimate
 options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmazeta', 'gamma'}; 
-% , 'psi_N', 'rhozeta', 'sigmazeta'
-% , 'rho_lambda', 'psi_N', 'gamma', 'L_ss'   gamma ?
 
-% to list the parameter values:
-% eval(['[' , strjoin(options_.EST.variables, ', '), ']'])
-
-%% Define parameter bounds
+%% 3. Define parameter bounds
 
 options_.EST.LB.eta = 0.1;  
 options_.EST.LB.gamma = 0.00001;
@@ -30,17 +27,10 @@ options_.EST.UB.sigmazeta = 10;
 options_.EST.UB.rho_lambda = .99;
 options_.EST.UB.lambda_ss = 0.5;
 
+%% 4. Distance between bounds
+% No need to edit this
 
-%% Additional restrictions (optional, for grid search)
-% options_.EST.LB.sigmazeta = 0.75;
-% options_.EST.LB.L_ss = 1.5;
-% options_.EST.UB.L_ss = 2.5;
-% options_.EST.UB.psi_N = 50;
-
-% that way we do one good search (when it's reasonably large)
-
-%% Set distance (not always needed, but useful for grid search)
-% No need to edit this 
+% (Only used in grid search)
 
 options_.EST.DIST = [];
 FF = options_.EST.variables;

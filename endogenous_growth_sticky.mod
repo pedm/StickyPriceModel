@@ -4,7 +4,7 @@
 % Requires endogenous_growth_sticky_steadystate.m
 % Albert SS Solver Oct 2016
 
-% close all;
+close all;
 do_estimate = 0; % if 0, just simulate
 
 %===================================================================%
@@ -136,108 +136,24 @@ mkup_ss   = omega/(omega-1);
 % AR(1) parameters for zeta shock (productivity of R&D)
 rhozeta    = 0.90;
 sigmazeta  = 0.50;
-
-
 % rhozeta    = 0.4;
 % sigmazeta  = 2;
 
-% % Estimation Results:
-% eta = 0.1040317375;
-% phi = 0.958208235;
-% lambda_ss = 0.05145923427;
-% psi_N = 47.20511326;
-% rhozeta = 0.01283929602;
-% sigmazeta = 0.7947631093;
+%% Estimation Results 
 
-
-% eta = 0.25;
-% phi = 0.90;
-lambda_ss = 0.3;
-% psi_N = 50;
-% rho_lambda= 0.9;
-% 
-% lambda_ss = .25;
-% 
-% 
-% eta = 0.82;
-% phi = 0.934;
-% lambda_ss = 0.14;
-% rho_lambda = 0.892;
-
-
-% 
-% 
-% 
-% % Grid Search Results:
-% eta = 0.892;
-% phi = 0.9574;
-% lambda_ss = 0.0149;
-% rho_lambda = 0.9802;
-% psi_N = 25.5;
-% rhozeta = 0.980101;
-% sigmazeta = 0.8425;
-
-% Looking to match TFP IRF only
-% eta = 0.8999965553;
-% phi = 0.9584186385;
-% lambda_ss = 0.07466277381;
-% rho_lambda = 0.9898764187;
-% psi_N = 49.13385195;
-% gamma = 0.8454797486;
-% L_ss = 1.994789388;
-
+% 1) Attempt to Match R&D Only
 % RD_Almost_Perfect_Fit.pdf
-% Estimation Results:
-eta = 0.6377034476;
-phi = 0.959998326;
-lambda_ss = 0.4999995261;
-psi_N = 1.199560391;
-rhozeta = 0.8771009836;
-sigmazeta = 0.1949092608;
-gamma = 0.8976501214;
-rho_lambda = 0.2997568403;
+% eta = 0.6377034476;
+% phi = 0.959998326;
+% lambda_ss = 0.4999995261;
+% psi_N = 1.199560391;
+% rhozeta = 0.8771009836;
+% sigmazeta = 0.1949092608;
+% gamma = 0.8976501214;
+% rho_lambda = 0.2997568403;
 
-% Try to match TFP only
-eta = 0.2404430226;
-phi = 0.959998326;
-lambda_ss = 0.4999995261;
-psi_N = 50;
-rhozeta = 0.1;
-sigmazeta = 0.207643014;
-gamma = 0.896805422;
-
-% Try to match TFP only
-eta = 0.100001;
-phi = 0.95999;
-lambda_ss = 0.49999999;
-psi_N = 99;
-rhozeta = 0.001;
-sigmazeta = 0.1979013329;
-gamma = 0.05854998804;
-
-% Try to match TFP only
-eta = 0.4167603052;
-phi = 0.9498772628;
-lambda_ss = 0.4999;
-psi_N = 50;
-rhozeta = 0.1;
-sigmazeta = 0.5;
-gamma = 0.04449197242;
-
-% Try to match both (starting point: match TFP only)
-eta = 0.899;
-phi = 0.96;
-lambda_ss = 0.1;
-psi_N = 1.046264061;
-rhozeta = 0.7763519914;
-sigmazeta = 0.1716538139;
-gamma = 0.1976369715;
-
-phi = 0.99;
-psi_N = 1.1;
-
-% Very good match of both
-% But TFP just keeps increasing
+% 2) Pretty good match of both
+% But TFP increases too much
 eta = 0.6962027055;
 phi = 0.9942372411;
 lambda_ss = 0.1000000012;
@@ -245,6 +161,7 @@ psi_N = 0.5199199482;
 rhozeta = 0.9899;
 sigmazeta = 0.1279661829;
 gamma = 0.9099;
+rho_lambda = 0.2997568403;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -395,29 +312,6 @@ post_processing_irfs_distance;                                              % Co
 
 steady_state_targets
 
-% Change parameters, solve again, and plot
-% set_param_value('zetabar', 0.6);
-% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-% post_processing_irfs;                                                       % Create IRFs with trend
-% post_processing_irfs_plot;                                                  % Plot IRFs
-% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-% 
-% % Change parameters, solve again, and plot
-% set_param_value('sigmazeta', 5);
-% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-% post_processing_irfs;                                                       % Create IRFs with trend
-% post_processing_irfs_plot;                                                  % Plot IRFs
-% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-
-
-
-% You can copy and paste the above lines in order to continue playing around with the calibration
-% set_param_value('eta', 0.3);
-% stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
-% post_processing_irfs;                                                       % Create IRFs with trend
-% post_processing_irfs_plot;                                                  % Plot IRFs
-% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-
 if do_estimate == 0;
     return;
 elseif do_estimate == 1
@@ -441,8 +335,8 @@ crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
 % nit = 800;
  
-% nit = 100;
-nit = 20;
+nit = 100;
+% nit = 20;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
