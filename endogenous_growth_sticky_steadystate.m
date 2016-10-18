@@ -81,7 +81,7 @@ yy0(1,1) = 0.0001;
 [yy, rc]=csolve(@subfunction, yy0, [], 1e-12, 1000);
 if rc > 0
     rc
-    keyboard
+    % keyboard
 end
 chi = yy;
 W  = ( CD - GammaD * (chi/(1+epsilon)) * L^(1+epsilon) )^(-rho);

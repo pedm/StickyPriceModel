@@ -4,7 +4,7 @@
 % Requires endogenous_growth_sticky_steadystate.m
 % Albert SS Solver Oct 2016
 
-close all;
+% close all;
 do_estimate = 0; % if 0, just simulate
 
 %===================================================================%
@@ -197,6 +197,55 @@ sigmazeta = 0.1949092608;
 gamma = 0.8976501214;
 rho_lambda = 0.2997568403;
 
+% Try to match TFP only
+eta = 0.2404430226;
+phi = 0.959998326;
+lambda_ss = 0.4999995261;
+psi_N = 50;
+rhozeta = 0.1;
+sigmazeta = 0.207643014;
+gamma = 0.896805422;
+
+% Try to match TFP only
+eta = 0.100001;
+phi = 0.95999;
+lambda_ss = 0.49999999;
+psi_N = 99;
+rhozeta = 0.001;
+sigmazeta = 0.1979013329;
+gamma = 0.05854998804;
+
+% Try to match TFP only
+eta = 0.4167603052;
+phi = 0.9498772628;
+lambda_ss = 0.4999;
+psi_N = 50;
+rhozeta = 0.1;
+sigmazeta = 0.5;
+gamma = 0.04449197242;
+
+% Try to match both (starting point: match TFP only)
+eta = 0.899;
+phi = 0.96;
+lambda_ss = 0.1;
+psi_N = 1.046264061;
+rhozeta = 0.7763519914;
+sigmazeta = 0.1716538139;
+gamma = 0.1976369715;
+
+phi = 0.99;
+psi_N = 1.1;
+
+% Very good match of both
+% But TFP just keeps increasing
+eta = 0.6962027055;
+phi = 0.9942372411;
+lambda_ss = 0.1000000012;
+psi_N = 0.5199199482;
+rhozeta = 0.9899;
+sigmazeta = 0.1279661829;
+gamma = 0.9099;
+
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
 %=========================================================================%
@@ -343,6 +392,8 @@ post_processing_irfs;                                                       % Cr
 plot_var_irfs;                                                              % Plot VAR IRFs
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+
+steady_state_targets
 
 % Change parameters, solve again, and plot
 % set_param_value('zetabar', 0.6);

@@ -56,7 +56,7 @@ pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :) = [];
 
 % drop tfp
 %%% TESTING ONLY
-pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :) = [];
+% pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :) = [];
 
 % Calculate the distance between irfs
 % Use same formula as CEE
