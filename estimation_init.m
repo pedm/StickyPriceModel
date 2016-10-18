@@ -2,7 +2,7 @@
 
 % List the parameters to estimate
 options_.EST = [];
-options_.EST.irf_length = 31; % 11 or 31. note: you also have to change this in stoch_simul()
+options_.EST.irf_length = 11; % 11 or 31. note: you also have to change this in stoch_simul()
 options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmazeta', 'gamma', 'rho_lambda'}; 
 % , 'psi_N', 'rhozeta', 'sigmazeta'
 % , 'rho_lambda', 'psi_N', 'gamma', 'L_ss'   gamma ?
