@@ -45,7 +45,7 @@ oo_.irfs.Gamma_epsilon_chi = oo_.irfs.GammaD_epsilon_chi + A;
 IRnames_dynare = fieldnames(oo_.irfs);
 
 % Save data
-IR_dynare = NaN(length(IRnames_dynare), 11);
+IR_dynare = NaN(length(IRnames_dynare), options_.EST.irf_length);
 for ii = 1:length(IRnames_dynare)
     IR_dynare(ii, :) = getfield(oo_.irfs, char(IRnames_dynare(ii)));
 end

@@ -5,7 +5,7 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 1; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -137,6 +137,47 @@ mkup_ss   = omega/(omega-1);
 rhozeta    = 0.90;
 sigmazeta  = 0.50;
 
+
+
+rhozeta    = 0.4;
+sigmazeta  = 2;
+% 
+% eta = 0.25;
+% phi = 0.90;
+% lambda_ss = 0.2;
+psi_N = 50;
+% rho_lambda= 0.9;
+
+lambda_ss = .25;
+
+
+eta = 0.82;
+phi = 0.934;
+lambda_ss = 0.14;
+rho_lambda = 0.892;
+
+eta = 0.444;
+phi = 0.9574;
+lambda_ss = 0.0149;
+rho_lambda = 0.5686;
+
+eta = 0.15;
+phi = 0.99; % when this is low (say 0.8) it causes a violation of Blanchard Kahn conditions
+lambda_ss = 0.4;
+rho_lambda = 0.5;
+
+
+
+% Grid Search Results:
+eta = 0.892;
+phi = 0.9574;
+lambda_ss = 0.0149;
+rho_lambda = 0.9802;
+psi_N = 25.5;
+% rhozeta = 0.980101;
+% sigmazeta = 0.8425;
+
+
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
 %=========================================================================%
@@ -249,7 +290,8 @@ write_latex_static_model;
 
 % Load PVAR IRFs
 global pvarcoirfs_clean;
-load 'pvar_coirfs_full';
+% load 'pvar_coirfs_full'; % has 10 periods of data. pvar with gdp first
+load 'pvar_coirfs_full_30periods_tfp_first' % has 30 periods of data. pvar with tfp first
 pvarcoirfs_clean = pvarcoirfs;
 
 shocks;
@@ -266,6 +308,8 @@ COUNT.ss_neg = 0;
 % Set seed for simulation
 % set_dynare_seed(092677);
 
+estimation_init;
+
 % This saves everything, which is then called in each loop
 evalin('base','save level0workspace oo_ M_ options_')
 
@@ -274,7 +318,7 @@ check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
-stoch_simul(order=1,periods=600, irf=11, nograph, nodisplay, nocorr, nomoments, loglinear);
+stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, loglinear);
 
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
@@ -311,26 +355,23 @@ elseif do_estimate == 1
 %=========================================================================%
 %%%%                       OPTIMIZATION                                %%%%
 %=========================================================================%
-% Much of this code comes from Bonn and Pfeifer 2014 replication files
+
+% IMPORTANT: Estimation variables should be changed in estimation_init.m
 
 % Starting point (based on earlier calibration)
-x_start=[eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
-x_start_unbounded = boundsINV(x_start);
-
-if sum(imag(x_start_unbounded)) ~= 0
-    x_start_unbounded
-    error('Error: your bounds do not make sense. You are using an initial value that lies outside the bounds.')
-end
+select_start_point;
+check_bounds;
 
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
 H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
+% H0 = 1*eye(length(x_start)); % Initial Hessian 
 
 crit = 1e-7; % Tolerance
 nit = 1000; % Number of iterations
 % nit = 800;
  
-nit = 2000;
+% nit = 100;
 % nit = 20;
 
 % Make sure Dynare does not print out stuff during runs
@@ -348,12 +389,10 @@ fhat
 %%%%                       ALT ESTIMATION                              %%%%
 %=========================================================================%
 elseif do_estimate == 2
-    
-    % Needs to be updated
-    
+        
     % Starting point (based on earlier calibration)
-    x_start=[eta, gamma, phi, lambda_bar, psi_N, rhozeta, rhozeta2, sigmazeta, rho_lambda]; % zetabar, 
-    x_start_unbounded = boundsINV(x_start);
+    select_start_point;
+    check_bounds;
     
     opts = psoptimset('Display','diagnose'); % debugging % , 'MaxIter', 20
     % opts = psoptimset('Display', 'off'); % estimation
@@ -365,10 +404,10 @@ elseif do_estimate == 2
 elseif do_estimate == 3
 
     
-    fhat = 101;
-    while fhat > 100
+    fhat = 301;
+    while fhat > 300
         % Starting point (based on earlier calibration)
-        x_start=[eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
+        x_start = [eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
 
         %% Select random start
         % Search until I find an inital guess that solves
@@ -397,8 +436,7 @@ elseif do_estimate == 3
         % nit = 800;
 
         % nit = 20;
-        % nit = 200;
-        nit = 2000;
+        nit = 50;
         
         [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
         fhat
@@ -409,42 +447,46 @@ end
 %%%%                       PLOT SOLUTION                               %%%%
 %=========================================================================%
 if do_estimate > 0
-[ params ] = bounds( params_unbounded );
-set_param_value('eta', params(1) );
-set_param_value('phi', params(2) );
-set_param_value('lambda_ss', params(3) );
-set_param_value('rhozeta', params(4) );
-set_param_value('sigmazeta', params(5) );
+    load level0workspace oo_ options_
+    
+    % Set parameters using set_param_value()
+    [ params ] = bounds( params_unbounded );
+    variables = options_.EST.variables;
+    for iii = 1:length( variables )
+        set_param_value( char(variables( iii )) , params( iii ) );
+    end
+    
+    options_.nocorr = 1;
+    options_.nograph = 1;
+    options_.nomoments = 1;
+    options_.order = 1;
+    
+    options_.periods = 600;
+    options_.irf = options_.EST.irf_length;
+    options_.loglinear = 1;
+    options_.nodisplay = 0;
+    options_.noprint = 0;
 
-oo_.irfs = {}; % erase the old IRFs
+    steady;
 
-options_.irf = 11;
-options_.loglinear = 1;
-options_.nodisplay = 0;
-options_.noprint = 0;
+    var_list_=[];
+    info = stoch_simul(var_list_);                                              % WARNING: this does not compute the steady state. It just uses the pre defined ss
+    post_processing_irfs;                                                       % Create IRFs with trend
+    post_processing_irfs_plot;                                                  % Plot IRFs
+    axis tight;
+    % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
+    legend('initial','var', 'b', 'b', 'final');
 
-steady;
+    % disp('[eta, phi, lambda_ss]')
+    % params
+    % x_start
 
-var_list_=[];
-info = stoch_simul(var_list_);                                              % WARNING: this does not compute the steady state. It just uses the pre defined ss
-post_processing_irfs;                                                       % Create IRFs with trend
-post_processing_irfs_plot;                                                  % Plot IRFs
-axis tight;
-% post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-legend('initial','var', 'b', 'b', 'final');
+    % Print Estimation Results
+    disp(sprintf('\nEstimation Results:'));
+    for iii = 1:length( variables )
+        disp(sprintf([char(variables( iii )), ' = %0.10g;'], params(iii) ));
+    end
 
-% disp('[eta, phi, lambda_ss]')
-% params
-% x_start
-
-% Print Estimation Results
-disp(sprintf('\nEstimation Results:'));
-disp(sprintf('eta = %0.10g;', params(1) ));
-disp(sprintf('phi = %0.10g;', params(2) ));
-disp(sprintf('lambda_ss = %0.10g;', params(3) ));
-disp(sprintf('rhozeta = %0.10g;', params(4) ));
-disp(sprintf('sigmazeta = %0.10g;', params(5) ));
-
-steady_state_targets
+    steady_state_targets
 
 end

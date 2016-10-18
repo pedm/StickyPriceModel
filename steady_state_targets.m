@@ -1,7 +1,13 @@
-YD_ss = oo_.steady_state(strmatch('YDW' , M_.endo_names));
-ND_ss = oo_.steady_state(strmatch('ND' , M_.endo_names));
-CD_ss = oo_.steady_state(strmatch('CD' , M_.endo_names));
-lambda_ss = oo_.steady_state(strmatch('lambda' , M_.endo_names));
+if options_.logged_steady_state == 1
+    sstate = exp(oo_.steady_state);
+else
+    sstate = oo_.steady_state;
+end
+
+YD_ss = sstate(strmatch('YDW' , M_.endo_names));
+ND_ss = sstate(strmatch('ND' , M_.endo_names));
+CD_ss = sstate(strmatch('CD' , M_.endo_names));
+lambda_ss = sstate(strmatch('lambda' , M_.endo_names));
 
 disp(sprintf('\nSteady State Targets:'));
 disp(sprintf('ND/YD = %0.5g (target = 0.014)', ND_ss / YD_ss))

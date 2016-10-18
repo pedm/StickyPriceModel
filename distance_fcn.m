@@ -7,20 +7,10 @@ function [ f ] = distance_fcn( params_unbounded )
 
     %% 1. Update parameters
     [ params ] = bounds( params_unbounded );
-    set_param_value('eta', params(1) );
-    set_param_value('phi', params(2) );
-    set_param_value('lambda_ss', params(3) );
-    set_param_value('rhozeta', params(4) );
-    set_param_value('sigmazeta', params(5) );
-    
-%     set_param_value('gamma', params(2) );
-%     set_param_value('lambda_bar', params(4) );
-%     set_param_value('psi_N', params(5) );
-%     set_param_value('rhozeta', params(6) );
-%     set_param_value('rhozeta2', params(7) );
-%     set_param_value('sigmazeta', params(8) );
-%     % set_param_value('zetabar', params(9) ); % removed because it is set by ss solver
-%     set_param_value('rho_lambda', params(9) ); 
+    variables = options_.EST.variables;
+    for iii = 1:length( variables )
+        set_param_value( char(variables( iii )) , params( iii ) );
+    end
 
     try
         %% 2. Solve Again
@@ -28,7 +18,7 @@ function [ f ] = distance_fcn( params_unbounded )
         % stoch_simul(order=1,periods=600, irf=10, nograph, nodisplay, nocorr, nofunctions, nomoments, noprint, loglinear);
         % Dynare commands do not work in m files. Here's what it is in matlab:
         
-        options_.irf = 11;
+        options_.irf = options_.EST.irf_length;
         options_.loglinear = 1;
         options_.nocorr = 1;
         options_.nodisplay = 1;
