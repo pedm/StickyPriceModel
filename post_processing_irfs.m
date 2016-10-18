@@ -46,8 +46,10 @@ IRnames_dynare = fieldnames(oo_.irfs);
 
 % Save data
 IR_dynare = NaN(length(IRnames_dynare), options_.EST.irf_length);
+
 for ii = 1:length(IRnames_dynare)
-    IR_dynare(ii, :) = getfield(oo_.irfs, char(IRnames_dynare(ii)));
+    full_irf = getfield(oo_.irfs, char(IRnames_dynare(ii)));
+    IR_dynare(ii, :) = full_irf(1:options_.EST.irf_length);
 end
 IRnames_dynare = strrep(IRnames_dynare, '_epsilon_chi', '');
 IRnames_dynare = strrep(IRnames_dynare, '_', '');

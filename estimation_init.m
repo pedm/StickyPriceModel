@@ -3,7 +3,9 @@
 % List the parameters to estimate
 options_.EST = [];
 options_.EST.irf_length = 31; % 11 or 31. note: you also have to change this in stoch_simul()
-options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'rho_lambda', 'psi_N', 'gamma', 'L_ss'}; % gamma ?
+options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmazeta', 'gamma', 'rho_lambda'}; 
+% , 'psi_N', 'rhozeta', 'sigmazeta'
+% , 'rho_lambda', 'psi_N', 'gamma', 'L_ss'   gamma ?
 
 % to list the parameter values:
 % eval(['[' , strjoin(options_.EST.variables, ', '), ']'])
@@ -17,7 +19,7 @@ options_.EST.LB.psi_N = 0;
 options_.EST.LB.rhozeta = 0.0001; 
 options_.EST.LB.sigmazeta = .05;
 options_.EST.LB.rho_lambda = .01;
-options_.EST.LB.lambda_ss = .01;   % original .01
+options_.EST.LB.lambda_ss = .1;   % original .01
 
 options_.EST.UB.eta = 0.9;  
 options_.EST.UB.gamma = 0.91; 
@@ -30,10 +32,10 @@ options_.EST.UB.lambda_ss = 0.5;
 
 
 %% restrictions for grid search
-options_.EST.LB.sigmazeta = 0.75;
-options_.EST.LB.L_ss = 1.5;
-options_.EST.UB.L_ss = 2.5;
-options_.EST.UB.psi_N = 50;
+% options_.EST.LB.sigmazeta = 0.75;
+% options_.EST.LB.L_ss = 1.5;
+% options_.EST.UB.L_ss = 2.5;
+% options_.EST.UB.psi_N = 50;
 
 % that way we do one good search (when it's reasonably large)
 

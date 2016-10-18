@@ -1,7 +1,10 @@
 
 pvarcoirfs = pvarcoirfs_clean;
 
-
+% drop all IRF steps beyond irf_length
+% to modify this, go to estimation_init.m
+irf_length = options_.EST.irf_length;
+pvarcoirfs(pvarcoirfs.step >= irf_length, :) = [];
 
 % Put VAR IRFs in the same format (and delete final obs)
 pvar_irf_rd     =  pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).irf / 100;

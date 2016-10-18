@@ -138,45 +138,64 @@ rhozeta    = 0.90;
 sigmazeta  = 0.50;
 
 
+% rhozeta    = 0.4;
+% sigmazeta  = 2;
 
-rhozeta    = 0.4;
-sigmazeta  = 2;
-% 
+% % Estimation Results:
+% eta = 0.1040317375;
+% phi = 0.958208235;
+% lambda_ss = 0.05145923427;
+% psi_N = 47.20511326;
+% rhozeta = 0.01283929602;
+% sigmazeta = 0.7947631093;
+
+
 % eta = 0.25;
 % phi = 0.90;
-% lambda_ss = 0.2;
-psi_N = 50;
+lambda_ss = 0.3;
+% psi_N = 50;
 % rho_lambda= 0.9;
-
-lambda_ss = .25;
-
-
-eta = 0.82;
-phi = 0.934;
-lambda_ss = 0.14;
-rho_lambda = 0.892;
-
-eta = 0.444;
-phi = 0.9574;
-lambda_ss = 0.0149;
-rho_lambda = 0.5686;
-
-eta = 0.15;
-phi = 0.99; % when this is low (say 0.8) it causes a violation of Blanchard Kahn conditions
-lambda_ss = 0.4;
-rho_lambda = 0.5;
+% 
+% lambda_ss = .25;
+% 
+% 
+% eta = 0.82;
+% phi = 0.934;
+% lambda_ss = 0.14;
+% rho_lambda = 0.892;
 
 
-
-% Grid Search Results:
-eta = 0.892;
-phi = 0.9574;
-lambda_ss = 0.0149;
-rho_lambda = 0.9802;
-psi_N = 25.5;
+% 
+% 
+% 
+% % Grid Search Results:
+% eta = 0.892;
+% phi = 0.9574;
+% lambda_ss = 0.0149;
+% rho_lambda = 0.9802;
+% psi_N = 25.5;
 % rhozeta = 0.980101;
 % sigmazeta = 0.8425;
 
+% Looking to match TFP IRF only
+% eta = 0.8999965553;
+% phi = 0.9584186385;
+% lambda_ss = 0.07466277381;
+% rho_lambda = 0.9898764187;
+% psi_N = 49.13385195;
+% gamma = 0.8454797486;
+% L_ss = 1.994789388;
+
+% RD_Almost_Perfect_Fit.pdf
+% Estimation Results:
+eta = 0.6377034476;
+phi = 0.959998326;
+lambda_ss = 0.4999995261;
+psi_N = 1.199560391;
+rhozeta = 0.8771009836;
+sigmazeta = 0.1949092608;
+gamma = 0.8976501214;
+rho_lambda = 0.2997568403;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -372,7 +391,7 @@ nit = 1000; % Number of iterations
 % nit = 800;
  
 % nit = 100;
-% nit = 20;
+nit = 20;
 
 % Make sure Dynare does not print out stuff during runs
 options_.nocorr=1;
@@ -394,7 +413,7 @@ elseif do_estimate == 2
     select_start_point;
     check_bounds;
     
-    opts = psoptimset('Display','diagnose'); % debugging % , 'MaxIter', 20
+    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3); % debugging % , 'MaxIter', 20
     % opts = psoptimset('Display', 'off'); % estimation
     [params_unbounded, FVAL,EXITFLAG] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
 
