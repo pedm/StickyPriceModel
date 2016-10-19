@@ -163,26 +163,18 @@ sigmazeta  = 0.50;
 % gamma = 0.9099;
 % rho_lambda = 0.2997568403;
 
+% Plot 1
 % Attempt to Match TFP Only
-% eta = 0.89;
-% phi = 0.99;
-% lambda_ss = 0.11;
-% psi_N = 1;
-% rhozeta = 0.001;
-% sigmazeta = 0.1988991265;
-% gamma = 0.9;
-
-% Attempt to Match TFP Only (2)
-% eta = 0.9;
-% phi = 0.9623362683;
-% lambda_ss = 0.5;
-% psi_N = 200;
+% eta = 0.95;
+% phi = 0.9587878475;
+% lambda_ss = 0.7;
+% psi_N = 50;
 % rhozeta = 0.0001;
-% sigmazeta = 0.2190798804;
+% sigmazeta = 0.2094361245;
 % gamma = 0.91;
-% rho_lambda = 0.7543615721;
+% rho_lambda = 0.9266736473;
 
-% Attempt to Match TFP (weight=1) and R&D (weight = 0.3)
+% Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
 eta = 0.9;
 phi = 0.999;
 lambda_ss = 0.5;
@@ -191,6 +183,20 @@ rhozeta = 0.4655720529;
 sigmazeta = 0.2647972323;
 gamma = 0.03725332262;
 rho_lambda = 0.01;
+
+% Estimate 2
+% Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
+% wider bounds on params
+% maxit of 800 reached
+% eta = 0.95;
+% phi = 0.9999;
+% lambda_ss = 0.195651203;
+% psi_N = 4.340377426;
+% rhozeta = 0.5913817911;
+% sigmazeta = 0.2706380004;
+% gamma = 0.04593762978;
+% rho_lambda = 0.001;
+
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -338,16 +344,67 @@ post_processing_irfs;                                                       % Cr
 plot_var_irfs;                                                              % Plot VAR IRFs
 post_processing_irfs_plot;                                                  % Plot IRFs
 post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-
 steady_state_targets
 
-if do_estimate == 0;
-    return;
-elseif do_estimate == 1
+%=========================================================================%
+%%%%                       SIMULATED SERIES                            %%%%
+%=========================================================================%
+
+% Clear out the loglinear dr
+load level0workspace oo_ options_
+
+% Produce simulated series WITHOUT the loglinear command
+stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
+
+% Collect the key series
+g_simul = oo_.endo_simul(1,:);
+RD_simul = oo_.endo_simul(24,:);
+YD_simul = oo_.endo_simul(11,:);
+
+% Compute TFP (using a cummulative product of g)
+A_lead = cumprod(g_simul);
+A_simul = ones(size(A_lead));
+A_simul(2:end) = A_lead(1:end-1);
+
+% Multiply this trend with R_D and Y_D
+R_simul = RD_simul .* A_simul;
+Y_simul = YD_simul .* A_simul;
+
+%=========================================================================%
+%%%%                     PLOT SIMULATED SERIES                         %%%%
+%=========================================================================%
+
+% Plot
+length = 100;
+figure();
+subplot(2,2,1);
+plot(R_simul(:,1:length));
+title('R');
+
+subplot(2,2,2);
+plot(A_simul(:,1:length));
+title('A');
+
+subplot(2,2,3);
+plot(Y_simul(:,1:length));
+title('Y');
+
+% Output to a csv
+SimulData = [A_simul', R_simul', Y_simul'];
+csvwrite('Data_A_R_Y.csv', SimulData);
+
+% Sanity check: these are all equal to the steady state values
+% mean(YD_simul);
+% mean(g_simul);
+% mean(RD_simul);
     
 %=========================================================================%
 %%%%                       OPTIMIZATION                                %%%%
 %=========================================================================%
+
+if do_estimate == 0;
+    return;
+elseif do_estimate == 1
 
 % IMPORTANT: Estimation variables should be changed in estimation_init.m
 
@@ -387,7 +444,7 @@ elseif do_estimate == 2
     select_start_point;
     check_bounds;
     
-    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3); % debugging % , 'MaxIter', 20
+    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3, 'MaxIter', 1200); % debugging % , 'MaxIter', 20
     % opts = psoptimset('Display', 'off'); % estimation
     [params_unbounded, FVAL,EXITFLAG,Output] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
 

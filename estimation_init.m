@@ -10,28 +10,35 @@ options_.EST.variables = {'eta', 'phi', 'lambda_ss', 'psi_N', 'rhozeta', 'sigmaz
 %% 3. Define parameter bounds
 
 options_.EST.LB.eta = 0.1;  
-options_.EST.LB.gamma = 0.00001;
 options_.EST.LB.phi = 0.7;
+options_.EST.LB.lambda_ss = .1;   % original .01
 options_.EST.LB.psi_N = 0;
 options_.EST.LB.rhozeta = 0.0001; 
 options_.EST.LB.sigmazeta = .05;
+options_.EST.LB.gamma = 0.00001;
 options_.EST.LB.rho_lambda = .01;
-options_.EST.LB.lambda_ss = .1;   % original .01
 
 options_.EST.UB.eta = 0.9;  
-options_.EST.UB.gamma = 0.91; 
 options_.EST.UB.phi = 0.999; % original .95
+options_.EST.UB.lambda_ss = 0.5;
 options_.EST.UB.psi_N = 200; 
 options_.EST.UB.rhozeta = 0.99; 
 options_.EST.UB.sigmazeta = 10;  
+options_.EST.UB.gamma = 0.91; 
 options_.EST.UB.rho_lambda = .99;
-options_.EST.UB.lambda_ss = 0.5;
+
+
+% wider bounds
+options_.EST.UB.eta = 0.95;
+options_.EST.UB.phi = 0.9999;
+options_.EST.UB.lambda_ss = 0.7;
+options_.EST.LB.rho_lambda = .001;
 
 %% 4. Weight the impulse responses used in estimation
 % Select weights between [0,1]
 % Default is 1 (no impact)
 
-weight_rd = 0.3;
+weight_rd = 0.1;
 weight_tfp = 1;
 
 %% No need to edit code beyond this line
