@@ -175,27 +175,27 @@ sigmazeta  = 0.50;
 % rho_lambda = 0.9266736473;
 
 % Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
-eta = 0.9;
-phi = 0.999;
-lambda_ss = 0.5;
-psi_N = 3.132485312;
-rhozeta = 0.4655720529;
-sigmazeta = 0.2647972323;
-gamma = 0.03725332262;
-rho_lambda = 0.01;
+% eta = 0.9;
+% phi = 0.999;
+% lambda_ss = 0.5;
+% psi_N = 3.132485312;
+% rhozeta = 0.4655720529;
+% sigmazeta = 0.2647972323;
+% gamma = 0.03725332262;
+% rho_lambda = 0.01;
 
 % Estimate 2
 % Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
 % wider bounds on params
 % maxit of 800 reached
-% eta = 0.95;
-% phi = 0.9999;
-% lambda_ss = 0.195651203;
-% psi_N = 4.340377426;
-% rhozeta = 0.5913817911;
-% sigmazeta = 0.2706380004;
-% gamma = 0.04593762978;
-% rho_lambda = 0.001;
+eta = 0.95;
+phi = 0.9999;
+lambda_ss = 0.195651203;
+psi_N = 4.340377426;
+rhozeta = 0.5913817911;
+sigmazeta = 0.2706380004;
+gamma = 0.04593762978;
+rho_lambda = 0.001;
 
 
 %=========================================================================%
@@ -354,14 +354,14 @@ steady_state_targets
 load level0workspace oo_ options_
 
 % Produce simulated series WITHOUT the loglinear command
-stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
+stoch_simul(order=1,periods=1000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
 
 % Collect the key series
 g_simul = oo_.endo_simul(1,:);
 RD_simul = oo_.endo_simul(24,:);
 YD_simul = oo_.endo_simul(11,:);
 
-% Compute TFP (using a cummulative product of g)
+% Compute TFP (using a cumulative product of g)
 A_lead = cumprod(g_simul);
 A_simul = ones(size(A_lead));
 A_simul(2:end) = A_lead(1:end-1);
@@ -375,7 +375,7 @@ Y_simul = YD_simul .* A_simul;
 %=========================================================================%
 
 % Plot
-length = 100;
+length = 300;
 figure();
 subplot(2,2,1);
 plot(R_simul(:,1:length));
