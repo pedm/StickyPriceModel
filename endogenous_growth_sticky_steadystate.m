@@ -10,6 +10,8 @@ function [ys,check] = endogenous_growth_sticky_steadystate(ys,exe);
 %   - check     [scalar] set to 0 if steady state computation worked and to
 %                    1 of not (allows to impos restriction on parameters)
     
+% This ss file sets three parameters:
+% chi, zeta_bar, lambda_bar
     
 global M_ CD GammaD epsilon L rho beta gamma g mkup_ss vartheta alpha YD
 
@@ -107,6 +109,8 @@ R_nom = pi / LAMBDA;
     
 Q = 1;
 zeta = 1;
+DELTAN = 1;
+DELTAM = 1;
 
 XD =  ( LAMBDA * g * ( J * VD )  ) / (1 - LAMBDA * g ) ;
 SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;

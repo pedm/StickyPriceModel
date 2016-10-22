@@ -27,6 +27,8 @@ function [ f ] = distance_fcn( params_unbounded )
         options_.noprint = 1;          % this turns off all display
         options_.order = 1;
         options_.periods = 600;
+        options_.irf_shocks=[];
+        options_.irf_shocks = 'epsilon_n';
         var_list_=[];
         info = stoch_simul(var_list_); 
         
