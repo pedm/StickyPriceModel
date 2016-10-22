@@ -4,6 +4,7 @@
 % Requires endogenous_growth_sticky_steadystate.m
 % Albert SS Solver Oct 2016
 
+addpath('Scripts');
 close all;
 do_estimate = 1; % if 0, just simulate
 
