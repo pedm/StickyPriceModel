@@ -66,5 +66,6 @@ function [ f ] = distance_fcn( params_unbounded )
         % Dynare threw an error. Apply large penalty
         f = 10000000000 + 10000*sum_residuals;
     end
+    
 end
 
