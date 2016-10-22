@@ -5,7 +5,7 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 0; % if 0, just simulate
+do_estimate = 2; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -13,7 +13,7 @@ do_estimate = 0; % if 0, just simulate
 var
 
 % ENDOGENOUS VARIABLES
-g            ${g}$   (long_name='Growth')  % notes ...
+g            ${g}$   (long_name='Growth')  % 
 ZD           ${Z_D}$                       % Total Measure of Technologies (adopted or not)
 lambda       ${\lambda}$                   % Adoption probability
 VD           ${V_D}$                       % New innovation / technologies created this period (adopted or not)
@@ -22,10 +22,10 @@ J            ${J}$                         % Value of unadopted tech
 H            ${H}$                         % Value of adopted tech
 PI           ${\Pi}$                       % 
 ND           ${N_D}$                       % 
-YDW          ${Y^W_D}$                     % New in model 4.4.1. Why is this needed? (might be needed later in the sticky price model)
+YDW          ${Y^W_D}$                     % (Might be needed later in the sticky price model)
 YD           ${Y_D}$                       % 
 CD           ${C_D}$                       % 
-LAMBDA       ${\Lambda}$                   % Note Lambda(+1) = \Lambda_{t,t+1} (HOUSEHOLD STOCHASTIC DISCOUNT FACTOR)
+LAMBDA       ${\Lambda}$                   % Household Stochastic Discount Factor (Note Lambda(+1) = \Lambda_{t,t+1} )
 UCD          ${U_{CD}}$                    % 
 muD          ${{\mu}_{D}}$                 % 
 L            ${L}$                         % 
@@ -37,6 +37,8 @@ zeta         ${\zeta}$                     %
 SD           ${\mathcal{S}_{D}}$           % 
 XD           ${X_D}$                       % 
 RD           ${\mathcal{R}_{D}}$           % 
+DELTAN       ${\Delta^N}$                  % financial shock affecting innovators
+DELTAM       ${\Delta^M}$                  % financial shock affecting adopters
 
 % Sticky Price Variables
 mkup         ${\mathcal{M}}$               % Markup
@@ -54,7 +56,10 @@ g_fcn             ${\left.       g\left( \cdot \right)            \right|}$
 g_fcn_prime       ${\left.       g^{\prime}\left( \cdot \right)   \right|}$;
 
 % EXOGENOUS SHOCKS
-varexo epsilon_chi    ${\epsilon}^{\chi}$;  
+varexo
+epsilon_chi    ${\epsilon}^{\chi}$
+epsilon_n    ${\epsilon}^n$
+;  
 
 %=========================================================================%
 %%%%                    DECLARATION OF PARAMETERS                      %%%%
@@ -76,9 +81,13 @@ eta            $\eta$
 rhozeta        ${{\rho}_{\zeta}}$       % persistence of exogenous "innovation productivity" shock
 sigmazeta      ${{\sigma}_{\zeta}}$     % size of impulse on exogenous "innovation productivity" shock
 zeta_bar       ${\overline{\zeta}}$
+rhon           ${\rho}_n$             % persistence of financial shock on innovators
+sigman         ${\sigma}_n$           % sd of financial shock on innovators
 
 psi_N          ${\psi_N}$               % Magnitude of N adjustment cost
 psi_I          ${\psi_I}$               % Magniturde if I investment cost
+
+alpha_N        $\alpha_N$             % financial spillover from innovation to adoption
 
 % NEW PARAMETERS (STICKY PRICE)
 gamma_pi       ${{\gamma}_{\pi}}$
@@ -128,7 +137,7 @@ psi_N    = 10;                     %  Adjustment cost to N
 % steady-state values of endogenous variables:
 g_ss      = 1.0118; %1.02; % calibrate g (growth rate); back out zeta_bar
 lambda_ss = 0.15;   %0.15; % calibrate lambda (adoption probability); back out lambda_bar
-L_ss      =  2;        % calibrate SS L; back out chi 
+L_ss      =  1;        % calibrate SS L; back out chi 
 mkup_ss   = omega/(omega-1);
 
 % need to back out: zeta_bar, lambda_bar, chi -> set in steady-state file
@@ -188,14 +197,28 @@ sigmazeta  = 0.50;
 % Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
 % wider bounds on params
 % maxit of 800 reached
-eta = 0.95;
-phi = 0.9999;
-lambda_ss = 0.195651203;
-psi_N = 4.340377426;
-rhozeta = 0.5913817911;
-sigmazeta = 0.2706380004;
-gamma = 0.04593762978;
-rho_lambda = 0.001;
+% eta = 0.95;
+% phi = 0.9999;
+% lambda_ss = 0.195651203;
+% psi_N = 4.340377426;
+% rhozeta = 0.5913817911;
+% sigmazeta = 0.2706380004;
+% gamma = 0.04593762978;
+% rho_lambda = 0.001;
+
+
+gamma = 1.00; % Jaimovich-Rebelo term on preferences (0 -> no wealth effect)
+phi = 0.90; % survival rate of technologies
+lambda_ss = 0.15; % calibrate lambda (adoption probability in steady state): back out lambda_bar
+
+% AR(1) parameters for DeltaN shock (innovators/adopters wedge)
+rhon = 0.70;
+sigman = 1.00;
+
+%% To estimate:
+eta = 0.2;
+alpha_N = 0.01;
+psi_N = 10;
 
 
 %=========================================================================%
@@ -223,10 +246,11 @@ H = PI + phi * ( LAMBDA(+1) * H(+1) );
 PI = (1/vartheta) * (1/mkup) * YDW;
 
 % 7. Innovators' FOC wrt N
-LAMBDA(+1) * J(+1) * zeta_bar * zeta * ZD * (1 /  (KD(-1)/g(-1))^eta)   * (1 / ND^(1-eta) ) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - LAMBDA(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
+LAMBDA(+1) * J(+1) * zeta_bar * zeta * ZD * (1 /  (KD(-1)/g(-1))^eta)   * (1 / ND^(1-eta) ) * (1 / DELTAN) =  1 + log(f_fcn_prime) *  (ND * g(-1) /  ND(-1)) +  log(f_fcn) - LAMBDA(+1) * log(f_fcn_prime(+1)) * (ND(+1) * g / ND )^2;
 
 % 8. Adopters' FOC
-rho_lambda * lambda_bar * phi * LAMBDA(+1) * (H(+1) - J(+1)) = M ^ (1 - rho_lambda);
+rho_lambda * lambda_bar * phi * LAMBDA(+1) * (H(+1) - J(+1)) * (1 / DELTAM ) = M ^ (1 - rho_lambda);
+% rho_lambda * lambda_bar * phi * LAMBDA(+1) * (H(+1) - J(+1)) = M ^ (1 - rho_lambda);
 
 % 9. Adoption Probability:
 lambda = lambda_bar * M ^ rho_lambda;
@@ -245,7 +269,7 @@ LAMBDA = ((beta * UCD) / UCD(-1)) * g(-1)^(-rho);
 
 % 14. Marginal utility of consumption
 % Modifed such that muD is positive
-UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) + -1*muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
+UCD = ( CD - GammaD * ( chi / (1+epsilon)) * L^(1+epsilon) ) ^ (-rho) - muD * gamma * (GammaD(-1) / ( CD * g(-1) )) ^ (1-gamma);
 
 % 15. Lagrange multiplier on labor disutility law of motion (new)
 % Modifed such that muD is positive
@@ -278,6 +302,12 @@ XD =  ( LAMBDA(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
 % 24. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
 % are given by the variable N)
 RD = ND;   
+
+% 25. Exogenous financial shock on innovators
+log(DELTAN) = rhon * log(DELTAN(-1)) - sigman * epsilon_n;
+
+% 26. Financial disturbance on adopters:
+log(DELTAM) = alpha_N * log(DELTAN);
  
 %====================== ADJUSTMENT COST FCNS =============================%
 f_fcn = exp( (psi_N / 2) * ((ND * g(-1) / ND(-1) ) - g_ss)^2 ); % 22
@@ -315,8 +345,8 @@ load 'pvar_coirfs_full_30periods_tfp_first' % has 30 periods of data. pvar with 
 pvarcoirfs_clean = pvarcoirfs;
 
 shocks;
-var epsilon_chi;
-stderr 1;
+var epsilon_chi = 1;
+var epsilon_n   = 1;
 end;
 
 % Setup counters
@@ -338,7 +368,7 @@ check;
 
 % Produce simulation using above calibration, compare with VAR IRFs
 % NOTE: loglinear option causes oo_.steady_state to become logged
-stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, loglinear);
+stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, loglinear, irf_shocks = (epsilon_n) );
 
 post_processing_irfs;                                                       % Create IRFs with trend
 plot_var_irfs;                                                              % Plot VAR IRFs
@@ -354,7 +384,7 @@ steady_state_targets
 load level0workspace oo_ options_
 
 % Produce simulated series WITHOUT the loglinear command
-stoch_simul(order=1,periods=1000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
+stoch_simul(order=1,periods=50000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
 
 % Collect the key series
 g_simul = oo_.endo_simul(1,:);
@@ -374,24 +404,26 @@ Y_simul = YD_simul .* A_simul;
 %%%%                     PLOT SIMULATED SERIES                         %%%%
 %=========================================================================%
 
-% Plot
-length = 300;
-figure();
-subplot(2,2,1);
-plot(R_simul(:,1:length));
-title('R');
-
-subplot(2,2,2);
-plot(A_simul(:,1:length));
-title('A');
-
-subplot(2,2,3);
-plot(Y_simul(:,1:length));
-title('Y');
-
-% Output to a csv
-SimulData = [A_simul', R_simul', Y_simul'];
-csvwrite('Data_A_R_Y.csv', SimulData);
+% % Plot
+% plot_length = 300;
+% figure();
+% subplot(2,2,1);
+% plot(R_simul(:,1:plot_length));
+% title('R');
+% 
+% subplot(2,2,2);
+% plot(A_simul(:,1:plot_length));
+% title('A');
+% 
+% subplot(2,2,3);
+% plot(Y_simul(:,1:plot_length));
+% title('Y');
+% 
+% % Output to a csv
+% SimulData = [log(A_simul'), log(R_simul'), log(Y_simul')];
+% csvwrite('Data_A_R_Y_logs.csv', SimulData);
+% 
+% var_given_model(A_simul, R_simul, Y_simul)
 
 % Sanity check: these are all equal to the steady state values
 % mean(YD_simul);
@@ -516,7 +548,9 @@ if do_estimate > 0
     options_.loglinear = 1;
     options_.nodisplay = 0;
     options_.noprint = 0;
-
+    options_.irf_shocks=[];
+    options_.irf_shocks = 'epsilon_n';
+    
     steady;
 
     var_list_=[];
