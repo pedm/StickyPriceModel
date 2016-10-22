@@ -5,7 +5,7 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 2; % if 0, just simulate
+do_estimate = 0; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -119,8 +119,8 @@ delta   = 0.1;        						% capital deprec
 
 % GROWTH
 vartheta  = 2.4925; 						% elast. of subst. across varieties (mkup = vartheta/(vartheta-1)
-% gamma     = 0.90;   						% Jaimovich-Rebelo term on preferences (0-> no wealth effect)
-% phi       = 0.90;   						% Survival rate of technologies
+gamma     = 1.00;   		                % (Before .9) Jaimovich-Rebelo term on preferences (0-> no wealth effect)
+phi       = 0.90;   						% Survival rate of technologies
 % eta       = 0.25;   						% elasticity of innovations to R&D
 rho_lambda= 0.80;   						% elasticity of adoption prob. to adoption expenditure
 
@@ -143,23 +143,18 @@ mkup_ss   = omega/(omega-1);
 rhozeta    = 0.90;
 sigmazeta  = 0.50;
 
-%% New Calibration
-gamma = 1.00; 								% Jaimovich-Rebelo term on preferences (0 -> no wealth effect)
-phi = 0.90; 								% survival rate of technologies
-lambda_ss = 0.15; 							% calibrate lambda (adoption probability in steady state): back out lambda_bar
-
 % AR(1) parameters for DeltaN shock (innovators/adopters wedge)
 rhon = 0.70;
 sigman = 1.00;
 
-%% To estimate:
-eta = 0.2;
-alpha_N = 0.01;
-psi_N = 10;
+%% Estimation Parameters
+% eta = 0.2;
+% alpha_N = 0.01;
+% psi_N = 10;
 
-eta = 0.3391240465;
-alpha_N = 0.01547341167;
-psi_N = 17.20994694;
+% eta = 0.3391240465;
+% alpha_N = 0.01547341167;
+% psi_N = 17.20994694;
 
 % Best estimate so far (fhat = 128)
 eta = 0.08303187684;

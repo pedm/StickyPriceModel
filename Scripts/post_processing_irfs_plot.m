@@ -4,7 +4,7 @@
 %===================================================================%
 
 % Plot in same format as Albert
-plot_cutoff = 34;
+plot_cutoff = 36;
 try
     h = findobj('name', 'original vars');
     figure(h);
