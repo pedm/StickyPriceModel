@@ -4,9 +4,8 @@
 % Requires endogenous_growth_sticky_steadystate.m
 % Albert SS Solver Oct 2016
 
-addpath('Scripts');
 close all;
-do_estimate = 1; % if 0, just simulate
+do_estimate = 2; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -120,9 +119,9 @@ delta   = 0.1;        						% capital deprec
 
 % GROWTH
 vartheta  = 2.4925; 						% elast. of subst. across varieties (mkup = vartheta/(vartheta-1)
-gamma     = 0.90;   						% Jaimovich-Rebelo term on preferences (0-> no wealth effect)
-phi       = 0.90;   						% Survival rate of technologies
-eta       = 0.25;   						% elasticity of innovations to R&D
+% gamma     = 0.90;   						% Jaimovich-Rebelo term on preferences (0-> no wealth effect)
+% phi       = 0.90;   						% Survival rate of technologies
+% eta       = 0.25;   						% elasticity of innovations to R&D
 rho_lambda= 0.80;   						% elasticity of adoption prob. to adoption expenditure
 
 % Stick Price Variables
@@ -162,7 +161,11 @@ eta = 0.3391240465;
 alpha_N = 0.01547341167;
 psi_N = 17.20994694;
 
-
+% Best estimate so far (fhat = 128)
+eta = 0.08303187684;
+alpha_N = 0.009623755187;
+psi_N = 25.08490715;
+rhon = 0.8044297245;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
@@ -278,6 +281,7 @@ write_latex_static_model;
 %=========================================================================%
 %%%%                       RUN                                         %%%%
 %=========================================================================%
+addpath('Scripts');
 
 % Load PVAR IRFs
 global pvarcoirfs_clean;
