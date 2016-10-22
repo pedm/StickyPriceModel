@@ -5,7 +5,7 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 2; % if 0, just simulate
+do_estimate = 1; % if 0, just simulate
 
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
@@ -57,7 +57,7 @@ g_fcn_prime       ${\left.       g^{\prime}\left( \cdot \right)   \right|}$;
 
 % EXOGENOUS SHOCKS
 varexo
-epsilon_chi    ${\epsilon}^{\chi}$
+epsilon_chi  ${\epsilon}^{\chi}$
 epsilon_n    ${\epsilon}^n$
 ;  
 
@@ -70,41 +70,40 @@ parameters
 % ORIGINAL PARAMETERS 
 beta           $\beta$         
 alpha          $\alpha$        
-epsilon        $\epsilon$             % Inverse Frisch labor supply elasticity
-rho            $\rho$                 % Inverse of intertemporal elasticity of substitution
-delta          $\delta$               
-chi            $\chi$                 % disutility of labor supply
-vartheta       $\vartheta$              
-gamma          $\gamma$               % weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
-phi            $\phi$                 
-eta            $\eta$                 
-rhozeta        ${{\rho}_{\zeta}}$       % persistence of exogenous "innovation productivity" shock
-sigmazeta      ${{\sigma}_{\zeta}}$     % size of impulse on exogenous "innovation productivity" shock
-zeta_bar       ${\overline{\zeta}}$
-rhon           ${\rho}_n$             % persistence of financial shock on innovators
-sigman         ${\sigma}_n$           % sd of financial shock on innovators
+epsilon        $\epsilon$             		% Inverse Frisch labor supply elasticity
+rho            $\rho$                 		% Inverse of intertemporal elasticity of substitution
+delta          $\delta$               		%
+chi            $\chi$                 		% disutility of labor supply
+vartheta       $\vartheta$              	% 
+gamma          $\gamma$               		% weight of current consumption on JR term; indexes strength of wealth effects (0->no wealth effect (GHH), 1-> KPR prefs)
+phi            $\phi$                 		% 
+eta            $\eta$                 		% 
+rhozeta        ${{\rho}_{\zeta}}$       	% persistence of exogenous "innovation productivity" shock
+sigmazeta      ${{\sigma}_{\zeta}}$     	% size of impulse on exogenous "innovation productivity" shock
+zeta_bar       ${\overline{\zeta}}$			% 
+rhon           ${\rho}_n$             		% persistence of financial shock on innovators
+sigman         ${\sigma}_n$           		% sd of financial shock on innovators
 
-psi_N          ${\psi_N}$               % Magnitude of N adjustment cost
-psi_I          ${\psi_I}$               % Magniturde if I investment cost
+psi_N          ${\psi_N}$               	% Magnitude of N adjustment cost
+psi_I          ${\psi_I}$               	% Magniturde if I investment cost
 
-alpha_N        $\alpha_N$             % financial spillover from innovation to adoption
+alpha_N        $\alpha_N$             		% financial spillover from innovation to adoption
 
-% NEW PARAMETERS (STICKY PRICE)
+% STICKY PRICE PARAMETERS
 gamma_pi       ${{\gamma}_{\pi}}$
 gamma_y        ${{\gamma}_{y}}$
 omega          ${\omega}$
 theta          ${\theta}$
 
 % SEPTEMBER ADDITIONS
-lambda_bar     ${\bar{\lambda}}$
-rho_lambda     ${\rho_\lambda}$       % 0 < rho_lambda < 1
-
+lambda_bar     ${\bar{\lambda}}$			% 
+rho_lambda     ${\rho_\lambda}$       		% 0 < rho_lambda < 1
 
 % CALIBRATED STEADY-STATE VALUES
-g_ss           ${g^{SS}}$              % Steady-state growth rate (seen in adjustment cost functions)
-L_ss           ${L^{SS}}$              % Steady-state labor
-lambda_ss      ${\lambda^{SS}}$        % Steady-state adoption rate
-mkup_ss        ${\mkup^{SS}}$
+g_ss           ${g^{SS}}$              		% Steady-state growth rate (seen in adjustment cost functions)
+L_ss           ${L^{SS}}$              		% Steady-state labor
+lambda_ss      ${\lambda^{SS}}$        		% Steady-state adoption rate
+mkup_ss        ${\mkup^{SS}}$				% Steady-state markup
 ;
 
 %=========================================================================%
@@ -112,104 +111,42 @@ mkup_ss        ${\mkup^{SS}}$
 %=========================================================================%
 
 % CONVENTIONAL
-beta    = 0.96;       % discount factor
-alpha   = 0.33;       % capital share
-epsilon = 0.5;        % inv Frisch
-rho     = 1;          % IES
-delta   = 0.1;        % capital deprec
+beta    = 0.96;       						% discount factor
+alpha   = 0.33;       						% capital share
+epsilon = 0.5;        						% inv Frisch
+rho     = 1;          						% IES
+delta   = 0.1;        						% capital deprec
 
 % GROWTH
-vartheta  = 2.4925; % elast. of subst. across varieties (mkup = vartheta/(vartheta-1)
-gamma     = 0.90;   % Jaimovich-Rebelo term on preferences (0-> no wealth effect)
-phi       = 0.90;   % Survival rate of technologies
-eta       = 0.25;   % elasticity of innovations to R&D
-rho_lambda= 0.80;   % elasticity of adoption prob. to adoption expenditure
+vartheta  = 2.4925; 						% elast. of subst. across varieties (mkup = vartheta/(vartheta-1)
+gamma     = 0.90;   						% Jaimovich-Rebelo term on preferences (0-> no wealth effect)
+phi       = 0.90;   						% Survival rate of technologies
+eta       = 0.25;   						% elasticity of innovations to R&D
+rho_lambda= 0.80;   						% elasticity of adoption prob. to adoption expenditure
 
-% NEW VARIABLES - sticky price part
+% Stick Price Variables
 gamma_pi = 1.5;
 gamma_y  = 0.1;
 theta    = 0.75;
-omega    = 4.167;                  %  Markup. In the flex price model, markup is exogenous and given by M = ?/(? ? 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy??, who take them from estimates by Primiceri et al
+omega    = 4.167;      		            	%  Markup. In the flex price model, markup is exogenous and given by M = ?/(? ? 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy??, who take them from estimates by Primiceri et al
 
-psi_I    = 1;                      %  Adjustment cost to Inv
-psi_N    = 10;                     %  Adjustment cost to N
+psi_I    = 1;                      			%  Adjustment cost to Inv
+psi_N    = 10;                     			%  Adjustment cost to N
 
-% steady-state values of endogenous variables:
-g_ss      = 1.0118; %1.02; % calibrate g (growth rate); back out zeta_bar
-lambda_ss = 0.15;   %0.15; % calibrate lambda (adoption probability); back out lambda_bar
-L_ss      =  1;        % calibrate SS L; back out chi 
+% CALIBRATED STEADY-STATE VALUES
+g_ss      = 1.0118; 						% calibrate g (growth rate); back out zeta_bar
+lambda_ss = 0.15;   						% calibrate lambda (adoption probability); back out lambda_bar
+L_ss      =  1;        						% calibrate SS L; back out chi 
 mkup_ss   = omega/(omega-1);
-
-% need to back out: zeta_bar, lambda_bar, chi -> set in steady-state file
 
 % AR(1) parameters for zeta shock (productivity of R&D)
 rhozeta    = 0.90;
 sigmazeta  = 0.50;
-% rhozeta    = 0.4;
-% sigmazeta  = 2;
 
-%% Estimation Results 
-
-% 1) Attempt to Match R&D Only
-% RD_Almost_Perfect_Fit.pdf
-% eta = 0.6377034476;
-% phi = 0.959998326;
-% lambda_ss = 0.4999995261;
-% psi_N = 1.199560391;
-% rhozeta = 0.8771009836;
-% sigmazeta = 0.1949092608;
-% gamma = 0.8976501214;
-% rho_lambda = 0.2997568403;
-
-% 2) Pretty good match of both
-% But TFP increases too much
-% eta = 0.6962027055;
-% phi = 0.9942372411;
-% lambda_ss = 0.1000000012;
-% psi_N = 0.5199199482;
-% rhozeta = 0.9899;
-% sigmazeta = 0.1279661829;
-% gamma = 0.9099;
-% rho_lambda = 0.2997568403;
-
-% Plot 1
-% Attempt to Match TFP Only
-% eta = 0.95;
-% phi = 0.9587878475;
-% lambda_ss = 0.7;
-% psi_N = 50;
-% rhozeta = 0.0001;
-% sigmazeta = 0.2094361245;
-% gamma = 0.91;
-% rho_lambda = 0.9266736473;
-
-% Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
-% eta = 0.9;
-% phi = 0.999;
-% lambda_ss = 0.5;
-% psi_N = 3.132485312;
-% rhozeta = 0.4655720529;
-% sigmazeta = 0.2647972323;
-% gamma = 0.03725332262;
-% rho_lambda = 0.01;
-
-% Estimate 2
-% Attempt to Match TFP (weight=1) and R&D (weight = 0.3) with 11 periods
-% wider bounds on params
-% maxit of 800 reached
-% eta = 0.95;
-% phi = 0.9999;
-% lambda_ss = 0.195651203;
-% psi_N = 4.340377426;
-% rhozeta = 0.5913817911;
-% sigmazeta = 0.2706380004;
-% gamma = 0.04593762978;
-% rho_lambda = 0.001;
-
-
-gamma = 1.00; % Jaimovich-Rebelo term on preferences (0 -> no wealth effect)
-phi = 0.90; % survival rate of technologies
-lambda_ss = 0.15; % calibrate lambda (adoption probability in steady state): back out lambda_bar
+%% New Calibration
+gamma = 1.00; 								% Jaimovich-Rebelo term on preferences (0 -> no wealth effect)
+phi = 0.90; 								% survival rate of technologies
+lambda_ss = 0.15; 							% calibrate lambda (adoption probability in steady state): back out lambda_bar
 
 % AR(1) parameters for DeltaN shock (innovators/adopters wedge)
 rhon = 0.70;
@@ -219,6 +156,11 @@ sigman = 1.00;
 eta = 0.2;
 alpha_N = 0.01;
 psi_N = 10;
+
+eta = 0.3391240465;
+alpha_N = 0.01547341167;
+psi_N = 17.20994694;
+
 
 
 %=========================================================================%
@@ -233,7 +175,7 @@ g = lambda * phi * (ZD-1) + phi;
 % 2. Evolution of technological frontier Z
 ZD * g(-1) = phi * ZD(-1) + VD(-1);
 
-% 3. Innovators' production function. Q: Why is this not the supply curve of new firms?
+% 3. Innovators' production function.
 VD = zeta_bar * zeta * ZD * (ND * g(-1) / KD(-1))^eta;
 
 % 4. Euler equation for entrepreneurs
@@ -250,7 +192,6 @@ LAMBDA(+1) * J(+1) * zeta_bar * zeta * ZD * (1 /  (KD(-1)/g(-1))^eta)   * (1 / N
 
 % 8. Adopters' FOC
 rho_lambda * lambda_bar * phi * LAMBDA(+1) * (H(+1) - J(+1)) * (1 / DELTAM ) = M ^ (1 - rho_lambda);
-% rho_lambda * lambda_bar * phi * LAMBDA(+1) * (H(+1) - J(+1)) = M ^ (1 - rho_lambda);
 
 % 9. Adoption Probability:
 lambda = lambda_bar * M ^ rho_lambda;
@@ -299,8 +240,7 @@ SD = Q * KD + H  +  J * ( ZD + VD - 1 )  + XD;
 % 23. 
 XD =  ( LAMBDA(+1) * g * ( J(+1) * VD(+1) + XD(+1) ) );
  
-% 24. Aggregate R&D expenditure [ (albert) in this model, R&D expenditures
-% are given by the variable N)
+% 24. Aggregate R&D expenditure
 RD = ND;   
 
 % 25. Exogenous financial shock on innovators
@@ -340,8 +280,8 @@ write_latex_static_model;
 
 % Load PVAR IRFs
 global pvarcoirfs_clean;
-% load 'pvar_coirfs_full'; % has 10 periods of data. pvar with gdp first
-load 'pvar_coirfs_full_30periods_tfp_first' % has 30 periods of data. pvar with tfp first
+% load 'pvar_coirfs_full'; 						% has 10 periods of data. pvar with gdp first
+load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar with tfp first
 pvarcoirfs_clean = pvarcoirfs;
 
 shocks;
@@ -349,18 +289,13 @@ var epsilon_chi = 1;
 var epsilon_n   = 1;
 end;
 
-% Setup counters
-COUNT.total = 0;
-COUNT.ss_found = 0;
-COUNT.ss_notfound = 0;
-COUNT.ss_neg = 0;
-
 % Set seed for simulation
 % set_dynare_seed(092677);
 
+% Select parameters to estimate, set bounds, etc.
 estimation_init;
 
-% This saves everything, which is then called in each loop
+% This saves everything, which is then loaded in each loop
 evalin('base','save level0workspace oo_ M_ options_')
 
 steady;
@@ -384,7 +319,7 @@ steady_state_targets
 load level0workspace oo_ options_
 
 % Produce simulated series WITHOUT the loglinear command
-stoch_simul(order=1,periods=50000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint);
+stoch_simul(order=1,periods=50000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint, irf_shocks = (epsilon_n));
 
 % Collect the key series
 g_simul = oo_.endo_simul(1,:);
@@ -438,46 +373,32 @@ if do_estimate == 0;
     return;
 elseif do_estimate == 1
 
-% IMPORTANT: Estimation variables should be changed in estimation_init.m
-
-% Starting point (based on earlier calibration)
+% Starting point
 select_start_point;
 check_bounds;
 
 % Optimizer options
 H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
 H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
-% H0 = 1*eye(length(x_start)); % Initial Hessian 
+crit = 1e-7; 					% Tolerance
 
-crit = 1e-7; % Tolerance
-nit = 1000; % Number of iterations
-% nit = 800;
- 
-nit = 100;
-% nit = 20;
-
-% Make sure Dynare does not print out stuff during runs
-options_.nocorr=1;
-options_.noprint=1;
-options_.verbosity=0;
+% Number of iterations
+nit = 500;
 
 % options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
-[fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
-%                          csminwel(fcn               ,x0,H0,grad,crit,nit,varargin)
-
-fhat
+[fhat, params_unbounded] = csminwel(@distance_fcn, x_start_unbounded, H0,[],crit,nit); fhat
 
 %=========================================================================%
 %%%%                       ALT ESTIMATION                              %%%%
 %=========================================================================%
 elseif do_estimate == 2
         
-    % Starting point (based on earlier calibration)
+    % Starting point
     select_start_point;
     check_bounds;
     
-    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3, 'MaxIter', 1200); % debugging % , 'MaxIter', 20
-    % opts = psoptimset('Display', 'off'); % estimation
+    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3, 'MaxIter', 1200); 	% Noisy
+    % opts = psoptimset('Display', 'off'); 												% Quiet
     [params_unbounded, FVAL,EXITFLAG,Output] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
 
 %=========================================================================%
@@ -485,6 +406,7 @@ elseif do_estimate == 2
 %=========================================================================%
 elseif do_estimate == 3
 
+    error('Not currently working. Needs an update')
     
     fhat = 301;
     while fhat > 300
@@ -520,7 +442,7 @@ elseif do_estimate == 3
         % nit = 20;
         nit = 50;
         
-        [fhat, params_unbounded] = csminwel(@distance_fcn     ,x_start_unbounded,H0,[],crit,nit);
+        [fhat, params_unbounded] = csminwel(@distance_fcn,x_start_unbounded,H0,[],crit,nit);
         fhat
     end
 end
@@ -554,16 +476,12 @@ if do_estimate > 0
     steady;
 
     var_list_=[];
-    info = stoch_simul(var_list_);                                              % WARNING: this does not compute the steady state. It just uses the pre defined ss
-    post_processing_irfs;                                                       % Create IRFs with trend
-    post_processing_irfs_plot;                                                  % Plot IRFs
+    info = stoch_simul(var_list_);
+    post_processing_irfs; 
+    post_processing_irfs_plot; 
     axis tight;
     % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
     legend('initial','var', 'b', 'b', 'final');
-
-    % disp('[eta, phi, lambda_ss]')
-    % params
-    % x_start
 
     % Print Estimation Results
     disp(sprintf('\nEstimation Results:'));

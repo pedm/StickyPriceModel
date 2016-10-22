@@ -1,6 +1,9 @@
-% Define starting point used in estimation
+%% Note
+% If you want to change the parameters used in estimation, go to estimation_init.m
 
-% Note: to edit the variables used in estimation, edit estimation_init.m
+% There usually no need to edit this file
+
+%% Define starting point used in estimation
 
 cmd = ['x_start = [' , strjoin(options_.EST.variables, ', '), ']'];
 disp(cmd)
