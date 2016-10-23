@@ -354,10 +354,10 @@ Y_simul = YD_simul .* A_simul;
 % plot(Y_simul(:,1:plot_length));
 % title('Y');
 % 
-% % Output to a csv
-% SimulData = [log(A_simul'), log(R_simul'), log(Y_simul')];
-% csvwrite('Data_A_R_Y_logs.csv', SimulData);
-% 
+% Output to a csv
+SimulData = [log(A_simul'), log(R_simul'), log(Y_simul')];
+csvwrite('Data_A_R_Y_logs.csv', SimulData);
+
 % var_given_model(A_simul, R_simul, Y_simul)
 
 % Sanity check: these are all equal to the steady state values
