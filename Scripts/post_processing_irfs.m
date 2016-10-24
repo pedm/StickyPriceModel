@@ -53,4 +53,4 @@ for ii = 1:length(IRnames_dynare)
 end
 IRnames_dynare = strrep(IRnames_dynare, '_epsilon_n', '');
 IRnames_dynare = strrep(IRnames_dynare, '_', '');
-save IR_dynare.mat IR_dynare IRnames_dynare
+% save IR_dynare.mat IR_dynare IRnames_dynare

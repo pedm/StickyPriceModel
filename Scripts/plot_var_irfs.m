@@ -1,9 +1,22 @@
+%% Load PVAR IRFs
 
+global pvarcoirfs_clean;
+load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar with tfp first
+pvarcoirfs_clean = pvarcoirfs;
+
+%% Plot PVAR IRFs
 pvarcoirfs = pvarcoirfs_clean;
 
 % drop all IRF steps beyond irf_length
 % to modify this, go to estimation_init.m
-irf_length = options_.EST.irf_length;
+try
+    irf_length = options_.EST.irf_length;
+catch
+    options_.EST = [];
+    options_.EST.irf_length = 11;
+    irf_length = 11;
+end
+
 pvarcoirfs(pvarcoirfs.step >= irf_length, :) = [];
 
 % Put VAR IRFs in the same format (and delete final obs)

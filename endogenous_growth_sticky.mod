@@ -5,8 +5,6 @@
 % Albert SS Solver Oct 2016
 
 close all;
-do_estimate = 0; % if 0, just simulate
-
 %===================================================================%
 %                    DECLARATION OF VARIABLES                       %
 %===================================================================%
@@ -83,10 +81,8 @@ sigmazeta      ${{\sigma}_{\zeta}}$     	% size of impulse on exogenous "innovat
 zeta_bar       ${\overline{\zeta}}$			% 
 rhon           ${\rho}_n$             		% persistence of financial shock on innovators
 sigman         ${\sigma}_n$           		% sd of financial shock on innovators
-
 psi_N          ${\psi_N}$               	% Magnitude of N adjustment cost
 psi_I          ${\psi_I}$               	% Magniturde if I investment cost
-
 alpha_N        $\alpha_N$             		% financial spillover from innovation to adoption
 
 % STICKY PRICE PARAMETERS
@@ -125,7 +121,7 @@ phi       = 0.90;   						% Survival rate of technologies
 eta       = 0.25;   						% elasticity of innovations to R&D
 rho_lambda= 0.50;   						% elasticity of adoption prob. to adoption expenditure
 
-% Stick Price Variables
+% STICKY PRICE VARIABLES
 gamma_pi = 1.5;
 gamma_y  = 0.5;
 gamma_r  =  0.32;  
@@ -149,16 +145,8 @@ sigmazeta  = 0.50;
 rhon = 0.70;
 sigman = 1.00;
 
-%% Estimation Parameters
-% eta = 0.2;
-% alpha_N = 0.01;
-% psi_N = 10;
-
-% eta = 0.3391240465;
-% alpha_N = 0.01547341167;
-% psi_N = 17.20994694;
-
-% Best estimate so far (fhat = 128)
+%% Best estimate so far
+%  Will need to update, since the model and calibrated params have changed
 eta = 0.08303187684;
 alpha_N = 0.009623755187;
 psi_N = 25.08490715;
@@ -260,238 +248,45 @@ g_fcn_prime = exp( psi_I * ((ID * g(-1) / ID(-1) ) - g_ss)   ); % 25
 
 % 26. Pricing Equation
 pi ^(1-omega) = theta + (1-theta)*pi_star^(1-omega);
+
 % 27. Optimal Pricing Equation 
 pi_star = (omega / (omega - 1)) * (x1D / x2D) * pi;
+
 % 28, 29. Simplifications used in the Optimal Pricing Equation
 x1D = UCD * (1/mkup) * YD + beta * theta * g^(1-rho) * pi(+1)^omega * x1D(+1);
 x2D = UCD * YD + beta * theta * g^(1-rho) * pi(+1)^(omega-1) * x2D(+1);
+
 % 30. Euler Equation
 1 = LAMBDA(+1) * R_nom / pi(+1);
+
 % 31. Taylor Rule
-% R_nom / ( (beta*g_ss^(-rho))^(-1) ) = pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y;
 R_nom  = ( R_nom(-1) )^gamma_r * ( pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y *  1/(beta*g_ss^(-rho))  )^(1-gamma_r);
 
 end;
 
-write_latex_dynamic_model;
-write_latex_static_model;
+% write_latex_dynamic_model;
+% write_latex_static_model;
 
 %=========================================================================%
 %%%%                       RUN                                         %%%%
 %=========================================================================%
-addpath('Scripts');
-
-% Load PVAR IRFs
-global pvarcoirfs_clean;
-% load 'pvar_coirfs_full'; 						% has 10 periods of data. pvar with gdp first
-load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar with tfp first
-pvarcoirfs_clean = pvarcoirfs;
-
 shocks;
 var epsilon_chi = 1;
 var epsilon_n   = 1;
 end;
 
-% Set seed for simulation
-% set_dynare_seed(092677);
-
-% Select parameters to estimate, set bounds, etc.
-estimation_init;
-
-% This saves everything, which is then loaded in each loop
+% This saves the oo_ and M_ objects without any steady state defined (used in estimation)
 evalin('base','save level0workspace oo_ M_ options_')
 
 steady;
 check;
 
-% Produce simulation using above calibration, compare with VAR IRFs
-% NOTE: loglinear option causes oo_.steady_state to become logged
+% Produce simulation
 stoch_simul(order=1,periods=600, irf=31, nograph, nodisplay, nocorr, nomoments, loglinear, irf_shocks = (epsilon_n) );
 
-post_processing_irfs;                                                       % Create IRFs with trend
+% Plot IRFs and comapre with PVAR IRFs
+addpath('Scripts');
 plot_var_irfs;                                                              % Plot VAR IRFs
+post_processing_irfs;                                                       % Create IRFs with trend
 post_processing_irfs_plot;                                                  % Plot IRFs
-post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
 steady_state_targets
-
-%=========================================================================%
-%%%%                       SIMULATED SERIES                            %%%%
-%=========================================================================%
-
-% Clear out the loglinear dr
-load level0workspace oo_ options_
-
-% Produce simulated series WITHOUT the loglinear command
-stoch_simul(order=1,periods=50000, irf=31, nograph, nodisplay, nocorr, nomoments, noprint, irf_shocks = (epsilon_n));
-
-% Collect the key series
-g_simul = oo_.endo_simul(1,:);
-RD_simul = oo_.endo_simul(24,:);
-YD_simul = oo_.endo_simul(11,:);
-
-% Compute TFP (using a cumulative product of g)
-A_lead = cumprod(g_simul);
-A_simul = ones(size(A_lead));
-A_simul(2:end) = A_lead(1:end-1);
-
-% Multiply this trend with R_D and Y_D
-R_simul = RD_simul .* A_simul;
-Y_simul = YD_simul .* A_simul;
-
-%=========================================================================%
-%%%%                     PLOT SIMULATED SERIES                         %%%%
-%=========================================================================%
-
-% % Plot
-% plot_length = 300;
-% figure();
-% subplot(2,2,1);
-% plot(R_simul(:,1:plot_length));
-% title('R');
-% 
-% subplot(2,2,2);
-% plot(A_simul(:,1:plot_length));
-% title('A');
-% 
-% subplot(2,2,3);
-% plot(Y_simul(:,1:plot_length));
-% title('Y');
-% 
-% Output to a csv
-SimulData = [log(A_simul'), log(R_simul'), log(Y_simul')];
-csvwrite('Data_A_R_Y_logs.csv', SimulData);
-
-% var_given_model(A_simul, R_simul, Y_simul)
-
-% Sanity check: these are all equal to the steady state values
-% mean(YD_simul);
-% mean(g_simul);
-% mean(RD_simul);
-    
-%=========================================================================%
-%%%%                       OPTIMIZATION                                %%%%
-%=========================================================================%
-
-if do_estimate == 0;
-    return;
-elseif do_estimate == 1
-
-% Starting point
-select_start_point;
-check_bounds;
-
-% Optimizer options
-H0 = 1e-2*eye(length(x_start)); % Initial Hessian 
-H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
-crit = 1e-7; 					% Tolerance
-
-% Number of iterations
-nit = 500;
-
-% options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
-[fhat, params_unbounded] = csminwel(@distance_fcn, x_start_unbounded, H0,[],crit,nit); fhat
-
-%=========================================================================%
-%%%%                       ALT ESTIMATION                              %%%%
-%=========================================================================%
-elseif do_estimate == 2
-        
-    % Starting point
-    select_start_point;
-    check_bounds;
-    
-    opts = psoptimset('Display','diagnose', 'InitialMeshSize', 3, 'MaxIter', 1200); 	% Noisy
-    % opts = psoptimset('Display', 'off'); 												% Quiet
-    [params_unbounded, FVAL,EXITFLAG,Output] = patternsearch(@distance_fcn, x_start_unbounded,[],[],[],[],[],[],[],opts)
-
-%=========================================================================%
-%%%%                    MULTI START ESTIMATION                         %%%%
-%=========================================================================%
-elseif do_estimate == 3
-
-    error('Not currently working. Needs an update')
-    
-    fhat = 301;
-    while fhat > 300
-        % Starting point (based on earlier calibration)
-        x_start = [eta, phi, lambda_ss, rhozeta, sigmazeta]; % gamma, psi_N, rhozeta, sigmazeta, rho_lambda
-
-        %% Select random start
-        % Search until I find an inital guess that solves
-        dist_guess = 1e+10;
-        while dist_guess >= 1e+10
-            % Generate guess along uniform [0,1] then scale based on bounds
-            rand_guess;
-            guess
-            x_start_unbounded = boundsINV(guess);
-            
-            % original way of guessing x0
-            % x_start_unbounded = randn(size(x_start));
-            % x_start_unbounded(5) = -1.1180e+03;
-            
-            dist_guess = distance_fcn(x_start_unbounded)
-        end
-        
-        disp('========================New Guess============================')
-        bounds(x_start_unbounded)
-
-        % Optimizer options
-        H0 = 1e-1*eye(length(x_start)); % Initial Hessian 
-
-        crit = 1e-7; % Tolerance
-        nit = 1000; % Number of iterations
-        % nit = 800;
-
-        % nit = 20;
-        nit = 50;
-        
-        [fhat, params_unbounded] = csminwel(@distance_fcn,x_start_unbounded,H0,[],crit,nit);
-        fhat
-    end
-end
-
-%=========================================================================%
-%%%%                       PLOT SOLUTION                               %%%%
-%=========================================================================%
-if do_estimate > 0
-    load level0workspace oo_ options_
-    
-    % Set parameters using set_param_value()
-    [ params ] = bounds( params_unbounded );
-    variables = options_.EST.variables;
-    for iii = 1:length( variables )
-        set_param_value( char(variables( iii )) , params( iii ) );
-    end
-    
-    options_.nocorr = 1;
-    options_.nograph = 1;
-    options_.nomoments = 1;
-    options_.order = 1;
-    
-    options_.periods = 600;
-    options_.irf = options_.EST.irf_length;
-    options_.loglinear = 1;
-    options_.nodisplay = 0;
-    options_.noprint = 0;
-    options_.irf_shocks=[];
-    options_.irf_shocks = 'epsilon_n';
-    
-    steady;
-
-    var_list_=[];
-    info = stoch_simul(var_list_);
-    post_processing_irfs; 
-    post_processing_irfs_plot; 
-    axis tight;
-    % post_processing_irfs_distance;                                              % Compute distance between model and VAR IRFs
-    legend('initial','var', 'b', 'b', 'final');
-
-    % Print Estimation Results
-    disp(sprintf('\nEstimation Results:'));
-    for iii = 1:length( variables )
-        disp(sprintf([char(variables( iii )), ' = %0.10g;'], params(iii) ));
-    end
-
-    steady_state_targets
-
-end
