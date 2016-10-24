@@ -92,6 +92,7 @@ alpha_N        $\alpha_N$             		% financial spillover from innovation to
 % STICKY PRICE PARAMETERS
 gamma_pi       ${{\gamma}_{\pi}}$
 gamma_y        ${{\gamma}_{y}}$
+gamma_r        ${{\gamma}_{r}}$ 
 omega          ${\omega}$
 theta          ${\theta}$
 
@@ -121,13 +122,14 @@ delta   = 0.1;        						% capital deprec
 vartheta  = 2.4925; 						% elast. of subst. across varieties (mkup = vartheta/(vartheta-1)
 gamma     = 1.00;   		                % (Before .9) Jaimovich-Rebelo term on preferences (0-> no wealth effect)
 phi       = 0.90;   						% Survival rate of technologies
-% eta       = 0.25;   						% elasticity of innovations to R&D
-rho_lambda= 0.80;   						% elasticity of adoption prob. to adoption expenditure
+eta       = 0.25;   						% elasticity of innovations to R&D
+rho_lambda= 0.50;   						% elasticity of adoption prob. to adoption expenditure
 
 % Stick Price Variables
 gamma_pi = 1.5;
-gamma_y  = 0.1;
-theta    = 0.75;
+gamma_y  = 0.5;
+gamma_r  =  0.32;  
+theta    = 0.65;
 omega    = 4.167;      		            	%  Markup. In the flex price model, markup is exogenous and given by M = ?/(? ? 1). I took this numbers from Gertler-Karadi “a model of unconventional monetary policy??, who take them from estimates by Primiceri et al
 
 psi_I    = 1;                      			%  Adjustment cost to Inv
@@ -266,7 +268,8 @@ x2D = UCD * YD + beta * theta * g^(1-rho) * pi(+1)^(omega-1) * x2D(+1);
 % 30. Euler Equation
 1 = LAMBDA(+1) * R_nom / pi(+1);
 % 31. Taylor Rule
-R_nom / ( (beta*g_ss^(-rho))^(-1) ) = pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y;
+% R_nom / ( (beta*g_ss^(-rho))^(-1) ) = pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y;
+R_nom  = ( R_nom(-1) )^gamma_r * ( pi ^ gamma_pi * (  (1/mkup) / (1/mkup_ss)   )^gamma_y *  1/(beta*g_ss^(-rho))  )^(1-gamma_r);
 
 end;
 
