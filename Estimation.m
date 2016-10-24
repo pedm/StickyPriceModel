@@ -1,6 +1,6 @@
 %% Estimation
 % Run the mod file, set the estimation options, then perform estimation
-clear; clc;
+clear; clc; 
 
 %=========================================================================%
 %%%%                           RUN DYNARE                              %%%%
@@ -20,32 +20,40 @@ load level0workspace oo_ options_ M_
 use_algorithm = 2; 
 
 % 2. Number of iterations
-maxit = 200;
+maxit = 500;
 
 % 3. Which parameters to estimate
 options_.EST = [];
-options_.EST.variables = {'eta', 'alpha_N', 'psi_N', 'rhon'}; 
+options_.EST.variables = {'eta', 'alpha_N', 'psi_N', 'rhon', 'sigman'}; 
 
 % 4. Starting values
-eta = 0.08303187684;
-alpha_N = 0.009623755187;
-psi_N = 25.08490715;
-rhon = 0.8044297245;
+eta     = 0.10;
+alpha_N = 0.001;
+psi_N   = 50;
+rhon    = 0.70;
+sigman  = 2.00;
+
 
 % 5. Parameter bounds
 % Note: if a parameter is not being used in estimation, the bounds are just ignored
+
 options_.EST.LB.eta = 0.05;  
 options_.EST.UB.eta = 0.35;  
 
-options_.EST.LB.alpha_N = 0.001;  
-options_.EST.UB.alpha_N = 0.02;  
+options_.EST.LB.alpha_N = 0.0005;  
+options_.EST.UB.alpha_N = 0.05;  
 
-options_.EST.LB.psi_N = 1;  
+options_.EST.LB.psi_N = .5;  
 options_.EST.UB.psi_N = 75;  
 
 options_.EST.LB.rhon = 0.5;
-options_.EST.UB.rhon = 0.95;
+options_.EST.UB.rhon = 0.9;
 
+options_.EST.LB.sigman = 0.01;  
+options_.EST.UB.sigman = 5.00;  
+
+
+% << not used >>
 options_.EST.LB.phi = 0.7;
 options_.EST.UB.phi = 0.999;
 
@@ -57,11 +65,15 @@ options_.EST.UB.gamma = 1;
 
 options_.EST.LB.rho_lambda = .01;
 options_.EST.UB.rho_lambda = .99;
+% << ... >>
+
+
+
 
 % 6. Weight the impulse responses used in estimation
 % 0 = ignore this IRF in the objective function
 
-options_.EST.weight_rd = 1;
+options_.EST.weight_rd  = 1;
 options_.EST.weight_tfp = 1;
 
 % 7. IRF Length (can choose between 11 and 31)
@@ -97,7 +109,7 @@ if use_algorithm == 1
     % Optimizer options
     H0 = 1e-2*eye(length(x_start)); % Initial Hessian
     H0 = 1e-1*eye(length(x_start)); % Initial Hessian
-    crit = 1e-7; 					% Tolerance
+    crit = 1e-6; 					% Tolerance
     
     % options_.qz_criterium = 1+1e-6; % required because it is empty by default, leading to a crash in k_order_pert
     [fhat, params_unbounded] = csminwel(@distance_fcn, x_start_unbounded, H0,[],crit,maxit); fhat
