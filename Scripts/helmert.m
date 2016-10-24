@@ -12,10 +12,11 @@ c = (T - t_list)./(T - t_list + 1);
 
 %% Cumsum Method (faster)
 n = cumsum(oo, 'reverse') - 1;
+n(n<=0) = NaN;
 simul_nonan = simul;
 simul_nonan(isnan(simul)) = 0;
 csum = cumsum(simul_nonan, 'reverse');
-h_simul = sqrt(c)' .* ( simul(1:end-1) - ((1./(T - t_list')).*csum(2:end)) );
+% h_simul = sqrt(c)' .* ( simul(1:end-1) - ((1./(T - t_list')).*csum(2:end)) );
 m = (csum-simul) ./ n;
 w = sqrt(n ./ (n+1));
 
