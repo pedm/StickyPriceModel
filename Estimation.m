@@ -6,8 +6,9 @@ clear; clc;
 %%%%                           RUN DYNARE                              %%%%
 %=========================================================================%
 
-% Note: if you change the calibration, you must run the mod file again
-% dynare endogenous_growth_sticky.mod;
+% If you change the calibration, run the mod file again
+% Otherwise you do not need to run dynare every time
+dynare endogenous_growth_sticky.mod;
 load level0workspace oo_ options_ M_
 
 %=========================================================================%
@@ -58,10 +59,9 @@ options_.EST.LB.rho_lambda = .01;
 options_.EST.UB.rho_lambda = .99;
 
 % 6. Weight the impulse responses used in estimation
-% Select weights between [0,1]
 % 0 = ignore this IRF in the objective function
 
-options_.EST.weight_rd = 0;
+options_.EST.weight_rd = 1;
 options_.EST.weight_tfp = 1;
 
 % 7. IRF Length (can choose between 11 and 31)
