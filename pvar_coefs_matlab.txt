@@ -1,0 +1,2 @@
+	tfp:L.tfp	tfp:L.gdp	tfp:L.rd	gdp:L.tfp	gdp:L.gdp	gdp:L.rd	rd:L.tfp	rd:L.gdp	rd:L.rd	
+y1	 1.0172533	-.05155119	 .02173125	 .31549256	 .62947244	 .02472077	-.15144237	 .43872585	 .45772447	

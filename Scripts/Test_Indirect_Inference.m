@@ -1,16 +1,27 @@
 %% Transform Series
 
+% Make results repeatable
+rng(2^28);
+
+% Get simulated series
+plot_simulated_series;
+
 tic
+% Transform them
 R_sim = transform_series( R_simul' );
 A_sim = transform_series( A_simul' );
 Y_sim = transform_series( Y_simul' );
 
 % Define data
-X = [R_sim, Y_sim, A_sim];
-vnames = {'R&D', 'GDP', 'TFP'};
+X = [A_sim, Y_sim, R_sim];
+vnames = {'TFP', 'GDP', 'R&D'};
 
 % Define number of variables and of observations
 [nobs, nvar] = size(X);
+
+
+fitlm(X(1:end-1, :),R_sim(2:end), 'Intercept', false)
+
 
 %% VAR ESTIMATION
 % =======================================================================
@@ -38,10 +49,36 @@ VARopt.quality = 0;
 % Compute IRF
 [IRF, VAR] = VARir(VAR,VARopt);
 
+
+
+
+
+%% these IRFs are correct -> they perfectly match those produced by pvar in stata
+
+% Issue: they change a lot each time I simulate the model again. it's seems
+% it's just because different shocks are being used each time. this is not
+% fixed by increasing the length of the simulated series. it is fixed by
+% setting rng() before simulation
+
+response = 1; % tfp
+shock    = 3; % rd
+IRF(:, response, shock)
+plot(IRF(:, response, shock))
+
+% in the case of response = 1, shock = 3
+title('tfp response to rd shock')
+
+%% TODO:
+% these are not yet cumulative IRFs -> make cumulative
+% use them to match the pvar IRFs
+% currently we're very far away from a good match.... the impact of a R&D
+% shock on TFP is negative!!!
+
 toc
 
 
-% Compute error bands
+%% Compute error bands
 % [IRFINF,IRFSUP,IRFMED] = VARirband(VAR,VARopt);
-% Plot
-VARirplot(IRF,VARopt);
+
+%% Plot
+% VARirplot(IRF,VARopt);

@@ -73,7 +73,7 @@ for jj=pick:nshocks
             plot(steps,SUP(:,ii,jj),'LineStyle',':','Color',[0.39 0.58 0.93],'LineWidth',1.5);
         end
         xlim([1 nsteps]);
-        title([vnames{ii} ' to ' vnames{jj}], 'FontWeight','bold','FontSize',10); 
+        title([vnames{ii} ' (response) to ' vnames{jj} ' (shock)'], 'FontWeight','bold','FontSize',10); 
     end
     % Save
     FigName = [filename num2str(jj)];

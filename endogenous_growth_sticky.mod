@@ -139,18 +139,26 @@ mkup_ss   = omega/(omega-1);
 
 % AR(1) parameters for zeta shock (productivity of R&D)
 rhozeta    = 0.90;
-sigmazeta  = 0.50;
+sigmazeta  = 0.001;
 
 % AR(1) parameters for DeltaN shock (innovators/adopters wedge)
 rhon = 0.70;
 sigman = 1.00;
 
-%% Best estimate so far
-%  Will need to update, since the model and calibrated params have changed
-eta = 0.08303187684;
-alpha_N = 0.009623755187;
-psi_N = 25.08490715;
-rhon = 0.8044297245;
+%% Albert Estimation Results:
+eta = 0.08765783553;
+alpha_N = 0.01381732103;
+psi_N = 53.54896073;
+rhon = 0.7346253741;
+sigman = 2.114795879;
+
+% My estimation that forces tfp growth to level off
+% eta = 0.04866320511;
+% alpha_N = 0.007001851626;
+% psi_N = 166;
+% rhon = 0.7259268259;
+% sigman = 7.378886274;
+% phi = 0.9351885493;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%

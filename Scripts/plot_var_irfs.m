@@ -1,6 +1,7 @@
 %% Load PVAR IRFs
 
 global pvarcoirfs_clean;
+load 'pvar_coirfs_full'                         % has 10 periods of data. pvar with gdp first
 load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar with tfp first
 pvarcoirfs_clean = pvarcoirfs;
 
