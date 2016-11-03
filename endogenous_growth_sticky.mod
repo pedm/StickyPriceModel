@@ -152,13 +152,30 @@ psi_N = 53.54896073;
 rhon = 0.7346253741;
 sigman = 2.114795879;
 
-% My estimation that forces tfp growth to level off
+gamma = 0.3;
+
+% % My estimation that forces tfp growth to level off
 % eta = 0.04866320511;
 % alpha_N = 0.007001851626;
 % psi_N = 166;
 % rhon = 0.7259268259;
 % sigman = 7.378886274;
 % phi = 0.9351885493;
+
+% eta = 0.04970087371;
+% alpha_N = 0.007372393216;
+% psi_N = 231.3516836;
+% rhon = 0.7155533408;
+% sigman = 7.425959978;
+% phi = 0.9351885493;
+% gamma = 0.3646300806;
+
+% eta = 0.03080984117;
+% alpha_N = 0.009493737691;
+% psi_N = 105.1449203;
+% rhon = 0.7874701113;
+% sigman = 2.908600643;
+% phi = 0.9;
 
 %=========================================================================%
 %%%%                     EQUILIBRIUM CONDITIONS                        %%%%
