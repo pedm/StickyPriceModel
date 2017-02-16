@@ -61,7 +61,10 @@ x_axis = zeros(1,nsteps);
 %% Plot
 %================================================
 FigSize
-for jj=pick:nshocks                
+for jj=pick:nshocks 
+    if jj > 1
+        figure()
+    end
     for ii=1:nvars
         subplot(row,col,ii);
         plot(steps,IRF(:,ii,jj),'LineStyle','-','Color',[0.01 0.09 0.44],'LineWidth',2);
@@ -88,7 +91,7 @@ for jj=pick:nshocks
         print('-dpng','-r100',FigName);
         print('-dpdf','-r100',FigName);
     end
-    clf('reset');
+%     clf('reset');
 end
 
-close all
+% close all
