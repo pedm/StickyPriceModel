@@ -21,71 +21,22 @@ use_algorithm = 2;
 
 % 2. Number of iterations
 maxit = 500;
+maxit = 1;
 
 % 3. Which parameters to estimate
 options_.EST = [];
 options_.EST.variables = {'eta', 'alpha_N', 'psi_N', 'rhon', 'sigman', 'gamma'}; 
 
 % 4. Starting values
-% eta     = 0.10;
-% alpha_N = 0.001;
-% psi_N   = 50;
-% rhon    = 0.70;
-% sigman  = 2.00;
 
-% Estimation Results:
-% eta = 0.08765783553;
-% alpha_N = 0.01381732103;
-% psi_N = 53.54896073;
-% rhon = 0.7346253741;
-% sigman = 2.114795879;
-% phi = 0.9;
-% 
-% eta = 0.03080984117;
-% alpha_N = 0.009493737691;
-% psi_N = 105.1449203;
-% rhon = 0.7874701113;
-% sigman = 2.908600643;
-% phi = 0.9;
-
-% eta = 0.04485133014;
-% alpha_N = 0.008653816182;
-% psi_N = 166.8008683;
-% rhon = 0.7459760409;
-% sigman = 5;
-% phi = 0.9269536934;
-% 
-% eta = 0.04866320511;
-% alpha_N = 0.007001851626;
-% psi_N = 166;
-% rhon = 0.7259268259;
-% sigman = 7.378886274;
-% phi = 0.9351885493;
-
-% gamma = 0.8;
-% 
-% eta = 0.04970087371;
-% alpha_N = 0.007372393216;
-% psi_N = 231.3516836;
-% rhon = 0.7155533408;
-% sigman = 7.425959978;
-% phi = 0.9351885493;
-% gamma = 0.3646300806;
-
-% eta = 0.03080984117;
-% alpha_N = 0.009493737691;
-% psi_N = 105.1449203;
-% rhon = 0.7874701113;
-% sigman = 2.908600643;
-
-%% Working with Albert's estimation results
 % plus gamma
+% NOTE: almost always have to run dynare before running this file
 
-eta = 0.08765783553;
-alpha_N = 0.01381732103;
-psi_N = 53.54896073;
+eta = 0.2;
+alpha_N = 0.01;
+psi_N = 0.11;
 rhon = 0.7346253741;
-sigman = 2.114795879;
+sigman = 0.1;
 
 gamma = 0.3;
 
@@ -99,7 +50,7 @@ options_.EST.UB.eta = 0.35;
 options_.EST.LB.alpha_N = 0.0005;  
 options_.EST.UB.alpha_N = 0.05;  
 
-options_.EST.LB.psi_N = .5;  
+options_.EST.LB.psi_N = .1;  
 options_.EST.UB.psi_N = 150;  
 
 options_.EST.LB.rhon = 0.5;

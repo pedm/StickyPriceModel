@@ -1,9 +1,15 @@
 %% Load PVAR IRFs
 
 global pvarcoirfs_clean;
-load 'pvar_coirfs_full'                         % has 10 periods of data. pvar with gdp first
-load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar with tfp first
-pvarcoirfs_clean = pvarcoirfs;
+
+% Original panel var results (cum irfs of the var in first differences) Oct 2016
+% load 'pvar_coirfs_full'                         % has 10 periods of data. pvar in first differences with gdp first
+% load 'pvar_coirfs_full_30periods_tfp_first' 	% has 30 periods of data. pvar in first differences with tfp first
+% pvarcoirfs_clean = pvarcoirfs;
+
+% Panel VAR in levels Feb 2017
+load 'PanelVAR_IRFs_Feb16_2017';             % has 10 periods of data. panel var in levels
+pvarcoirfs_clean = PanelVAR_IRFs;            % it's not actually a cum irf
 
 %% Plot PVAR IRFs
 pvarcoirfs = pvarcoirfs_clean;
@@ -26,10 +32,10 @@ pvar_irf_gdp    =  pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).irf / 100
 pvar_irf_sp     =  pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).irf / 100;
 pvar_irf_tfp    =  pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).irf / 100;
 
-pvar_irf_rd_se  = pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).se;
-pvar_irf_gdp_se = pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).se;
-pvar_irf_sp_se  = pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).se;
-pvar_irf_tfp_se = pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).se;
+pvar_irf_rd_se  = pvarcoirfs(strmatch('rd : rd', pvarcoirfs.id1), :).se /100;
+pvar_irf_gdp_se = pvarcoirfs(strmatch('rd : gdp', pvarcoirfs.id1), :).se/100;
+pvar_irf_sp_se  = pvarcoirfs(strmatch('rd : sp', pvarcoirfs.id1), :).se/100;
+pvar_irf_tfp_se = pvarcoirfs(strmatch('rd : tfp', pvarcoirfs.id1), :).se/100;
 
 % Plot the important variables
 try
